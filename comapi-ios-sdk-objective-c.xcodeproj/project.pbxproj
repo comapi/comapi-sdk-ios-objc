@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4629036B7F0797FFBD3F182A /* Pods_comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */; };
+		895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */; };
+		895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */; };
+		895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */; };
+		895FF4F62126E9620007FAC3 /* CMPRequestPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF4F42126E9620007FAC3 /* CMPRequestPerformer.m */; };
+		895FF4FB2126ECEE0007FAC3 /* CMPRequestTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4F92126ECEE0007FAC3 /* CMPRequestTemplate.h */; };
+		895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF501212712F90007FAC3 /* NSData+CMPUtility.h */; };
+		895FF504212712F90007FAC3 /* NSData+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF502212712F90007FAC3 /* NSData+CMPUtility.m */; };
+		895FF50821271AEC0007FAC3 /* CMPURLResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF50621271AEC0007FAC3 /* CMPURLResult.h */; };
+		895FF50921271AEC0007FAC3 /* CMPURLResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF50721271AEC0007FAC3 /* CMPURLResult.m */; };
+		8972C2ED212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2EB212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h */; };
+		8972C2EE212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2EC212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m */; };
+		8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */; };
+		8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */; };
+		8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */; };
+		8972C2F8212C08CB00C76B19 /* CMPRequestTemplatePerformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2F6212C08CB00C76B19 /* CMPRequestTemplatePerformer.h */; };
+		8972C2F9212C08CB00C76B19 /* CMPRequestTemplatePerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2F7212C08CB00C76B19 /* CMPRequestTemplatePerformer.m */; };
+		8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */; };
+		8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */; };
+		8972C301212C168800C76B19 /* CMPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FF212C168800C76B19 /* CMPErrors.h */; };
+		8972C302212C168800C76B19 /* CMPErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C300212C168800C76B19 /* CMPErrors.m */; };
+		8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C303212C1DCC00C76B19 /* CMPConstants.h */; };
+		8972C306212C1DCC00C76B19 /* CMPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C304212C1DCC00C76B19 /* CMPConstants.m */; };
+		8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C309212C2A1900C76B19 /* CMPComapiClient.h */; };
+		8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30A212C2A1900C76B19 /* CMPComapiClient.m */; };
+		8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C30E212C2A5E00C76B19 /* CMPComapi.h */; };
+		8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30F212C2A5E00C76B19 /* CMPComapi.m */; };
+		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; };
+		8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C314212C32CC00C76B19 /* CMPComapiConfig.m */; };
+		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; };
+		8972C31B212C34E000C76B19 /* CMPAuthenticationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */; };
+		8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */; };
+		8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */; };
+		8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */; };
+		8972C323212C3F1E00C76B19 /* CMPAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C321212C3F1E00C76B19 /* CMPAPIConfiguration.m */; };
+		89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
+		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
+		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
+		89C8DE542122F7AB00555495 /* CMPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE522122F7AB00555495 /* CMPSession.m */; };
+		89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE552122F95000555495 /* CMPSessionAuth.h */; };
+		89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE562122F95000555495 /* CMPSessionAuth.m */; };
+		89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5A2122FCEC00555495 /* NSString+CMPUtility.h */; };
+		89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */; };
+		89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */; };
+		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comapi-ios-sdk-objective-c.release.xcconfig"; path = "Pods/Target Support Files/Pods-comapi-ios-sdk-objective-c/Pods-comapi-ios-sdk-objective-c.release.xcconfig"; sourceTree = "<group>"; };
+		7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comapi-ios-sdk-objective-c.debug.xcconfig"; path = "Pods/Target Support Files/Pods-comapi-ios-sdk-objective-c/Pods-comapi-ios-sdk-objective-c.debug.xcconfig"; sourceTree = "<group>"; };
+		895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
+		895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestManager.m; sourceTree = "<group>"; };
+		895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
+		895FF4F42126E9620007FAC3 /* CMPRequestPerformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestPerformer.m; sourceTree = "<group>"; };
+		895FF4F92126ECEE0007FAC3 /* CMPRequestTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
+		895FF501212712F90007FAC3 /* NSData+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
+		895FF502212712F90007FAC3 /* NSData+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+CMPUtility.m"; sourceTree = "<group>"; };
+		895FF50621271AEC0007FAC3 /* CMPURLResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
+		895FF50721271AEC0007FAC3 /* CMPURLResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPURLResult.m; sourceTree = "<group>"; };
+		8972C2EB212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLComponents+CMPUtility.h"; sourceTree = "<group>"; };
+		8972C2EC212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLComponents+CMPUtility.m"; sourceTree = "<group>"; };
+		8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestTemplate.m; sourceTree = "<group>"; };
+		8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
+		8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPHTTPHeader.m; sourceTree = "<group>"; };
+		8972C2F6212C08CB00C76B19 /* CMPRequestTemplatePerformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplatePerformer.h; sourceTree = "<group>"; };
+		8972C2F7212C08CB00C76B19 /* CMPRequestTemplatePerformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestTemplatePerformer.m; sourceTree = "<group>"; };
+		8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
+		8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+CMPUtility.m"; sourceTree = "<group>"; };
+		8972C2FF212C168800C76B19 /* CMPErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
+		8972C300212C168800C76B19 /* CMPErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPErrors.m; sourceTree = "<group>"; };
+		8972C303212C1DCC00C76B19 /* CMPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
+		8972C304212C1DCC00C76B19 /* CMPConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConstants.m; sourceTree = "<group>"; };
+		8972C309212C2A1900C76B19 /* CMPComapiClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
+		8972C30A212C2A1900C76B19 /* CMPComapiClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPComapiClient.m; sourceTree = "<group>"; };
+		8972C30E212C2A5E00C76B19 /* CMPComapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
+		8972C30F212C2A5E00C76B19 /* CMPComapi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPComapi.m; sourceTree = "<group>"; };
+		8972C313212C32CC00C76B19 /* CMPComapiConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
+		8972C314212C32CC00C76B19 /* CMPComapiConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPComapiConfig.m; sourceTree = "<group>"; };
+		8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
+		8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthenticationDelegate.m; sourceTree = "<group>"; };
+		8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
+		8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthenticationChallenge.m; sourceTree = "<group>"; };
+		8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
+		8972C321212C3F1E00C76B19 /* CMPAPIConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAPIConfiguration.m; sourceTree = "<group>"; };
+		89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comapi_ios_sdk_objective_c.h; sourceTree = "<group>"; };
+		89C8DE422122DF3C00555495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C8DE4C2122F4B400555495 /* CMPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
+		89C8DE4D2122F4B400555495 /* CMPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionManager.m; sourceTree = "<group>"; };
+		89C8DE512122F7AB00555495 /* CMPSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
+		89C8DE522122F7AB00555495 /* CMPSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSession.m; sourceTree = "<group>"; };
+		89C8DE552122F95000555495 /* CMPSessionAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
+		89C8DE562122F95000555495 /* CMPSessionAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionAuth.m; sourceTree = "<group>"; };
+		89C8DE5A2122FCEC00555495 /* NSString+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
+		89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CMPUtility.m"; sourceTree = "<group>"; };
+		89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
+		89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+CMPUtility.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89C8DE3A2122DF3C00555495 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4629036B7F0797FFBD3F182A /* Pods_comapi_ios_sdk_objective_c.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E18858C2E25A1A4A46CE7FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */,
+				65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		895FF4EE2126BFD30007FAC3 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */,
+				895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */,
+				895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */,
+				895FF4F42126E9620007FAC3 /* CMPRequestPerformer.m */,
+				8972C2F6212C08CB00C76B19 /* CMPRequestTemplatePerformer.h */,
+				8972C2F7212C08CB00C76B19 /* CMPRequestTemplatePerformer.m */,
+			);
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		895FF4F72126ECB70007FAC3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8972C317212C34C900C76B19 /* Authentication */,
+				8972C2F1212AE34800C76B19 /* HTTPHeader */,
+				895FF50521271AD30007FAC3 /* CMPURLResult */,
+				895FF4F82126ECCC0007FAC3 /* RequestTemplate */,
+				89C8DE502122F79400555495 /* Model */,
+				89C8DE4B2122F48200555495 /* SessionManager */,
+				895FF4EE2126BFD30007FAC3 /* RequestManager */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		895FF4F82126ECCC0007FAC3 /* RequestTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				895FF4F92126ECEE0007FAC3 /* CMPRequestTemplate.h */,
+				8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */,
+			);
+			path = RequestTemplate;
+			sourceTree = "<group>";
+		};
+		895FF4FD2126F0600007FAC3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8972C303212C1DCC00C76B19 /* CMPConstants.h */,
+				8972C304212C1DCC00C76B19 /* CMPConstants.m */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		895FF50521271AD30007FAC3 /* CMPURLResult */ = {
+			isa = PBXGroup;
+			children = (
+				895FF50621271AEC0007FAC3 /* CMPURLResult.h */,
+				895FF50721271AEC0007FAC3 /* CMPURLResult.m */,
+			);
+			path = CMPURLResult;
+			sourceTree = "<group>";
+		};
+		8972C2F1212AE34800C76B19 /* HTTPHeader */ = {
+			isa = PBXGroup;
+			children = (
+				8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */,
+				8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */,
+			);
+			path = HTTPHeader;
+			sourceTree = "<group>";
+		};
+		8972C2FE212C166F00C76B19 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				8972C2FF212C168800C76B19 /* CMPErrors.h */,
+				8972C300212C168800C76B19 /* CMPErrors.m */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		8972C307212C29F500C76B19 /* Comapi */ = {
+			isa = PBXGroup;
+			children = (
+				8972C312212C32BF00C76B19 /* Config */,
+				8972C30D212C2A4D00C76B19 /* Comapi */,
+				8972C308212C2A0000C76B19 /* Client */,
+			);
+			path = Comapi;
+			sourceTree = "<group>";
+		};
+		8972C308212C2A0000C76B19 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				8972C309212C2A1900C76B19 /* CMPComapiClient.h */,
+				8972C30A212C2A1900C76B19 /* CMPComapiClient.m */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		8972C30D212C2A4D00C76B19 /* Comapi */ = {
+			isa = PBXGroup;
+			children = (
+				8972C30E212C2A5E00C76B19 /* CMPComapi.h */,
+				8972C30F212C2A5E00C76B19 /* CMPComapi.m */,
+			);
+			path = Comapi;
+			sourceTree = "<group>";
+		};
+		8972C312212C32BF00C76B19 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8972C313212C32CC00C76B19 /* CMPComapiConfig.h */,
+				8972C314212C32CC00C76B19 /* CMPComapiConfig.m */,
+				8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */,
+				8972C321212C3F1E00C76B19 /* CMPAPIConfiguration.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8972C317212C34C900C76B19 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */,
+				8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */,
+				8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */,
+				8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		89C8DE342122DF3C00555495 = {
+			isa = PBXGroup;
+			children = (
+				89C8DE4A2122F47700555495 /* Tests */,
+				89C8DE492122F47000555495 /* Sources */,
+				89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */,
+				89C8DE3F2122DF3C00555495 /* Products */,
+				0E18858C2E25A1A4A46CE7FA /* Pods */,
+				BA0E515409A75C477859ADD3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		89C8DE3F2122DF3C00555495 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */ = {
+			isa = PBXGroup;
+			children = (
+				89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */,
+				89C8DE422122DF3C00555495 /* Info.plist */,
+			);
+			path = "comapi-ios-sdk-objective-c";
+			sourceTree = "<group>";
+		};
+		89C8DE492122F47000555495 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				895FF4FD2126F0600007FAC3 /* Constants */,
+				8972C2FE212C166F00C76B19 /* Errors */,
+				8972C307212C29F500C76B19 /* Comapi */,
+				895FF4F72126ECB70007FAC3 /* Networking */,
+				89C8DE592122FBE400555495 /* Utilities */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		89C8DE4A2122F47700555495 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		89C8DE4B2122F48200555495 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				89C8DE4C2122F4B400555495 /* CMPSessionManager.h */,
+				89C8DE4D2122F4B400555495 /* CMPSessionManager.m */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		89C8DE502122F79400555495 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89C8DE512122F7AB00555495 /* CMPSession.h */,
+				89C8DE522122F7AB00555495 /* CMPSession.m */,
+				89C8DE552122F95000555495 /* CMPSessionAuth.h */,
+				89C8DE562122F95000555495 /* CMPSessionAuth.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89C8DE592122FBE400555495 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				89C8DE5A2122FCEC00555495 /* NSString+CMPUtility.h */,
+				89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */,
+				89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */,
+				89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */,
+				895FF501212712F90007FAC3 /* NSData+CMPUtility.h */,
+				895FF502212712F90007FAC3 /* NSData+CMPUtility.m */,
+				8972C2EB212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h */,
+				8972C2EC212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m */,
+				8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */,
+				8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BA0E515409A75C477859ADD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		89C8DE3B2122DF3C00555495 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */,
+				89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */,
+				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
+				8972C2ED212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h in Headers */,
+				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
+				89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */,
+				895FF50821271AEC0007FAC3 /* CMPURLResult.h in Headers */,
+				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
+				8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */,
+				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
+				895FF4FB2126ECEE0007FAC3 /* CMPRequestTemplate.h in Headers */,
+				89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */,
+				8972C2F8212C08CB00C76B19 /* CMPRequestTemplatePerformer.h in Headers */,
+				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
+				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
+				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
+				8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */,
+				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,
+				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
+				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
+				8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */,
+				8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */,
+				8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */;
+			buildPhases = (
+				289F2D1F89864FFFC6627D42 /* [CP] Check Pods Manifest.lock */,
+				89C8DE392122DF3C00555495 /* Sources */,
+				89C8DE3A2122DF3C00555495 /* Frameworks */,
+				89C8DE3B2122DF3C00555495 /* Headers */,
+				89C8DE3C2122DF3C00555495 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "comapi-ios-sdk-objective-c";
+			productName = "comapi-ios-sdk-objective-c";
+			productReference = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89C8DE352122DF3C00555495 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Comapi;
+				TargetAttributes = {
+					89C8DE3D2122DF3C00555495 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "comapi-ios-sdk-objective-c" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89C8DE342122DF3C00555495;
+			productRefGroup = 89C8DE3F2122DF3C00555495 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89C8DE3C2122DF3C00555495 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		289F2D1F89864FFFC6627D42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-comapi-ios-sdk-objective-c-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89C8DE392122DF3C00555495 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */,
+				8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */,
+				8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */,
+				8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */,
+				8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */,
+				895FF504212712F90007FAC3 /* NSData+CMPUtility.m in Sources */,
+				8972C31B212C34E000C76B19 /* CMPAuthenticationDelegate.m in Sources */,
+				8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */,
+				89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */,
+				8972C302212C168800C76B19 /* CMPErrors.m in Sources */,
+				8972C306212C1DCC00C76B19 /* CMPConstants.m in Sources */,
+				89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */,
+				8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */,
+				8972C2F9212C08CB00C76B19 /* CMPRequestTemplatePerformer.m in Sources */,
+				895FF50921271AEC0007FAC3 /* CMPURLResult.m in Sources */,
+				895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */,
+				8972C323212C3F1E00C76B19 /* CMPAPIConfiguration.m in Sources */,
+				89C8DE542122F7AB00555495 /* CMPSession.m in Sources */,
+				8972C2EE212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m in Sources */,
+				895FF4F62126E9620007FAC3 /* CMPRequestPerformer.m in Sources */,
+				89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */,
+				89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		89C8DE442122DF3C00555495 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		89C8DE452122DF3C00555495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89C8DE472122DF3C00555495 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89C8DE482122DF3C00555495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "comapi-ios-sdk-objective-c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89C8DE442122DF3C00555495 /* Debug */,
+				89C8DE452122DF3C00555495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89C8DE472122DF3C00555495 /* Debug */,
+				89C8DE482122DF3C00555495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89C8DE352122DF3C00555495 /* Project object */;
+}
