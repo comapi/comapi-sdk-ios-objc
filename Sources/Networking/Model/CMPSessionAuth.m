@@ -11,14 +11,25 @@
 @implementation CMPSessionAuth
 
 - (instancetype)initWithJSON:(NSDictionary *)json {
-    CMPSessionAuth* auth = [[CMPSessionAuth alloc] init];
-    if (json[@"token"] && [json[@"token"] isKindOfClass:[NSString class]]) {
-        auth.token = json[@"token"];
+    self = [super init];
+    if (self) {
+        if (json[@"token"] && [json[@"token"] isKindOfClass:[NSString class]]) {
+            self.token = json[@"token"];
+        }
+        if (json[@"session"] && [json[@"session"] isKindOfClass:[NSDictionary class]]) {
+            self.session = [[CMPSession alloc] initWithJSON:json[@"session"]];
+        }
     }
-    if (json[@"session"] && [json[@"session"] isKindOfClass:[NSDictionary class]]) {
-        auth.session = [[CMPSession alloc] initWithJSON:json[@"session"]];
+    return self;
+}
+
+- (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
+    self = [super init];
+    if (self) {
+        self.token = token;
+        self.session = session;
     }
-    return auth;
+    return self;
 }
     
 @end

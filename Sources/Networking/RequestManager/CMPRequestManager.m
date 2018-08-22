@@ -13,6 +13,7 @@
 
 @property (nonatomic, copy) NSMutableArray<CMPPendingOperation>* pendingOperations;
 @property (nonatomic) CMPTokenState tokenState;
+@property (nonatomic, nullable) NSString *token;
 
 @end
 
@@ -44,7 +45,8 @@
     }
 }
 
-- (void)updateToken {
+- (void)updateToken:(NSString *)token {
+    self.token = token;
     self.tokenState = CMPTokenStateReady;
     [self runAllPendingOperations];
 }

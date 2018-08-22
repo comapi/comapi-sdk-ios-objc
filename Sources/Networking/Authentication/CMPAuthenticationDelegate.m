@@ -8,6 +8,3 @@
 
 #import "CMPAuthenticationDelegate.h"
 
-@implementation CMPAuthenticationDelegate
-
-@end

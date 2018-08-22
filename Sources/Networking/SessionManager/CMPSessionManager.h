@@ -8,9 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import "CMPSessionAuth.h"
+#import "CMPAuthenticationDelegate.h"
+#import "CMPRequestManager.h"
 
-@interface CMPSessionManager : NSObject
 
-@property (nonatomic, nonnull) NSString* apiSpaceID;
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol CMPSessionAuthProvider
+
+- (void)authenticateWithSuccess:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError *))failure;
 
 @end
+
+@protocol CMPAuthChallengeHandler
+
+- (void)handleAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge;
+- (void)authenticationFailedWithError:(NSError *)error;
+- (void)authenticationFinishedWithSessionAuth:(CMPSessionAuth *)sessionAuth;
+
+@end
+
+@interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
+
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager;
+- (BOOL)isSessionValid;
+- (void)bindClient:(CMPComapiClient *)client;
+
+
+@end
+
+NS_ASSUME_NONNULL_END
