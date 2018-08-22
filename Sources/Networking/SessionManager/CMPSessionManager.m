@@ -8,14 +8,92 @@
 
 #import "CMPSessionManager.h"
 #import "CMPSession.h"
+#import "CMPComapiClient.h"
+#import "CMPAuthenticationDelegate.h"
+#import "CMPKeychain.h"
+
+NSString *const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
+NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 @interface CMPSessionManager ()
-    
-@property (nonatomic, nullable) CMPSessionAuth* sessionAuth;
-    
+
+@property (nonatomic, strong, nullable) CMPComapiClient *client;
+@property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
+@property (nonatomic, strong) CMPRequestManager *requestManager;
+
+@property (nonatomic, weak, nullable) id<CMPAuthenticationDelegate> authenticationDelegate;
+@property (nonatomic, copy, nullable) void(^didFinishAuthentication)(void);
+@property (nonatomic, copy, nullable) void(^didFailAuthentication)(NSError *);
+
+@property (nonatomic, strong, nonnull) NSString* apiSpaceID;
+@property (nonatomic, strong, nonnull) NSString* tokenKey;
+@property (nonatomic, strong, nonnull) NSString* detailsKey;
+
+- (void)loadSessionInfo;
+- (void)saveSessionInfo;
+
 @end
 
 @implementation CMPSessionManager
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager {
+    self = [super init];
+    if (self) {
+        self.apiSpaceID = apiSpaceID;
+        self.authenticationDelegate = delegate;
+        self.requestManager = requestManager;
+    }
+    return self;
+}
+
+- (BOOL)isSessionValid {
+    if (self.sessionAuth != nil && self.sessionAuth.session != nil && self.sessionAuth.session.expiresOn != nil) {
+        return self.sessionAuth.session.isActive && [self.sessionAuth.session.expiresOn compare:[NSDate date]] == NSOrderedDescending;
+    }
+    
+    return false;
+}
+
+- (void)bindClient:(CMPComapiClient *)client {
+    self.client = client;
+}
+
+- (void)loadSessionInfo {
+    if ([CMPKeychain loadItemForKey:self.tokenKey] == nil || [[NSUserDefaults standardUserDefaults] objectForKey:self.detailsKey] == nil) {
+        self.sessionAuth = nil;
+        return;
+    }
+    
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:self.detailsKey];
+    CMPSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSString *token = [CMPKeychain loadItemForKey:self.tokenKey];
+    if (token && session) {
+        CMPSessionAuth *sessionAuth = [[CMPSessionAuth alloc] initWithToken:token session:session];
+        self.sessionAuth = sessionAuth;
+        [self.requestManager updateToken:token];
+    }
+}
+
+- (void)saveSessionInfo {
+    
+}
+
+
+- (void)authenticateWithSuccess:(void (^ _Nullable)(void))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure {
+    <#code#>
+}
+
+- (void)authenticationFailedWithError:(nonnull NSError *)error {
+    <#code#>
+}
+
+- (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
+    <#code#>
+}
+
+- (void)handleAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge {
+    <#code#>
+}
 
 @end
 
@@ -156,4 +234,20 @@
  
  }
 
- */
+ */- (void)authenticateWithSuccess:(void (^ _Nullable)(void))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure {
+     <#code#>
+ }
+
+- (void)authenticationFailedWithError:(nonnull NSError *)error {
+    <#code#>
+}
+
+- (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
+    <#code#>
+}
+
+- (void)handleAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge {
+    <#code#>
+}
+
+

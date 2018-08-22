@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPSession : NSObject
+@interface CMPSession : NSObject <NSCoding>
 
 @property (nonatomic, nullable) NSString *id;
 @property (nonatomic, nullable) NSString *nonce;
@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL isActive;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
+- (instancetype)initFromData:(NSData *)data;
 
 @end
 

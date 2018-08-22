@@ -29,6 +29,8 @@ typedef void(^CMPPendingOperation)(void);
 
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
+-(void)updateToken:(NSString *)token;
+
 @end
 
 
