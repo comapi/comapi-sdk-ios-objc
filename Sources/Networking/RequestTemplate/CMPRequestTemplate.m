@@ -10,43 +10,65 @@
 
 @implementation CMPRequestTemplate
 
-- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template {
-    NSURLComponents *components = [[NSURLComponents alloc] init];
-    components.host = template.host;
-    components.scheme = template.scheme;
-    components.port = @(template.port);
-    components.path = [NSString stringWithFormat:@"/%@", [template.pathComponents componentsJoinedByString:@"/"]];
-
-    if (template.query != nil && template.query.allKeys.count > 0) {
-        NSMutableArray<NSURLQueryItem *> *items = [[NSMutableArray alloc] init];
-        [template.query enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
-            NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:key value:obj];
-            [items addObject:item];
-        }];
-        components.queryItems = items;
-    }
-
-    return components;
-}
-
-- (NSURLRequest *)requestFromHTTPTemplate:(id<CMPHTTPRequestTemplate>)template {
-    NSURLComponents *components = [self componentsFromURLTemplate:template];
-    if (components.URL != nil) {
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
-        request.HTTPMethod = template.httpMethod;
-        request.HTTPBody = template.httpBody;
-        [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
-            [request setValue:obj.field forHTTPHeaderField:obj.value];
-        }];
-        
-        return request;
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port {
+    self = [super init];
+    
+    if (self) {
+        self.scheme = scheme;
+        self.host = host;
+        self.port = port;
     }
     
-    return nil;
+    return self;
 }
+
+//- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template {
+//    NSURLComponents *components = [[NSURLComponents alloc] init];
+//    components.path = [NSString stringWithFormat:@"/%@", [template.pathComponents componentsJoinedByString:@"/"]];
+//
+//    if (template.query != nil && template.query.allKeys.count > 0) {
+//        NSMutableArray<NSURLQueryItem *> *items = [[NSMutableArray alloc] init];
+//        [template.query enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+//            NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:key value:obj];
+//            [items addObject:item];
+//        }];
+//        components.queryItems = items;
+//    }
+//
+//    return components;
+//}
+//
+//- (NSURLRequest *)requestFromHTTPTemplate:(id<CMPHTTPRequestTemplate>)template {
+//    NSURLComponents *components = [self componentsFromURLTemplate:template];
+//    if (components.URL != nil) {
+//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
+//        request.HTTPMethod = template.httpMethod;
+//        request.HTTPBody = template.httpBody;
+//        [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
+//            [request setValue:obj.field forHTTPHeaderField:obj.value];
+//        }];
+//
+//        return request;
+//    }
+//
+//    return nil;
+//}
 
 @end
 
+
+
 @implementation CMPRequestTemplateResult
+
+-(instancetype)initWithObject:(id)object error:(NSError *)error {
+    self = [super init];
+    
+    if (self) {
+        self.object = object;
+        self.error = error;
+    }
+    
+    return error;
+}
 
 @end

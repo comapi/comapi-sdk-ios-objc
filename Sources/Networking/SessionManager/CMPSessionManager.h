@@ -30,11 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
 
+@property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager;
 - (BOOL)isSessionValid;
 - (void)bindClient:(CMPComapiClient *)client;
-
 
 @end
 

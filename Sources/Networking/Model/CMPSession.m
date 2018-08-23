@@ -56,16 +56,6 @@
     return self;
 }
 
-- (instancetype)initFromData:(NSData *)data {
-    self = [super init];
-    
-    if (self) {
-        
-    }
-    
-    return self;
-}
-
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.id forKey:@"id"];
     [aCoder encodeObject:self.nonce forKey:@"nonce"];

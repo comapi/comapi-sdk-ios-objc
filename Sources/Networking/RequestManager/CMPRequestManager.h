@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPRequestPerformer.h"
 
 @class CMPRequestManager;
 
@@ -29,6 +30,7 @@ typedef void(^CMPPendingOperation)(void);
 
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
+-(instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
 -(void)updateToken:(NSString *)token;
 
 @end

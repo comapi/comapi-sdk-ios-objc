@@ -14,3 +14,17 @@ extern NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorUnauthorizedStatusCode;
+
+extern NSString * const CMPHTTPMethodGET;
+extern NSString * const CMPHTTPMethodPOST;
+extern NSString * const CMPHTTPMethodPUT;
+extern NSString * const CMPHTTPMethodPATCH;
+extern NSString * const CMPHTTPMethodDELETE;
+extern NSString * const CMPHTTPMethodHEAD;
+
+extern NSString * const CMPHTTPHeaderContentType;
+extern NSString * const CMPHTTPHeaderAuthorization;
+extern NSString * const CMPHTTPHeaderIfMatch;
+
+extern NSString * const CMPHTTPHeaderContentTypeJSON;
+extern NSString * const CMPHTTPHeaderContentTypeURL;

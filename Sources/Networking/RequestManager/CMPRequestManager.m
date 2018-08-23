@@ -32,6 +32,7 @@
 }
 
 - (void)requestToken {
+    self.token = nil;
     if (self.tokenState == CMPTokenStateAwaiting) {
         return;
     }

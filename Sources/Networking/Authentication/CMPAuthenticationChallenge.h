@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPAuthenticationChallenge : NSObject
 
-@property (nonatomic, strong) NSString* authenticationID;
-@property (nonatomic, strong) NSString* provider;
-@property (nonatomic, strong) NSString* nonce;
-@property (nonatomic, strong) NSDate* expiresOn;
+@property (nonatomic, strong) NSString *authenticationID;
+@property (nonatomic, strong) NSString *provider;
+@property (nonatomic, strong) NSString *nonce;
+@property (nonatomic, strong) NSDate *expiresOn;
 
 - (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)json;
 

@@ -37,7 +37,6 @@
 		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; };
 		8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C314212C32CC00C76B19 /* CMPComapiConfig.m */; };
 		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; };
-		8972C31B212C34E000C76B19 /* CMPAuthenticationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */; };
 		8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */; };
 		8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */; };
 		8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */; };
@@ -48,6 +47,12 @@
 		8972C32F212D778D00C76B19 /* CMPBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C32D212D778D00C76B19 /* CMPBaseService.m */; };
 		8972C333212DA40700C76B19 /* CMPKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C331212DA40700C76B19 /* CMPKeychain.h */; };
 		8972C334212DA40700C76B19 /* CMPKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C332212DA40700C76B19 /* CMPKeychain.m */; };
+		8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C335212EC59B00C76B19 /* CMPSessionService.h */; };
+		8972C338212EC59B00C76B19 /* CMPSessionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C336212EC59B00C76B19 /* CMPSessionService.m */; };
+		8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C339212EC5A900C76B19 /* CMPProfileService.h */; };
+		8972C33C212EC5A900C76B19 /* CMPProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C33A212EC5A900C76B19 /* CMPProfileService.m */; };
+		8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C33F212ED54B00C76B19 /* CMPStartNewSessionTemplate.h */; };
+		8972C342212ED54B00C76B19 /* CMPStartNewSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C340212ED54B00C76B19 /* CMPStartNewSessionTemplate.m */; };
 		89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
@@ -59,6 +64,8 @@
 		89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */; };
 		89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */; };
 		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
+		89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */; };
+		89DCBB44212F0139001016FF /* CMPAuthorizeSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +101,6 @@
 		8972C313212C32CC00C76B19 /* CMPComapiConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
 		8972C314212C32CC00C76B19 /* CMPComapiConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPComapiConfig.m; sourceTree = "<group>"; };
 		8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
-		8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthenticationDelegate.m; sourceTree = "<group>"; };
 		8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
 		8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthenticationChallenge.m; sourceTree = "<group>"; };
 		8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
@@ -105,6 +111,12 @@
 		8972C32D212D778D00C76B19 /* CMPBaseService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPBaseService.m; sourceTree = "<group>"; };
 		8972C331212DA40700C76B19 /* CMPKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
 		8972C332212DA40700C76B19 /* CMPKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPKeychain.m; sourceTree = "<group>"; };
+		8972C335212EC59B00C76B19 /* CMPSessionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
+		8972C336212EC59B00C76B19 /* CMPSessionService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionService.m; sourceTree = "<group>"; };
+		8972C339212EC5A900C76B19 /* CMPProfileService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
+		8972C33A212EC5A900C76B19 /* CMPProfileService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileService.m; sourceTree = "<group>"; };
+		8972C33F212ED54B00C76B19 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
+		8972C340212ED54B00C76B19 /* CMPStartNewSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPStartNewSessionTemplate.m; sourceTree = "<group>"; };
 		89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comapi_ios_sdk_objective_c.h; sourceTree = "<group>"; };
 		89C8DE422122DF3C00555495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +130,8 @@
 		89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CMPUtility.m"; sourceTree = "<group>"; };
 		89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 		89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+CMPUtility.m"; sourceTree = "<group>"; };
+		89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
+		89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthorizeSessionTemplate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +171,7 @@
 		895FF4F72126ECB70007FAC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8972C33D212ED53000C76B19 /* Templates */,
 				8972C324212D76B000C76B19 /* Services */,
 				8972C317212C34C900C76B19 /* Authentication */,
 				8972C2F1212AE34800C76B19 /* HTTPHeader */,
@@ -257,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */,
-				8972C319212C34E000C76B19 /* CMPAuthenticationDelegate.m */,
 				8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */,
 				8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */,
 			);
@@ -281,6 +295,8 @@
 		8972C329212D76DF00C76B19 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8972C339212EC5A900C76B19 /* CMPProfileService.h */,
+				8972C33A212EC5A900C76B19 /* CMPProfileService.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -295,6 +311,8 @@
 		8972C32B212D76F000C76B19 /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				8972C335212EC59B00C76B19 /* CMPSessionService.h */,
+				8972C336212EC59B00C76B19 /* CMPSessionService.m */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -306,6 +324,25 @@
 				8972C332212DA40700C76B19 /* CMPKeychain.m */,
 			);
 			path = Security;
+			sourceTree = "<group>";
+		};
+		8972C33D212ED53000C76B19 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				8972C33E212ED53700C76B19 /* Session */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		8972C33E212ED53700C76B19 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				8972C33F212ED54B00C76B19 /* CMPStartNewSessionTemplate.h */,
+				8972C340212ED54B00C76B19 /* CMPStartNewSessionTemplate.m */,
+				89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */,
+				89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 		89C8DE342122DF3C00555495 = {
@@ -411,7 +448,9 @@
 			files = (
 				895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */,
 				89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */,
+				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
 				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
+				89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */,
 				8972C2ED212AC4DD00C76B19 /* NSURLComponents+CMPUtility.h in Headers */,
 				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
 				89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */,
@@ -424,6 +463,7 @@
 				8972C2F8212C08CB00C76B19 /* CMPRequestTemplatePerformer.h in Headers */,
 				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
+				8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */,
 				8972C327212D76D300C76B19 /* CMPServices.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
@@ -431,6 +471,7 @@
 				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,
 				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
 				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
+				8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */,
 				8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */,
 				8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */,
 				8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */,
@@ -531,9 +572,9 @@
 				8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */,
 				8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */,
 				8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */,
+				8972C33C212EC5A900C76B19 /* CMPProfileService.m in Sources */,
 				8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */,
 				895FF504212712F90007FAC3 /* NSData+CMPUtility.m in Sources */,
-				8972C31B212C34E000C76B19 /* CMPAuthenticationDelegate.m in Sources */,
 				8972C32F212D778D00C76B19 /* CMPBaseService.m in Sources */,
 				8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */,
 				89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */,
@@ -542,16 +583,19 @@
 				89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */,
 				8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */,
 				8972C2F9212C08CB00C76B19 /* CMPRequestTemplatePerformer.m in Sources */,
+				8972C342212ED54B00C76B19 /* CMPStartNewSessionTemplate.m in Sources */,
 				8972C328212D76D300C76B19 /* CMPServices.m in Sources */,
 				895FF50921271AEC0007FAC3 /* CMPURLResult.m in Sources */,
 				895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */,
 				8972C323212C3F1E00C76B19 /* CMPAPIConfiguration.m in Sources */,
 				89C8DE542122F7AB00555495 /* CMPSession.m in Sources */,
 				8972C334212DA40700C76B19 /* CMPKeychain.m in Sources */,
+				8972C338212EC59B00C76B19 /* CMPSessionService.m in Sources */,
 				8972C2EE212AC4DD00C76B19 /* NSURLComponents+CMPUtility.m in Sources */,
 				895FF4F62126E9620007FAC3 /* CMPRequestPerformer.m in Sources */,
 				89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */,
 				89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */,
+				89DCBB44212F0139001016FF /* CMPAuthorizeSessionTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

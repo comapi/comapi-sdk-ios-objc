@@ -10,6 +10,19 @@
 
 @implementation CMPBaseService
 
+-(instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider {
+    self = [super init];
+    
+    if (self) {
+        self.apiSpaceID = apiSpaceID;
+        self.apiConfiguration = configuration;
+        self.requestManager = requestManager;
+        self.sessionAuthProvider = authProvider;
+    }
+    
+    return self;
+}
+
 @end
 
 
