@@ -11,39 +11,45 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CMPHTTPRequestTemplate
-
-- (NSString *)scheme;
-- (NSString *)host;
-- (NSUInteger)port;
-- (NSArray<NSString *> *)pathComponents;
-- (NSDictionary<NSString *, NSString *> * _Nullable) query;
-- (NSSet<CMPHTTPHeader *> *)httpHeaders;
-- (NSData *)httpBody;
-- (NSString *)httpMethod;
-
-+ (id)resultFrom:(NSData *)data response:(NSURLResponse *)response ofType:(Class)type;
-
-@end
-
-@protocol CMPStreamRequestTemplate
-
-- (NSInputStream * _Nullable)httpBodyStream;
-
-@end
-
-@interface CMPRequestTemplate : NSObject
-
-- (NSURLRequest * _Nullable)requestFromHTTPTemplate:(id<CMPHTTPRequestTemplate>)template;
-
-@end
-
 @interface CMPRequestTemplateResult : NSObject
 
 @property (nonatomic, nullable) id object;
 @property (nonatomic, nullable) NSError *error;
 
+- (instancetype)initWithObject:(nullable id)object error:(nullable NSError *)error;
+
 @end
+
+@protocol CMPHTTPRequestTemplate
+
+- (NSArray<NSString *> *)pathComponents;
+- (nullable NSDictionary<NSString *, NSString *> *) query;
+- (nullable NSSet<CMPHTTPHeader *> *)httpHeaders;
+- (nullable NSData *)httpBody;
+- (NSString *)httpMethod;
+
+- (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
+
+@end
+
+@protocol CMPStreamRequestTemplate
+
+- (nullable NSInputStream *)httpBodyStream;
+
+@end
+
+@interface CMPRequestTemplate : NSObject
+
+@property (nonatomic, strong) NSString *apiSpaceID;
+@property (nonatomic, strong) NSString *scheme;
+@property (nonatomic, strong) NSString *host;
+@property (nonatomic) NSUInteger port;
+
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port;
+
+@end
+
+
 
 NS_ASSUME_NONNULL_END
 

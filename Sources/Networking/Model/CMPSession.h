@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPAuthenticationChallenge.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL isActive;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
-- (instancetype)initFromData:(NSData *)data;
+
+//- (void)startAuthentication:(CMPAuth *)challenge
 
 @end
 

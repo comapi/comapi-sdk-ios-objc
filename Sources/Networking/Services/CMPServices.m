@@ -10,6 +10,15 @@
 
 @implementation CMPServices
 
-
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider {
+    self = [super init];
+    
+    if (self) {
+        self.profile = [[CMPProfileService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
+        self.session = [[CMPSessionService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
+    }
+    
+    return self;
+}
 
 @end

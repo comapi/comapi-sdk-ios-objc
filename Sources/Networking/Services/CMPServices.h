@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPSessionService.h"
+#import "CMPProfileService.h"
+#import "CMPSessionManager.h"
 
 @interface CMPServices : NSObject
+
+@property (nonatomic, strong) CMPSessionService *session;
+@property (nonatomic, strong) CMPProfileService *profile;
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider;
 
 @end
