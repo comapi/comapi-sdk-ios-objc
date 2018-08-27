@@ -7,10 +7,7 @@
 //
 
 #import "CMPStartNewSessionTemplate.h"
-#import "CMPErrors.h"
-#import "CMPConstants.h"
 #import "CMPAuthenticationChallenge.h"
-#import "NSURLResponse+CMPUtility.h"
 
 @implementation CMPStartNewSessionTemplate
 
@@ -56,6 +53,24 @@
     
     NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
+}
+
+-(void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult * _Nonnull))result {
+    NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
+    if (!request) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+            result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+        });
+        return;
+    }
+    
+    __weak CMPStartNewSessionTemplate *weakSelf = self;
+    [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            result([weakSelf resultFromData:data urlResponse:response]);
+        });
+    }];
 }
 
 @end

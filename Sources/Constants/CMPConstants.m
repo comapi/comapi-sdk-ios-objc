@@ -28,3 +28,5 @@ NSString * const CMPHTTPHeaderIfMatch = @"If-Match";
 
 NSString * const CMPHTTPHeaderContentTypeJSON = @"application/json";
 NSString * const CMPHTTPHeaderContentTypeURL = @"application/x-www-form-urlencoded";
+
+NSString * const CMPPlatformInfo = @"iOS";

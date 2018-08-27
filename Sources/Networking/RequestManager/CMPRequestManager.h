@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CMPRequestPerformer.h"
+#import "CMPErrors.h"
 
 @class CMPRequestManager;
 
@@ -28,10 +29,12 @@ typedef void(^CMPPendingOperation)(void);
 
 @interface CMPRequestManager : NSObject
 
+@property (nonatomic, strong) CMPRequestPerformer *requestPerformer;
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
--(instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
--(void)updateToken:(NSString *)token;
+- (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
+- (void)performUsingTemplate:(id<CMPHTTPRequestTemplate>)template completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)updateToken:(NSString *)token;
 
 @end
 

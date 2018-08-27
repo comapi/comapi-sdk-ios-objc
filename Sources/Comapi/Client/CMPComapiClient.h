@@ -23,7 +23,6 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
 
 @interface CMPComapiClient : NSObject <CMPRequestManagerDelegate>
 
-
 @property (nonatomic, strong) CMPServices *services;
 @property (nonatomic) CMPSDKState state;
 @property (nonatomic) BOOL isSessionSuccessfullyCreated;

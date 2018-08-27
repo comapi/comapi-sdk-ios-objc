@@ -11,17 +11,91 @@
 
 @interface CMPRequestManager ()
 
-@property (nonatomic, copy) NSMutableArray<CMPPendingOperation>* pendingOperations;
-@property (nonatomic) CMPTokenState tokenState;
-@property (nonatomic, nullable) NSString *token;
+@property (atomic, copy) NSMutableArray<CMPPendingOperation>* pendingOperations;
+@property (atomic) CMPTokenState tokenState;
+@property (atomic, nullable) NSString *token;
 
 @end
 
 @implementation CMPRequestManager
 
-//- (void)performUsingTemplate:(id<CMPHTTPRequestTemplate>)template completion:() {
+- (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer {
+    self = [super init];
     
-//}
+    if (self) {
+        self.requestPerformer = requestPerformer;
+    }
+    
+    return self;
+}
+
+- (void)performUsingTemplate:(id<CMPHTTPRequestTemplate>)template completion:(void(^)(CMPRequestTemplateResult *))completion {
+    __weak CMPRequestManager *weakSelf = self;
+    switch (self.tokenState) {
+        case CMPTokenStateMissing: {
+            [self.pendingOperations addObject: ^{ [weakSelf performUsingTemplate:template completion:completion]; }];
+            [self requestToken];
+            break;
+        }
+        case CMPTokenStateAwaiting: {
+            [self.pendingOperations addObject: ^{ [weakSelf performUsingTemplate:template completion:completion]; }];
+            break;
+        }
+        case CMPTokenStateReady: {
+            [template performWithRequestPerformer:self.requestPerformer result:^(CMPRequestTemplateResult * _Nonnull result) {
+                completion(result);
+            }];
+            break;
+        }
+            
+        case CMPTokenStateFailed: {
+            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+            completion([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+            break;
+        }
+    }
+    
+    /*
+     internal func performUsing<T: RequestTemplate>(templateBuilder: @escaping (_ token: String) -> T,
+     completion: @escaping RequestTemplatePerformingCompletion<T.ResultType>) {
+     switch self.tokenState {
+     case .missing: // add to pending
+     self.pendingOperations.append { self.performUsing(templateBuilder: templateBuilder, completion: completion) }
+     self.requestToken()
+     
+     case .awaiting: // add to pending
+     self.pendingOperations.append { self.performUsing(templateBuilder: templateBuilder, completion: completion) }
+     
+     case .failed: // respond with missing token error immediatelly
+     completion(.failure(.requestCreationFailed))
+     
+     case .ready(let token): // execute request
+     
+     let template = templateBuilder(token)
+     
+     self.requestTemplatePerformer.performFromTemplate(template) { status in
+     
+     switch status {
+     case .success(_):
+     completion(status)
+     case .failure(let reason):
+     switch reason {
+     case .unauthorized:
+     self.requestToken()
+     self.performUsing(templateBuilder: templateBuilder, completion: completion)
+     case .requestCreationFailed:
+     completion(.failure(.requestCreationFailed))
+     case .responseParsingFailed(let error):
+     completion(.failure(.responseParsingFailed(error)))
+     case .connectionFailed(let error):
+     completion(.failure(.connectionFailed(error)))
+     }
+     }
+     }
+     }
+     }
+     */
+}
 
 - (void)runAllPendingOperations {
     NSArray<CMPPendingOperation> *operations = [self.pendingOperations copy];

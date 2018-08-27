@@ -16,6 +16,10 @@
 
 @implementation CMPComapi
 
++ (instancetype)initialiseWithConfig:(CMPAPIConfiguration *)config {
+    return [CMPComapi sharedInstance:config];
+}
+
 + (instancetype)sharedInstance:(CMPAPIConfiguration *)config {
     static CMPComapi *sharedInstance = nil;
     static dispatch_once_t onceToken;

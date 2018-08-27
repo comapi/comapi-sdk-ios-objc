@@ -6,8 +6,11 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CMPHTTPHeader.h>
+#import "CMPHTTPHeader.h"
+#import "CMPErrors.h"
+#import "CMPConstants.h"
+#import "NSURLResponse+CMPUtility.h"
+#import "CMPRequestPerformer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSData *)httpBody;
 - (NSString *)httpMethod;
 
+- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void(^)(CMPRequestTemplateResult *))result;
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
 
 @end
@@ -46,6 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSUInteger port;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port;
+- (NSURLRequest *)requestFromHTTPRequestTemplate:(id<CMPHTTPRequestTemplate>)template;
 
 @end
 

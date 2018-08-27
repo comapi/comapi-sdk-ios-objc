@@ -28,3 +28,5 @@ extern NSString * const CMPHTTPHeaderIfMatch;
 
 extern NSString * const CMPHTTPHeaderContentTypeJSON;
 extern NSString * const CMPHTTPHeaderContentTypeURL;
+
+extern NSString * const CMPPlatformInfo;
