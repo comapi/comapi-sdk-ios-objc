@@ -7,7 +7,10 @@
 //
 
 #import "CMPRequestTemplate.h"
+#import "CMPAuthorizeSessionBody.h"
 
 @interface CMPAuthorizeSessionTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
+
+@property (nonatomic, nonnull, strong) CMPAuthorizeSessionBody *body;
 
 @end

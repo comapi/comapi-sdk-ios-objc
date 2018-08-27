@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "CMPSessionAuth.h"
-#import "CMPAuthenticationDelegate.h"
 #import "CMPRequestManager.h"
 
 

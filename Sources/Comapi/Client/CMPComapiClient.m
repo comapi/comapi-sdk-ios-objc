@@ -49,7 +49,7 @@
 }
 
 - (NSString *)profileID {
-    return self.sessionManager
+    return self.sessionManager.sessionAuth.session.profileId;
 }
 
 -(void)setPushToken:(NSString *)token completion:(void (^)(BOOL, NSError *))completion {
@@ -57,7 +57,7 @@
 }
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
-    self
+
 }
 
 @end

@@ -22,37 +22,37 @@
     return self;
 }
 
-//- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template {
-//    NSURLComponents *components = [[NSURLComponents alloc] init];
-//    components.path = [NSString stringWithFormat:@"/%@", [template.pathComponents componentsJoinedByString:@"/"]];
-//
-//    if (template.query != nil && template.query.allKeys.count > 0) {
-//        NSMutableArray<NSURLQueryItem *> *items = [[NSMutableArray alloc] init];
-//        [template.query enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
-//            NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:key value:obj];
-//            [items addObject:item];
-//        }];
-//        components.queryItems = items;
-//    }
-//
-//    return components;
-//}
-//
-//- (NSURLRequest *)requestFromHTTPTemplate:(id<CMPHTTPRequestTemplate>)template {
-//    NSURLComponents *components = [self componentsFromURLTemplate:template];
-//    if (components.URL != nil) {
-//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
-//        request.HTTPMethod = template.httpMethod;
-//        request.HTTPBody = template.httpBody;
-//        [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
-//            [request setValue:obj.field forHTTPHeaderField:obj.value];
-//        }];
-//
-//        return request;
-//    }
-//
-//    return nil;
-//}
+- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template {
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.path = [NSString stringWithFormat:@"/%@", [template.pathComponents componentsJoinedByString:@"/"]];
+
+    if (template.query != nil && template.query.allKeys.count > 0) {
+        NSMutableArray<NSURLQueryItem *> *items = [[NSMutableArray alloc] init];
+        [template.query enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+            NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:key value:obj];
+            [items addObject:item];
+        }];
+        components.queryItems = items;
+    }
+
+    return components;
+}
+
+- (NSURLRequest *)requestFromHTTPRequestTemplate:(id<CMPHTTPRequestTemplate>)template {
+    NSURLComponents *components = [self componentsFromURLTemplate:template];
+    if (components.URL != nil) {
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
+        request.HTTPMethod = template.httpMethod;
+        request.HTTPBody = template.httpBody;
+        [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
+            [request setValue:obj.field forHTTPHeaderField:obj.value];
+        }];
+
+        return request;
+    }
+
+    return nil;
+}
 
 @end
 
@@ -68,7 +68,7 @@
         self.error = error;
     }
     
-    return error;
+    return self;
 }
 
 @end

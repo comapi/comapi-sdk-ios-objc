@@ -6,7 +6,6 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPAuthenticationChallenge.h"
 #import "CMPComapiClient.h"
 
@@ -14,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CMPAuthenticationDelegate
 
-- (void)client:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *) challenge completion:(void(^)(NSString * _Nullable))continueWithToken;
+- (void)clientWith:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *) challenge completion:(void(^)(NSString * _Nullable))continueWithToken;
 
 @end
 
