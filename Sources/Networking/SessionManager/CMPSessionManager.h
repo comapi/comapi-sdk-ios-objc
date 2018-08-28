@@ -6,10 +6,8 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPSessionAuth.h"
-#import "CMPRequestManager.h"
-
+#import "CMPComapiClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -13,19 +13,14 @@
 
 @implementation CMPSessionService
 
--(void)startSessionWithCompletion:(void (^)(void))completion failure:(void (^)(NSError * _Nullable))failure {
+- (void)startSessionWithCompletion:(void (^)(void))completion failure:(void (^)(NSError * _Nullable))failure {
     [self.sessionAuthProvider authenticateWithSuccess:completion failure:failure];
 }
 
--(void)endSessionWithCompletion:(void (^)(BOOL))completion {
+- (void)endSessionWithCompletion:(void (^)(CMPRequestTemplateResult *))completion {
     CMPDeleteSessionTemplate *template = [[CMPDeleteSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port];
     [self.requestManager performUsingTemplate:template completion:^(CMPRequestTemplateResult * result) {
-        NSNumber *success = (NSNumber *)result.object;
-        if (success) {
-            completion([success boolValue]);
-        } else {
-            completion(NO);
-        }
+        completion(result);
     }];
 }
 

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPAuthenticationDelegate.h"
 #import "CMPAPIConfiguration.h"
 #import "CMPServices.h"

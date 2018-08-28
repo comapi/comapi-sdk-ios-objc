@@ -17,9 +17,14 @@ typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
     CMPRequestTemplateErrorUnauthorized
 };
 
+typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {
+    CMPAuthenticationErrorMissingToken,
+};
+
 @interface CMPErrors : NSObject
 
-+ (NSError *)errorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error;
++ (NSError *)requestTemplateErrorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error;
++ (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError * _Nullable)error;
 
 @end
 

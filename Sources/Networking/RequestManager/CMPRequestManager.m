@@ -47,54 +47,12 @@
             }];
             break;
         }
-            
         case CMPTokenStateFailed: {
-            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
             completion([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
             break;
         }
     }
-    
-    /*
-     internal func performUsing<T: RequestTemplate>(templateBuilder: @escaping (_ token: String) -> T,
-     completion: @escaping RequestTemplatePerformingCompletion<T.ResultType>) {
-     switch self.tokenState {
-     case .missing: // add to pending
-     self.pendingOperations.append { self.performUsing(templateBuilder: templateBuilder, completion: completion) }
-     self.requestToken()
-     
-     case .awaiting: // add to pending
-     self.pendingOperations.append { self.performUsing(templateBuilder: templateBuilder, completion: completion) }
-     
-     case .failed: // respond with missing token error immediatelly
-     completion(.failure(.requestCreationFailed))
-     
-     case .ready(let token): // execute request
-     
-     let template = templateBuilder(token)
-     
-     self.requestTemplatePerformer.performFromTemplate(template) { status in
-     
-     switch status {
-     case .success(_):
-     completion(status)
-     case .failure(let reason):
-     switch reason {
-     case .unauthorized:
-     self.requestToken()
-     self.performUsing(templateBuilder: templateBuilder, completion: completion)
-     case .requestCreationFailed:
-     completion(.failure(.requestCreationFailed))
-     case .responseParsingFailed(let error):
-     completion(.failure(.responseParsingFailed(error)))
-     case .connectionFailed(let error):
-     completion(.failure(.connectionFailed(error)))
-     }
-     }
-     }
-     }
-     }
-     */
 }
 
 - (void)runAllPendingOperations {
