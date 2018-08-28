@@ -9,7 +9,6 @@
 #import "CMPSessionManager.h"
 #import "CMPSession.h"
 #import "CMPComapiClient.h"
-#import "CMPAuthenticationDelegate.h"
 #import "CMPKeychain.h"
 
 NSString *const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
@@ -37,11 +36,13 @@ NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager {
     self = [super init];
+    
     if (self) {
         self.apiSpaceID = apiSpaceID;
         self.authenticationDelegate = delegate;
         self.requestManager = requestManager;
     }
+    
     return self;
 }
 
@@ -91,7 +92,7 @@ NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
         self.client.state = CMPSDKStateSessionStarting;
         self.didFinishAuthentication = success;
         self.didFailAuthentication = failure;
-        [self.client.services.session ];
+        [self.client.services.session startAuthenticationWithChallengeHandler:self];
     }
 }
 
@@ -108,17 +109,25 @@ NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
     // implement logger
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.sessionAuth.session.id == sessionAuth.session.id) {
-            
+    __weak CMPSessionManager *weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        if (weakSelf.sessionAuth.session.id == sessionAuth.session.id) {
+            [weakSelf authenticateWithSuccess:nil failure:nil];
         }
     });
+
+    self.didFinishAuthentication();
+    self.client.state = CMPSDKStateSessionActive;
 }
 
 - (void)handleAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge {
-    [self.authenticationDelegate client:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable) {
-        // client.services.session.continueAuthentication;
+    __weak CMPSessionManager *weakSelf = self;
+    [self.authenticationDelegate clientWith:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
+        if (token) {
+            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:challenge.authenticationID challengeHandler:self];
+        } else {
+            [weakSelf authenticationFailedWithError:[CMPErrors errorWithStatus:CMPRequest underlyingError:<#(NSError * _Nullable)#>]]
+        }
     }];
 }
 

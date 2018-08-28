@@ -11,10 +11,10 @@
 
 @implementation CMPErrors
 
-+ (NSError *)errorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error {
++ (NSError *)requestTemplateErrorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError *)error {
     switch (status) {
         case CMPRequestTemplateErrorRequestCreationFailed:
-            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorRequestCreationFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
             break;
         case CMPRequestTemplateErrorResponseParsingFailed:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
@@ -24,6 +24,16 @@
             break;
         case CMPRequestTemplateErrorUnauthorized:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorUnauthorizedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            break;
+    }
+}
+
++ (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError *)error {
+    switch (status) {
+        case CMPAuthenticationErrorMissingToken:
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            break;
+        
             break;
     }
 }

@@ -10,7 +10,16 @@
 
 @implementation CMPDeleteSessionTemplate
 
-
+-(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port token:(NSString *)token sessionID:(NSString *)sessionID {
+    self = [super initWithScheme:scheme host:host port:port];
+    
+    if (self) {
+        self.token = token;
+        self.sessionID = sessionID;
+    }
+    
+    return self;
+}
 //    var scheme: String
 //    var host: String
 //    var port: Int
@@ -60,7 +69,7 @@
         return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     }
     
-    NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
@@ -68,7 +77,7 @@
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
             result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
         });
         return;

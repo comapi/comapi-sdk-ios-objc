@@ -15,6 +15,10 @@ extern NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorUnauthorizedStatusCode;
 
+extern NSString * const CMPAuthenticationErrorDomain;
+
+extern NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode;
+
 extern NSString * const CMPHTTPMethodGET;
 extern NSString * const CMPHTTPMethodPOST;
 extern NSString * const CMPHTTPMethodPUT;
@@ -30,3 +34,9 @@ extern NSString * const CMPHTTPHeaderContentTypeJSON;
 extern NSString * const CMPHTTPHeaderContentTypeURL;
 
 extern NSString * const CMPPlatformInfo;
+
+extern NSString * const CMPSDKVersion;
+extern NSString * const CMPSDKType;
+
+extern NSString * const CMPQueueNameLog;
+extern NSString * const CMPQueueNameFileDestination;

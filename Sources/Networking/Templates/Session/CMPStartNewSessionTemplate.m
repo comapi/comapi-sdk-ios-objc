@@ -38,7 +38,7 @@
         NSError *parseError = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
         if (parseError) {
-            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
             return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
         }
         
@@ -46,12 +46,12 @@
         if (object) {
             return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
         } else {
-            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
             return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
         }
     }
     
-    NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
@@ -59,7 +59,7 @@
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error = [CMPErrors errorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
             result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
         });
         return;
