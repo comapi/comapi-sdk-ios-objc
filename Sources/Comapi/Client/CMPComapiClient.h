@@ -8,8 +8,9 @@
 
 #import "CMPAuthenticationDelegate.h"
 #import "CMPAPIConfiguration.h"
-#import "CMPServices.h"
 #import "CMPRequestManager.h"
+
+@class CMPServices;
 
 typedef NS_ENUM(NSUInteger, CMPSDKState) {
     CMPSDKStateNotInitialised,
@@ -22,11 +23,11 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
 
 @interface CMPComapiClient : NSObject <CMPRequestManagerDelegate>
 
-@property (nonatomic, strong) CMPServices *services;
 @property (nonatomic) CMPSDKState state;
-@property (nonatomic) BOOL isSessionSuccessfullyCreated;
+@property (nonatomic, strong) CMPServices *services;
 
 - (NSString *)profileID;
+- (BOOL)isSessionSuccessfullyCreated;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration;
 - (void)setPushToken:(NSString *)token completion:(void(^)(BOOL, NSError *))completion;
 

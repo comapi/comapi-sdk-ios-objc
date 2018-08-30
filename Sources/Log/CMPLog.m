@@ -7,9 +7,7 @@
 //
 
 #import "CMPLog.h"
-
-NSString * const defaultSeparator = @"\n";
-NSString * const defaultTerminator = @"\n";
+#import "CMPConstants.h"
 
 @implementation CMPLog
 
@@ -26,10 +24,10 @@ NSString * const defaultTerminator = @"\n";
     NSString *actualTerminator = terminator;
     
     if (!separator) {
-        actualSeparator = defaultSeparator;
+        actualSeparator = CMPDefaultSeparator;
     }
     if (!terminator) {
-        actualTerminator = defaultTerminator;
+        actualTerminator = CMPDefaultTerminator;
     }
     
     NSMutableArray<NSString *> *components = [NSMutableArray new];

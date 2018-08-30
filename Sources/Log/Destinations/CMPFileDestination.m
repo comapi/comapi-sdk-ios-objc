@@ -15,13 +15,11 @@
 @interface CMPFileDestination ()
 
 @property (nonatomic, strong) NSString *fileName;
+@property (nonatomic, strong) dispatch_queue_t queue;
 
 @end
 
 @implementation CMPFileDestination
-
-NSString *fileName = @"comapi.foundation.log";
-dispatch_queue_t queue;
 
 @synthesize minimumLogLevel = _minimumLogLevel;
 @synthesize dateFormatter = _dateFormatter;
@@ -30,9 +28,10 @@ dispatch_queue_t queue;
     self = [super self];
     
     if(self) {
-        self.dateFormatter = [NSDateFormatter comapiFormatter];
         self.minimumLogLevel = minimumLevel;
-        queue = dispatch_queue_create([CMPQueueNameFileDestination UTF8String], DISPATCH_QUEUE_SERIAL);
+        self.dateFormatter = [NSDateFormatter iso8061Formatter];
+        self.fileName = CMPLogFileName;
+        self.queue = dispatch_queue_create([CMPQueueNameFileDestination UTF8String], DISPATCH_QUEUE_SERIAL);
     }
     
     return self;
@@ -57,7 +56,25 @@ dispatch_queue_t queue;
     NSString *logHeader = [@[prefix, timeStr, fileStr] componentsJoinedByString:@" "];
     NSString *text = [CMPLog stringFromItems:@[logHeader, message] separator:nil terminator:nil];
     
-    NSLog(@"%@", text);
+    [self logToFileWithText:text];
+}
+
+- (void)logToFileWithText:(NSString *)text {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSString *loggingPath = [NSString stringWithFormat:@"%@%@", documentsPath, self.fileName];
+    if (![fileManager fileExistsAtPath:loggingPath]) {
+        [fileManager createFileAtPath:loggingPath contents:nil attributes:nil];
+    }
+    
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:loggingPath];
+    [fileHandle seekToEndOfFile];
+    
+    NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
+    if (data) {
+        [fileHandle writeData:data];
+    }
 }
 
 @end

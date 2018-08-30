@@ -7,8 +7,9 @@
 //
 
 #import "CMPComapiClient.h"
-#import "CMPRequestManager.h"
 #import "CMPSessionManager.h"
+#import "CMPServices.h"
+#import "CMPSetAPNSDetailsTemplate.h"
 
 @interface CMPComapiClient ()
 
@@ -17,9 +18,6 @@
 @property (nonatomic, strong) CMPRequestPerformer *requestPerformer;
 @property (nonatomic, strong) CMPAPIConfiguration *apiConfiguration;
 @property (nonatomic, strong) CMPSessionManager *sessionManager;
-
-//@property (nonatomic, strong) NSString* apiSpaceID;
-//@property (nonatomic, strong) NSString* apiSpaceID;
 
 @end
 
@@ -52,12 +50,83 @@
     return self.sessionManager.sessionAuth.session.profileId;
 }
 
+-(BOOL)isSessionSuccessfullyCreated {
+    return [self.sessionManager isSessionValid];
+}
+//public var profileId: String? {
+//    return self.sessionManager.sessionAuth?.sessionInfo.profileId
+//}
+//
+//public var sdkState: SDKState {
+//    return self.state
+//}
+//
+//public var services: ServiceContainer {
+//    return self.serviceContainer
+//}
+//
+//public var isSessionSuccessfullyCreated: Bool {
+//    return self.sessionManager.isSessionValid
+//}
+//
+//public func addEventDelegate(_ delegate: EventListener) {
+//    self.socketManager.addEventDelegate(delegate)
+//}
+//
+//public func removeEventDelegate(_ delegate: EventListener) {
+//    self.socketManager.removeEventDelegate(delegate)
+//}
+/*// MARK: Push
+ public func setPushToken(_ apnsToken: String, completion: @escaping (Result<Bool, NSError>) -> Void) {
+ 
+ let builder = { (token: String) -> SetAPNSDetailsTemplate in
+ 
+ let bundleIdentifier = Bundle.main.bundleIdentifier
+ var environment = ""
+ #if DEBUG
+ environment = "development"
+ #else
+ environment = "production"
+ #endif
+ 
+ let apnsDetails = SetAPNSDetailsTemplate.Body.APNSDetails(bundleID: bundleIdentifier,
+ environment: environment,
+ token: apnsToken)
+ let body = SetAPNSDetailsTemplate.Body(apns: apnsDetails)
+ 
+ return SetAPNSDetailsTemplate(scheme: self.apiConfiguration.scheme,
+ host: self.apiConfiguration.host,
+ port: self.apiConfiguration.port,
+ apiSpaceId: self.apiSpaceId,
+ sessionID: self.sessionManager.sessionAuth?.sessionInfo.id ?? "",
+ body: body,
+ token: token)
+ }
+ 
+ */
+
 -(void)setPushToken:(NSString *)token completion:(void (^)(BOOL, NSError *))completion {
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *environment = @"";
     
+#if DEBUG
+    environment = @"development";
+#else
+    environment = @"production";
+#endif
+    
+    CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:token];
+    CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+    
+    CMPSetAPNSDetailsTemplate *template = [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:self.sessionManager.sessionAuth.session.id body:body];
+    [template performWithRequestPerformer:self.requestPerformer result:^(CMPRequestTemplateResult * result) {
+        BOOL success = [(NSNumber *)result.object boolValue];
+        completion(success, result.error);
+    }];
 }
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
-
+    [self.sessionManager authenticateWithSuccess:nil failure:nil];
 }
 
 @end

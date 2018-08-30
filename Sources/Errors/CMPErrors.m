@@ -22,8 +22,8 @@
         case CMPRequestTemplateErrorConnectionFailed:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
             break;
-        case CMPRequestTemplateErrorUnauthorized:
-            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorUnauthorizedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+        case CMPRequestTemplateErrorUnexpectedStatusCode:
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorWrongCodeStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
             break;
     }
 }
@@ -31,9 +31,7 @@
 + (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError *)error {
     switch (status) {
         case CMPAuthenticationErrorMissingToken:
-            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
-            break;
-        
+            return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorMissingTokenStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
             break;
     }
 }

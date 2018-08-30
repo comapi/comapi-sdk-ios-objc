@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, CMPLogLevel) {
     CMPLogLevelVerbose = 0,
     CMPLogLevelDebug,
@@ -22,3 +24,5 @@ typedef NS_ENUM(NSUInteger, CMPLogLevel) {
 + (NSString *)textualRepresentationForLogLevel:(CMPLogLevel)logLevel;
 
 @end
+
+NS_ASSUME_NONNULL_END

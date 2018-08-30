@@ -8,11 +8,12 @@
 
 #import "CMPSessionManager.h"
 #import "CMPSession.h"
-#import "CMPComapiClient.h"
 #import "CMPKeychain.h"
+#import "CMPServices.h"
+#import "CMPLogger.h"
 
-NSString *const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
-NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
+NSString * const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
+NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 @interface CMPSessionManager ()
 
@@ -97,18 +98,22 @@ NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 }
 
 - (void)authenticationFailedWithError:(nonnull NSError *)error {
-    
+    [self.requestManager tokenUpdateFailed];
+    self.didFailAuthentication(error);
+    self.client.state = CMPSDKStateSessionOff;
 }
 
 - (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
-    //implement logger
+    [[CMPLogger shared] verbose:@"Authorization finished with sessionAuth:", sessionAuth];
+    
     self.sessionAuth = sessionAuth;
     [self saveSessionInfo];
     [self.requestManager updateToken:sessionAuth.token];
     // self.socketManager?.startSocket()
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
-    // implement logger
+    [[CMPLogger shared] verbose:@"secondsTillTokenExpiry:", secondsTillTokenExpiry];
+    
     __weak CMPSessionManager *weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         if (weakSelf.sessionAuth.session.id == sessionAuth.session.id) {
@@ -126,7 +131,7 @@ NSString *const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
         if (token) {
             [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:challenge.authenticationID challengeHandler:self];
         } else {
-            [weakSelf authenticationFailedWithError:[CMPErrors errorWithStatus:CMPRequest underlyingError:<#(NSError * _Nullable)#>]]
+            [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus :CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }
     }];
 }

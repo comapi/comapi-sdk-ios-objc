@@ -20,7 +20,7 @@
     self = [super self];
     
     if(self) {
-        self.dateFormatter = [NSDateFormatter comapiFormatter];
+        self.dateFormatter = [NSDateFormatter iso8061Formatter];
         self.minimumLogLevel = minimumLevel;
     }
     

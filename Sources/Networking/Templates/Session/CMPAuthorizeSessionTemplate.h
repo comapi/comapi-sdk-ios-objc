@@ -13,4 +13,6 @@
 
 @property (nonatomic, nonnull, strong) CMPAuthorizeSessionBody *body;
 
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID body:(CMPAuthorizeSessionBody *)body;
+
 @end

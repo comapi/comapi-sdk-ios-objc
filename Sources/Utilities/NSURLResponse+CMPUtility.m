@@ -10,7 +10,7 @@
 
 @implementation NSURLResponse (CMPUtility)
 
--(NSHTTPURLResponse *)httpURLResponse {
+- (NSHTTPURLResponse *)httpURLResponse {
     return (NSHTTPURLResponse *)self;
 }
 

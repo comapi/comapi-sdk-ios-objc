@@ -10,13 +10,14 @@
 
 @implementation CMPRequestTemplate
 
-- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port {
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID {
     self = [super init];
     
     if (self) {
         self.scheme = scheme;
         self.host = host;
         self.port = port;
+        self.apiSpaceID = apiSpaceID;
     }
     
     return self;
@@ -52,23 +53,6 @@
     }
 
     return nil;
-}
-
-@end
-
-
-
-@implementation CMPRequestTemplateResult
-
--(instancetype)initWithObject:(id)object error:(NSError *)error {
-    self = [super init];
-    
-    if (self) {
-        self.object = object;
-        self.error = error;
-    }
-    
-    return self;
 }
 
 @end

@@ -6,9 +6,10 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPXcodeConsoleDestination.h"
 #import "CMPFileDestination.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPLog : NSObject
 
@@ -17,3 +18,5 @@
 + (NSString *)stringFromItems:(NSArray<id> *)items separator:(nullable NSString *)separator terminator:(nullable NSString * )terminator;
 
 @end
+
+NS_ASSUME_NONNULL_END

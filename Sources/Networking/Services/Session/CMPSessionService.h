@@ -6,9 +6,8 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPBaseService.h"
-#import "CMPSessionManager.h"
+#import "CMPAuthChallengeHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
