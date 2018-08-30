@@ -6,7 +6,6 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPBaseService.h"
 
 NS_ASSUME_NONNULL_BEGIN

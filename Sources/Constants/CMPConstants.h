@@ -13,7 +13,7 @@ extern NSString * const CMPRequestTemplateErrorDomain;
 extern NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorUnauthorizedStatusCode;
+extern NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode;
 
 extern NSString * const CMPAuthenticationErrorDomain;
 
@@ -40,3 +40,8 @@ extern NSString * const CMPSDKType;
 
 extern NSString * const CMPQueueNameLog;
 extern NSString * const CMPQueueNameFileDestination;
+
+extern NSString * const CMPLogFileName;
+
+extern NSString * const CMPDefaultTerminator;
+extern NSString * const CMPDefaultSeparator;

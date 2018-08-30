@@ -6,9 +6,8 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "CMPRequestPerformer.h"
 #import "CMPErrors.h"
+#import "CMPRequestTemplate.h"
 
 @class CMPRequestManager;
 
@@ -35,6 +34,7 @@ typedef void(^CMPPendingOperation)(void);
 - (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
 - (void)performUsingTemplate:(id<CMPHTTPRequestTemplate>)template completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)updateToken:(NSString *)token;
+- (void)tokenUpdateFailed;
 
 @end
 

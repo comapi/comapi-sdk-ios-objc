@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSString* id;
 @property (nonatomic, strong) id<CMPAuthenticationDelegate> authDelegate;
-//@property (nonatomic, strong) 
 
 @end
 

@@ -8,14 +8,14 @@
 
 #import "CMPConstants.h"
 
-NSString * const CMPRequestTemplateErrorDomain = @"com.comapi.comapi-ios-sdk-objective-c.request.template";
+NSString * const CMPRequestTemplateErrorDomain = @"com.comapi.foundation.request.template";
 
 NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode = 5551;
 NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode = 5552;
 NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode = 5553;
-NSUInteger const CMPRequestTemplateErrorUnexpectedStatusCode = 5554;
+NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode = 5554;
 
-NSString * const CMPAuthenticationErrorDomain = @"com.comapi.comapi-ios-sdk-objective-c.authentication";
+NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
 
 NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
 
@@ -38,5 +38,10 @@ NSString * const CMPPlatformInfo = @"iOS";
 NSString * const CMPSDKVersion = @"1.0.0";
 NSString * const CMPSDKType = @"native";
 
-NSString * const CMPQueueNameLog = @"com.comapi.comapi-ios-sdk-objective-c.log";
-NSString * const CMPQueueNameFileDestination = @"com.comapi.comapi-ios-sdk-objective-c.fileDestination";
+NSString * const CMPQueueNameLog = @"com.comapi.foundation.log";
+NSString * const CMPQueueNameFileDestination = @"com.comapi.foundation.log.fileDestination";
+
+NSString * const CMPDefaultTerminator = @"\n";
+NSString * const CMPDefaultSeparator = @"\n";
+
+NSString * const CMPLogFileName = @"comapi.foundation.log";

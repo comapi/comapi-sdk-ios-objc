@@ -7,7 +7,6 @@
 //
 
 #import "CMPRequestManager.h"
-#import "CMPRequestTemplate.h"
 
 @interface CMPRequestManager ()
 

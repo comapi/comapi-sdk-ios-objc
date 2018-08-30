@@ -1,28 +1,29 @@
 //
-//  CMPDeleteSessionTemplate.m
+//  SetAPNSDetailsTemplate.m
 //  comapi-ios-sdk-objective-c
 //
-//  Created by Dominik Kowalski on 27/08/2018.
+//  Created by Dominik Kowalski on 30/08/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPDeleteSessionTemplate.h"
+#import "CMPSetAPNSDetailsTemplate.h"
 
-@implementation CMPDeleteSessionTemplate
+@implementation CMPSetAPNSDetailsTemplate
 
-- (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID {
+-(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID body:(CMPAPNSDetailsBody *)body {
     self = [super initWithScheme:scheme host:host port:port apiSpaceID:apiSpaceID];
     
     if (self) {
         self.token = token;
         self.sessionID = sessionID;
+        self.body = body;
     }
     
     return self;
 }
 
 - (nullable NSData *)httpBody {
-    return nil;
+    return [self.body encode];
 }
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
@@ -32,20 +33,20 @@
     return headers;
 }
 
-- (nonnull NSString *)httpMethod {
-    return CMPHTTPMethodDELETE;
+- (NSString *)httpMethod {
+    return CMPHTTPMethodPUT;
 }
 
-- (nonnull NSArray<NSString *> *)pathComponents {
-    return @[@"apispaces", self.apiSpaceID, @"sessions", self.sessionID];
+- (NSArray<NSString *> *)pathComponents {
+    return @[@"apispaces", self.apiSpaceID, @"sessions", self.sessionID, @"push"];
 }
 
 - (nullable NSDictionary<NSString *,NSString *> *)query {
     return nil;
 }
 
-- (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
-    if ([response httpStatusCode] == 204) {
+- (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
+    if ([response httpStatusCode] == 200) {
         NSNumber *object = @(YES);
         return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     }
@@ -54,7 +55,7 @@
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
-- (void)performWithRequestPerformer:(nonnull CMPRequestPerformer *)performer result:(nonnull void (^)(CMPRequestTemplateResult * _Nonnull))result {
+- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult *))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -64,7 +65,7 @@
         return;
     }
     
-    __weak CMPDeleteSessionTemplate *weakSelf = self;
+    __weak CMPSetAPNSDetailsTemplate *weakSelf = self;
     [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             result([weakSelf resultFromData:data urlResponse:response]);

@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSURLResponse (CMPUtility)
 
 - (NSInteger)httpStatusCode;
 - (NSHTTPURLResponse *)httpURLResponse;
 
 @end
+
+NS_ASSUME_NONNULL_END

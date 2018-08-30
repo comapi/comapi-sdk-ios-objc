@@ -8,6 +8,8 @@
 
 #import "CMPLogLevel.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol CMPLoggingDestination <NSObject>
 
 @property (nonatomic, readwrite) CMPLogLevel minimumLogLevel;
@@ -17,3 +19,5 @@
 - (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items: (NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date;
 
 @end
+
+NS_ASSUME_NONNULL_END

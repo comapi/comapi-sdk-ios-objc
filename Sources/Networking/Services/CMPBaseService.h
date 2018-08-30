@@ -6,10 +6,9 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPAPIConfiguration.h"
 #import "CMPRequestManager.h"
-#import "CMPSessionManager.h"
+#import "CMPSessionAuthProvider.h"
 
 @interface CMPBaseService : NSObject
 

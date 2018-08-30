@@ -9,6 +9,8 @@
 #import "CMPLogLevel.h"
 #import "CMPLoggingDestination.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol CMPLogging
 
 - (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items: (NSArray<id> *)items level:(CMPLogLevel)level;
@@ -28,3 +30,5 @@
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
 
 @end
+
+NS_ASSUME_NONNULL_END

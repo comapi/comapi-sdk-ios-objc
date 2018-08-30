@@ -25,8 +25,9 @@
     self = [super init];
     
     if (self) {
-        self.queue = dispatch_queue_create([CMPLogQueueName UTF8String], DISPATCH_QUEUE_SERIAL);
-        self.dateFormatter = [NSDateFormatter comapiFormatter];
+        self.queue = dispatch_queue_create([CMPQueueNameLog UTF8String], DISPATCH_QUEUE_SERIAL);
+        self.dateFormatter = [NSDateFormatter iso8061Formatter];
+        self.loggingDestinations = [NSMutableArray new];
     }
     
     return self;

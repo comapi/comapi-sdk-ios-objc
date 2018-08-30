@@ -51,7 +51,7 @@
         }
     }
     
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnauthorizedStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorWrongCodeStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 

@@ -8,22 +8,10 @@
 
 #import "CMPSessionAuth.h"
 #import "CMPComapiClient.h"
+#import "CMPSessionAuthProvider.h"
+#import "CMPAuthChallengeHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@protocol CMPSessionAuthProvider
-
-- (void)authenticateWithSuccess:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError *))failure;
-
-@end
-
-@protocol CMPAuthChallengeHandler
-
-- (void)handleAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge;
-- (void)authenticationFailedWithError:(NSError *)error;
-- (void)authenticationFinishedWithSessionAuth:(CMPSessionAuth *)sessionAuth;
-
-@end
 
 @interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
 

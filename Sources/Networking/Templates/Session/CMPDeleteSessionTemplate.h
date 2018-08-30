@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *sessionID;
 
-- (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port token:(NSString *)token sessionID:(NSString *)sessionID;
+- (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID;
 
 @end

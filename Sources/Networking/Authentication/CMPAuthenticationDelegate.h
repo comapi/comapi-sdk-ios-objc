@@ -6,9 +6,9 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-//#import "CMPAuthenticationChallenge.h"
-#import <Foundation/Foundation.h>
-#import "CMPComapiClient.h"
+#import <CMPAuthenticationChallenge.h>
+
+@class CMPComapiClient;
 
 NS_ASSUME_NONNULL_BEGIN
 
