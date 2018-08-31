@@ -73,6 +73,19 @@
 		89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A592137DFD8008EE0BE /* CMPAPNSDetailsBody.m */; };
 		89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5D2137E351008EE0BE /* CMPJSONDecoding.h */; };
 		89957A602137E35F008EE0BE /* CMPJSONEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5F2137E35F008EE0BE /* CMPJSONEncoding.h */; };
+		89957A69213935E0008EE0BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A68213935E0008EE0BE /* AppDelegate.m */; };
+		89957A6F213935E0008EE0BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89957A6D213935E0008EE0BE /* Main.storyboard */; };
+		89957A71213935E3008EE0BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89957A70213935E3008EE0BE /* Assets.xcassets */; };
+		89957A74213935E3008EE0BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89957A72213935E3008EE0BE /* LaunchScreen.storyboard */; };
+		89957A77213935E3008EE0BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A76213935E3008EE0BE /* main.m */; };
+		89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A7D21393644008EE0BE /* CMPBaseViewController.m */; };
+		89957A8921394743008EE0BE /* CMPBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A8821394743008EE0BE /* CMPBaseView.m */; };
+		89957A8C213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A8B213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m */; };
+		89957A8F21394995008EE0BE /* CMPSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A8E21394995008EE0BE /* CMPSeparator.m */; };
+		89957A92213949F7008EE0BE /* CMPPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A91213949F6008EE0BE /* CMPPlaceholderTextView.m */; };
+		89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9421396F31008EE0BE /* CMPTitledTextField.m */; };
+		89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9721396FBB008EE0BE /* CMPInsetTextField.m */; };
+		89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */; };
 		89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
@@ -162,6 +175,32 @@
 		89957A592137DFD8008EE0BE /* CMPAPNSDetailsBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAPNSDetailsBody.m; sourceTree = "<group>"; };
 		89957A5D2137E351008EE0BE /* CMPJSONDecoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
 		89957A5F2137E35F008EE0BE /* CMPJSONEncoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
+		89957A65213935E0008EE0BE /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89957A67213935E0008EE0BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		89957A68213935E0008EE0BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89957A6E213935E0008EE0BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89957A70213935E3008EE0BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89957A73213935E3008EE0BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89957A75213935E3008EE0BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89957A76213935E3008EE0BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89957A7C21393644008EE0BE /* CMPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPBaseViewController.h; sourceTree = "<group>"; };
+		89957A7D21393644008EE0BE /* CMPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPBaseViewController.m; sourceTree = "<group>"; };
+		89957A832139398B008EE0BE /* CMPViewConfiguring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPViewConfiguring.h; sourceTree = "<group>"; };
+		89957A8421394629008EE0BE /* CMPViewControllerConfiguring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPViewControllerConfiguring.h; sourceTree = "<group>"; };
+		89957A8721394743008EE0BE /* CMPBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPBaseView.h; sourceTree = "<group>"; };
+		89957A8821394743008EE0BE /* CMPBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPBaseView.m; sourceTree = "<group>"; };
+		89957A8A213947AE008EE0BE /* CMPGrayButtonWithWhiteText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPGrayButtonWithWhiteText.h; sourceTree = "<group>"; };
+		89957A8B213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPGrayButtonWithWhiteText.m; sourceTree = "<group>"; };
+		89957A8D21394995008EE0BE /* CMPSeparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSeparator.h; sourceTree = "<group>"; };
+		89957A8E21394995008EE0BE /* CMPSeparator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSeparator.m; sourceTree = "<group>"; };
+		89957A90213949F6008EE0BE /* CMPPlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPlaceholderTextView.h; sourceTree = "<group>"; };
+		89957A91213949F6008EE0BE /* CMPPlaceholderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPlaceholderTextView.m; sourceTree = "<group>"; };
+		89957A9321396F31008EE0BE /* CMPTitledTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTitledTextField.h; sourceTree = "<group>"; };
+		89957A9421396F31008EE0BE /* CMPTitledTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTitledTextField.m; sourceTree = "<group>"; };
+		89957A9621396FBB008EE0BE /* CMPInsetTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPInsetTextField.h; sourceTree = "<group>"; };
+		89957A9721396FBB008EE0BE /* CMPInsetTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPInsetTextField.m; sourceTree = "<group>"; };
+		89957A9A213971BA008EE0BE /* UIToolbar+CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+CMPUtilities.h"; sourceTree = "<group>"; };
+		89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+CMPUtilities.m"; sourceTree = "<group>"; };
 		89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comapi_ios_sdk_objective_c.h; sourceTree = "<group>"; };
 		89C8DE422122DF3C00555495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +223,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		89957A62213935E0008EE0BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89C8DE3A2122DF3C00555495 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,12 +501,77 @@
 			path = JSONCoding;
 			sourceTree = "<group>";
 		};
+		89957A66213935E0008EE0BE /* SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				89957A992139719F008EE0BE /* Categories */,
+				89957A7F21393726008EE0BE /* Protocols */,
+				89957A7B2139361E008EE0BE /* Base */,
+				89957A67213935E0008EE0BE /* AppDelegate.h */,
+				89957A68213935E0008EE0BE /* AppDelegate.m */,
+				89957A6D213935E0008EE0BE /* Main.storyboard */,
+				89957A70213935E3008EE0BE /* Assets.xcassets */,
+				89957A72213935E3008EE0BE /* LaunchScreen.storyboard */,
+				89957A75213935E3008EE0BE /* Info.plist */,
+				89957A76213935E3008EE0BE /* main.m */,
+			);
+			path = SampleApp;
+			sourceTree = "<group>";
+		};
+		89957A7B2139361E008EE0BE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				89957A86213946F6008EE0BE /* Views */,
+				89957A7C21393644008EE0BE /* CMPBaseViewController.h */,
+				89957A7D21393644008EE0BE /* CMPBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		89957A7F21393726008EE0BE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				89957A832139398B008EE0BE /* CMPViewConfiguring.h */,
+				89957A8421394629008EE0BE /* CMPViewControllerConfiguring.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		89957A86213946F6008EE0BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89957A8721394743008EE0BE /* CMPBaseView.h */,
+				89957A8821394743008EE0BE /* CMPBaseView.m */,
+				89957A8A213947AE008EE0BE /* CMPGrayButtonWithWhiteText.h */,
+				89957A8B213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m */,
+				89957A8D21394995008EE0BE /* CMPSeparator.h */,
+				89957A8E21394995008EE0BE /* CMPSeparator.m */,
+				89957A90213949F6008EE0BE /* CMPPlaceholderTextView.h */,
+				89957A91213949F6008EE0BE /* CMPPlaceholderTextView.m */,
+				89957A9321396F31008EE0BE /* CMPTitledTextField.h */,
+				89957A9421396F31008EE0BE /* CMPTitledTextField.m */,
+				89957A9621396FBB008EE0BE /* CMPInsetTextField.h */,
+				89957A9721396FBB008EE0BE /* CMPInsetTextField.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89957A992139719F008EE0BE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				89957A9A213971BA008EE0BE /* UIToolbar+CMPUtilities.h */,
+				89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		89C8DE342122DF3C00555495 = {
 			isa = PBXGroup;
 			children = (
 				89C8DE4A2122F47700555495 /* Tests */,
 				89C8DE492122F47000555495 /* Sources */,
 				89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */,
+				89957A66213935E0008EE0BE /* SampleApp */,
 				89C8DE3F2122DF3C00555495 /* Products */,
 				0E18858C2E25A1A4A46CE7FA /* Pods */,
 				BA0E515409A75C477859ADD3 /* Frameworks */,
@@ -471,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */,
+				89957A65213935E0008EE0BE /* SampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -619,6 +731,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		89957A64213935E0008EE0BE /* SampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89957A78213935E3008EE0BE /* Build configuration list for PBXNativeTarget "SampleApp" */;
+			buildPhases = (
+				89957A61213935E0008EE0BE /* Sources */,
+				89957A62213935E0008EE0BE /* Frameworks */,
+				89957A63213935E0008EE0BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleApp;
+			productName = SampleApp;
+			productReference = 89957A65213935E0008EE0BE /* SampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */;
@@ -647,6 +776,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Comapi;
 				TargetAttributes = {
+					89957A64213935E0008EE0BE = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					89C8DE3D2122DF3C00555495 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -658,6 +790,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 89C8DE342122DF3C00555495;
 			productRefGroup = 89C8DE3F2122DF3C00555495 /* Products */;
@@ -665,11 +798,22 @@
 			projectRoot = "";
 			targets = (
 				89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */,
+				89957A64213935E0008EE0BE /* SampleApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		89957A63213935E0008EE0BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89957A74213935E3008EE0BE /* LaunchScreen.storyboard in Resources */,
+				89957A71213935E3008EE0BE /* Assets.xcassets in Resources */,
+				89957A6F213935E0008EE0BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89C8DE3C2122DF3C00555495 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -701,6 +845,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		89957A61213935E0008EE0BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */,
+				89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */,
+				89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */,
+				89957A8C213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m in Sources */,
+				89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */,
+				89957A8921394743008EE0BE /* CMPBaseView.m in Sources */,
+				89957A77213935E3008EE0BE /* main.m in Sources */,
+				89957A8F21394995008EE0BE /* CMPSeparator.m in Sources */,
+				89957A92213949F7008EE0BE /* CMPPlaceholderTextView.m in Sources */,
+				89957A69213935E0008EE0BE /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89C8DE392122DF3C00555495 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -747,7 +908,60 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		89957A6D213935E0008EE0BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89957A6E213935E0008EE0BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89957A72213935E3008EE0BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89957A73213935E3008EE0BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		89957A79213935E3008EE0BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89957A7A213935E3008EE0BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				INFOPLIST_FILE = SampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		89C8DE442122DF3C00555495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -917,6 +1131,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		89957A78213935E3008EE0BE /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89957A79213935E3008EE0BE /* Debug */,
+				89957A7A213935E3008EE0BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "comapi-ios-sdk-objective-c" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
