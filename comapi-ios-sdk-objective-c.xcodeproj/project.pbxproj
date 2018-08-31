@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4629036B7F0797FFBD3F182A /* Pods_comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */; };
+		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
 		895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */; };
 		895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */; };
 		895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */; };
@@ -86,6 +86,8 @@
 		89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9421396F31008EE0BE /* CMPTitledTextField.m */; };
 		89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9721396FBB008EE0BE /* CMPInsetTextField.m */; };
 		89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */; };
+		89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */; };
+		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
 		89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
@@ -106,9 +108,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comapi-ios-sdk-objective-c.release.xcconfig"; path = "Pods/Target Support Files/Pods-comapi-ios-sdk-objective-c/Pods-comapi-ios-sdk-objective-c.release.xcconfig"; sourceTree = "<group>"; };
-		7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comapi-ios-sdk-objective-c.debug.xcconfig"; path = "Pods/Target Support Files/Pods-comapi-ios-sdk-objective-c/Pods-comapi-ios-sdk-objective-c.debug.xcconfig"; sourceTree = "<group>"; };
 		895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
 		895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestManager.m; sourceTree = "<group>"; };
 		895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
@@ -201,6 +200,10 @@
 		89957A9721396FBB008EE0BE /* CMPInsetTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPInsetTextField.m; sourceTree = "<group>"; };
 		89957A9A213971BA008EE0BE /* UIToolbar+CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+CMPUtilities.h"; sourceTree = "<group>"; };
 		89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+CMPUtilities.m"; sourceTree = "<group>"; };
+		89957A9E21398AC1008EE0BE /* CMPAppConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAppConfigurator.h; sourceTree = "<group>"; };
+		89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAppConfigurator.m; sourceTree = "<group>"; };
+		89957AA321398B9D008EE0BE /* CMPLoginBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginBundle.h; sourceTree = "<group>"; };
+		89957AA421398B9D008EE0BE /* CMPLoginBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginBundle.m; sourceTree = "<group>"; };
 		89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comapi_ios_sdk_objective_c.h; sourceTree = "<group>"; };
 		89C8DE422122DF3C00555495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -220,6 +223,9 @@
 		89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthorizeSessionBody.m; sourceTree = "<group>"; };
 		89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
 		89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDeleteSessionTemplate.m; sourceTree = "<group>"; };
+		BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,20 +241,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4629036B7F0797FFBD3F182A /* Pods_comapi_ios_sdk_objective_c.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E18858C2E25A1A4A46CE7FA /* Pods */ = {
+		66A88DB8C45AF2FC68C4BDFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */,
-				65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */,
+				C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		895FF4EE2126BFD30007FAC3 /* RequestManager */ = {
@@ -504,6 +509,8 @@
 		89957A66213935E0008EE0BE /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				89957AA121398B73008EE0BE /* Login */,
+				89957A9D21398AA9008EE0BE /* Configurator */,
 				89957A992139719F008EE0BE /* Categories */,
 				89957A7F21393726008EE0BE /* Protocols */,
 				89957A7B2139361E008EE0BE /* Base */,
@@ -565,6 +572,32 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		89957A9D21398AA9008EE0BE /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				89957A9E21398AC1008EE0BE /* CMPAppConfigurator.h */,
+				89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		89957AA121398B73008EE0BE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				89957AA221398B7A008EE0BE /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		89957AA221398B7A008EE0BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89957AA321398B9D008EE0BE /* CMPLoginBundle.h */,
+				89957AA421398B9D008EE0BE /* CMPLoginBundle.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		89C8DE342122DF3C00555495 = {
 			isa = PBXGroup;
 			children = (
@@ -573,8 +606,8 @@
 				89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */,
 				89957A66213935E0008EE0BE /* SampleApp */,
 				89C8DE3F2122DF3C00555495 /* Products */,
-				0E18858C2E25A1A4A46CE7FA /* Pods */,
-				BA0E515409A75C477859ADD3 /* Frameworks */,
+				F026D228D8308D4507B88AE3 /* Pods */,
+				66A88DB8C45AF2FC68C4BDFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -665,12 +698,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BA0E515409A75C477859ADD3 /* Frameworks */ = {
+		F026D228D8308D4507B88AE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05C6E112287AE8E30960BCE6 /* Pods_comapi_ios_sdk_objective_c.framework */,
+				BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */,
+				E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -735,6 +769,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89957A78213935E3008EE0BE /* Build configuration list for PBXNativeTarget "SampleApp" */;
 			buildPhases = (
+				4BBEE0D786B28AC508BE9E8B /* [CP] Check Pods Manifest.lock */,
 				89957A61213935E0008EE0BE /* Sources */,
 				89957A62213935E0008EE0BE /* Frameworks */,
 				89957A63213935E0008EE0BE /* Resources */,
@@ -752,7 +787,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */;
 			buildPhases = (
-				289F2D1F89864FFFC6627D42 /* [CP] Check Pods Manifest.lock */,
 				89C8DE392122DF3C00555495 /* Sources */,
 				89C8DE3A2122DF3C00555495 /* Frameworks */,
 				89C8DE3B2122DF3C00555495 /* Headers */,
@@ -824,7 +858,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		289F2D1F89864FFFC6627D42 /* [CP] Check Pods Manifest.lock */ = {
+		4BBEE0D786B28AC508BE9E8B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -835,7 +869,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-comapi-ios-sdk-objective-c-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SampleApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -853,11 +887,13 @@
 				89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */,
 				89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */,
 				89957A8C213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m in Sources */,
+				89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */,
 				89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */,
 				89957A8921394743008EE0BE /* CMPBaseView.m in Sources */,
 				89957A77213935E3008EE0BE /* main.m in Sources */,
 				89957A8F21394995008EE0BE /* CMPSeparator.m in Sources */,
 				89957A92213949F7008EE0BE /* CMPPlaceholderTextView.m in Sources */,
+				89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */,
 				89957A69213935E0008EE0BE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,35 +966,39 @@
 /* Begin XCBuildConfiguration section */
 		89957A79213935E3008EE0BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		89957A7A213935E3008EE0BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1080,7 +1120,6 @@
 		};
 		89C8DE472122DF3C00555495 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D3DCB2076801A32F38DE0DE /* Pods-comapi-ios-sdk-objective-c.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1105,7 +1144,6 @@
 		};
 		89C8DE482122DF3C00555495 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65870F5B77CD4B467013F5DD /* Pods-comapi-ios-sdk-objective-c.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

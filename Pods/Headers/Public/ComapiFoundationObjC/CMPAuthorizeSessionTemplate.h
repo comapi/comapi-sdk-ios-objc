@@ -1,0 +1,1 @@
+../../../../Sources/Networking/Templates/Session/CMPAuthorizeSessionTemplate.h
