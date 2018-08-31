@@ -1,0 +1,46 @@
+//
+//  CMPInsetTextField.m
+//  SampleApp
+//
+//  Created by Dominik Kowalski on 31/08/2018.
+//  Copyright © 2018 Comapi. All rights reserved.
+//
+
+#import "CMPInsetTextField.h"
+#import "UIToolbar+CMPUtilities.h"
+
+@implementation CMPInsetTextField
+
+- (instancetype)init {
+    self = [super initWithFrame:CGRectZero textContainer:nil];
+    [self configure];
+    return self;
+}
+
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, 10, 10);
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, 10, 10);
+}
+
+- (void)configure {
+    self.keyboardAppearance = UIKeyboardAppearanceDark;
+    self.layer.cornerRadius = 4.0;
+    self.backgroundColor = UIColor.clearColor;
+    self.textColor = UIColor.whiteColor;
+    self.font = [UIFont systemFontOfSize:16];
+    [self addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventTouchUpInside];
+    self.inputAccessoryView = [UIToolbar toolbarWithTitle:@"Done" target:self action:@selector(dismiss)];
+}
+
+- (void)textChanged {
+    self.didChangeText(self.text);
+}
+
+- (void)dismiss {
+    [self resignFirstResponder];
+}
+
+@end
