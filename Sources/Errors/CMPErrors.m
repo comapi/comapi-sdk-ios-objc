@@ -15,16 +15,12 @@
     switch (status) {
         case CMPRequestTemplateErrorRequestCreationFailed:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorRequestCreationFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
-            break;
         case CMPRequestTemplateErrorResponseParsingFailed:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
-            break;
         case CMPRequestTemplateErrorConnectionFailed:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
-            break;
         case CMPRequestTemplateErrorUnexpectedStatusCode:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorWrongCodeStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
-            break;
     }
 }
 
@@ -32,6 +28,16 @@
     switch (status) {
         case CMPAuthenticationErrorMissingToken:
             return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorMissingTokenStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+    }
+}
+
++ (NSError *)comapiErrorWithStatus:(CMPComapiError)status underlyingError:(NSError *)error {
+    switch (status) {
+        case CMPComapiErrorNotInitialised:
+            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorNotInitialisedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+        case CMPComapiErrorAlreadyInitialised:
+            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorAlreadyInitialisedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+        default:
             break;
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "BaseView.h"
+#import "CMPBaseView.h"
 
 @implementation CMPBaseView
 

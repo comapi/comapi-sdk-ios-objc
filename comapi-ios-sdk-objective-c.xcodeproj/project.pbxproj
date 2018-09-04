@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
+		89342DA3213E9BE0000D0F2D /* CMPAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DA2213E9BE0000D0F2D /* CMPAuthenticationManager.m */; };
+		89342DA4213EBF44000D0F2D /* comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */; };
+		89342DAB213EC05D000D0F2D /* CMPLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DAA213EC05D000D0F2D /* CMPLoginView.m */; };
+		89342DAE213EC7E1000D0F2D /* CMPBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DAD213EC7E1000D0F2D /* CMPBaseCell.m */; };
+		89342DB1213EC84F000D0F2D /* CMPTitledInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */; };
+		89342DB4213ECE80000D0F2D /* CMPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DB3213ECE80000D0F2D /* CMPLoginViewController.m */; };
 		895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */; };
 		895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */; };
 		895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */; };
@@ -108,6 +114,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89342DA1213E9BE0000D0F2D /* CMPAuthenticationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationManager.h; sourceTree = "<group>"; };
+		89342DA2213E9BE0000D0F2D /* CMPAuthenticationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthenticationManager.m; sourceTree = "<group>"; };
+		89342DA9213EC05D000D0F2D /* CMPLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginView.h; sourceTree = "<group>"; };
+		89342DAA213EC05D000D0F2D /* CMPLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginView.m; sourceTree = "<group>"; };
+		89342DAC213EC7E1000D0F2D /* CMPBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPBaseCell.h; sourceTree = "<group>"; };
+		89342DAD213EC7E1000D0F2D /* CMPBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPBaseCell.m; sourceTree = "<group>"; };
+		89342DAF213EC84F000D0F2D /* CMPTitledInputCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTitledInputCell.h; sourceTree = "<group>"; };
+		89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTitledInputCell.m; sourceTree = "<group>"; };
+		89342DB2213ECE80000D0F2D /* CMPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginViewController.h; sourceTree = "<group>"; };
+		89342DB3213ECE80000D0F2D /* CMPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginViewController.m; sourceTree = "<group>"; };
 		895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
 		895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestManager.m; sourceTree = "<group>"; };
 		895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
@@ -233,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89342DA4213EBF44000D0F2D /* comapi_ios_sdk_objective_c.framework in Frameworks */,
 				74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +270,49 @@
 				C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89342DA0213E9BC6000D0F2D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				89342DA1213E9BE0000D0F2D /* CMPAuthenticationManager.h */,
+				89342DA2213E9BE0000D0F2D /* CMPAuthenticationManager.m */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		89342DA5213EBFE3000D0F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89342DA9213EC05D000D0F2D /* CMPLoginView.h */,
+				89342DAA213EC05D000D0F2D /* CMPLoginView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89342DA6213EBFF9000D0F2D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				89342DB2213ECE80000D0F2D /* CMPLoginViewController.h */,
+				89342DB3213ECE80000D0F2D /* CMPLoginViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		89342DA7213EC004000D0F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89342DA8213EC00D000D0F2D /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				89342DAF213EC84F000D0F2D /* CMPTitledInputCell.h */,
+				89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		895FF4EE2126BFD30007FAC3 /* RequestManager */ = {
@@ -509,6 +569,7 @@
 		89957A66213935E0008EE0BE /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				89342DA0213E9BC6000D0F2D /* Authentication */,
 				89957AA121398B73008EE0BE /* Login */,
 				89957A9D21398AA9008EE0BE /* Configurator */,
 				89957A992139719F008EE0BE /* Categories */,
@@ -547,6 +608,8 @@
 		89957A86213946F6008EE0BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89342DAC213EC7E1000D0F2D /* CMPBaseCell.h */,
+				89342DAD213EC7E1000D0F2D /* CMPBaseCell.m */,
 				89957A8721394743008EE0BE /* CMPBaseView.h */,
 				89957A8821394743008EE0BE /* CMPBaseView.m */,
 				89957A8A213947AE008EE0BE /* CMPGrayButtonWithWhiteText.h */,
@@ -584,6 +647,10 @@
 		89957AA121398B73008EE0BE /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				89342DA8213EC00D000D0F2D /* Subviews */,
+				89342DA7213EC004000D0F2D /* ViewModel */,
+				89342DA6213EBFF9000D0F2D /* ViewController */,
+				89342DA5213EBFE3000D0F2D /* View */,
 				89957AA221398B7A008EE0BE /* Model */,
 			);
 			path = Login;
@@ -773,6 +840,7 @@
 				89957A61213935E0008EE0BE /* Sources */,
 				89957A62213935E0008EE0BE /* Frameworks */,
 				89957A63213935E0008EE0BE /* Resources */,
+				E70419ABDD578752920A999B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -876,6 +944,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E70419ABDD578752920A999B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Base64/Base64.framework",
+				"${BUILT_PRODUCTS_DIR}/JWT/JWT.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -884,13 +972,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */,
+				89342DB4213ECE80000D0F2D /* CMPLoginViewController.m in Sources */,
 				89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */,
+				89342DAE213EC7E1000D0F2D /* CMPBaseCell.m in Sources */,
 				89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */,
 				89957A8C213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m in Sources */,
+				89342DB1213EC84F000D0F2D /* CMPTitledInputCell.m in Sources */,
 				89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */,
 				89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */,
 				89957A8921394743008EE0BE /* CMPBaseView.m in Sources */,
 				89957A77213935E3008EE0BE /* main.m in Sources */,
+				89342DA3213E9BE0000D0F2D /* CMPAuthenticationManager.m in Sources */,
+				89342DAB213EC05D000D0F2D /* CMPLoginView.m in Sources */,
 				89957A8F21394995008EE0BE /* CMPSeparator.m in Sources */,
 				89957A92213949F7008EE0BE /* CMPPlaceholderTextView.m in Sources */,
 				89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */,

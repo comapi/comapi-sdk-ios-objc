@@ -8,7 +8,8 @@
 
 #import "CMPSessionService.h"
 #import "CMPProfileService.h"
-#import "CMPSessionManager.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPServices : NSObject
 
@@ -18,3 +19,5 @@
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider;
 
 @end
+
+NS_ASSUME_NONNULL_END

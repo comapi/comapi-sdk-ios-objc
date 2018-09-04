@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double comapi_ios_sdk_objective_cVersionNumber;
 FOUNDATION_EXPORT const unsigned char comapi_ios_sdk_objective_cVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <comapi_ios_sdk_objective_c/PublicHeader.h>
-
-

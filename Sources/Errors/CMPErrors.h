@@ -21,10 +21,16 @@ typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {
     CMPAuthenticationErrorMissingToken,
 };
 
+typedef NS_ENUM(NSUInteger, CMPComapiError) {
+    CMPComapiErrorAlreadyInitialised,
+    CMPComapiErrorNotInitialised,
+};
+
 @interface CMPErrors : NSObject
 
 + (NSError *)requestTemplateErrorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error;
 + (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError * _Nullable)error;
++ (NSError *)comapiErrorWithStatus:(CMPComapiError)status underlyingError:(NSError * _Nullable)error;
 
 @end
 

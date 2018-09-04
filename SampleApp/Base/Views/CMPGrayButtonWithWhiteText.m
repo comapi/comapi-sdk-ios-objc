@@ -17,7 +17,7 @@
 }
 
 - (void)configure {
-    [self backgroundColor] = UIColor.whiteColor;
+    self.backgroundColor = UIColor.whiteColor;
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.font = [UIFont systemFontOfSize:18];
     [self setTitleColor:UIColor.grayColor forState:0];

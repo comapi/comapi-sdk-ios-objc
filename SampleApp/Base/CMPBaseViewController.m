@@ -8,7 +8,7 @@
 
 #import "CMPBaseViewController.h"
 
-NSString * const kCMPLoadingStopNotification = @"WillStopLoading";
+NSString * const kCMPLoadingBeginNotification = @"WillBeginLoading";
 NSString * const kCMPLoadingStopNotification = @"WillStopLoading";
 
 @interface CMPBaseViewController ()
@@ -43,8 +43,8 @@ NSString * const kCMPLoadingStopNotification = @"WillStopLoading";
 }
 
 - (void)registerForLoadingNotifcations {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadingWillBePerformed) name:kCMPLoadingBeginNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadingWillBeFinished) name:kCMPLoadingStopNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadingWillBePerformed:) name:kCMPLoadingBeginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadingWillBeFinished:) name:kCMPLoadingStopNotification object:nil];
 }
 
 - (void)unregisterFromLoadingNotifications {
@@ -61,10 +61,10 @@ NSString * const kCMPLoadingStopNotification = @"WillStopLoading";
 }
 
 - (void)registerForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeShown) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)unregisterFromKeyboardNotifications {

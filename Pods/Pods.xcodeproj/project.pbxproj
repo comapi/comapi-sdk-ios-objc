@@ -7,79 +7,217 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7981D22C7187F0FE0FBCBB257FCDFC40 /* Pods-SampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43E0836AB7F78D7F2563BA2715E694C8 /* Pods-SampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A00EFAF8AA7BE715A7DF5B6B56CC860E /* Pods-SampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E34C2187030136F6DB77752E5F4911 /* Pods-SampleApp-dummy.m */; };
-		C0A9AE1FC71076C8855FBC5D77EE1633 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		03564429EFA015EB0CB10F809BB91AFE /* JWTCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 16461DDD278E5C5CBEC32AF0B2AAE415 /* JWTCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12B480FC5458C8916933BDBDCA0056F7 /* JWTAlgorithmFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 682F67EEF8E267AD3567990A155C3BA7 /* JWTAlgorithmFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1417BD614D6C59E9C5D7F3AE4809A648 /* JWTBase64Coder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B26C1CF8FCE727032C2AE06B2946D54 /* JWTBase64Coder.m */; };
+		14BFAAE3DA5473148C8513CE8B4E6001 /* JWTDeprecations.h in Headers */ = {isa = PBXBuildFile; fileRef = 250BA16FA1B3D38BBD4646270B0537EE /* JWTDeprecations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1679F359921879B12FFD70CB6ABD8DFC /* MF_Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C7AC7834C7199C1619BE2BBADCC78B /* MF_Base64Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		182E97636A153EE5C351349A1DFF724B /* JWTAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 22DB42ED2FE259B8014ED80BAEF0C1AD /* JWTAlgorithm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C1B2A9A9CB8966A8BD93181840620A9 /* JWTClaimsSetVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9403FB04B531A4873509DFA79B6A7827 /* JWTClaimsSetVerifier.m */; };
+		21DF779A0FADD5267C1B79BFD649D0CF /* JWTCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5536F291D62F3F0CBA7FBEA445962D /* JWTCoding.m */; };
+		2358A89173DEDD74555DE33E10C30440 /* JWTAlgorithmRSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCBE4A56F1D2F048D9D044416F8FBD6B /* JWTAlgorithmRSBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25EEC3F3BBA664B76B0883EE71F2016D /* JWTAlgorithmHS512.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B55D5F1E2E597124BB992FE0EBE772D /* JWTAlgorithmHS512.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A554F281CB97F7CE80CC184349DEC6A /* JWTClaimsSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 355F351AA1D613D78F0A3CEB8036FF85 /* JWTClaimsSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36459EFBCA63AD9E5DE342785F614B18 /* JWTAlgorithmDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2380D700F4E9D43C78C8BF2D377496 /* JWTAlgorithmDataHolder.m */; };
+		43DEADBD31BE9740CDC1FF6E84139FB9 /* JWTBase64Coder.h in Headers */ = {isa = PBXBuildFile; fileRef = 244CFE2736D888AC617373C9CCF8F31B /* JWTBase64Coder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5DACB438FE43169FDF1C3B774D3925 /* JWT.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D784077CE5BA5E6C7864DF81BFA5113 /* JWT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F88E1FFC02D53264AAD469A1DFD5A43 /* JWTAlgorithmNone.m in Sources */ = {isa = PBXBuildFile; fileRef = D102873E1445FC885B752F571AEBCB5D /* JWTAlgorithmNone.m */; };
+		5175A241A7D7F6C8431DB7FF9C1FC66D /* JWTAlgorithmHSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1B84CFA613F078EBA5139B7E09BB58 /* JWTAlgorithmHSBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56D4179F4D474E2CB5CC0358F8F84F43 /* JWTAlgorithmHS256.h in Headers */ = {isa = PBXBuildFile; fileRef = 6968983454E75542B01811674D253A54 /* JWTAlgorithmHS256.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0FE80E966C87314397310F644DC9BD /* Base64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3618AAB9FE1E53E73ED6871895C6FF0 /* Base64.framework */; };
+		636ED5C38BF735D374889738163BEAF8 /* JWTClaimsSetSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D9334631D30FC17E3E2C0D7FB9ACE0D /* JWTClaimsSetSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64BE5C76E0FEC38118DDCC568D5DE5B1 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FD4173279D4803E71F10BA5EE66AB5 /* MF_Base64Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		67FA8775EC6FC5149AF464DBB8FA2D37 /* JWTAlgorithmDataHolderChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 077B096C7411706572BF55DAF041C477 /* JWTAlgorithmDataHolderChain.m */; };
+		695D2766862AE19CF6AF68FD81808036 /* JWTAlgorithmHS384.h in Headers */ = {isa = PBXBuildFile; fileRef = 39022E5D7B44B18393A7CFAB2C38FC0D /* JWTAlgorithmHS384.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6DE39244C7C3AD7C26FCA61F0F43650A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */; };
+		7C981AA277086811C5DA8CAED22FC0B2 /* JWTAlgorithmHS256.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AB0F7509ED21C17F11679065B88349 /* JWTAlgorithmHS256.m */; };
+		82D6AE3F1D04112EBAB647A8CB4D0347 /* JWTClaimsSetSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDFDFFA90E2B954959FAD9AB54CD58 /* JWTClaimsSetSerializer.m */; };
+		85F05215443DFB3B9D3B9E0DBC59D4AC /* JWTAlgorithmHS512.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B650F43F4B1E4611FC99CC610E69659 /* JWTAlgorithmHS512.m */; };
+		8EFD8876859AE883639E2F382339C3D7 /* Base64-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 418AD10F11C81649FD64B5DDED639720 /* Base64-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FE7ABB19C17FB8D56FBF7BAB3E13885 /* JWTClaimsSetVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 499F7E8AC78388D3883339D12047E457 /* JWTClaimsSetVerifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0B81961AE2767553086D5CC9BDAF72F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A36F41E14236E2690355F41447D6EBB /* Security.framework */; };
+		A1EA9313BD2919EAD136A6117F5FEA01 /* JWTAlgorithmHS384.m in Sources */ = {isa = PBXBuildFile; fileRef = 371591A744E9E7BA0CD8A22B94B8BE89 /* JWTAlgorithmHS384.m */; };
+		A6DE8DD5DA58E4DE8F6CD76DBCB4F900 /* JWTAlgorithmDataHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 329D5373D2152DF776C160E352D06B8D /* JWTAlgorithmDataHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00F252CE31D623BF81E7D0485648EC9 /* JWT-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9114950C8E075A49BD680A58FD181F /* JWT-dummy.m */; };
+		B25B4A1401DB5B846500543931B86B84 /* JWTAlgorithmNone.h in Headers */ = {isa = PBXBuildFile; fileRef = E0DC0B0B1B67AC03B507C011B552B15D /* JWTAlgorithmNone.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B295974AF4D895F2EE645F0E3AE2C3D3 /* JWTClaimsSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F8A24A8DB7A9B49D7E7C130CD85209 /* JWTClaimsSet.m */; };
+		B4E94E38587A7E2398800644FC00B838 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */; };
+		C35F95F4814914CAF49F7BB772062779 /* JWTClaim.m in Sources */ = {isa = PBXBuildFile; fileRef = 40147AF106CDC689B0C729C4064211AC /* JWTClaim.m */; };
+		C528BF1AA5F073565C21C248BD8FA8BA /* JWT-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF7862BDC02873C650BC4B703A92E570 /* JWT-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB3B9AC0AEE516E2F52BE68ACAAC8CDC /* Pods-SampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E34C2187030136F6DB77752E5F4911 /* Pods-SampleApp-dummy.m */; };
+		D5F0B57D3580342AE857E1D354D6F7BC /* JWTAlgorithmHSBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D91FF55438C9F8C5AD16ADC129A1F3D7 /* JWTAlgorithmHSBase.m */; };
+		DCD2358E8CC397AADAEF32EAAF6720F3 /* Base64-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0BC01C4CA11EC328544B7C2C510CBB /* Base64-dummy.m */; };
+		DE9F93A868DEA1D9F49B338FADEBBA2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */; };
+		E2E6FC383EB17D9F0B2E3512876C5F5C /* JWTAlgorithmFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 19553283BD4A9B5F7C1D12EA19D5AD0B /* JWTAlgorithmFactory.m */; };
+		E37CA3AE0DB54F2281AAB12CC0B3ADB9 /* JWTRSAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = EB118CD5C4BE831E64C2A0D638FED66B /* JWTRSAlgorithm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF74546FDB9F7D22BEE79AE82AD31703 /* JWTClaim.h in Headers */ = {isa = PBXBuildFile; fileRef = FCEEF1571059B7DBB2CA33486435931B /* JWTClaim.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EFBE735EE3164438ACAA1B4C9F615B8F /* JWTAlgorithmDataHolderChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 46997437C803F12E33B839243ACF9ED2 /* JWTAlgorithmDataHolderChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0868651957987666BB3AE00BC2E91F5 /* Pods-SampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43E0836AB7F78D7F2563BA2715E694C8 /* Pods-SampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8866D91C0AF370D124B599DA343B535 /* JWTAlgorithmRSBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F93D26AFCCC3D9090083FB129FBD0 /* JWTAlgorithmRSBase.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		002F6DEE55F16A6C86D507C5D185FE7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A9F9106B32ACF952B66B2EE009513F;
+			remoteInfo = Base64;
+		};
+		06C8A98457950CF889C4E5E8042527AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13F3ECEDD8FACC405786411AC2E31ABC;
+			remoteInfo = JWT;
+		};
+		46EB161CAFC3F0FEA41E02F386747DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A9F9106B32ACF952B66B2EE009513F;
+			remoteInfo = Base64;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02DDF2CBF7A70C699E8F6F93F8882B06 /* ComapiFoundationObjC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ComapiFoundationObjC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		05B2BCFC21B0BB6AE8B473D08A6FE7B0 /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
+		077B096C7411706572BF55DAF041C477 /* JWTAlgorithmDataHolderChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolderChain.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.m; sourceTree = "<group>"; };
+		0B26C1CF8FCE727032C2AE06B2946D54 /* JWTBase64Coder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTBase64Coder.m; path = Classes/Supplement/JWTBase64Coder.m; sourceTree = "<group>"; };
 		0CAE1189BACC6540D521555281B0D34E /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
 		101FCE4665CCD8166D62352E45518F2A /* CMPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLog.h; sourceTree = "<group>"; };
+		104E472AB2EC51111F19CB2FE553BEB7 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base64.framework; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1311F5BB376085528BD7D839F3FB1912 /* CMPBaseService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPBaseService.h; sourceTree = "<group>"; };
 		1505B2B6AAC065A91B37ECB71E93CD32 /* CMPURLResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
+		16461DDD278E5C5CBEC32AF0B2AAE415 /* JWTCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTCoding.h; path = Classes/Coding/JWTCoding.h; sourceTree = "<group>"; };
 		175B00A46FEB326AE650E6DE66F370FC /* CMPLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogLevel.h; sourceTree = "<group>"; };
+		19553283BD4A9B5F7C1D12EA19D5AD0B /* JWTAlgorithmFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmFactory.m; path = Classes/Algorithms/Base/JWTAlgorithmFactory.m; sourceTree = "<group>"; };
+		1C1B84CFA613F078EBA5139B7E09BB58 /* JWTAlgorithmHSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHSBase.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.h; sourceTree = "<group>"; };
+		1D9334631D30FC17E3E2C0D7FB9ACE0D /* JWTClaimsSetSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetSerializer.h; path = Classes/ClaimSet/JWTClaimsSetSerializer.h; sourceTree = "<group>"; };
+		1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWT.xcconfig; sourceTree = "<group>"; };
 		21E30C0B33132B5DB135F062A6905E51 /* CMPComapiClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
+		22DB42ED2FE259B8014ED80BAEF0C1AD /* JWTAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithm.h; path = Classes/Algorithms/Base/JWTAlgorithm.h; sourceTree = "<group>"; };
+		244CFE2736D888AC617373C9CCF8F31B /* JWTBase64Coder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTBase64Coder.h; path = Classes/Supplement/JWTBase64Coder.h; sourceTree = "<group>"; };
+		24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base64.xcconfig; sourceTree = "<group>"; };
+		250BA16FA1B3D38BBD4646270B0537EE /* JWTDeprecations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTDeprecations.h; path = Classes/Supplement/JWTDeprecations.h; sourceTree = "<group>"; };
 		254B60E7ED0981F8277E681A5C641FD9 /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		28D8A24F7661E9A728511377BFBD7BEF /* CMPSessionService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
 		30E417C63C5CFA6B500375CE47CDD125 /* CMPServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPServices.h; sourceTree = "<group>"; };
+		329D5373D2152DF776C160E352D06B8D /* JWTAlgorithmDataHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolder.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.h; sourceTree = "<group>"; };
+		355F351AA1D613D78F0A3CEB8036FF85 /* JWTClaimsSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSet.h; path = Classes/ClaimSet/JWTClaimsSet.h; sourceTree = "<group>"; };
+		371591A744E9E7BA0CD8A22B94B8BE89 /* JWTAlgorithmHS384.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS384.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.m; sourceTree = "<group>"; };
 		37320C5AC6684AD64DFAF2649A152CAB /* CMPSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
+		39022E5D7B44B18393A7CFAB2C38FC0D /* JWTAlgorithmHS384.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS384.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.h; sourceTree = "<group>"; };
 		3A1FFF3551EB86DF13F0EEDF8D8BD7A9 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
 		3C407D69223B6C3EA83350C93244A588 /* CMPLoggingDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLoggingDestination.h; sourceTree = "<group>"; };
+		3F9114950C8E075A49BD680A58FD181F /* JWT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWT-dummy.m"; sourceTree = "<group>"; };
+		40147AF106CDC689B0C729C4064211AC /* JWTClaim.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaim.m; path = Classes/ClaimSet/JWTClaim.m; sourceTree = "<group>"; };
 		404A3C5ADD0ECDD31F449C37D1A35D44 /* CMPJSONDecoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
+		418AD10F11C81649FD64B5DDED639720 /* Base64-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-umbrella.h"; sourceTree = "<group>"; };
 		41CF225D7D25F897C5D0128DAA9CEF1B /* CMPSessionAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
 		43E0836AB7F78D7F2563BA2715E694C8 /* Pods-SampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-umbrella.h"; sourceTree = "<group>"; };
 		451B8273D7DD9FBBD30B77F7BA7A32CA /* CMPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
 		460166191FD77FA5C8973503993EA830 /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
+		46997437C803F12E33B839243ACF9ED2 /* JWTAlgorithmDataHolderChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolderChain.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.h; sourceTree = "<group>"; };
+		46C7AC7834C7199C1619BE2BBADCC78B /* MF_Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = Base64/MF_Base64Additions.h; sourceTree = "<group>"; };
 		4793CBC0D9F9977AC5A49927AAA56BF0 /* CMPProfileService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
+		499F7E8AC78388D3883339D12047E457 /* JWTClaimsSetVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetVerifier.h; path = Classes/ClaimSet/JWTClaimsSetVerifier.h; sourceTree = "<group>"; };
 		4A1892BD6FB74B3139F404B815A2632F /* CMPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
-		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4A36F41E14236E2690355F41447D6EBB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		4C2D27D5B95BBD665298DB988AD087F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53374A0912BA015CAE9F13914FFC7360 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWT.framework; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54FD4173279D4803E71F10BA5EE66AB5 /* MF_Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = Base64/MF_Base64Additions.m; sourceTree = "<group>"; };
 		5CE1C1273EA74E824CFFA9D2B2BDC97D /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
 		60691FB7EA31F697EA94D2DEEFFA343C /* CMPLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
 		625BE25A5EA78E847FD868C248AFACCE /* CMPHTTPHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
+		63F8A24A8DB7A9B49D7E7C130CD85209 /* JWTClaimsSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSet.m; path = Classes/ClaimSet/JWTClaimsSet.m; sourceTree = "<group>"; };
+		682F67EEF8E267AD3567990A155C3BA7 /* JWTAlgorithmFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmFactory.h; path = Classes/Algorithms/Base/JWTAlgorithmFactory.h; sourceTree = "<group>"; };
 		68AEBDDBBF7453FD0F8C73BC632E8802 /* CMPJSONEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
+		6968983454E75542B01811674D253A54 /* JWTAlgorithmHS256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS256.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.h; sourceTree = "<group>"; };
+		6B650F43F4B1E4611FC99CC610E69659 /* JWTAlgorithmHS512.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS512.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.m; sourceTree = "<group>"; };
 		7239E655A132618BF0C3E003F31EB1A5 /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
 		72B11144EA529B2F1431748DBB81BC16 /* CMPComapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
 		76C2412D7E6F8C7C8DD69DEFE13C084E /* CMPFileDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPFileDestination.h; sourceTree = "<group>"; };
 		798A4914CC8AA9BAF2015218134B0C14 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
+		79EB2BC936EF1743C4EC658C1BAAA91A /* JWT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWT.modulemap; sourceTree = "<group>"; };
+		7D784077CE5BA5E6C7864DF81BFA5113 /* JWT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWT.h; path = Classes/JWT.h; sourceTree = "<group>"; };
 		7F5D68F72BFC81B830AC7CF25051E81B /* CMPKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
 		7F9C1B52153A73A7DC8D38CA889C05DE /* Pods-SampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-resources.sh"; sourceTree = "<group>"; };
 		81BC832792200A34FF2124471DE51EE0 /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
+		81F25FCEB0CE9BC88E3487AA9279C668 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8A0E16006EBD31DD0399A3AA77478C21 /* CMPConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
 		8A3FC2E044D7ED7E36BB2ACC3B65F704 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
+		8B1F93D26AFCCC3D9090083FB129FBD0 /* JWTAlgorithmRSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmRSBase.m; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.m; sourceTree = "<group>"; };
+		90BDFDFFA90E2B954959FAD9AB54CD58 /* JWTClaimsSetSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetSerializer.m; path = Classes/ClaimSet/JWTClaimsSetSerializer.m; sourceTree = "<group>"; };
 		91E34C2187030136F6DB77752E5F4911 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9403FB04B531A4873509DFA79B6A7827 /* JWTClaimsSetVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetVerifier.m; path = Classes/ClaimSet/JWTClaimsSetVerifier.m; sourceTree = "<group>"; };
 		9420FFFF376B265C935231C3BF05F7D1 /* CMPAPNSDetailsBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetailsBody.h; sourceTree = "<group>"; };
+		9B55D5F1E2E597124BB992FE0EBE772D /* JWTAlgorithmHS512.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS512.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.h; sourceTree = "<group>"; };
 		A624492ABF5A4327F50D4A74C4018C8B /* NSData+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
 		AE0C4D71174D2426CC932D25E179C198 /* Pods-SampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SampleApp.modulemap"; sourceTree = "<group>"; };
+		B3618AAB9FE1E53E73ED6871895C6FF0 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7484E4840B6E1F0E456164AF7BBB66B /* CMPAPNSDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetails.h; sourceTree = "<group>"; };
 		B9B43DF05AFE196C8F30EB9D8D47DBCC /* Pods-SampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-frameworks.sh"; sourceTree = "<group>"; };
 		C5C3D6405CD62218A4C0E71302B1F98C /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
 		CAAC90C777B1C8060FFA317199DB4287 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCBE4A56F1D2F048D9D044416F8FBD6B /* JWTAlgorithmRSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmRSBase.h; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.h; sourceTree = "<group>"; };
+		D102873E1445FC885B752F571AEBCB5D /* JWTAlgorithmNone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmNone.m; path = Classes/Algorithms/Base/JWTAlgorithmNone.m; sourceTree = "<group>"; };
 		D20400EF753F994789B5FC042AFE2A34 /* CMPComapiConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
 		D5029F15EECF8F2CDF6D541FD63AE722 /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
 		D8D80614658C86A628638DC872769D13 /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
 		D909A2C7D29D097B434E337A5DCB1220 /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
+		D91FF55438C9F8C5AD16ADC129A1F3D7 /* JWTAlgorithmHSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHSBase.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.m; sourceTree = "<group>"; };
+		DB2380D700F4E9D43C78C8BF2D377496 /* JWTAlgorithmDataHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolder.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.m; sourceTree = "<group>"; };
 		DC0FEB204A9196B0814C285554B67F33 /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
 		DC4CDC147119E455DBF1F4AEC33BDEB2 /* CMPErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
+		DF5536F291D62F3F0CBA7FBEA445962D /* JWTCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTCoding.m; path = Classes/Coding/JWTCoding.m; sourceTree = "<group>"; };
+		DF7862BDC02873C650BC4B703A92E570 /* JWT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-umbrella.h"; sourceTree = "<group>"; };
 		DFEAE1CB4614500E594BD95B8F210D99 /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
 		E04572C869A3D5AD2F9ED3F2E9ED0653 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		E0DC0B0B1B67AC03B507C011B552B15D /* JWTAlgorithmNone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmNone.h; path = Classes/Algorithms/Base/JWTAlgorithmNone.h; sourceTree = "<group>"; };
 		E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E48D248CEAFC8F4386CE9C40DD3B0DA9 /* CMPRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
+		E680340B5B8AA0FA9ABAFD6552EA3713 /* Base64-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-prefix.pch"; sourceTree = "<group>"; };
+		E84F594D1B864C95A224B85F418BB5DD /* JWT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-prefix.pch"; sourceTree = "<group>"; };
 		E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		EABF0A6982FE0CF5E811F1E61EC3053D /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SampleApp.framework; path = "Pods-SampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB118CD5C4BE831E64C2A0D638FED66B /* JWTRSAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTRSAlgorithm.h; path = Classes/Algorithms/RSFamily/JWTRSAlgorithm.h; sourceTree = "<group>"; };
 		EC439A1F35CEE5619F96203EF40F0836 /* CMPXcodeConsoleDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPXcodeConsoleDestination.h; sourceTree = "<group>"; };
-		FB33F44374E8FABA99008F57E9237D13 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SampleApp.framework; path = "Pods-SampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0BC01C4CA11EC328544B7C2C510CBB /* Base64-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base64-dummy.m"; sourceTree = "<group>"; };
+		F5AB0F7509ED21C17F11679065B88349 /* JWTAlgorithmHS256.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS256.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.m; sourceTree = "<group>"; };
+		F64733301B08DF37BE4C19023F5F3A91 /* Base64.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Base64.modulemap; sourceTree = "<group>"; };
 		FB86399DD5028C71EE45F7B4A4B3B30F /* NSString+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
+		FCEEF1571059B7DBB2CA33486435931B /* JWTClaim.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaim.h; path = Classes/ClaimSet/JWTClaim.h; sourceTree = "<group>"; };
 		FFD0541278CF59A51EF6F85EBF4A1006 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4DD5191254B175DDB364B4D725996B50 /* Frameworks */ = {
+		2833F8A86133613517D6C19583AD637D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0A9AE1FC71076C8855FBC5D77EE1633 /* Foundation.framework in Frameworks */,
+				5F0FE80E966C87314397310F644DC9BD /* Base64.framework in Frameworks */,
+				DE9F93A868DEA1D9F49B338FADEBBA2A /* Foundation.framework in Frameworks */,
+				A0B81961AE2767553086D5CC9BDAF72F /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC8443681A2FF40AB2DE74DACDED954D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4E94E38587A7E2398800644FC00B838 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EAB9DB133E367A671B56BFCD781A85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DE39244C7C3AD7C26FCA61F0F43650A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +248,16 @@
 			path = "/Users/dominik.kowalski/Documents/comapi-ios-sdk-objective-c";
 			sourceTree = "<absolute>";
 		};
+		139D5FF785BEF5F741E6038B706FABC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				104E472AB2EC51111F19CB2FE553BEB7 /* Base64.framework */,
+				53374A0912BA015CAE9F13914FFC7360 /* JWT.framework */,
+				EABF0A6982FE0CF5E811F1E61EC3053D /* Pods_SampleApp.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1EB9BC2815EB810ABDE25507D54F2EE3 /* Session */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,14 +265,6 @@
 			);
 			name = Session;
 			path = Session;
-			sourceTree = "<group>";
-		};
-		1EDB8626A29CE886CF645A38EBF65553 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FB33F44374E8FABA99008F57E9237D13 /* Pods_SampleApp.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2B7500FE78207A9BB5E717A76C32EAA5 /* Log */ = {
@@ -137,6 +277,15 @@
 			);
 			name = Log;
 			path = Sources/Log;
+			sourceTree = "<group>";
+		};
+		33D83B1500E04FB62D3814AC9EB306A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3618AAB9FE1E53E73ED6871895C6FF0 /* Base64.framework */,
+				D9CD5CDAF49BD2D7FBEDEA36D7FEFA8B /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3652E8814B57479512F5CDE235F4A8AC /* Model */ = {
@@ -192,6 +341,20 @@
 			path = URLResult;
 			sourceTree = "<group>";
 		};
+		4C9A4B67D596A7A60E6A02B9E18F7A72 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F64733301B08DF37BE4C19023F5F3A91 /* Base64.modulemap */,
+				24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */,
+				EF0BC01C4CA11EC328544B7C2C510CBB /* Base64-dummy.m */,
+				E680340B5B8AA0FA9ABAFD6552EA3713 /* Base64-prefix.pch */,
+				418AD10F11C81649FD64B5DDED639720 /* Base64-umbrella.h */,
+				81F25FCEB0CE9BC88E3487AA9279C668 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Base64";
+			sourceTree = "<group>";
+		};
 		59BC913AC9CE8DF7F2F91872B9FEBD52 /* Comapi */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,14 +364,6 @@
 			);
 			name = Comapi;
 			path = Sources/Comapi;
-			sourceTree = "<group>";
-		};
-		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		6783FAB3BF71079B90BBD4AB07871D42 /* Comapi */ = {
@@ -254,10 +409,63 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				422C431F83D8FDA8B31360E6EA656B41 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				1EDB8626A29CE886CF645A38EBF65553 /* Products */,
+				33D83B1500E04FB62D3814AC9EB306A1 /* Frameworks */,
+				8754738B02763C40E2CB3CDFB99C632E /* Pods */,
+				139D5FF785BEF5F741E6038B706FABC7 /* Products */,
 				3D38DD4AFCE429A93844A67994A1F277 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		8754738B02763C40E2CB3CDFB99C632E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9391BA242180D75672A974AE7D83470 /* Base64 */,
+				87E4A82D9F391CE516F77A7980C0406E /* JWT */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		87E4A82D9F391CE516F77A7980C0406E /* JWT */ = {
+			isa = PBXGroup;
+			children = (
+				7D784077CE5BA5E6C7864DF81BFA5113 /* JWT.h */,
+				22DB42ED2FE259B8014ED80BAEF0C1AD /* JWTAlgorithm.h */,
+				329D5373D2152DF776C160E352D06B8D /* JWTAlgorithmDataHolder.h */,
+				DB2380D700F4E9D43C78C8BF2D377496 /* JWTAlgorithmDataHolder.m */,
+				46997437C803F12E33B839243ACF9ED2 /* JWTAlgorithmDataHolderChain.h */,
+				077B096C7411706572BF55DAF041C477 /* JWTAlgorithmDataHolderChain.m */,
+				682F67EEF8E267AD3567990A155C3BA7 /* JWTAlgorithmFactory.h */,
+				19553283BD4A9B5F7C1D12EA19D5AD0B /* JWTAlgorithmFactory.m */,
+				6968983454E75542B01811674D253A54 /* JWTAlgorithmHS256.h */,
+				F5AB0F7509ED21C17F11679065B88349 /* JWTAlgorithmHS256.m */,
+				39022E5D7B44B18393A7CFAB2C38FC0D /* JWTAlgorithmHS384.h */,
+				371591A744E9E7BA0CD8A22B94B8BE89 /* JWTAlgorithmHS384.m */,
+				9B55D5F1E2E597124BB992FE0EBE772D /* JWTAlgorithmHS512.h */,
+				6B650F43F4B1E4611FC99CC610E69659 /* JWTAlgorithmHS512.m */,
+				1C1B84CFA613F078EBA5139B7E09BB58 /* JWTAlgorithmHSBase.h */,
+				D91FF55438C9F8C5AD16ADC129A1F3D7 /* JWTAlgorithmHSBase.m */,
+				E0DC0B0B1B67AC03B507C011B552B15D /* JWTAlgorithmNone.h */,
+				D102873E1445FC885B752F571AEBCB5D /* JWTAlgorithmNone.m */,
+				CCBE4A56F1D2F048D9D044416F8FBD6B /* JWTAlgorithmRSBase.h */,
+				8B1F93D26AFCCC3D9090083FB129FBD0 /* JWTAlgorithmRSBase.m */,
+				244CFE2736D888AC617373C9CCF8F31B /* JWTBase64Coder.h */,
+				0B26C1CF8FCE727032C2AE06B2946D54 /* JWTBase64Coder.m */,
+				FCEEF1571059B7DBB2CA33486435931B /* JWTClaim.h */,
+				40147AF106CDC689B0C729C4064211AC /* JWTClaim.m */,
+				355F351AA1D613D78F0A3CEB8036FF85 /* JWTClaimsSet.h */,
+				63F8A24A8DB7A9B49D7E7C130CD85209 /* JWTClaimsSet.m */,
+				1D9334631D30FC17E3E2C0D7FB9ACE0D /* JWTClaimsSetSerializer.h */,
+				90BDFDFFA90E2B954959FAD9AB54CD58 /* JWTClaimsSetSerializer.m */,
+				499F7E8AC78388D3883339D12047E457 /* JWTClaimsSetVerifier.h */,
+				9403FB04B531A4873509DFA79B6A7827 /* JWTClaimsSetVerifier.m */,
+				16461DDD278E5C5CBEC32AF0B2AAE415 /* JWTCoding.h */,
+				DF5536F291D62F3F0CBA7FBEA445962D /* JWTCoding.m */,
+				250BA16FA1B3D38BBD4646270B0537EE /* JWTDeprecations.h */,
+				EB118CD5C4BE831E64C2A0D638FED66B /* JWTRSAlgorithm.h */,
+				A1AC363423427D3051C78302F808C4FF /* Support Files */,
+			);
+			name = JWT;
+			path = JWT;
 			sourceTree = "<group>";
 		};
 		89135E5EFD2EBF4A7D0186A91BBBF87A /* JSONCoding */ = {
@@ -332,6 +540,20 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		A1AC363423427D3051C78302F808C4FF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D27D5B95BBD665298DB988AD087F1 /* Info.plist */,
+				79EB2BC936EF1743C4EC658C1BAAA91A /* JWT.modulemap */,
+				1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */,
+				3F9114950C8E075A49BD680A58FD181F /* JWT-dummy.m */,
+				E84F594D1B864C95A224B85F418BB5DD /* JWT-prefix.pch */,
+				DF7862BDC02873C650BC4B703A92E570 /* JWT-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JWT";
+			sourceTree = "<group>";
+		};
 		A2293221E00702DA8EA37023DFB36EB8 /* Push */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,14 +614,6 @@
 			path = Sources/Security;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5E0D919E635D23B70123790B8308F8EF /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BFFD7A651EE7C43D879CEFAC24182939 /* Destinations */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +623,17 @@
 			);
 			name = Destinations;
 			path = Destinations;
+			sourceTree = "<group>";
+		};
+		C9391BA242180D75672A974AE7D83470 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				46C7AC7834C7199C1619BE2BBADCC78B /* MF_Base64Additions.h */,
+				54FD4173279D4803E71F10BA5EE66AB5 /* MF_Base64Additions.m */,
+				4C9A4B67D596A7A60E6A02B9E18F7A72 /* Support Files */,
+			);
+			name = Base64;
+			path = Base64;
 			sourceTree = "<group>";
 		};
 		CE8563DC07BF0BFA8E7AF8B0C02309FC /* Session */ = {
@@ -421,6 +646,15 @@
 			);
 			name = Session;
 			path = Session;
+			sourceTree = "<group>";
+		};
+		D9CD5CDAF49BD2D7FBEDEA36D7FEFA8B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */,
+				4A36F41E14236E2690355F41447D6EBB /* Security.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		DD8BA17DD295565FC20B5822051FE64F /* HTTPHeader */ = {
@@ -463,32 +697,105 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BC8E1CBEA56B8EEA0E6A25E978C037E3 /* Headers */ = {
+		9C672AC1F0B065F5E0929861D99E1D32 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7981D22C7187F0FE0FBCBB257FCDFC40 /* Pods-SampleApp-umbrella.h in Headers */,
+				8EFD8876859AE883639E2F382339C3D7 /* Base64-umbrella.h in Headers */,
+				1679F359921879B12FFD70CB6ABD8DFC /* MF_Base64Additions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D33C4F16A11114DF7E809876923CB21B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C528BF1AA5F073565C21C248BD8FA8BA /* JWT-umbrella.h in Headers */,
+				4A5DACB438FE43169FDF1C3B774D3925 /* JWT.h in Headers */,
+				182E97636A153EE5C351349A1DFF724B /* JWTAlgorithm.h in Headers */,
+				A6DE8DD5DA58E4DE8F6CD76DBCB4F900 /* JWTAlgorithmDataHolder.h in Headers */,
+				EFBE735EE3164438ACAA1B4C9F615B8F /* JWTAlgorithmDataHolderChain.h in Headers */,
+				12B480FC5458C8916933BDBDCA0056F7 /* JWTAlgorithmFactory.h in Headers */,
+				56D4179F4D474E2CB5CC0358F8F84F43 /* JWTAlgorithmHS256.h in Headers */,
+				695D2766862AE19CF6AF68FD81808036 /* JWTAlgorithmHS384.h in Headers */,
+				25EEC3F3BBA664B76B0883EE71F2016D /* JWTAlgorithmHS512.h in Headers */,
+				5175A241A7D7F6C8431DB7FF9C1FC66D /* JWTAlgorithmHSBase.h in Headers */,
+				B25B4A1401DB5B846500543931B86B84 /* JWTAlgorithmNone.h in Headers */,
+				2358A89173DEDD74555DE33E10C30440 /* JWTAlgorithmRSBase.h in Headers */,
+				43DEADBD31BE9740CDC1FF6E84139FB9 /* JWTBase64Coder.h in Headers */,
+				EF74546FDB9F7D22BEE79AE82AD31703 /* JWTClaim.h in Headers */,
+				2A554F281CB97F7CE80CC184349DEC6A /* JWTClaimsSet.h in Headers */,
+				636ED5C38BF735D374889738163BEAF8 /* JWTClaimsSetSerializer.h in Headers */,
+				8FE7ABB19C17FB8D56FBF7BAB3E13885 /* JWTClaimsSetVerifier.h in Headers */,
+				03564429EFA015EB0CB10F809BB91AFE /* JWTCoding.h in Headers */,
+				14BFAAE3DA5473148C8513CE8B4E6001 /* JWTDeprecations.h in Headers */,
+				E37CA3AE0DB54F2281AAB12CC0B3ADB9 /* JWTRSAlgorithm.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8938773F36BB9212B1D6AC6B9EE980E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0868651957987666BB3AE00BC2E91F5 /* Pods-SampleApp-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1E7538432CA5DEF8959D3D599C53C92A /* Pods-SampleApp */ = {
+		13F3ECEDD8FACC405786411AC2E31ABC /* JWT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27C6DC9BDF8C5B81FB30D568B4B892A6 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */;
+			buildConfigurationList = 7ABD1D0958FCCB967A5014FBE214D265 /* Build configuration list for PBXNativeTarget "JWT" */;
 			buildPhases = (
-				DEF3AE48ADAFFE1977EAF5740D1140DB /* Sources */,
-				4DD5191254B175DDB364B4D725996B50 /* Frameworks */,
-				BC8E1CBEA56B8EEA0E6A25E978C037E3 /* Headers */,
+				A864D8C259B4DD64BD19856683BFA9AA /* Sources */,
+				2833F8A86133613517D6C19583AD637D /* Frameworks */,
+				D33C4F16A11114DF7E809876923CB21B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEBE41005F678F6259A85D81918063C7 /* PBXTargetDependency */,
+			);
+			name = JWT;
+			productName = JWT;
+			productReference = 53374A0912BA015CAE9F13914FFC7360 /* JWT.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		67A9F9106B32ACF952B66B2EE009513F /* Base64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3CF454BE6A2913D72AC5E28E287E799 /* Build configuration list for PBXNativeTarget "Base64" */;
+			buildPhases = (
+				8221AE19AE4FD491952F8ED4AD8D9B75 /* Sources */,
+				D5EAB9DB133E367A671B56BFCD781A85 /* Frameworks */,
+				9C672AC1F0B065F5E0929861D99E1D32 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = Base64;
+			productName = Base64;
+			productReference = 104E472AB2EC51111F19CB2FE553BEB7 /* Base64.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		72C0D19D870058B1F6DD03B9F51DDF5D /* Pods-SampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B335D67B3A3F6C3E391B0E003BD91FB4 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */;
+			buildPhases = (
+				1E5CF707610099A983447D637F98C209 /* Sources */,
+				BC8443681A2FF40AB2DE74DACDED954D /* Frameworks */,
+				F8938773F36BB9212B1D6AC6B9EE980E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33F233E6978E13D967DAEBE843268027 /* PBXTargetDependency */,
+				69E348F34138A197938012F9A6F9C0E4 /* PBXTargetDependency */,
+			);
 			name = "Pods-SampleApp";
 			productName = "Pods-SampleApp";
-			productReference = FB33F44374E8FABA99008F57E9237D13 /* Pods_SampleApp.framework */;
+			productReference = EABF0A6982FE0CF5E811F1E61EC3053D /* Pods_SampleApp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -508,27 +815,263 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 1EDB8626A29CE886CF645A38EBF65553 /* Products */;
+			productRefGroup = 139D5FF785BEF5F741E6038B706FABC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E7538432CA5DEF8959D3D599C53C92A /* Pods-SampleApp */,
+				67A9F9106B32ACF952B66B2EE009513F /* Base64 */,
+				13F3ECEDD8FACC405786411AC2E31ABC /* JWT */,
+				72C0D19D870058B1F6DD03B9F51DDF5D /* Pods-SampleApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DEF3AE48ADAFFE1977EAF5740D1140DB /* Sources */ = {
+		1E5CF707610099A983447D637F98C209 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00EFAF8AA7BE715A7DF5B6B56CC860E /* Pods-SampleApp-dummy.m in Sources */,
+				CB3B9AC0AEE516E2F52BE68ACAAC8CDC /* Pods-SampleApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8221AE19AE4FD491952F8ED4AD8D9B75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD2358E8CC397AADAEF32EAAF6720F3 /* Base64-dummy.m in Sources */,
+				64BE5C76E0FEC38118DDCC568D5DE5B1 /* MF_Base64Additions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A864D8C259B4DD64BD19856683BFA9AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00F252CE31D623BF81E7D0485648EC9 /* JWT-dummy.m in Sources */,
+				36459EFBCA63AD9E5DE342785F614B18 /* JWTAlgorithmDataHolder.m in Sources */,
+				67FA8775EC6FC5149AF464DBB8FA2D37 /* JWTAlgorithmDataHolderChain.m in Sources */,
+				E2E6FC383EB17D9F0B2E3512876C5F5C /* JWTAlgorithmFactory.m in Sources */,
+				7C981AA277086811C5DA8CAED22FC0B2 /* JWTAlgorithmHS256.m in Sources */,
+				A1EA9313BD2919EAD136A6117F5FEA01 /* JWTAlgorithmHS384.m in Sources */,
+				85F05215443DFB3B9D3B9E0DBC59D4AC /* JWTAlgorithmHS512.m in Sources */,
+				D5F0B57D3580342AE857E1D354D6F7BC /* JWTAlgorithmHSBase.m in Sources */,
+				4F88E1FFC02D53264AAD469A1DFD5A43 /* JWTAlgorithmNone.m in Sources */,
+				F8866D91C0AF370D124B599DA343B535 /* JWTAlgorithmRSBase.m in Sources */,
+				1417BD614D6C59E9C5D7F3AE4809A648 /* JWTBase64Coder.m in Sources */,
+				C35F95F4814914CAF49F7BB772062779 /* JWTClaim.m in Sources */,
+				B295974AF4D895F2EE645F0E3AE2C3D3 /* JWTClaimsSet.m in Sources */,
+				82D6AE3F1D04112EBAB647A8CB4D0347 /* JWTClaimsSetSerializer.m in Sources */,
+				1C1B2A9A9CB8966A8BD93181840620A9 /* JWTClaimsSetVerifier.m in Sources */,
+				21DF779A0FADD5267C1B79BFD649D0CF /* JWTCoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		33F233E6978E13D967DAEBE843268027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Base64;
+			target = 67A9F9106B32ACF952B66B2EE009513F /* Base64 */;
+			targetProxy = 002F6DEE55F16A6C86D507C5D185FE7B /* PBXContainerItemProxy */;
+		};
+		69E348F34138A197938012F9A6F9C0E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JWT;
+			target = 13F3ECEDD8FACC405786411AC2E31ABC /* JWT */;
+			targetProxy = 06C8A98457950CF889C4E5E8042527AA /* PBXContainerItemProxy */;
+		};
+		FEBE41005F678F6259A85D81918063C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Base64;
+			target = 67A9F9106B32ACF952B66B2EE009513F /* Base64 */;
+			targetProxy = 46EB161CAFC3F0FEA41E02F386747DBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		086922F8EE2F0DF50FABA46C3249F25C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1B853D17807436B933D853D6EC2A5653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Base64/Base64-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base64/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Base64/Base64.modulemap";
+				PRODUCT_MODULE_NAME = Base64;
+				PRODUCT_NAME = Base64;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		275FB8D5537F2F1136C2352E0E610A1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3F11D614C4C636C68EF012E42EBA8AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
+				PRODUCT_MODULE_NAME = JWT;
+				PRODUCT_NAME = JWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		447F6ED0B384C439B396112C55B8650E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Base64/Base64-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base64/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Base64/Base64.modulemap";
+				PRODUCT_MODULE_NAME = Base64;
+				PRODUCT_NAME = Base64;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -650,12 +1193,10 @@
 			};
 			name = Release;
 		};
-		C7121BDB6EC3170B3477445AFF0A70C6 /* Debug */ = {
+		59079F22DBFE3BECEDF98AB88C840441 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */;
+			baseConfigurationReference = 1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -665,85 +1206,62 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
+				PRODUCT_MODULE_NAME = JWT;
+				PRODUCT_NAME = JWT;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		CF8B192CA781E638C7ABBE996E01FA86 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27C6DC9BDF8C5B81FB30D568B4B892A6 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C7121BDB6EC3170B3477445AFF0A70C6 /* Debug */,
-				CF8B192CA781E638C7ABBE996E01FA86 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
 				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7ABD1D0958FCCB967A5014FBE214D265 /* Build configuration list for PBXNativeTarget "JWT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59079F22DBFE3BECEDF98AB88C840441 /* Debug */,
+				3F11D614C4C636C68EF012E42EBA8AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B335D67B3A3F6C3E391B0E003BD91FB4 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				086922F8EE2F0DF50FABA46C3249F25C /* Debug */,
+				275FB8D5537F2F1136C2352E0E610A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3CF454BE6A2913D72AC5E28E287E799 /* Build configuration list for PBXNativeTarget "Base64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447F6ED0B384C439B396112C55B8650E /* Debug */,
+				1B853D17807436B933D853D6EC2A5653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

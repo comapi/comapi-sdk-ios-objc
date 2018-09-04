@@ -16,7 +16,7 @@
     "ios": "9.0"
   },
   "requires_arc": true,
-  "source_files": "Sources/**/*.h",
+  "source_files": "Sources/**/*.{h, m}",
   "resources": [
 
   ]
