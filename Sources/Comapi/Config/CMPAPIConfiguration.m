@@ -16,11 +16,13 @@ NSUInteger const CMPProductionPort = 443;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port {
     self = [super init];
+    
     if (self) {
         self.host = host;
         self.scheme = scheme;
         self.port = port;
     }
+    
     return self;
 }
 

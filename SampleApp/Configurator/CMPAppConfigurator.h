@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CMPComapiClient.h>
+#import "CMPLoginBundle.h"
+#import "CMPComapi.h"
+#import "CMPAuthenticationManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPAppConfigurator : NSObject
+@interface CMPAppConfigurator : NSObject <CMPAuthenticationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
+
+- (instancetype)initWithWindow:(UIWindow *)window;
+- (void)start;
+- (void)restart;
 
 @end
 

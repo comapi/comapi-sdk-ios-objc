@@ -26,7 +26,7 @@
     self.font = [UIFont systemFontOfSize:14];
     self.layer.cornerRadius = 4;
     self.layer.borderWidth = 1;
-    self.layer.borderColor = UIColor.whiteColor;
+    self.layer.borderColor = UIColor.whiteColor.CGColor;
     self.inputAccessoryView = [UIToolbar toolbarWithTitle:@"Dismiss" target:self action:@selector(dismiss)];
     
     self.placeholderLabel = [UILabel new];
@@ -49,8 +49,8 @@
 }
 
 - (void)clearInput {
-    text = @"";
-    self.placeholderLabel.isHidden = NO;
+    self.text = @"";
+    [self.placeholderLabel setHidden:NO];
 }
 
 - (void)dismiss {
@@ -60,7 +60,7 @@
 // MARK: - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView {
-    self.placeholderLabel.isHidden = ![textView.text isEqualToString:@""];
+    [self.placeholderLabel setHidden: ![textView.text isEqualToString:@""]];
     
     self.didChangeText(textView);
 }

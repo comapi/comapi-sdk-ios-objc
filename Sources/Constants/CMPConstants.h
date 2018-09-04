@@ -19,6 +19,11 @@ extern NSString * const CMPAuthenticationErrorDomain;
 
 extern NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode;
 
+extern NSString * const CMPComapiErrorDomain;
+
+extern NSUInteger const CMPComapiErrorAlreadyInitialisedStatusCode;
+extern NSUInteger const CMPComapiErrorNotInitialisedStatusCode;
+
 extern NSString * const CMPHTTPMethodGET;
 extern NSString * const CMPHTTPMethodPOST;
 extern NSString * const CMPHTTPMethodPUT;

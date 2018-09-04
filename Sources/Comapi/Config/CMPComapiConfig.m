@@ -7,15 +7,19 @@
 //
 
 #import "CMPComapiConfig.h"
-#import "CMPAuthenticationDelegate.h"
-
-@interface CMPComapiConfig()
-
-@property (nonatomic, strong) NSString* id;
-@property (nonatomic, strong) id<CMPAuthenticationDelegate> authDelegate;
-
-@end
 
 @implementation CMPComapiConfig
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)authenticationDelegate {
+    self = [super init];
+    
+    if (self) {
+        _apiConfig = CMPAPIConfiguration.production;
+        _id = apiSpaceID;
+        _authDelegate = authenticationDelegate;
+    }
+    
+    return self;
+}
 
 @end

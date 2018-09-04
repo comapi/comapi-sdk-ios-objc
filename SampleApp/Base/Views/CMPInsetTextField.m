@@ -12,7 +12,7 @@
 @implementation CMPInsetTextField
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectZero textContainer:nil];
+    self = [super initWithFrame:CGRectZero];
     [self configure];
     return self;
 }

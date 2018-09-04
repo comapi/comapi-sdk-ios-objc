@@ -6,12 +6,17 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPComapiClient.h"
 #import "CMPComapiConfig.h"
-#import "CMPAPIConfiguration.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPComapi : NSObject
 
-+ (instancetype)initialiseWithConfig:(CMPAPIConfiguration *)config;
++ (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config error:(NSError **)error;
++ (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config error:(NSError **)error;
++ (CMPComapiClient *)shared:(NSError **)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

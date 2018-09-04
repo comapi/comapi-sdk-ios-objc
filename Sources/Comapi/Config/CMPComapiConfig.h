@@ -6,11 +6,19 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPAPIConfiguration.h"
+#import "CMPComapiConfig.h"
+#import "CMPAuthenticationDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPComapiConfig : NSObject
+
+@property (nonatomic, strong, readonly) NSString* id;
+@property (nonatomic, strong, readonly) id<CMPAuthenticationDelegate> authDelegate;
+@property (nonatomic, strong) CMPAPIConfiguration *apiConfig;
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)authenticationDelegate;
 
 @end
 

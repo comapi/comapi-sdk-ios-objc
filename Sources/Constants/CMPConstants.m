@@ -19,6 +19,11 @@ NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authenti
 
 NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
 
+NSString * const CMPComapiErrorDomain = @"com.comapi.foundation.comapi";
+
+NSUInteger const CMPComapiErrorAlreadyInitialisedStatusCode = 5571;
+NSUInteger const CMPComapiErrorNotInitialisedStatusCode = 5572;
+
 NSString * const CMPHTTPMethodGET = @"GET";
 NSString * const CMPHTTPMethodPOST = @"POST";
 NSString * const CMPHTTPMethodPUT = @"PUT";

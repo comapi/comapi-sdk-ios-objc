@@ -37,7 +37,7 @@
     __weak CMPTitledTextField *weakSelf = self;
     self.didChangeText = ^(NSString * text) {
         weakSelf.didChangeText(text);
-    }
+    };
 }
 
 - (void)layout {
@@ -67,7 +67,7 @@
 }
 
 - (void)setupWithTitle:(NSString *)title value:(NSString *)value {
-    self.titleLabel.text = title
+    self.titleLabel.text = title;
     self.textField.text = value;
 }
 
