@@ -20,10 +20,11 @@
     return self;
 }
 
-- (nullable NSData *)encode {
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:0 error:&error];
-    if (error) {
+- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+    NSError *serializationError = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:0 error:&serializationError];
+    if (serializationError) {
+        *error = serializationError;
         return nil;
     }
     return data;

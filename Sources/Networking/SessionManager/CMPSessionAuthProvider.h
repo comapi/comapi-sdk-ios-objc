@@ -6,9 +6,11 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPSessionAuth.h"
 
 @protocol CMPSessionAuthProvider
+
+@property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
 
 - (void)authenticateWithSuccess:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError *))failure;
 

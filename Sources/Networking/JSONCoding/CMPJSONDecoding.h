@@ -10,6 +10,6 @@
 
 @protocol CMPJSONDecoding <NSObject>
 
-- (nullable instancetype)decodeWithData:(NSData *)data;
+- (nullable instancetype)decodeWithData:(NSData *)data error:(NSError **)error;
 
 @end

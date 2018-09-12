@@ -8,10 +8,14 @@
 
 #import "CMPBaseViewController.h"
 #import "CMPLoginView.h"
+#import "CMPLoginViewModel.h"
+#import "CMPViewControllerConfiguring.h"
 
-@interface CMPLoginViewController : CMPBaseViewController
+@interface CMPLoginViewController : CMPBaseViewController <CMPViewControllerConfiguring, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) CMPLoginView *loginView;
-@property (nonatomic, strong, readonly) *viewModel;
+@property (nonatomic, strong, readonly) CMPLoginViewModel *viewModel;
+
+- (CMPLoginView *)loginView;
+- (instancetype)initWithViewModel:(CMPLoginViewModel *)viewModel;
 
 @end

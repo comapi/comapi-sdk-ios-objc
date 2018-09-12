@@ -18,15 +18,18 @@
 }
 
 - (void)endSessionWithCompletion:(void (^)(CMPRequestTemplateResult *))completion {
-    CMPDeleteSessionTemplate *template = [[CMPDeleteSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID];
-    [self.requestManager performUsingTemplate:template completion:^(CMPRequestTemplateResult * result) {
+    CMPDeleteSessionTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        return [[CMPDeleteSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:self.sessionAuthProvider.sessionAuth.session.id];
+    };
+
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
         completion(result);
     }];
 }
 
 - (void)startAuthenticationWithChallengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler {
     CMPStartNewSessionTemplate *template = [[CMPStartNewSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID];
-    [self.requestManager performUsingTemplate:template completion:^(CMPRequestTemplateResult * result) {
+    [template performWithRequestPerformer:self.requestManager.requestPerformer result:^(CMPRequestTemplateResult *result) {
         CMPAuthenticationChallenge* challenge = (CMPAuthenticationChallenge *)result.object;
         if (!challenge) {
             [challengeHandler authenticationFailedWithError:result.error];
@@ -39,7 +42,8 @@
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler {
     CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:authenticationID authenticationToken:token];
     CMPAuthorizeSessionTemplate *template = [[CMPAuthorizeSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID body:body];
-    [self.requestManager performUsingTemplate:template completion:^(CMPRequestTemplateResult * result) {
+    
+    [template performWithRequestPerformer:self.requestManager.requestPerformer result:^(CMPRequestTemplateResult *result) {
         CMPSessionAuth *sessionAuth = (CMPSessionAuth *)result.object;
         if (!sessionAuth) {
             [challengeHandler authenticationFailedWithError:result.error];

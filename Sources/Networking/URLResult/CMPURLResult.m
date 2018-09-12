@@ -7,6 +7,7 @@
 //
 
 #import "CMPURLResult.h"
+#import "NSData+CMPUtility.h"
 
 @implementation CMPURLResult
 
@@ -23,11 +24,11 @@
 
 - (NSString *)description {
     return [@[@"URL_REQUEST:",
-              @"",
+              [NSString stringWithFormat:@"%@", self.request],
               @"URL_RESPONSE:",
               [NSString stringWithFormat:@"%@", self.response],
               @"DATA:",
-              [NSString stringWithFormat:@"%@", self.data],
+              [NSString stringWithFormat:@"%@", [self.data utf8StringValue]],
               @"ERROR:",
               [NSString stringWithFormat:@"%@", self.error]] componentsJoinedByString:@"\n"];
 }

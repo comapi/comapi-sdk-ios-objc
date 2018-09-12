@@ -7,7 +7,6 @@
 //
 
 #import "CMPLoginView.h"
-#import "CMPTitledInputCell.h"
 
 @implementation CMPLoginView
 
@@ -38,7 +37,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
-    [self.tableView registerClass:[CMPTitledInputCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:CMPTitledInputCell.class forCellReuseIdentifier:@"inputCell"];
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.loginButton setTitle:@"Login" forState:0];
@@ -71,7 +70,7 @@
     self.didTapLoginButton();
 }
 
-- (void)animateOnKeyboardChangeNotification:(NSNotification *)notification completion:(void (^)(void))completion {
+- (void)animateOnKeyboardChangeNotification:(NSNotification *)notification completion:(void (^ _Nullable)(void))completion {
     NSDictionary *info = notification.userInfo;
     if (!info) { return; }
     NSString *name = notification.name;
@@ -87,7 +86,9 @@
         }
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
-        completion();
+        if (completion) {
+            completion();
+        }
     }];
 }
 

@@ -10,6 +10,6 @@
 
 @protocol CMPJSONEncoding <NSObject>
 
-- (nullable NSData *)encode;
+- (nullable NSData *)encode:(NSError **)error;
 
 @end

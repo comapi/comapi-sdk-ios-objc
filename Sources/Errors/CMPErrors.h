@@ -14,7 +14,9 @@ typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
     CMPRequestTemplateErrorRequestCreationFailed,
     CMPRequestTemplateErrorResponseParsingFailed,
     CMPRequestTemplateErrorConnectionFailed,
-    CMPRequestTemplateErrorUnexpectedStatusCode
+    CMPRequestTemplateErrorUnexpectedStatusCode,
+    CMPRequestTemplateErrorNotFound,
+    CMPRequestTemplateErrorUpdateConflict
 };
 
 typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {

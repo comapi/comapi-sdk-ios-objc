@@ -8,6 +8,7 @@
 
 #import "CMPBaseCell.h"
 
+
 @implementation CMPBaseCell
 
 

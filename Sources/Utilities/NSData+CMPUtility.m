@@ -30,4 +30,8 @@
     return data;
 }
 
+- (NSString *)utf8StringValue {
+    return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+}
+
 @end

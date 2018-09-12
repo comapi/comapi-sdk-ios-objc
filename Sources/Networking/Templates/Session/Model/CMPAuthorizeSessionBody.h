@@ -6,11 +6,11 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPJSONEncoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPAuthorizeSessionBody : NSObject
+@interface CMPAuthorizeSessionBody : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong) NSString *authenticationID;
 @property (nonatomic, strong) NSString *authenticationToken;

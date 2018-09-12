@@ -57,18 +57,14 @@
 - (void)performWithRequestPerformer:(nonnull CMPRequestPerformer *)performer result:(nonnull void (^)(CMPRequestTemplateResult * _Nonnull))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-            result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
-        });
+        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+        
         return;
     }
     
-    __weak CMPDeleteSessionTemplate *weakSelf = self;
     [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            result([weakSelf resultFromData:data urlResponse:response]);
-        });
+        result([self resultFromData:data urlResponse:response]);
     }];
 }
 

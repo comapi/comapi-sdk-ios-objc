@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSData (CMPUtility)
 
 - (instancetype)initWithInputStream:(NSInputStream *)stream;
+- (NSString *)utf8StringValue;
 
 @end
 

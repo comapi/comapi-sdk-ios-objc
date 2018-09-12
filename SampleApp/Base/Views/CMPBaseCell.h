@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ENUM(NSUInteger, CMPCellState) {
-    CMPCellStateMe,
-    CMPCellStateOther
-};
-
 @interface CMPBaseCell : UITableViewCell
 
 @end

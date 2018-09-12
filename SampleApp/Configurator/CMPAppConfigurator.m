@@ -8,6 +8,7 @@
 
 #import "CMPAppConfigurator.h"
 
+
 @interface CMPAppConfigurator ()
 
 @property (nonatomic, strong, nullable) CMPLoginBundle *loginInfo;
@@ -57,7 +58,12 @@
             NSLog(@"%@", [error localizedFailureReason]);
         }];
     } else {
+        CMPLoginViewModel *vm = [[CMPLoginViewModel alloc] init];
+        CMPLoginViewController *vc = [[CMPLoginViewController alloc] initWithViewModel:vm];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
     }
 }
 
@@ -72,5 +78,33 @@
     
     continueWithToken(token);
 }
+
+//client?.services.session.startSession(completion: { [weak self] in
+//    guard let `self` = self else { return }
+//    let rootController = ConversationViewController(viewModel: ConversationViewModel(client: self.client!))
+//    let navController = UINavigationController(rootViewController: rootController)
+//
+//    self.window.makeKeyAndVisible()
+//    self.window.rootViewController = navController
+//}) { (error) in
+//    fatalError("error starting session")
+//}
+//} else {
+//    let rootController = LoginViewController(viewModel: LoginViewModel())
+//    let navController = UINavigationController(rootViewController: rootController)
+//
+//    window.makeKeyAndVisible()
+//    window.rootViewController = navController
+//}
+//}
+//
+//func restart() {
+//    UserDefaults.standard.set(nil, forKey: "loginInfo")
+//    let rootController = LoginViewController(viewModel: LoginViewModel())
+//    let navController = UINavigationController(rootViewController: rootController)
+//
+//    window.makeKeyAndVisible()
+//    window.rootViewController = navController
+//}
 
 @end

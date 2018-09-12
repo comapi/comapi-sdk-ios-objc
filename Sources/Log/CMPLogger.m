@@ -54,29 +54,30 @@
 - (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items:(NSArray<id> *)items level:(CMPLogLevel)level {
     NSDate *date = [NSDate date];
     dispatch_sync(self.queue, ^{
+        
         [self.loggingDestinations enumerateObjectsUsingBlock:^(id<CMPLoggingDestination> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj logFile:file line:line function:function items:items level:level date:date];
         }];
     });
 }
 
-- (void)debug:(id)params, ... {
+- (void)debug:(NSArray<id> *)params {
     [self logFile:[NSString stringWithFormat:@"%s", __FILE__] line:__LINE__ function:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] items:params level:CMPLogLevelDebug];
 }
 
-- (void)error:(id)params, ... {
+- (void)error:(NSArray<id> *)params {
     [self logFile:[NSString stringWithFormat:@"%s", __FILE__] line:__LINE__ function:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] items:params level:CMPLogLevelError];
 }
 
-- (void)info:(id)params, ... {
+- (void)info:(NSArray<id> *)params {
     [self logFile:[NSString stringWithFormat:@"%s", __FILE__] line:__LINE__ function:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] items:params level:CMPLogLevelInfo];
 }
 
-- (void)verbose:(id)params, ... {
+- (void)verbose:(NSArray<id> *)params {
     [self logFile:[NSString stringWithFormat:@"%s", __FILE__] line:__LINE__ function:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] items:params level:CMPLogLevelVerbose];
 }
 
-- (void)warning:(id)params, ... {
+- (void)warning:(NSArray<id> *)params {
     [self logFile:[NSString stringWithFormat:@"%s", __FILE__] line:__LINE__ function:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] items:params level:CMPLogLevelWarning];
 }
 

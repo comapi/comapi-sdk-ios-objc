@@ -12,7 +12,7 @@
 
 @implementation CMPAuthorizeSessionBody
 
--(instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken {
+- (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken {
     self = [super init];
     
     if (self) {
@@ -28,7 +28,7 @@
     return self;
 }
 
--(instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken deviceID:(NSString *)deviceID platform:(NSString *)platform platformVersion:(NSString *)platformVersion sdkType:(NSString *)sdkType sdkVersion:(NSString *)sdkVersion {
+- (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken deviceID:(NSString *)deviceID platform:(NSString *)platform platformVersion:(NSString *)platformVersion sdkType:(NSString *)sdkType sdkVersion:(NSString *)sdkVersion {
     self = [super init];
     
     if (self) {
@@ -42,6 +42,24 @@
     }
     
     return self;
+}
+
+- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+    NSDictionary *dict = @{@"authenticationId" : self.authenticationID,
+                           @"authenticationToken" : self.authenticationToken,
+                           @"deviceId" : self.deviceID,
+                           @"platform" : self.platform,
+                           @"platformVersion" : self.platformVersion,
+                           @"sdkType" : self.sdkType,
+                           @"sdkVersion" : self.sdkVersion};
+    NSError *serializationError = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    if (serializationError) {
+        *error = serializationError;
+        return nil;
+    }
+    
+    return json;
 }
 
 @end

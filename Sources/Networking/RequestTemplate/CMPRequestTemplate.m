@@ -25,6 +25,9 @@
 
 - (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template {
     NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.host = self.host;
+    components.scheme = self.scheme;
+    components.port = @(self.port);
     components.path = [NSString stringWithFormat:@"/%@", [template.pathComponents componentsJoinedByString:@"/"]];
 
     if (template.query != nil && template.query.allKeys.count > 0) {
@@ -46,7 +49,7 @@
         request.HTTPMethod = template.httpMethod;
         request.HTTPBody = template.httpBody;
         [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
-            [request setValue:obj.field forHTTPHeaderField:obj.value];
+            [request setValue:obj.value forHTTPHeaderField:obj.field];
         }];
 
         return request;
