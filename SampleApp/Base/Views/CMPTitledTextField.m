@@ -12,7 +12,13 @@
 
 - (instancetype)init {
     self = [super initWithFrame:CGRectZero];
-    [self configure];
+    if (self) {
+        self.titleLabel = [[UILabel alloc] init];
+        self.textField = [[CMPInsetTextField alloc] init];
+        
+        [self configure];
+    }
+    
     return self;
 }
 
@@ -29,9 +35,11 @@
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
+    self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.backgroundColor = UIColor.whiteColor;
     self.textField.layer.borderWidth = 1;
-    self.textField.layer.borderColor = [UIColor.whiteColor CGColor];
+    self.textField.layer.borderColor = [UIColor.grayColor CGColor];
     self.textField.translatesAutoresizingMaskIntoConstraints = NO;
     
     __weak CMPTitledTextField *weakSelf = self;
@@ -47,11 +55,10 @@
 
 - (void)constrain {
     NSLayoutConstraint *titleTop = [self.titleLabel.topAnchor constraintEqualToAnchor:self.topAnchor];
-    NSLayoutConstraint *titleBottom = [self.titleLabel.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
     NSLayoutConstraint *titleLeading = [self.titleLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
     NSLayoutConstraint *titleTrailing = [self.titleLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     
-    [NSLayoutConstraint activateConstraints:@[titleTop, titleBottom, titleLeading, titleTrailing]];
+    [NSLayoutConstraint activateConstraints:@[titleTop, titleLeading, titleTrailing]];
     
     NSLayoutConstraint *textFieldTop = [self.textField.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:8];
     NSLayoutConstraint *textFieldBottom = [self.textField.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];

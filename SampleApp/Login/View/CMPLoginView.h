@@ -8,6 +8,7 @@
 
 #import "CMPBaseView.h"
 #import "CMPGrayButtonWithWhiteText.h"
+#import "CMPTitledInputCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) void(^didTapLoginButton)(void);
 
 - (instancetype)init;
-- (void)animateOnKeyboardChangeNotification:(NSNotification *)notification completion:(void(^)(void))completion;
+- (void)animateOnKeyboardChangeNotification:(NSNotification *)notification completion:(void(^ _Nullable)(void))completion;
 
 @end
 

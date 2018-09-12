@@ -14,6 +14,8 @@ extern NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode;
 extern NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode;
+extern NSUInteger const CMPRequestTemplateErrorNotFoundStatusCode;
+extern NSUInteger const CMPRequestTemplateErrorUpdateConflictStatusCode;
 
 extern NSString * const CMPAuthenticationErrorDomain;
 

@@ -6,10 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CMPLoginBundle.h"
-#import "CMPComapi.h"
-#import "CMPAuthenticationManager.h"
+#import "CMPLoginViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

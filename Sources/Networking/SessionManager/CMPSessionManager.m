@@ -42,6 +42,8 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
         self.apiSpaceID = apiSpaceID;
         self.authenticationDelegate = delegate;
         self.requestManager = requestManager;
+        self.tokenKey = [NSString stringWithFormat:@"%@%@", authTokenKeychainItemNamePrefix, self.apiSpaceID];
+        self.detailsKey = [NSString stringWithFormat:@"%@%@", sessionDetailsUserDefaultsPrefix, self.apiSpaceID];
     }
     
     return self;
@@ -87,15 +89,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     }
 }
 
-
-- (void)authenticateWithSuccess:(void (^ _Nullable)(void))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure {
-    if (self.client) {
-        self.client.state = CMPSDKStateSessionStarting;
-        self.didFinishAuthentication = success;
-        self.didFailAuthentication = failure;
-        [self.client.services.session startAuthenticationWithChallengeHandler:self];
-    }
-}
+// MARK: - CMPAuthChallengeHandler
 
 - (void)authenticationFailedWithError:(nonnull NSError *)error {
     [self.requestManager tokenUpdateFailed];
@@ -104,7 +98,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 }
 
 - (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
-    [[CMPLogger shared] verbose:@"Authorization finished with sessionAuth:", sessionAuth];
+    [[CMPLogger shared] verbose:@[@"Authorization finished with sessionAuth:", sessionAuth]];
     
     self.sessionAuth = sessionAuth;
     [self saveSessionInfo];
@@ -112,7 +106,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     // self.socketManager?.startSocket()
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
-    [[CMPLogger shared] verbose:@"secondsTillTokenExpiry:", secondsTillTokenExpiry];
+    [[CMPLogger shared] verbose:@[@"secondsTillTokenExpiry:", @(secondsTillTokenExpiry)]];
     
     __weak CMPSessionManager *weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -134,6 +128,17 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
             [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus :CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }
     }];
+}
+
+// MARK: - CMPSessionAuthProvider
+
+- (void)authenticateWithSuccess:(void (^)(void))success failure:(void (^)(NSError *))failure {
+    if (self.client) {
+        self.client.state = CMPSDKStateSessionStarting;
+        self.didFinishAuthentication = success;
+        self.didFailAuthentication = failure;
+        [self.client.services.session startAuthenticationWithChallengeHandler:self];
+    }
 }
 
 @end

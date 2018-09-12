@@ -32,6 +32,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.backgroundColor = UIColor.grayColor;
     
+    self.titledTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    
     __weak typeof(self) weakSelf = self;
     self.titledTextField.didChangeText = ^(NSString * text) {
         weakSelf.didChangeText(text);
@@ -43,10 +45,10 @@
 }
 
 - (void)constrain {
-    NSLayoutConstraint *top = [self.titledTextField.topAnchor constraintEqualToAnchor:self.topAnchor constant:8];
-    NSLayoutConstraint *bottom = [self.titledTextField.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-8];
-    NSLayoutConstraint *leading = [self.titledTextField.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:-8];
-    NSLayoutConstraint *trailing = [self.titledTextField.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:8];
+    NSLayoutConstraint *top = [self.titledTextField.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:8];
+    NSLayoutConstraint *bottom = [self.titledTextField.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-8];
+    NSLayoutConstraint *leading = [self.titledTextField.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:8];
+    NSLayoutConstraint *trailing = [self.titledTextField.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-8];
     
     [NSLayoutConstraint activateConstraints:@[top, bottom, leading, trailing]];
 }

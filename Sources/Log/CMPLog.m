@@ -36,6 +36,8 @@
         NSString *stringDescription = [NSString stringWithFormat:@"%@", obj];
         if (stringDescription) {
             [components addObject:stringDescription];
+        } else {
+            [components addObject:actualSeparator];
         }
     }];
     

@@ -24,8 +24,8 @@
 
 - (nullable NSData *)httpBody {
     NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self.body options:0 error:&error];
-    if (!error) {
+    NSData *data = [self.body encode:&error];
+    if (error) {
         return nil;
     }
     return data;
@@ -71,21 +71,16 @@
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
--(void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult * _Nonnull))result {
+- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult * _Nonnull))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-            result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
-        });
+        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
         return;
     }
-    
-    __weak CMPAuthorizeSessionTemplate *weakSelf = self;
+
     [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            result([weakSelf resultFromData:data urlResponse:response]);
-        });
+        result([self resultFromData:data urlResponse:response]);
     }];
 }
 

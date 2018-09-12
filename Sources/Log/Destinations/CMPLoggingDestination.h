@@ -8,6 +8,8 @@
 
 #import "CMPLogLevel.h"
 
+#define NSLog(FORMAT, ...) fprintf(stderr, "%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CMPLoggingDestination <NSObject>

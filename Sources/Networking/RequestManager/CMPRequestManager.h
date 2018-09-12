@@ -32,7 +32,7 @@ typedef void(^CMPPendingOperation)(void);
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
 - (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
-- (void)performUsingTemplate:(id<CMPHTTPRequestTemplate>)template completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)updateToken:(NSString *)token;
 - (void)tokenUpdateFailed;
 

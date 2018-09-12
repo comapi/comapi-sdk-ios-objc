@@ -29,14 +29,16 @@
     self.keyboardAppearance = UIKeyboardAppearanceDark;
     self.layer.cornerRadius = 4.0;
     self.backgroundColor = UIColor.clearColor;
-    self.textColor = UIColor.whiteColor;
+    self.textColor = UIColor.grayColor;
     self.font = [UIFont systemFontOfSize:16];
     [self addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventTouchUpInside];
     self.inputAccessoryView = [UIToolbar toolbarWithTitle:@"Done" target:self action:@selector(dismiss)];
 }
 
 - (void)textChanged {
-    self.didChangeText(self.text);
+    if (self.didChangeText) {
+        self.didChangeText(self.text);
+    }
 }
 
 - (void)dismiss {

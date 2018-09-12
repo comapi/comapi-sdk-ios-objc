@@ -21,6 +21,10 @@
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorConnectionFailedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
         case CMPRequestTemplateErrorUnexpectedStatusCode:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorWrongCodeStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+        case CMPRequestTemplateErrorNotFound:
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorNotFoundStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+        case CMPRequestTemplateErrorUpdateConflict:
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorUpdateConflict userInfo:@{NSUnderlyingErrorKey : error}];
     }
 }
 

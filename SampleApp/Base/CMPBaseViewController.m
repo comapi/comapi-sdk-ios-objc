@@ -75,19 +75,27 @@ NSString * const kCMPLoadingStopNotification = @"WillStopLoading";
 }
 
 -(void)keyboardWillBeShown:(NSNotification *)notification {
-    self.keyboardWillShow(notification);
+    if (self.keyboardWillShow) {
+        self.keyboardWillShow(notification);
+    }
 }
 
 -(void)keyboardShown:(NSNotification *)notification {
-    self.keyboardDidShow(notification);
+    if (self.keyboardDidShow) {
+        self.keyboardDidShow(notification);
+    }
 }
 
 - (void)keyboardWillBeHidden:(NSNotification *)notification {
-    self.keyboardWillHide(notification);
+    if (self.keyboardWillHide) {
+        self.keyboardWillHide(notification);
+    }
 }
 
 -(void)keyboardHidden:(NSNotification *)notification {
-    self.keyboardDidHide(notification);
+    if (self.keyboardDidHide) {
+        self.keyboardDidHide(notification);
+    }
 }
 
 @end

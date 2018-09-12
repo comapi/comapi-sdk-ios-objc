@@ -21,11 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 
-- (void)verbose:(id)params, ...;
-- (void)debug:(id)params, ...;
-- (void)info:(id)params, ...;
-- (void)warning:(id)params, ...;
-- (void)error:(id)params, ...;
+- (void)verbose:(NSArray<id> *)params;
+- (void)debug:(NSArray<id> *)params;
+- (void)info:(NSArray<id> *)params;
+- (void)warning:(NSArray<id> *)params;
+- (void)error:(NSArray<id> *)params;
 
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
 

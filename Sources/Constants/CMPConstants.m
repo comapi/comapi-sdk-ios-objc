@@ -14,6 +14,8 @@ NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode = 5551;
 NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode = 5552;
 NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode = 5553;
 NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode = 5554;
+NSUInteger const CMPRequestTemplateErrorNotFoundStatusCode = 5555;
+NSUInteger const CMPRequestTemplateErrorUpdateConflictStatusCode = 5556;
 
 NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
 

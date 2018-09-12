@@ -29,8 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
-//- (void)startAuthentication:(CMPAuth *)challenge
-
 @end
 
 NS_ASSUME_NONNULL_END
