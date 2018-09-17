@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPRequestPerforming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPRequestPerformer : NSObject <NSURLSessionDataDelegate, NSURLSessionTaskDelegate>
+@interface CMPRequestPerformer : NSObject <CMPRequestPerforming, NSURLSessionDataDelegate, NSURLSessionTaskDelegate>
 
 @property (nonatomic, strong) NSURLSession *session;
-
-- (void)performRequest:(NSURLRequest *)request completion:(void(^)(NSData * _Nullable , NSURLResponse * _Nullable, NSError * _Nullable))completion;
 
 @end
 

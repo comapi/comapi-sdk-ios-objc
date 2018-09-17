@@ -15,7 +15,7 @@
     
     if (self) {
         self.mainTitleLabel = [UILabel new];
-        
+        self.bubbleView = [UIView new];
         [self configure];
     }
     
@@ -34,26 +34,40 @@
     
     self.mainTitleLabel.backgroundColor = UIColor.grayColor;
     self.mainTitleLabel.textColor = UIColor.whiteColor;
-    self.mainTitleLabel.layer.borderColor = UIColor.whiteColor.CGColor;
-    self.mainTitleLabel.layer.borderWidth = 1.0;
-    self.mainTitleLabel.layer.cornerRadius = 4.0;
     self.mainTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.bubbleView.backgroundColor = UIColor.grayColor;
+    self.bubbleView.layer.borderColor = UIColor.whiteColor.CGColor;
+    self.bubbleView.layer.borderWidth = 1.0;
+    self.bubbleView.layer.cornerRadius = 4.0;
+    self.bubbleView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)layout {
-    [self.contentView addSubview:self.mainTitleLabel];
+    [self.contentView addSubview:self.bubbleView];
+    [self.bubbleView addSubview:self.mainTitleLabel];
 }
 
 - (void)constrain {
-    NSLayoutConstraint *top = [self.titledTextField.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:8];
-    NSLayoutConstraint *bottom = [self.titledTextField.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-8];
-    NSLayoutConstraint *leading = [self.titledTextField.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:8];
-    NSLayoutConstraint *trailing = [self.titledTextField.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-8];
+    NSLayoutConstraint *bubbleTop = [self.bubbleView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:8];
+    NSLayoutConstraint *bubblBbottom = [self.bubbleView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-8];
+    NSLayoutConstraint *bubbleLeading = [self.bubbleView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:8];
+    NSLayoutConstraint *bubbleTrailing = [self.bubbleView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-8];
+    NSLayoutConstraint *height = [self.bubbleView.heightAnchor constraintGreaterThanOrEqualToConstant:40];
     
-    [NSLayoutConstraint activateConstraints:@[top, bottom, leading, trailing]];
+    [NSLayoutConstraint activateConstraints:@[bubbleTop, bubblBbottom, bubbleLeading, bubbleTrailing, height]];
+    
+    NSLayoutConstraint *top = [self.mainTitleLabel.topAnchor constraintEqualToAnchor:self.bubbleView.topAnchor];
+    NSLayoutConstraint *bottom = [self.mainTitleLabel.bottomAnchor constraintEqualToAnchor:self.bubbleView.bottomAnchor];
+    NSLayoutConstraint *leading = [self.mainTitleLabel.leadingAnchor constraintEqualToAnchor:self.bubbleView.leadingAnchor constant:8];
+    NSLayoutConstraint *trailing = [self.mainTitleLabel.trailingAnchor constraintEqualToAnchor:self.bubbleView.trailingAnchor constant:-8];
+    
+    
+    [NSLayoutConstraint activateConstraints:@[top, bottom, leading, trailing, height]];
 }
 
 - (void)configureWithTitle:(NSString *)title {
     self.mainTitleLabel.text = title;
 }
+
 @end

@@ -8,6 +8,7 @@
 
 #import "CMPSession.h"
 #import "NSString+CMPUtility.h"
+#import "NSDateFormatter+CMPUtility.h"
 
 @implementation CMPSession
 
@@ -30,8 +31,8 @@
         if (json[@"isActive"] != nil && [json[@"isActive"] isKindOfClass:[NSNumber class]]) {
             self.isActive = [(NSNumber *)json[@"isActive"] boolValue];
         }
-        if (json[@"deviceID"] != nil && [json[@"deviceID"] isKindOfClass:[NSString class]]) {
-            self.deviceID = json[@"deviceID"];
+        if (json[@"deviceId"] != nil && [json[@"deviceId"] isKindOfClass:[NSString class]]) {
+            self.deviceID = json[@"deviceId"];
         }
         if (json[@"platform"] != nil && [json[@"platform"] isKindOfClass:[NSString class]]) {
             self.platform = json[@"platform"];
@@ -48,12 +49,36 @@
         if (json[@"profileId"] != nil && [json[@"profileId"] isKindOfClass:[NSString class]]) {
             self.profileId = json[@"profileId"];
         }
-        if (json[@"sourceIP"] != nil && [json[@"sourceIP"] isKindOfClass:[NSString class]]) {
-            self.sourceIP = json[@"sourceIP"];
+        if (json[@"sourceIp"] != nil && [json[@"sourceIp"] isKindOfClass:[NSString class]]) {
+            self.sourceIP = json[@"sourceIp"];
         }
     }
     
     return self;
+}
+
+- (NSData *)encode:(NSError *__autoreleasing *)error {
+    NSDictionary *dict = @{@"id" : self.id,
+                           @"nonce" : self.nonce,
+                           @"provider" : self.provider,
+                           @"expiresOn" : [[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn],
+                           @"isActive" : [NSNumber numberWithBool:self.isActive],
+                           @"deviceId" : self.deviceID,
+                           @"platform" : self.platform,
+                           @"platformVersion" : self.platformVersion,
+                           @"sdkType" : self.sdkType,
+                           @"sdkVersion" : self.sdkVersion,
+                           @"profileId" : self.profileId,
+                           @"sourceIp" : self.sourceIP};
+    
+    NSError *serializationError = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    if (serializationError) {
+        *error = serializationError;
+        return nil;
+    }
+    
+    return json;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
@@ -61,12 +86,12 @@
     [aCoder encodeObject:self.nonce forKey:@"nonce"];
     [aCoder encodeObject:self.provider forKey:@"provider"];
     [aCoder encodeObject:self.expiresOn forKey:@"expiresOn"];
-    [aCoder encodeObject:self.deviceID forKey:@"deviceID"];
+    [aCoder encodeObject:self.deviceID forKey:@"deviceId"];
     [aCoder encodeObject:self.platform forKey:@"platform"];
     [aCoder encodeObject:self.platformVersion forKey:@"platformVersion"];
     [aCoder encodeObject:self.sdkType forKey:@"sdkType"];
     [aCoder encodeObject:self.profileId forKey:@"profileId"];
-    [aCoder encodeObject:self.sourceIP forKey:@"sourceIP"];
+    [aCoder encodeObject:self.sourceIP forKey:@"sourceIp"];
     [aCoder encodeBool:self.isActive forKey:@"isActive"];
 }
 
@@ -78,12 +103,12 @@
         self.nonce = [aDecoder decodeObjectForKey:@"nonce"];
         self.provider = [aDecoder decodeObjectForKey:@"provider"];
         self.expiresOn = [aDecoder decodeObjectForKey:@"expiresOn"];
-        self.deviceID = [aDecoder decodeObjectForKey:@"deviceID"];
+        self.deviceID = [aDecoder decodeObjectForKey:@"deviceId"];
         self.platform = [aDecoder decodeObjectForKey:@"platform"];
         self.platformVersion = [aDecoder decodeObjectForKey:@"platformVersion"];
         self.sdkType = [aDecoder decodeObjectForKey:@"sdkType"];
         self.profileId = [aDecoder decodeObjectForKey:@"profileId"];
-        self.sourceIP = [aDecoder decodeObjectForKey:@"sourceIP"];
+        self.sourceIP = [aDecoder decodeObjectForKey:@"sourceIp"];
     }
     
     return self;

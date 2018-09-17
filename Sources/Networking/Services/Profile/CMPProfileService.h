@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateCurrentProfileWithAttributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)patchCurrentProfileWithAttributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
-- (void)queryProfileForProfileID:(NSString *)profileID queryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)queryProfilesWithQueryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion;
 
 @end
 

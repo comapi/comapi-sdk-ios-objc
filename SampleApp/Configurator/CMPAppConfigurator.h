@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CMPAppConfigurator : NSObject <CMPAuthenticationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong, nullable) CMPComapiClient *client;
 
 - (instancetype)initWithWindow:(UIWindow *)window;
 - (void)start;

@@ -7,6 +7,7 @@
 //
 
 #import "CMPRequestTemplate.h"
+#import "CMPProfile.h"
 
 @interface CMPGetProfileTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 

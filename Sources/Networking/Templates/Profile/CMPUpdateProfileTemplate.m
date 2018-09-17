@@ -7,7 +7,6 @@
 //
 
 #import "CMPUpdateProfileTemplate.h"
-#import "CMPProfile.h"
 
 @implementation CMPUpdateProfileTemplate
 
@@ -36,7 +35,7 @@
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     NSMutableSet<CMPHTTPHeader *> *headers = [NSMutableSet set];
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"%@ %@", @"Bearer", self.token]];
     if (self.eTag) {
         CMPHTTPHeader *ifMatch = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderIfMatch value:self.eTag];
         [headers addObject:ifMatch];
@@ -76,7 +75,7 @@
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
     }
     
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorWrongCodeStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "CMPRequestTemplate.h"
+#import "CMPProfile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -65,7 +65,11 @@
                 [alert addAction:action];
                 [weakSelf.navigationController presentViewController:alert animated:YES completion:nil];
             } else {
-                NSLog(@"SUCCESS");
+                CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:self.viewModel.client];
+                CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
+                
+                UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+                [nav pushViewController:vc animated:true];
             }
         }];
     };

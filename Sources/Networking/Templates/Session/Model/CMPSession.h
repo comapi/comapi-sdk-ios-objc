@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "CMPAuthenticationChallenge.h"
+#import "CMPJSONEncoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPSession : NSObject <NSCoding>
+@interface CMPSession : NSObject <CMPJSONEncoding, NSCoding>
 
 @property (nonatomic, nullable) NSString *id;
 @property (nonatomic, nullable) NSString *nonce;

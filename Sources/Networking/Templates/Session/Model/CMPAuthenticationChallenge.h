@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPAuthenticationChallenge : NSObject
+@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding>
 
 @property (nonatomic, strong) NSString *authenticationID;
 @property (nonatomic, strong) NSString *provider;
 @property (nonatomic, strong) NSString *nonce;
 @property (nonatomic, strong) NSDate *expiresOn;
-
-- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)json;
 
 @end
 

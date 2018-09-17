@@ -12,6 +12,7 @@
 @interface CMPTitledCell : CMPBaseCell <CMPViewConfiguring>
 
 @property (nonatomic, strong) UILabel *mainTitleLabel;
+@property (nonatomic, strong) UIView *bubbleView;
 
 - (void)configureWithTitle:(NSString *)title;
 

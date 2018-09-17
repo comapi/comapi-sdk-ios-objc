@@ -7,6 +7,9 @@
 //
 
 #import "CMPRequestTemplate.h"
+#import "CMPProfile.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPPatchProfileTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
@@ -18,3 +21,5 @@
 -(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token eTag:(nullable NSString *)eTag attributes:(NSDictionary<NSString *, NSString *> *)attribbutes;
 
 @end
+
+NS_ASSUME_NONNULL_END
