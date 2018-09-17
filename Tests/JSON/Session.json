@@ -1,0 +1,15 @@
+{
+    "id":"5f6c8368-0bec-4bfc-a4b0-d1be4a646361",
+    "nonce":"090b604e-183e-4d6e-b0dd-4cc0d916daa7",
+    "provider":"jsonWebToken",
+    "expiresOn":"2018-09-17T10:50:51.736Z",
+    "isActive":true,
+    "deviceId":"iPhone",
+    "platform":"iOS",
+    "platformVersion":"11.4",
+    "sdkType":"native",
+    "sdkVersion":"1.0.0",
+    "sourceIp":"89.73.249.16",
+    "startedOn":"2018-09-17T10:40:51.736Z",
+    "profileId":"test1"
+}

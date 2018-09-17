@@ -56,7 +56,7 @@
     }
 }
 
-- (void)queryProfileForProfileID:(NSString *)profileID queryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
+- (void)queryProfilesWithQueryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
     NSString *query = [CMPQueryBuilder buildQueryWithElements:queryElements];
     CMPQueryProfilesTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPQueryProfilesTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token queryString:query];

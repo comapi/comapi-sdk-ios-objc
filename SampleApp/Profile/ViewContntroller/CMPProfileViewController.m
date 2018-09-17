@@ -8,6 +8,8 @@
 
 #import "CMPProfileViewController.h"
 #import "CMPTitledCell.h"
+#import "CMPProfile.h"
+#import "AppDelegate.h"
 
 @interface CMPProfileViewController ()
 
@@ -38,6 +40,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.viewModel getProfilesWithCompletion:^(NSError * _Nullable err) {
+        [weakSelf reload];
+    }];
 }
 
 - (void)delegates {
@@ -46,14 +53,28 @@
 }
 
 - (void)navigation {
+    self.navigationItem.hidesBackButton = true;
     self.navigationItem.title = @"Profiles";
+    
+    UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [logoutButton setImage:[UIImage imageNamed:@"cancel"] forState:0];
+    [logoutButton addTarget:self action:@selector(logoutTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *logoutBarButton = [[UIBarButtonItem alloc] initWithCustomView:logoutButton];
+    
+    self.navigationItem.rightBarButtonItem = logoutBarButton;
+}
+
+- (void)logoutTapped {
+    AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    [appDel.configurator restart];
 }
 
 - (void)reload {
     [self.profileView.tableView reloadData];
 }
 
-// MARK - UITableViewDelegate & UITableViewDataSource
+// MARK: - UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -61,33 +82,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CMPTitledCell *cell = (CMPTitledCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    __weak typeof(self) weakSelf = self;
-    switch (indexPath.row) {
-        case 0: {
-            [cell configureWithTitle:@""];
-
-            return cell;
-        }
-        case 1: {
-            
-            return cell;
-        }
-        case 2: {
-            
-            return cell;
-        }
-        case 3: {
-            
-            return cell;
-        }
-
-        default:
-            return [UITableViewCell new];
-    }
+    CMPProfile *profile = self.viewModel.profiles[indexPath.row];
+    [cell configureWithTitle:profile.id];
+    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.viewModel.profiles.count;
 }
 
 

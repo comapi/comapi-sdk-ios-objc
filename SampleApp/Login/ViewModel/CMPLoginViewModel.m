@@ -7,14 +7,14 @@
 //
 
 #import "CMPLoginViewModel.h"
-
+#import "AppDelegate.h"
 
 @implementation CMPLoginViewModel
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"be466e4b-1340-41fc-826e-20445ab658f1" profileID:@"sub" issuer:@"local" audience:@"local" secret:@"secret"];
+        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"be466e4b-1340-41fc-826e-20445ab658f1" profileID:@"test1" issuer:@"local" audience:@"local" secret:@"secret"];
     }
     
     return self;
@@ -27,14 +27,19 @@
 }
 
 - (void)configureWithCompletion:(void (^)(NSError * _Nullable))completion {
-//    if (![self.loginBundle isValid]) {
-//        completion(nil);
-//        return;
-//    }
+    if (![self.loginBundle isValid]) {
+        completion(nil);
+        return;
+    }
     
     CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self];
     NSError *initError = nil;
     self.client = [CMPComapi initialiseWithConfig:config error:&initError];
+    if (initError) {
+        [NSException raise:@"failed client init" format:@""];
+    }
+    AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    appDel.configurator.client = self.client;
     if (!initError) {
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{

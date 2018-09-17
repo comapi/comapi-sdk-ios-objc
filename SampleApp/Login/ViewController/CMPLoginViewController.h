@@ -10,6 +10,7 @@
 #import "CMPLoginView.h"
 #import "CMPLoginViewModel.h"
 #import "CMPViewControllerConfiguring.h"
+#import "CMPProfileViewController.h"
 
 @interface CMPLoginViewController : CMPBaseViewController <CMPViewControllerConfiguring, UITableViewDelegate, UITableViewDataSource>
 

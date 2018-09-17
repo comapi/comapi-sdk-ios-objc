@@ -33,7 +33,7 @@
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"%@ %@", @"Bearer", self.token]];
     NSSet<CMPHTTPHeader *> *headers = [NSSet setWithObjects:contentType, authorization, nil];
     return headers;
 }
@@ -56,25 +56,21 @@
         return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     }
     
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorWrongCodeStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
 - (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult *))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-            result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
-        });
+        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
         return;
     }
     
     __weak CMPSetAPNSDetailsTemplate *weakSelf = self;
     [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            result([weakSelf resultFromData:data urlResponse:response]);
-        });
+        result([weakSelf resultFromData:data urlResponse:response]);
     }];
 }
 

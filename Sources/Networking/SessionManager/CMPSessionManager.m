@@ -93,7 +93,9 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (void)authenticationFailedWithError:(nonnull NSError *)error {
     [self.requestManager tokenUpdateFailed];
-    self.didFailAuthentication(error);
+    if (self.didFailAuthentication) {
+        self.didFailAuthentication(error);
+    }
     self.client.state = CMPSDKStateSessionOff;
 }
 
@@ -114,8 +116,11 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
             [weakSelf authenticateWithSuccess:nil failure:nil];
         }
     });
-
-    self.didFinishAuthentication();
+    
+    if (self.didFailAuthentication) {
+        self.didFinishAuthentication();
+    }
+    
     self.client.state = CMPSDKStateSessionActive;
 }
 

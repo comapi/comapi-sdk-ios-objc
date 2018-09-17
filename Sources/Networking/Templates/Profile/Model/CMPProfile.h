@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) NSDate *updatedOn;
 @property (nonatomic, strong, nullable) NSString *updatedBy;
 
-- (instancetype)initWithID:(NSString *)ID;
 - (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON;
 
 @end

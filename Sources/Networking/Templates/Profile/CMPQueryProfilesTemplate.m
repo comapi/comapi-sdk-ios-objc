@@ -7,7 +7,6 @@
 //
 
 #import "CMPQueryProfilesTemplate.h"
-#import "CMPProfile.h"
 
 @implementation CMPQueryProfilesTemplate
 
@@ -28,7 +27,7 @@
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"%@ %@", @"Bearer", self.token]];
     return [NSSet setWithObjects:contentType, authorization, nil];
 }
 
@@ -62,7 +61,7 @@
         }
     }
     
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorWrongCodeStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 

@@ -36,13 +36,7 @@
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
         NSError *parseError = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-        if (parseError) {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
-            return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
-        }
-        
-        CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] initWithJSON:json];
+        CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data error:&parseError];
         if (object) {
             return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
         } else {
@@ -51,7 +45,7 @@
         }
     }
     
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorWrongCodeStatusCode underlyingError:nil];
+    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 

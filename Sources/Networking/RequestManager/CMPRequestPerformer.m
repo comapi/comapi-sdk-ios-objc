@@ -37,8 +37,6 @@
         
         [task resume];
     } else {
-       // NSLog(@"%@", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]);
-        
         NSURLSessionTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             CMPURLResult *result = [[CMPURLResult alloc] initWithRequest:request data:data response:response error:error];
             [[CMPLogger shared] verbose:@[@"did finish request", result]];

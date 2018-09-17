@@ -128,7 +128,32 @@
 		89EA5CDA214962AC00C29D08 /* CMPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CD9214962AC00C29D08 /* CMPProfileViewController.m */; };
 		89EA5CDD214962C900C29D08 /* CMPProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CDC214962C900C29D08 /* CMPProfileViewModel.m */; };
 		89EA5CE4214967D800C29D08 /* CMPTitledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CE3214967D800C29D08 /* CMPTitledCell.m */; };
+		89EA5CFD214ACC6D00C29D08 /* comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */; };
+		89EA5D1A214ACCB700C29D08 /* Session.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D09214ACCB700C29D08 /* Session.json */; };
+		89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D0A214ACCB700C29D08 /* AuthorizeSessionBody.json */; };
+		89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D10214ACCB700C29D08 /* SessionAuth.json */; };
+		89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D14214ACCB700C29D08 /* AuthenticationChallenge.json */; };
+		89EA5D2B214ACFB300C29D08 /* CMPTestMocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D2A214ACFB300C29D08 /* CMPTestMocks.m */; };
+		89EA5D2F214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D2E214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m */; };
+		89EA5D31214F9D5700C29D08 /* CMPRequestPerforming.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5D30214F9D5700C29D08 /* CMPRequestPerforming.h */; };
+		89EA5D34214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D33214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m */; };
+		89EA5D36214FBB8D00C29D08 /* CMPTestProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D35214FBB8D00C29D08 /* CMPTestProfile.m */; };
+		89EA5D38214FBBC700C29D08 /* Profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D37214FBBC700C29D08 /* Profile.json */; };
+		89EA5D3A214FBF3200C29D08 /* CMPTestSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D39214FBF3200C29D08 /* CMPTestSession.m */; };
+		89EA5D3C214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */; };
+		89EA5D3E214FCA9C00C29D08 /* CMPTestSessionAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */; };
+		89EA5D40214FD87900C29D08 /* CMPTestAPNSDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
+			remoteInfo = "comapi-ios-sdk-objective-c";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		89342DA1213E9BE0000D0F2D /* CMPAuthenticationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationManager.h; sourceTree = "<group>"; };
@@ -278,6 +303,24 @@
 		89EA5CDC214962C900C29D08 /* CMPProfileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileViewModel.m; sourceTree = "<group>"; };
 		89EA5CE2214967D800C29D08 /* CMPTitledCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTitledCell.h; sourceTree = "<group>"; };
 		89EA5CE3214967D800C29D08 /* CMPTitledCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTitledCell.m; sourceTree = "<group>"; };
+		89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = comapi_ios_sdk_objective_c_tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EA5CFC214ACC6D00C29D08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89EA5D09214ACCB700C29D08 /* Session.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Session.json; sourceTree = "<group>"; };
+		89EA5D0A214ACCB700C29D08 /* AuthorizeSessionBody.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorizeSessionBody.json; sourceTree = "<group>"; };
+		89EA5D10214ACCB700C29D08 /* SessionAuth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SessionAuth.json; sourceTree = "<group>"; };
+		89EA5D14214ACCB700C29D08 /* AuthenticationChallenge.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthenticationChallenge.json; sourceTree = "<group>"; };
+		89EA5D29214ACFB300C29D08 /* CMPTestMocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTestMocks.h; sourceTree = "<group>"; };
+		89EA5D2A214ACFB300C29D08 /* CMPTestMocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestMocks.m; sourceTree = "<group>"; };
+		89EA5D2D214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+CMPTestUtility.h"; sourceTree = "<group>"; };
+		89EA5D2E214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+CMPTestUtility.m"; sourceTree = "<group>"; };
+		89EA5D30214F9D5700C29D08 /* CMPRequestPerforming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerforming.h; sourceTree = "<group>"; };
+		89EA5D33214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthenticationChallenge.m; sourceTree = "<group>"; };
+		89EA5D35214FBB8D00C29D08 /* CMPTestProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestProfile.m; sourceTree = "<group>"; };
+		89EA5D37214FBBC700C29D08 /* Profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Profile.json; sourceTree = "<group>"; };
+		89EA5D39214FBF3200C29D08 /* CMPTestSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSession.m; sourceTree = "<group>"; };
+		89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthorizeSessionBody.m; sourceTree = "<group>"; };
+		89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSessionAuth.m; sourceTree = "<group>"; };
+		89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAPNSDetails.m; sourceTree = "<group>"; };
 		BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +340,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EA5CF5214ACC6D00C29D08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EA5CFD214ACC6D00C29D08 /* comapi_ios_sdk_objective_c.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +414,7 @@
 				895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */,
 				895FF4F32126E9620007FAC3 /* CMPRequestPerformer.h */,
 				895FF4F42126E9620007FAC3 /* CMPRequestPerformer.m */,
+				89EA5D30214F9D5700C29D08 /* CMPRequestPerforming.h */,
 			);
 			path = RequestManager;
 			sourceTree = "<group>";
@@ -710,8 +762,9 @@
 		89C8DE342122DF3C00555495 = {
 			isa = PBXGroup;
 			children = (
-				89C8DE4A2122F47700555495 /* Tests */,
+				89EA5D04214ACCB700C29D08 /* Tests */,
 				89C8DE492122F47000555495 /* Sources */,
+				89EA5CF9214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */,
 				89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */,
 				89957A66213935E0008EE0BE /* SampleApp */,
 				89C8DE3F2122DF3C00555495 /* Products */,
@@ -725,6 +778,7 @@
 			children = (
 				89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */,
 				89957A65213935E0008EE0BE /* SampleApp.app */,
+				89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -750,13 +804,6 @@
 				89C8DE592122FBE400555495 /* Utilities */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		89C8DE4A2122F47700555495 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		89C8DE4B2122F48200555495 /* SessionManager */ = {
@@ -882,6 +929,52 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		89EA5CF9214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */ = {
+			isa = PBXGroup;
+			children = (
+				89EA5CFC214ACC6D00C29D08 /* Info.plist */,
+			);
+			path = comapi_ios_sdk_objective_c_tests;
+			sourceTree = "<group>";
+		};
+		89EA5D04214ACCB700C29D08 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				89EA5D05214ACCB700C29D08 /* JSON */,
+				89EA5D2C214F9BF500C29D08 /* Categories */,
+				89EA5D29214ACFB300C29D08 /* CMPTestMocks.h */,
+				89EA5D2A214ACFB300C29D08 /* CMPTestMocks.m */,
+				89EA5D33214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m */,
+				89EA5D35214FBB8D00C29D08 /* CMPTestProfile.m */,
+				89EA5D39214FBF3200C29D08 /* CMPTestSession.m */,
+				89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */,
+				89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */,
+				89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		89EA5D05214ACCB700C29D08 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				89EA5D09214ACCB700C29D08 /* Session.json */,
+				89EA5D0A214ACCB700C29D08 /* AuthorizeSessionBody.json */,
+				89EA5D10214ACCB700C29D08 /* SessionAuth.json */,
+				89EA5D14214ACCB700C29D08 /* AuthenticationChallenge.json */,
+				89EA5D37214FBBC700C29D08 /* Profile.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		89EA5D2C214F9BF500C29D08 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				89EA5D2D214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.h */,
+				89EA5D2E214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		F026D228D8308D4507B88AE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,6 +1021,7 @@
 				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
 				895FF4FB2126ECEE0007FAC3 /* CMPRequestTemplate.h in Headers */,
 				89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */,
+				89EA5D31214F9D5700C29D08 /* CMPRequestPerforming.h in Headers */,
 				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
 				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
@@ -992,6 +1086,24 @@
 			productReference = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		89EA5CF7214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "comapi_ios_sdk_objective_c_tests" */;
+			buildPhases = (
+				89EA5CF4214ACC6D00C29D08 /* Sources */,
+				89EA5CF5214ACC6D00C29D08 /* Frameworks */,
+				89EA5CF6214ACC6D00C29D08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */,
+			);
+			name = comapi_ios_sdk_objective_c_tests;
+			productName = comapi_ios_sdk_objective_c_tests;
+			productReference = 89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1005,6 +1117,9 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					89C8DE3D2122DF3C00555495 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					89EA5CF7214ACC6D00C29D08 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -1024,6 +1139,7 @@
 			targets = (
 				89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */,
 				89957A64213935E0008EE0BE /* SampleApp */,
+				89EA5CF7214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1043,6 +1159,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EA5CF6214ACC6D00C29D08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
+				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
+				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
+				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
+				89EA5D38214FBBC700C29D08 /* Profile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1169,7 +1297,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EA5CF4214ACC6D00C29D08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EA5D34214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m in Sources */,
+				89EA5D2B214ACFB300C29D08 /* CMPTestMocks.m in Sources */,
+				89EA5D2F214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m in Sources */,
+				89EA5D3A214FBF3200C29D08 /* CMPTestSession.m in Sources */,
+				89EA5D36214FBB8D00C29D08 /* CMPTestProfile.m in Sources */,
+				89EA5D3C214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m in Sources */,
+				89EA5D3E214FCA9C00C29D08 /* CMPTestSessionAuth.m in Sources */,
+				89EA5D40214FD87900C29D08 /* CMPTestAPNSDetails.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */;
+			targetProxy = 89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		89957A6D213935E0008EE0BE /* Main.storyboard */ = {
@@ -1393,6 +1544,40 @@
 			};
 			name = Release;
 		};
+		89EA5D01214ACC6D00C29D08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				INFOPLIST_FILE = comapi_ios_sdk_objective_c_tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89EA5D02214ACC6D00C29D08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
+				INFOPLIST_FILE = comapi_ios_sdk_objective_c_tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1419,6 +1604,15 @@
 			buildConfigurations = (
 				89C8DE472122DF3C00555495 /* Debug */,
 				89C8DE482122DF3C00555495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "comapi_ios_sdk_objective_c_tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EA5D01214ACC6D00C29D08 /* Debug */,
+				89EA5D02214ACC6D00C29D08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
