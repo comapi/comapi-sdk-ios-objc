@@ -42,7 +42,7 @@ static CMPComapiClient *_shared = nil;
 }
 
 + (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config error:(NSError *__autoreleasing *)error {
-    if (![CMPComapi shared]) {
+    if ([CMPComapi shared]) {
         *error = [CMPErrors comapiErrorWithStatus:CMPComapiErrorAlreadyInitialised underlyingError:nil];
         return nil;
     }

@@ -31,16 +31,16 @@
 + (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError *)error {
     switch (status) {
         case CMPAuthenticationErrorMissingToken:
-            return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorMissingTokenStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorMissingTokenStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
     }
 }
 
 + (NSError *)comapiErrorWithStatus:(CMPComapiError)status underlyingError:(NSError *)error {
     switch (status) {
         case CMPComapiErrorNotInitialised:
-            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorNotInitialisedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorNotInitialisedStatusCode userInfo:error != nil ?@{NSUnderlyingErrorKey : error} : @{}];
         case CMPComapiErrorAlreadyInitialised:
-            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorAlreadyInitialisedStatusCode userInfo:@{NSUnderlyingErrorKey : error}];
+            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorAlreadyInitialisedStatusCode userInfo:error != nil ?@{NSUnderlyingErrorKey : error} : @{}];
         default:
             break;
     }

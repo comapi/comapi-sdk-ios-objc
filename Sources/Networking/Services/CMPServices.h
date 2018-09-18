@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPServices : NSObject
 
-@property (nonatomic, strong) CMPSessionService *session;
-@property (nonatomic, strong) CMPProfileService *profile;
+@property (nonatomic, strong) id<CMPSessionServiceable> session;
+@property (nonatomic, strong) id<CMPProfileServiceable> profile;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider;
 

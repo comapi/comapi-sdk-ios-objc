@@ -44,6 +44,8 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
         self.requestManager = requestManager;
         self.tokenKey = [NSString stringWithFormat:@"%@%@", authTokenKeychainItemNamePrefix, self.apiSpaceID];
         self.detailsKey = [NSString stringWithFormat:@"%@%@", sessionDetailsUserDefaultsPrefix, self.apiSpaceID];
+        
+        [self loadSessionInfo];
     }
     
     return self;
