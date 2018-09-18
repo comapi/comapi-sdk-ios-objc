@@ -7,11 +7,13 @@
 //
 
 #import "CMPKeychain.h"
+#import <UIKit/UIKit.h>
 #import <Security/Security.h>
 
 @implementation CMPKeychain
 
 + (BOOL)isStatusOK:(OSStatus)status {
+    //NSLog(@"%@", [UIFocusDebugger status]);
     return status == noErr;
 }
 

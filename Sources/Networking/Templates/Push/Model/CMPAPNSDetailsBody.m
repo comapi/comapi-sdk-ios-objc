@@ -21,8 +21,12 @@
 }
 
 - (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+    NSDictionary<NSString *, id> *apnsDict = @{@"bundleID" : self.apns.bundleID,
+                                               @"environment" : self.apns.environment,
+                                               @"token" : self.apns.token};
+    NSDictionary<NSString *, id> *dict = @{@"apns" : apnsDict};
     NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
     if (serializationError) {
         *error = serializationError;
         return nil;

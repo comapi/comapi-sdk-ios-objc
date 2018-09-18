@@ -6,20 +6,33 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
+#import "CMPAuthenticationDelegate.h"
+#import "CMPRequestPerforming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPTestMocks : NSObject
 
++ (NSString *)mockAuthenticationToken;
 + (NSString *)mockApiSpaceID;
 + (NSURL *)mockBaseURL;
 
 @end
 
-@interface CMPMockRequestPerformer
+@interface CMPMockRequestPerformer: NSObject <CMPRequestPerforming>
 
 @property (nonatomic, strong) NSMutableArray<NSURLRequest *> *receivedRequests;
+
+@end
+
+@interface CMPMockAuthenticationDelegate : NSObject <CMPAuthenticationDelegate>
+
+@end
+
+@interface CMPMockUserDefaults : NSObject
+
++ (NSUserDefaults *)mockUserDefaults;
 
 @end
 

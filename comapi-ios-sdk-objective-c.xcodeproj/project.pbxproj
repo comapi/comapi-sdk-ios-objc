@@ -142,7 +142,21 @@
 		89EA5D3A214FBF3200C29D08 /* CMPTestSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D39214FBF3200C29D08 /* CMPTestSession.m */; };
 		89EA5D3C214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */; };
 		89EA5D3E214FCA9C00C29D08 /* CMPTestSessionAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */; };
-		89EA5D40214FD87900C29D08 /* CMPTestAPNSDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */; };
+		89EA5D40214FD87900C29D08 /* CMPTestAPNSDetailsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetailsBody.m */; };
+		89EA5D4221511F7400C29D08 /* APNSDetailsBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D4121511F7400C29D08 /* APNSDetailsBody.json */; };
+		89EA5D442151279700C29D08 /* CMPTestKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D432151279700C29D08 /* CMPTestKeychain.m */; };
+		89EA5D48215137EF00C29D08 /* CMPTestAPIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D47215137EF00C29D08 /* CMPTestAPIConfiguration.m */; };
+		89EA5D4A2151390F00C29D08 /* CMPTestComapiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D492151390F00C29D08 /* CMPTestComapiConfig.m */; };
+		89EA5D4C21513B7300C29D08 /* CMPTestComapi.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D4B21513B7300C29D08 /* CMPTestComapi.m */; };
+		89EA5D4E2151400900C29D08 /* CMPTestComapiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D4D2151400900C29D08 /* CMPTestComapiClient.m */; };
+		89EA5D502151610000C29D08 /* CMPTestGetProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D4F2151610000C29D08 /* CMPTestGetProfileTemplate.m */; };
+		89EA5D522151676B00C29D08 /* CMPTestUpdateProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D512151676B00C29D08 /* CMPTestUpdateProfileTemplate.m */; };
+		89EA5D542151682800C29D08 /* CMPTestPatchProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D532151682800C29D08 /* CMPTestPatchProfileTemplate.m */; };
+		89EA5D562151685C00C29D08 /* CMPTestQueryProfilesTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D552151685C00C29D08 /* CMPTestQueryProfilesTemplate.m */; };
+		89EA5D5821516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D5721516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m */; };
+		89EA5D5A21516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */; };
+		89EA5D5C21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */; };
+		89EA5D5E21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +166,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
 			remoteInfo = "comapi-ios-sdk-objective-c";
+		};
+		89EA5D452151359B00C29D08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89957A64213935E0008EE0BE;
+			remoteInfo = SampleApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -320,7 +341,21 @@
 		89EA5D39214FBF3200C29D08 /* CMPTestSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSession.m; sourceTree = "<group>"; };
 		89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthorizeSessionBody.m; sourceTree = "<group>"; };
 		89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSessionAuth.m; sourceTree = "<group>"; };
-		89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAPNSDetails.m; sourceTree = "<group>"; };
+		89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetailsBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAPNSDetailsBody.m; sourceTree = "<group>"; };
+		89EA5D4121511F7400C29D08 /* APNSDetailsBody.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = APNSDetailsBody.json; sourceTree = "<group>"; };
+		89EA5D432151279700C29D08 /* CMPTestKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestKeychain.m; sourceTree = "<group>"; };
+		89EA5D47215137EF00C29D08 /* CMPTestAPIConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAPIConfiguration.m; sourceTree = "<group>"; };
+		89EA5D492151390F00C29D08 /* CMPTestComapiConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestComapiConfig.m; sourceTree = "<group>"; };
+		89EA5D4B21513B7300C29D08 /* CMPTestComapi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestComapi.m; sourceTree = "<group>"; };
+		89EA5D4D2151400900C29D08 /* CMPTestComapiClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestComapiClient.m; sourceTree = "<group>"; };
+		89EA5D4F2151610000C29D08 /* CMPTestGetProfileTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestGetProfileTemplate.m; sourceTree = "<group>"; };
+		89EA5D512151676B00C29D08 /* CMPTestUpdateProfileTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestUpdateProfileTemplate.m; sourceTree = "<group>"; };
+		89EA5D532151682800C29D08 /* CMPTestPatchProfileTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestPatchProfileTemplate.m; sourceTree = "<group>"; };
+		89EA5D552151685C00C29D08 /* CMPTestQueryProfilesTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestQueryProfilesTemplate.m; sourceTree = "<group>"; };
+		89EA5D5721516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestStartNewSessionTemplate.m; sourceTree = "<group>"; };
+		89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthorizeSessionTemplate.m; sourceTree = "<group>"; };
+		89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestDeleteSessionTemplate.m; sourceTree = "<group>"; };
+		89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSetAPNSDetailsTemplate.m; sourceTree = "<group>"; };
 		BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -949,7 +984,20 @@
 				89EA5D39214FBF3200C29D08 /* CMPTestSession.m */,
 				89EA5D3B214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m */,
 				89EA5D3D214FCA9C00C29D08 /* CMPTestSessionAuth.m */,
-				89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetails.m */,
+				89EA5D3F214FD87900C29D08 /* CMPTestAPNSDetailsBody.m */,
+				89EA5D432151279700C29D08 /* CMPTestKeychain.m */,
+				89EA5D47215137EF00C29D08 /* CMPTestAPIConfiguration.m */,
+				89EA5D492151390F00C29D08 /* CMPTestComapiConfig.m */,
+				89EA5D4B21513B7300C29D08 /* CMPTestComapi.m */,
+				89EA5D4D2151400900C29D08 /* CMPTestComapiClient.m */,
+				89EA5D4F2151610000C29D08 /* CMPTestGetProfileTemplate.m */,
+				89EA5D512151676B00C29D08 /* CMPTestUpdateProfileTemplate.m */,
+				89EA5D532151682800C29D08 /* CMPTestPatchProfileTemplate.m */,
+				89EA5D552151685C00C29D08 /* CMPTestQueryProfilesTemplate.m */,
+				89EA5D5721516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m */,
+				89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */,
+				89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */,
+				89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -962,6 +1010,7 @@
 				89EA5D10214ACCB700C29D08 /* SessionAuth.json */,
 				89EA5D14214ACCB700C29D08 /* AuthenticationChallenge.json */,
 				89EA5D37214FBBC700C29D08 /* Profile.json */,
+				89EA5D4121511F7400C29D08 /* APNSDetailsBody.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1098,6 +1147,7 @@
 			);
 			dependencies = (
 				89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */,
+				89EA5D462151359B00C29D08 /* PBXTargetDependency */,
 			);
 			name = comapi_ios_sdk_objective_c_tests;
 			productName = comapi_ios_sdk_objective_c_tests;
@@ -1121,6 +1171,7 @@
 					};
 					89EA5CF7214ACC6D00C29D08 = {
 						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 89957A64213935E0008EE0BE;
 					};
 				};
 			};
@@ -1170,6 +1221,7 @@
 				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
 				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
 				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
+				89EA5D4221511F7400C29D08 /* APNSDetailsBody.json in Resources */,
 				89EA5D38214FBBC700C29D08 /* Profile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1302,13 +1354,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				89EA5D34214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m in Sources */,
+				89EA5D542151682800C29D08 /* CMPTestPatchProfileTemplate.m in Sources */,
+				89EA5D4A2151390F00C29D08 /* CMPTestComapiConfig.m in Sources */,
 				89EA5D2B214ACFB300C29D08 /* CMPTestMocks.m in Sources */,
+				89EA5D4C21513B7300C29D08 /* CMPTestComapi.m in Sources */,
+				89EA5D48215137EF00C29D08 /* CMPTestAPIConfiguration.m in Sources */,
 				89EA5D2F214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m in Sources */,
 				89EA5D3A214FBF3200C29D08 /* CMPTestSession.m in Sources */,
 				89EA5D36214FBB8D00C29D08 /* CMPTestProfile.m in Sources */,
+				89EA5D562151685C00C29D08 /* CMPTestQueryProfilesTemplate.m in Sources */,
 				89EA5D3C214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m in Sources */,
+				89EA5D5A21516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m in Sources */,
+				89EA5D5C21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m in Sources */,
 				89EA5D3E214FCA9C00C29D08 /* CMPTestSessionAuth.m in Sources */,
-				89EA5D40214FD87900C29D08 /* CMPTestAPNSDetails.m in Sources */,
+				89EA5D40214FD87900C29D08 /* CMPTestAPNSDetailsBody.m in Sources */,
+				89EA5D502151610000C29D08 /* CMPTestGetProfileTemplate.m in Sources */,
+				89EA5D5E21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m in Sources */,
+				89EA5D4E2151400900C29D08 /* CMPTestComapiClient.m in Sources */,
+				89EA5D442151279700C29D08 /* CMPTestKeychain.m in Sources */,
+				89EA5D5821516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m in Sources */,
+				89EA5D522151676B00C29D08 /* CMPTestUpdateProfileTemplate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1319,6 +1384,11 @@
 			isa = PBXTargetDependency;
 			target = 89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */;
 			targetProxy = 89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */;
+		};
+		89EA5D462151359B00C29D08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89957A64213935E0008EE0BE /* SampleApp */;
+			targetProxy = 89EA5D452151359B00C29D08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1558,6 +1628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
 			};
 			name = Debug;
 		};
@@ -1575,6 +1646,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
 			};
 			name = Release;
 		};

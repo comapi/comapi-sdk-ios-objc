@@ -11,9 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPProfileService : CMPBaseService
-
-@property (nonatomic, strong, nullable) NSString *currentProfileID;
+@protocol CMPProfileServiceable
 
 - (void)getProfileForProfileID:(NSString *)profileID completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
@@ -21,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)patchCurrentProfileWithAttributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)queryProfilesWithQueryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion;
+
+@end
+
+@interface CMPProfileService : CMPBaseService
+
+@property (nonatomic, strong, nullable) NSString *currentProfileID;
 
 @end
 

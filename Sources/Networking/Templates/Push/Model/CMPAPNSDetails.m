@@ -23,8 +23,11 @@
 }
 
 - (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+    NSDictionary<NSString *, id> *dict = @{@"bundleID" : self.bundleID,
+                                           @"environment" : self.environment,
+                                           @"token" : self.token};
     NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <CMPAuthenticationChallenge.h>
+#import "CMPAuthenticationChallenge.h"
 
 @class CMPComapiClient;
 

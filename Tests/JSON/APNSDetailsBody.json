@@ -1,0 +1,7 @@
+{
+    "apns" : {
+        "bundleId" : "id",
+        "environment" : "test_env",
+        "token" : "aae066f4-399b-4251-8776-b6244c8acbc1"
+    }
+}

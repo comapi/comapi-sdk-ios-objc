@@ -11,12 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPSessionService : CMPBaseService
+@protocol CMPSessionServiceable
 
 - (void)startSessionWithCompletion:(void(^)(void))completion failure:(void(^)(NSError * _Nullable))failure;
 - (void)endSessionWithCompletion:(void (^)(CMPRequestTemplateResult *))completion;
 - (void)startAuthenticationWithChallengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler;
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler;
+
+@end
+
+@interface CMPSessionService : CMPBaseService <CMPSessionServiceable>
 
 @end
 
