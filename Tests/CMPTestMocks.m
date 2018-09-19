@@ -24,66 +24,13 @@
 
 @end
 
-@implementation CMPMockRequestPerformer
 
-void(^completion)(NSData * data, NSURLResponse * response, NSError * error);
 
-- (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
-    
-}
-//var receivedRequests: [URLRequest] = []
-//var completionValues: [(Data?, URLResponse?, Error?)] = [
-//                                                         (loadJSON(jsonName: "AuthenticationChallenge"), HTTPURLResponse.mocked(url: mockBaseURL), nil),
-//                                                         (loadJSON(jsonName: "SessionAuth"), HTTPURLResponse.mocked(url: mockBaseURL), nil),
-//                                                         ]
-//
-//func perform(_ urlRequest: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-//    if self.completionValues.count == 0 {
-//        DispatchQueue.main.async {
-//            completion(nil, nil, NSError())
-//        }
-//    }
-//    else {
-//        let completionValue = self.completionValues.removeFirst()
-//        DispatchQueue.main.async {
-//            completion(completionValue.0, completionValue.1, completionValue.2)
-//        }
-//    }
-//}
-@end
 
-@implementation CMPMockAuthenticationDelegate
 
-- (void)clientWith:(nonnull CMPComapiClient *)client didReceiveAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge completion:(nonnull void (^)(NSString * _Nullable))continueWithToken {
-    continueWithToken([CMPTestMocks mockAuthenticationToken]);
-}
 
-@end
 
-@implementation CMPMockUserDefaults
 
-+ (NSUserDefaults *)mockUserDefaults {
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"MOCK_DEFAULTS"];
-    return defaults;
-}
-
-@end
-
-@implementation CMPResourceLoader
-
-+ (NSBundle *)bundle {
-    return [NSBundle bundleForClass:CMPTestMocks.class];
-}
-
-+ (NSURL *)urlForFile:(NSString *)file extension:(NSString *)extension {
-    return [[CMPResourceLoader bundle] URLForResource:file withExtension:extension];
-}
-
-+ (NSData *)loadJSONWithName:(NSString *)JSON {
-    return [NSData dataWithContentsOfURL:[CMPResourceLoader urlForFile:JSON extension:@"json"]];
-}
-
-@end
 
 ////MARK:RequestDelegate
 //

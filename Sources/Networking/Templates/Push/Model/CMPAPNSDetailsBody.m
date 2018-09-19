@@ -21,7 +21,7 @@
 }
 
 - (nullable NSData *)encode:(NSError *__autoreleasing *)error {
-    NSDictionary<NSString *, id> *apnsDict = @{@"bundleID" : self.apns.bundleID,
+    NSDictionary<NSString *, id> *apnsDict = @{@"bundleId" : self.apns.bundleID,
                                                @"environment" : self.apns.environment,
                                                @"token" : self.apns.token};
     NSDictionary<NSString *, id> *dict = @{@"apns" : apnsDict};

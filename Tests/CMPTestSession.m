@@ -10,6 +10,7 @@
 #import "CMPTestMocks.h"
 #import "NSDateFormatter+CMPUtility.h"
 #import "CMPSession.h"
+#import "CMPResourceLoader.h"
 
 @interface CMPTestSession : XCTestCase
 

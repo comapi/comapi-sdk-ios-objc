@@ -44,19 +44,6 @@
     return @[@"apispaces", self.apiSpaceID, @"profiles", self.profileID];
 }
 
-- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult *))result {
-    NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
-    if (!request) {
-        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
-        return;
-    }
-
-    [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        result([self resultFromData:data urlResponse:response]);
-    }];
-}
-
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
         NSError *parseError = nil;
@@ -74,6 +61,19 @@
     
     NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
+}
+
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void (^)(CMPRequestTemplateResult *))result {
+    NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
+    if (!request) {
+        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
+        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+        return;
+    }
+    
+    [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        result([self resultFromData:data urlResponse:response]);
+    }];
 }
 
 @end

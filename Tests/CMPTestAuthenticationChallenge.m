@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CMPResourceLoader.h"
 #import "CMPTestMocks.h"
 #import "CMPAuthenticationChallenge.h"
 #import "NSString+CMPUtility.h"

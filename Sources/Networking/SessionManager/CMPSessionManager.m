@@ -102,7 +102,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 }
 
 - (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
-    [[CMPLogger shared] verbose:@[@"Authorization finished with sessionAuth:", sessionAuth]];
+    logWithLevel(CMPLogLevelInfo, @"Authorization finished with sessionAuth:", sessionAuth, nil);
     
     self.sessionAuth = sessionAuth;
     [self saveSessionInfo];
@@ -110,7 +110,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     // self.socketManager?.startSocket()
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
-    [[CMPLogger shared] verbose:@[@"secondsTillTokenExpiry:", @(secondsTillTokenExpiry)]];
+    logWithLevel(CMPLogLevelInfo, @"secondsTillTokenExpiry:", @(secondsTillTokenExpiry), nil);
     
     __weak CMPSessionManager *weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

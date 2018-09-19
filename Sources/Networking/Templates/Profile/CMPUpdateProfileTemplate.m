@@ -10,14 +10,14 @@
 
 @implementation CMPUpdateProfileTemplate
 
-- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token eTag:(NSString *)eTag attributes:(NSDictionary<NSString *,NSString *> *)attribbutes {
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token eTag:(NSString *)eTag attributes:(NSDictionary<NSString *,NSString *> *)attributes {
     self = [super initWithScheme:scheme host:host port:port apiSpaceID:apiSpaceID];
     
     if (self) {
         self.token = token;
         self.profileID = profileID;
         self.eTag = eTag;
-        self.attributes = attribbutes;
+        self.attributes = attributes;
     }
     
     return self;
@@ -79,7 +79,7 @@
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
-- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void (^)(CMPRequestTemplateResult *))result {
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void (^)(CMPRequestTemplateResult *))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];

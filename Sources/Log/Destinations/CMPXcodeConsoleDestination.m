@@ -20,7 +20,7 @@
     self = [super self];
     
     if(self) {
-        self.dateFormatter = [NSDateFormatter iso8061Formatter];
+        self.dateFormatter = [NSDateFormatter comapiFormatter];
         self.minimumLogLevel = minimumLevel;
     }
     
@@ -31,19 +31,16 @@
     return [CMPLogLevelRepresenter emojiRepresentationForLogLevel:logLevel];
 }
 
-- (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date {
+- (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date {
     if (self.minimumLogLevel > level) {
         return;
     }
     
     NSString *prefix = [NSString stringWithFormat:@"%@ %@", [CMPLogLevelRepresenter emojiRepresentationForLogLevel:level], [CMPLogLevelRepresenter textualRepresentationForLogLevel:level]];
-    NSString *filename = file.lastPathComponent;
-    NSString *lineStr = [@(line) stringValue];
-    NSString *fileStr = [NSString stringWithFormat:@"%@:%@ %@", filename, lineStr, function];
     NSString *timeStr = [self.dateFormatter stringFromDate:date];
     NSString *message = [CMPLog stringFromItems:items separator:nil terminator:@""];
     
-    NSString *logHeader = [@[prefix, timeStr, fileStr] componentsJoinedByString:@" "];
+    NSString *logHeader = [@[prefix, timeStr] componentsJoinedByString:@" "];
     NSString *text = [CMPLog stringFromItems:@[logHeader, message] separator:nil terminator:nil];
     
     NSLog(@"%@", text);

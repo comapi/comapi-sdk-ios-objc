@@ -24,7 +24,7 @@
     }];
 }
 
-- (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString *)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
+- (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
     CMPUpdateProfileTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPUpdateProfileTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID token:token eTag:eTag attributes:attributes];
     };
@@ -34,13 +34,7 @@
     }];
 }
 
-- (void)updateCurrentProfileWithAttributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString *)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
-    if (self.currentProfileID) {
-        [self updateProfileForProfileID:self.currentProfileID attributes:attributes eTag:eTag completion:completion];
-    }
-}
-
-- (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString *)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
+- (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
     CMPPatchProfileTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPPatchProfileTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID token:token eTag:eTag attributes:attributes];
     };
@@ -48,12 +42,6 @@
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
         completion(result);
     }];
-}
-
-- (void)patchCurrentProfileWithAttributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString *)eTag completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {
-    if (self.currentProfileID) {
-        [self patchProfileForProfileID:self.currentProfileID attributes:attributes eTag:eTag completion:completion];
-    }
 }
 
 - (void)queryProfilesWithQueryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion {

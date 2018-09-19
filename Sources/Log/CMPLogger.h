@@ -9,23 +9,25 @@
 #import "CMPLogLevel.h"
 #import "CMPLoggingDestination.h"
 
+void logWithLevel(CMPLogLevel logLevel, id params, ...);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CMPLogging
 
-- (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items: (NSArray<id> *)items level:(CMPLogLevel)level;
-
-@end
-
-@interface CMPLogger : NSObject <CMPLogging>
-
-+ (instancetype)shared;
+- (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level;
 
 - (void)verbose:(NSArray<id> *)params;
 - (void)debug:(NSArray<id> *)params;
 - (void)info:(NSArray<id> *)params;
 - (void)warning:(NSArray<id> *)params;
 - (void)error:(NSArray<id> *)params;
+
+@end
+
+@interface CMPLogger : NSObject <CMPLogging>
+
++ (instancetype)shared;
 
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
 

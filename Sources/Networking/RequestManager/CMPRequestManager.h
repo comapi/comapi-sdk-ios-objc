@@ -28,10 +28,10 @@ typedef void(^CMPPendingOperation)(void);
 
 @interface CMPRequestManager : NSObject
 
-@property (nonatomic, strong) CMPRequestPerformer *requestPerformer;
+@property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
-- (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer;
+- (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer;
 - (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)updateToken:(NSString *)token;
 - (void)tokenUpdateFailed;

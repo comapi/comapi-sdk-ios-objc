@@ -20,47 +20,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CMPMockRequestPerformer: NSObject <CMPRequestPerforming>
-
-@property (nonatomic, strong) NSMutableArray<NSURLRequest *> *receivedRequests;
-
-@end
-
-@interface CMPMockAuthenticationDelegate : NSObject <CMPAuthenticationDelegate>
-
-@end
-
-@interface CMPMockUserDefaults : NSObject
-
-+ (NSUserDefaults *)mockUserDefaults;
-
-@end
-
-//var receivedRequests: [URLRequest] = []
-//    var completionValues: [(Data?, URLResponse?, Error?)] = [
-//                                                             (loadJSON(jsonName: "AuthenticationChallenge"), HTTPURLResponse.mocked(url: mockBaseURL), nil),
-//                                                             (loadJSON(jsonName: "SessionAuth"), HTTPURLResponse.mocked(url: mockBaseURL), nil),
-//                                                             ]
-//
-//    func perform(_ urlRequest: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-//        if self.completionValues.count == 0 {
-//            DispatchQueue.main.async {
-//                completion(nil, nil, NSError())
-//            }
-//        }
-//        else {
-//            let completionValue = self.completionValues.removeFirst()
-//            DispatchQueue.main.async {
-//                completion(completionValue.0, completionValue.1, completionValue.2)
-//            }
-//        }
-//    }
-
-@interface CMPResourceLoader : NSObject
-
-+ (NSURL *)urlForFile:(NSString *)file extension:(NSString *)extension;
-+ (NSData *)loadJSONWithName:(NSString *)JSON;
-
-@end
-
 NS_ASSUME_NONNULL_END

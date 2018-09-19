@@ -10,6 +10,7 @@
 #import "CMPTitledCell.h"
 #import "CMPProfile.h"
 #import "AppDelegate.h"
+#import "CMPProfileDetailsViewController.h"
 
 @interface CMPProfileViewController ()
 
@@ -38,9 +39,8 @@
     self.view = [[CMPProfileView alloc] init];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     __weak typeof(self) weakSelf = self;
     [self.viewModel getProfilesWithCompletion:^(NSError * _Nullable err) {
         [weakSelf reload];
@@ -83,7 +83,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CMPTitledCell *cell = (CMPTitledCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     CMPProfile *profile = self.viewModel.profiles[indexPath.row];
-    [cell configureWithTitle:profile.id];
+    [cell configureWithTitle:profile.id state:profile.id == self.viewModel.client.profileID ? CMPProfileStateSelf : CMPPRofileStateOther];
     return cell;
 }
 
@@ -91,5 +91,11 @@
     return self.viewModel.profiles.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CMPProfileDetailsViewModel *vm = [[CMPProfileDetailsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
+    CMPProfileDetailsViewController *vc = [[CMPProfileDetailsViewController alloc] initWithViewModel:vm state:self.viewModel.profiles[indexPath.row].id == self.viewModel.client.profileID ? CMPProfileStateSelf : CMPPRofileStateOther];
+    
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
 
 @end

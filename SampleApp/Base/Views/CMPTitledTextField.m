@@ -43,7 +43,7 @@
     self.textField.translatesAutoresizingMaskIntoConstraints = NO;
     
     __weak CMPTitledTextField *weakSelf = self;
-    self.didChangeText = ^(NSString * text) {
+    self.textField.didChangeText = ^(NSString * text) {
         weakSelf.didChangeText(text);
     };
 }

@@ -31,7 +31,7 @@
     self.backgroundColor = UIColor.clearColor;
     self.textColor = UIColor.grayColor;
     self.font = [UIFont systemFontOfSize:16];
-    [self addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventEditingChanged];
     self.inputAccessoryView = [UIToolbar toolbarWithTitle:@"Done" target:self action:@selector(dismiss)];
 }
 

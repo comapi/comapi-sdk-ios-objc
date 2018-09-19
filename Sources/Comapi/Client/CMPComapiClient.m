@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSString *apiSpaceID;
 @property (nonatomic, strong) CMPRequestManager *requestManager;
-@property (nonatomic, strong) CMPRequestPerformer *requestPerformer;
+@property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
 @property (nonatomic, strong) CMPAPIConfiguration *apiConfiguration;
 @property (nonatomic, strong) CMPSessionManager *sessionManager;
 
@@ -24,6 +24,11 @@
 @implementation CMPComapiClient
 
 -(instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration {
+    self = [self initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate apiConfiguration:configuration requestPerformer:[[CMPRequestPerformer alloc] init]];
+    return self;
+}
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration requestPerformer:(id<CMPRequestPerforming>)requestPerformer {
     self = [super init];
     
     if (self) {
@@ -31,8 +36,8 @@
         
         self.apiConfiguration = configuration;
         self.apiSpaceID = apiSpaceID;
-
-        self.requestPerformer = [[CMPRequestPerformer alloc] init];
+        self.requestPerformer = requestPerformer;
+        
         self.requestManager = [[CMPRequestManager alloc] initWithRequestPerformer:self.requestPerformer];
         self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
         self.services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];

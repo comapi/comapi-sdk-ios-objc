@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "CMPComapiConfig.h"
 #import "CMPTestMocks.h"
+#import "CMPMockAuthenticationDelegate.h"
 
 @interface CMPTestComapiConfig : XCTestCase
 

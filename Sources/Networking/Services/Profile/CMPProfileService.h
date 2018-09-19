@@ -14,17 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CMPProfileServiceable
 
 - (void)getProfileForProfileID:(NSString *)profileID completion:(void(^)(CMPRequestTemplateResult *))completion;
-- (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
-- (void)updateCurrentProfileWithAttributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
-- (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
-- (void)patchCurrentProfileWithAttributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString *)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *, NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void(^)(CMPRequestTemplateResult *))completion;
 - (void)queryProfilesWithQueryElements:(NSArray<CMPQueryElements *> *)queryElements completion:(void (^)(CMPRequestTemplateResult * _Nonnull))completion;
 
 @end
 
-@interface CMPProfileService : CMPBaseService
-
-@property (nonatomic, strong, nullable) NSString *currentProfileID;
+@interface CMPProfileService : CMPBaseService <CMPProfileServiceable>
 
 @end
 

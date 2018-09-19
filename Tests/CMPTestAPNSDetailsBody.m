@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
 #import "CMPAPNSDetailsBody.h"
+#import "CMPResourceLoader.h"
 
 @interface CMPTestAPNSDetailsBody : XCTestCase
 

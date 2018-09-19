@@ -11,7 +11,7 @@
 
 @interface CMPInsetTextField : UITextField <CMPViewConfiguring>
 
-@property (nonatomic, strong) void(^didChangeText)(NSString *);
+@property (nonatomic, copy, nullable) void(^didChangeText)(NSString *);
 
 - (instancetype)init;
 

@@ -1,0 +1,62 @@
+//
+//  CMPMockRequestPerformer.m
+//  comapi_ios_sdk_objective_c_tests
+//
+//  Created by Dominik Kowalski on 19/09/2018.
+//  Copyright © 2018 Comapi. All rights reserved.
+//
+
+#import "CMPMockRequestPerformer.h"
+
+@implementation CMPMockRequestResult
+
+- (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error {
+    self = [super init];
+    
+    if (self) {
+        self.data = data;
+        self.response = response;
+        self.error = error;
+    }
+    
+    return self;
+}
+
+@end
+
+@implementation CMPMockRequestPerformer
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.receivedRequests = [NSMutableArray new];
+        self.completionValues = [NSMutableArray new];
+        
+        CMPMockRequestResult *challenge = [[CMPMockRequestResult alloc] initWithData:[CMPResourceLoader loadJSONWithName:@"AuthenticationChallenge"] response:[NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]] error:nil];
+        CMPMockRequestResult *auth = [[CMPMockRequestResult alloc] initWithData:[CMPResourceLoader loadJSONWithName:@"SessionAuth"] response:[NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]] error:nil];
+        
+        [self.completionValues addObject:challenge];
+        [self.completionValues addObject:auth];
+    }
+    
+    return self;
+}
+
+
+- (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
+    if (self.completionValues.count == 0) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(nil, nil, [[NSError alloc] init]);
+        });
+    } else {
+        CMPMockRequestResult *completionValue = [[self.completionValues firstObject] mutableCopy];
+        [self.completionValues removeObjectAtIndex:0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(completionValue.data, completionValue.response, completionValue.error);
+        });
+    }
+    
+}
+
+@end

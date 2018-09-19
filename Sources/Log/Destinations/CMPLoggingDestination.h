@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite) NSDateFormatter *dateFormatter;
 
 - (NSString *)prefixForLevel:(CMPLogLevel)logLevel;
-- (void)logFile:(NSString *)file line:(NSInteger)line function:(NSString *)function items: (NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date;
+- (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date;
 
 @end
 

@@ -8,12 +8,13 @@
 
 #import "CMPBaseCell.h"
 #import "CMPViewConfiguring.h"
+#import "CMPProfileDetailsView.h"
 
 @interface CMPTitledCell : CMPBaseCell <CMPViewConfiguring>
 
 @property (nonatomic, strong) UILabel *mainTitleLabel;
 @property (nonatomic, strong) UIView *bubbleView;
 
-- (void)configureWithTitle:(NSString *)title;
+- (void)configureWithTitle:(NSString *)title state:(CMPProfileState)state;
 
 @end
