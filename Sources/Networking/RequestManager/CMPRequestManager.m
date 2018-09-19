@@ -18,7 +18,7 @@
 
 @implementation CMPRequestManager
 
-- (instancetype)initWithRequestPerformer:(CMPRequestPerformer *)requestPerformer {
+- (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer {
     self = [super init];
     
     if (self) {

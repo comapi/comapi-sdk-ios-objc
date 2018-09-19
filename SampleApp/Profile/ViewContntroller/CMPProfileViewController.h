@@ -18,5 +18,6 @@
 
 - (CMPProfileView *)profileView;
 - (instancetype)initWithViewModel:(CMPProfileViewModel *)viewModel;
+- (void)reload;
 
 @end

@@ -17,7 +17,7 @@
 - (nullable NSData *)httpBody;
 - (NSString *)httpMethod;
 
-- (void)performWithRequestPerformer:(CMPRequestPerformer *)performer result:(void(^)(CMPRequestTemplateResult *))result;
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPRequestTemplateResult *))result;
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
 
 @end

@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
 #import "CMPSessionAuth.h"
+#import "CMPResourceLoader.h"
 
 @interface CMPTestSessionAuth : XCTestCase
 

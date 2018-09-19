@@ -8,6 +8,7 @@
 
 #import "CMPTitledCell.h"
 
+
 @implementation CMPTitledCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -66,8 +67,10 @@
     [NSLayoutConstraint activateConstraints:@[top, bottom, leading, trailing, height]];
 }
 
-- (void)configureWithTitle:(NSString *)title {
+- (void)configureWithTitle:(NSString *)title state:(CMPProfileState)state {
     self.mainTitleLabel.text = title;
+    self.bubbleView.layer.borderColor = state == CMPProfileStateSelf ? UIColor.blackColor.CGColor : UIColor.whiteColor.CGColor;
+    self.mainTitleLabel.textColor = state == CMPProfileStateSelf ? UIColor.blackColor : UIColor.whiteColor;
 }
 
 @end

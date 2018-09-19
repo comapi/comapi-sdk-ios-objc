@@ -54,7 +54,7 @@
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
-- (void)performWithRequestPerformer:(nonnull CMPRequestPerformer *)performer result:(nonnull void (^)(CMPRequestTemplateResult * _Nonnull))result {
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(nonnull void (^)(CMPRequestTemplateResult * _Nonnull))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];

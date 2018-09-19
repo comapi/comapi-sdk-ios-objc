@@ -10,6 +10,7 @@
 #import "CMPTestMocks.h"
 #import "NSString+CMPUtility.h"
 #import "CMPAuthorizeSessionBody.h"
+#import "CMPResourceLoader.h"
 
 @interface CMPTestAuthorizeSessionBody : XCTestCase
 

@@ -28,6 +28,9 @@
         if (JSON[@"id"] != nil && [JSON[@"id"] isKindOfClass:NSString.class]) {
             self.id = JSON[@"id"];
         }
+        if (JSON[@"email"] != nil && [JSON[@"email"] isKindOfClass:NSString.class]) {
+            self.email = JSON[@"email"];
+        }
         if (JSON[@"_createdOn"] != nil && [JSON[@"_createdOn"] isKindOfClass:NSString.class]) {
             self.createdOn = [(NSString *)JSON[@"_createdOn"] asDate];
         }

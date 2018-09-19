@@ -23,9 +23,15 @@
 
 - (void)getProfilesWithCompletion:(void(^)(NSError * _Nullable))completion {
     __weak typeof(self) weakSelf = self;
+//    [self.client setPushToken:@"token" completion:^(BOOL success, NSError * error) {
+//        if (success) {
+//            completion(nil);
+//        } else if (error) {
+//            completion(error);
+//        }
+//    }];
     [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(CMPRequestTemplateResult * _Nonnull result) {
         if (result.error) {
-            [[CMPLogger shared] verbose:@[result.error]];
             completion(result.error);
         } else {
             weakSelf.profiles = result.object;
