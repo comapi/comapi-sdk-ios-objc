@@ -33,6 +33,7 @@
     if (error) {
         XCTFail();
     }
+    
     XCTAssertEqualObjects(object.authenticationID, @"f6c4003a-c572-48fb-8a01-56b027e20cc3");
     XCTAssertEqualObjects(object.provider, @"jsonWebToken");
     XCTAssertEqualObjects(object.nonce, @"13687106-f26d-4afe-a25a-60d58b38c568");

@@ -60,21 +60,23 @@
 }
 
 -(void)setPushToken:(NSString *)token completion:(void (^)(BOOL, NSError *))completion {
-    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-    NSString *environment = @"";
+    CMPSetAPNSDetailsTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+        NSString *environment = @"";
+        
+        #if DEBUG
+            environment = @"development";
+        #else
+            environment = @"production";
+        #endif
+        
+        CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:token];
+        CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+        NSString *sessionId = self.sessionManager.sessionAuth.session.id != nil ? self.sessionManager.sessionAuth.session.id : @"";
+        return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];
+    };
     
-#if DEBUG
-    environment = @"development";
-#else
-    environment = @"production";
-#endif
-    
-    CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:token];
-    CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
-    
-    CMPSetAPNSDetailsTemplate *template = [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:self.sessionManager.sessionAuth.session.id body:body];
-    
-    [template performWithRequestPerformer:self.requestPerformer result:^(CMPRequestTemplateResult * result) {
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
         BOOL success = [(NSNumber *)result.object boolValue];
         completion(success, result.error);
     }];

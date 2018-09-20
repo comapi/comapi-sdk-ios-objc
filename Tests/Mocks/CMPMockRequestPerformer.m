@@ -22,11 +22,32 @@
     return self;
 }
 
+- (nonnull id)copyWithZone:(nullable NSZone *)zone {
+    CMPMockRequestResult *copy = [[CMPMockRequestResult alloc] init];
+    
+    copy.data = self.data;
+    copy.response = self.response;
+    copy.error = self.error;
+    
+    return copy;
+}
+
 @end
 
 @implementation CMPMockRequestPerformer
 
 - (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.receivedRequests = [NSMutableArray new];
+        self.completionValues = [NSMutableArray new];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithSessionAndAuth {
     self = [super init];
     
     if (self) {
@@ -50,8 +71,10 @@
             completion(nil, nil, [[NSError alloc] init]);
         });
     } else {
-        CMPMockRequestResult *completionValue = [[self.completionValues firstObject] mutableCopy];
+        CMPMockRequestResult *completionValue = [[self.completionValues firstObject] copy];
+        NSString *data = [[NSString alloc] initWithData:completionValue.data encoding:NSUTF8StringEncoding];
         [self.completionValues removeObjectAtIndex:0];
+        NSLog(@"%@", data);
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(completionValue.data, completionValue.response, completionValue.error);
         });

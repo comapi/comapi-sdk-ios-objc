@@ -45,7 +45,7 @@
     XCTAssertEqualObjects(object.session.sdkType, @"native");
     XCTAssertEqualObjects(object.session.sdkVersion, @"0.0.1");
     XCTAssertEqualObjects(object.session.sourceIP, @"80.80.80.80");
-    XCTAssertEqualObjects(object.session.profileId, @"bartek.chlebek");
+    XCTAssertEqualObjects(object.session.profileId, @"dominik.kowalski");
 }
 
 @end

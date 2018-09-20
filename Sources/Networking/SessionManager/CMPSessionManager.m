@@ -107,7 +107,6 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     self.sessionAuth = sessionAuth;
     [self saveSessionInfo];
     [self.requestManager updateToken:sessionAuth.token];
-    // self.socketManager?.startSocket()
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
     logWithLevel(CMPLogLevelInfo, @"secondsTillTokenExpiry:", @(secondsTillTokenExpiry), nil);
@@ -119,7 +118,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
         }
     });
     
-    if (self.didFailAuthentication) {
+    if (self.didFinishAuthentication) {
         self.didFinishAuthentication();
     }
     
@@ -130,7 +129,8 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     __weak CMPSessionManager *weakSelf = self;
     [self.authenticationDelegate clientWith:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
         if (token) {
-            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:challenge.authenticationID challengeHandler:self];
+            NSString *authenticationID = challenge.authenticationID != nil ? challenge.authenticationID : @"";
+            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID challengeHandler:self];
         } else {
             [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus :CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }

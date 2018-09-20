@@ -1,1 +1,1 @@
-../../../../Sources/Networking/Model/CMPSession.h
+../../../../Sources/Networking/Templates/Session/Model/CMPSession.h

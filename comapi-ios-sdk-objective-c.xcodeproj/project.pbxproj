@@ -31,6 +31,9 @@
 		895FF504212712F90007FAC3 /* NSData+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF502212712F90007FAC3 /* NSData+CMPUtility.m */; };
 		895FF50821271AEC0007FAC3 /* CMPURLResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF50621271AEC0007FAC3 /* CMPURLResult.h */; };
 		895FF50921271AEC0007FAC3 /* CMPURLResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF50721271AEC0007FAC3 /* CMPURLResult.m */; };
+		896244DB2153CC35007F2117 /* ProfileArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 896244DA2153CC35007F2117 /* ProfileArray.json */; };
+		896244DD2153D03B007F2117 /* ProfileUpdate.json in Resources */ = {isa = PBXBuildFile; fileRef = 896244DC2153D03B007F2117 /* ProfileUpdate.json */; };
+		896244DF2153DE12007F2117 /* CMPTestErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 896244DE2153DE12007F2117 /* CMPTestErrors.m */; };
 		8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */; };
 		8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */; };
 		8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */; };
@@ -219,6 +222,9 @@
 		895FF502212712F90007FAC3 /* NSData+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+CMPUtility.m"; sourceTree = "<group>"; };
 		895FF50621271AEC0007FAC3 /* CMPURLResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
 		895FF50721271AEC0007FAC3 /* CMPURLResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPURLResult.m; sourceTree = "<group>"; };
+		896244DA2153CC35007F2117 /* ProfileArray.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProfileArray.json; sourceTree = "<group>"; };
+		896244DC2153D03B007F2117 /* ProfileUpdate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProfileUpdate.json; sourceTree = "<group>"; };
+		896244DE2153DE12007F2117 /* CMPTestErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestErrors.m; sourceTree = "<group>"; };
 		8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestTemplate.m; sourceTree = "<group>"; };
 		8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
 		8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPHTTPHeader.m; sourceTree = "<group>"; };
@@ -1071,6 +1077,7 @@
 				89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */,
 				89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */,
 				89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */,
+				896244DE2153DE12007F2117 /* CMPTestErrors.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1086,6 +1093,8 @@
 				89EA5D14214ACCB700C29D08 /* AuthenticationChallenge.json */,
 				89EA5D37214FBBC700C29D08 /* Profile.json */,
 				89EA5D4121511F7400C29D08 /* APNSDetailsBody.json */,
+				896244DA2153CC35007F2117 /* ProfileArray.json */,
+				896244DC2153D03B007F2117 /* ProfileUpdate.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1246,6 +1255,7 @@
 					};
 					89EA5CF7214ACC6D00C29D08 = {
 						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 89957A64213935E0008EE0BE;
 					};
 				};
 			};
@@ -1292,10 +1302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
+				896244DB2153CC35007F2117 /* ProfileArray.json in Resources */,
 				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
 				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
 				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
 				89EA5D4221511F7400C29D08 /* APNSDetailsBody.json in Resources */,
+				896244DD2153D03B007F2117 /* ProfileUpdate.json in Resources */,
 				89EA5D38214FBBC700C29D08 /* Profile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1435,6 +1447,7 @@
 				89EA5D4A2151390F00C29D08 /* CMPTestComapiConfig.m in Sources */,
 				89EA5D2B214ACFB300C29D08 /* CMPTestMocks.m in Sources */,
 				89259E8621528E5100C73A02 /* CMPMockUserDefaults.m in Sources */,
+				896244DF2153DE12007F2117 /* CMPTestErrors.m in Sources */,
 				89EA5D4C21513B7300C29D08 /* CMPTestComapi.m in Sources */,
 				89EA5D48215137EF00C29D08 /* CMPTestAPIConfiguration.m in Sources */,
 				89EA5D2F214F9C2000C29D08 /* NSHTTPURLResponse+CMPTestUtility.m in Sources */,
@@ -1659,6 +1672,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1683,6 +1697,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1709,6 +1724,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
 			};
 			name = Debug;
 		};
@@ -1726,6 +1742,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
 			};
 			name = Release;
 		};
