@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPMockRequestResult : NSObject
+@interface CMPMockRequestResult : NSObject <NSCopying>
 
 @property (nonatomic, strong, nullable) NSData *data;
 @property (nonatomic, strong, nullable) NSURLResponse *response;
@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<CMPMockRequestResult *> *completionValues;
 
 - (instancetype)init;
+- (instancetype)initWithSessionAndAuth;
 
 @end
 

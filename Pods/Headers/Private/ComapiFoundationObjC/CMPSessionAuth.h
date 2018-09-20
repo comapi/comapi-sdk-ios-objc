@@ -1,1 +1,1 @@
-../../../../Sources/Networking/Model/CMPSessionAuth.h
+../../../../Sources/Networking/Templates/Session/Model/CMPSessionAuth.h
