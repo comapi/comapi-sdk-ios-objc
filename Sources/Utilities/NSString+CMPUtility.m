@@ -7,7 +7,6 @@
 //
 
 #import "NSString+CMPUtility.h"
-#import "NSDateFormatter+CMPUtility.h"
 
 @implementation NSString (CMPUtility)
     

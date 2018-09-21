@@ -6,13 +6,8 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPHTTPHeader.h"
-#import "CMPErrors.h"
-#import "CMPConstants.h"
-#import "NSURLResponse+CMPUtility.h"
 #import "CMPRequestPerformer.h"
 #import "CMPHTTPRequestTemplate.h"
-#import "CMPLogger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

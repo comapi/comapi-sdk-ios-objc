@@ -7,7 +7,6 @@
 //
 
 #import "CMPURLResult.h"
-#import "NSData+CMPUtility.h"
 
 @implementation CMPURLResult
 

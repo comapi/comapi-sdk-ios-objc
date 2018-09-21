@@ -8,7 +8,6 @@
 
 #import "CMPAuthorizeSessionTemplate.h"
 #import "CMPSessionAuth.h"
-#import "CMPErrors.h"
 
 @implementation CMPAuthorizeSessionTemplate
 

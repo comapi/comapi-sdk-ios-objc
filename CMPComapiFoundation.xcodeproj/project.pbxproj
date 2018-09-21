@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
+		891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 891E081B2155282B00ED18D3 /* CMPUtilities.h */; };
+		891E0824215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */; };
 		8921D2C7215520C400976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2C5215520C400976FFA /* Info.plist */; };
 		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; };
 		8921D2CB215520D100976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2CA215520D100976FFA /* Info.plist */; };
@@ -189,6 +191,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		891E081B2155282B00ED18D3 /* CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPUtilities.h; sourceTree = "<group>"; };
+		891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMPComapiFoundation-Prefix.pch"; sourceTree = "<group>"; };
 		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8921D2C6215520C400976FFA /* CMPComapiFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPComapiFoundation.h; sourceTree = "<group>"; };
 		8921D2CA215520D100976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -559,7 +563,6 @@
 				8972C317212C34C900C76B19 /* Authentication */,
 				8972C2F1212AE34800C76B19 /* HTTPHeader */,
 				895FF50521271AD30007FAC3 /* URLResult */,
-				895FF4F82126ECCC0007FAC3 /* RequestTemplate */,
 				89C8DE4B2122F48200555495 /* SessionManager */,
 				895FF4EE2126BFD30007FAC3 /* RequestManager */,
 			);
@@ -713,6 +716,7 @@
 		8972C33D212ED53000C76B19 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				895FF4F82126ECCC0007FAC3 /* RequestTemplate */,
 				89EA5CB52147D62B00C29D08 /* Profile */,
 				89957A4E2137DBBD008EE0BE /* Push */,
 				8972C33E212ED53700C76B19 /* Session */,
@@ -918,6 +922,7 @@
 		89C8DE492122F47000555495 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */,
 				89957A212135763C008EE0BE /* Log */,
 				8972C330212DA3F500C76B19 /* Security */,
 				895FF4FD2126F0600007FAC3 /* Constants */,
@@ -951,6 +956,7 @@
 				895FF502212712F90007FAC3 /* NSData+CMPUtility.m */,
 				8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */,
 				8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */,
+				891E081B2155282B00ED18D3 /* CMPUtilities.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1132,7 +1138,9 @@
 				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
 				89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */,
 				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
+				891E0824215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch in Headers */,
 				89EA5CB92147E00000C29D08 /* CMPQueryBuilder.h in Headers */,
+				891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */,
 				89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */,
 				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
 				89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */,
@@ -1674,6 +1682,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1699,6 +1709,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1719,6 +1731,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
 				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1737,6 +1751,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
 				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

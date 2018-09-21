@@ -7,7 +7,6 @@
 //
 
 #import "CMPComapi.h"
-#import "CMPErrors.h"
 
 @interface CMPComapi ()
 

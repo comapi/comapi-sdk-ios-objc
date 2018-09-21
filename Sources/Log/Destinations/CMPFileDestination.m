@@ -8,9 +8,7 @@
 
 #import "CMPFileDestination.h"
 #import "CMPLogLevel.h"
-#import "NSDateFormatter+CMPUtility.h"
 #import "CMPLog.h"
-#import "CMPConstants.h"
 
 @interface CMPFileDestination ()
 

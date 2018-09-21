@@ -7,7 +7,6 @@
 //
 
 #import "CMPAuthorizeSessionBody.h"
-#import "CMPConstants.h"
 #import <UIKit/UIKit.h>
 
 @implementation CMPAuthorizeSessionBody

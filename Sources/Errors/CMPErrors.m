@@ -7,7 +7,6 @@
 //
 
 #import "CMPErrors.h"
-#import "CMPConstants.h"
 
 @implementation CMPErrors
 

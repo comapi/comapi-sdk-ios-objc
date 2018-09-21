@@ -7,7 +7,6 @@
 //
 
 #import "CMPAuthenticationChallenge.h"
-#import "NSString+CMPUtility.h"
 
 @implementation CMPAuthenticationChallenge
 

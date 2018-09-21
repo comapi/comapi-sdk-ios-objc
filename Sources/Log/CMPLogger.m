@@ -7,8 +7,6 @@
 //
 
 #import "CMPLogger.h"
-#import "CMPConstants.h"
-#import "NSDateFormatter+CMPUtility.h"
 #import "CMPLog.h"
 
 void logWithLevel(CMPLogLevel logLevel, id params, ...) {

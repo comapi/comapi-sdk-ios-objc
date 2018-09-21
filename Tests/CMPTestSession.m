@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
-#import "NSDateFormatter+CMPUtility.h"
 #import "CMPSession.h"
 #import "CMPResourceLoader.h"
 

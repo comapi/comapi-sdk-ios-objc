@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for CMPComapiFoundation.
 FOUNDATION_EXPORT double CMPComapiFoundationVersionNumber;
@@ -15,3 +15,8 @@ FOUNDATION_EXPORT double CMPComapiFoundationVersionNumber;
 FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CMPComapiFoundation/PublicHeader.h>
+
+#import "CMPComapi.h"
+#import "CMPUtilities.h"
+
+

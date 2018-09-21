@@ -7,9 +7,6 @@
 //
 
 #import "CMPRequestPerformer.h"
-#import "NSData+CMPUtility.h"
-#import "CMPURLResult.h"
-#import "CMPLogger.h"
 
 @implementation CMPRequestPerformer 
 
