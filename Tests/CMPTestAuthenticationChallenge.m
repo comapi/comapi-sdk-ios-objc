@@ -1,6 +1,6 @@
 //
 //  CMPTestAuthenticationChallenge.m
-//  comapi_ios_sdk_objective_c_tests
+//  CMPComapiFoundation_tests
 //
 //  Created by Dominik Kowalski on 17/09/2018.
 //  Copyright © 2018 Comapi. All rights reserved.

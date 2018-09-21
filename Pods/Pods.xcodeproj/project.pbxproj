@@ -81,124 +81,124 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06E2ACFD2A2BB3209A28125A512E5F97 /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
+		012516024502F2023CADA70C4E101395 /* CMPComapiConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
+		03E67D826698B1D9D608F8823A653BE4 /* CMPSessionService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
+		04D8A379CDF719E717AEA2A571A615A4 /* CMPSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
 		077B096C7411706572BF55DAF041C477 /* JWTAlgorithmDataHolderChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolderChain.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.m; sourceTree = "<group>"; };
-		079CB47ECE6C9CD046A8FCF276FD497D /* CMPLoggingDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLoggingDestination.h; sourceTree = "<group>"; };
-		07CE303CFAFD1BDF2B6FA01799C5D61D /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
 		0B26C1CF8FCE727032C2AE06B2946D54 /* JWTBase64Coder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTBase64Coder.m; path = Classes/Supplement/JWTBase64Coder.m; sourceTree = "<group>"; };
-		0FB62C355F3EDF46D69FE9A6D0D7B50A /* CMPProfileService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
-		0FEC7436566C0A8635F44817BD3E01CA /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
 		104E472AB2EC51111F19CB2FE553BEB7 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base64.framework; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11922DE147BAFFF4E043777A35DA4B1C /* CMPFileDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPFileDestination.h; sourceTree = "<group>"; };
+		13C926AC85DE68AD8B182C3F663D22B1 /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
 		16461DDD278E5C5CBEC32AF0B2AAE415 /* JWTCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTCoding.h; path = Classes/Coding/JWTCoding.h; sourceTree = "<group>"; };
-		192E67AF2728B63628DEB0AA215B72CF /* CMPHTTPHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
 		19553283BD4A9B5F7C1D12EA19D5AD0B /* JWTAlgorithmFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmFactory.m; path = Classes/Algorithms/Base/JWTAlgorithmFactory.m; sourceTree = "<group>"; };
-		19D38319C7040C0FD8705C78ACF0C379 /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
+		1BBFFA80D4ABC6D36F0D9A405F32F2AF /* CMPBaseService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPBaseService.h; sourceTree = "<group>"; };
 		1C1B84CFA613F078EBA5139B7E09BB58 /* JWTAlgorithmHSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHSBase.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.h; sourceTree = "<group>"; };
 		1D9334631D30FC17E3E2C0D7FB9ACE0D /* JWTClaimsSetSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetSerializer.h; path = Classes/ClaimSet/JWTClaimsSetSerializer.h; sourceTree = "<group>"; };
 		1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWT.xcconfig; sourceTree = "<group>"; };
 		22DB42ED2FE259B8014ED80BAEF0C1AD /* JWTAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithm.h; path = Classes/Algorithms/Base/JWTAlgorithm.h; sourceTree = "<group>"; };
 		244CFE2736D888AC617373C9CCF8F31B /* JWTBase64Coder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTBase64Coder.h; path = Classes/Supplement/JWTBase64Coder.h; sourceTree = "<group>"; };
 		24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base64.xcconfig; sourceTree = "<group>"; };
-		249F2C61F619FE860C5CAA5074F71E85 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
 		250BA16FA1B3D38BBD4646270B0537EE /* JWTDeprecations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTDeprecations.h; path = Classes/Supplement/JWTDeprecations.h; sourceTree = "<group>"; };
 		254B60E7ED0981F8277E681A5C641FD9 /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2622B203BFCECEE056B04C71730B6586 /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
-		27901DA2F43BB8502B86AFDD963AA25B /* CMPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
-		29B00E3B9A13368DEE1731F4F1A59113 /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
-		2D272C7F6F83FD61BCA3048C93A8AD2F /* CMPServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPServices.h; sourceTree = "<group>"; };
-		2D347CD756B646A0BCC44F9B12CA58EC /* CMPSessionAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
+		2DFECBF7F44475712671C64B1E157C36 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
 		329D5373D2152DF776C160E352D06B8D /* JWTAlgorithmDataHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolder.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.h; sourceTree = "<group>"; };
 		355F351AA1D613D78F0A3CEB8036FF85 /* JWTClaimsSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSet.h; path = Classes/ClaimSet/JWTClaimsSet.h; sourceTree = "<group>"; };
+		35E142ED7363108792346EE53A022A3A /* CMPXcodeConsoleDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPXcodeConsoleDestination.h; sourceTree = "<group>"; };
 		371591A744E9E7BA0CD8A22B94B8BE89 /* JWTAlgorithmHS384.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS384.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.m; sourceTree = "<group>"; };
-		38D6763E1B3BC486F2928B4A870E3D00 /* CMPProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfile.h; sourceTree = "<group>"; };
 		39022E5D7B44B18393A7CFAB2C38FC0D /* JWTAlgorithmHS384.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS384.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.h; sourceTree = "<group>"; };
-		395FA5109705EF5888D619D0332C8AFA /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
+		3911017A50898DD727A0581B540E2090 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
+		3D52EFC58E45C1114585B0CE65249842 /* CMPRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
+		3DBFF5EE01283DC968FD0F3A7DB2D559 /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
 		3F9114950C8E075A49BD680A58FD181F /* JWT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWT-dummy.m"; sourceTree = "<group>"; };
 		40147AF106CDC689B0C729C4064211AC /* JWTClaim.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaim.m; path = Classes/ClaimSet/JWTClaim.m; sourceTree = "<group>"; };
 		418AD10F11C81649FD64B5DDED639720 /* Base64-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-umbrella.h"; sourceTree = "<group>"; };
-		42E2793E9172A5A150B8A99FA570F9B8 /* NSData+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
-		4334830F5F6D04F49C776D79D5753428 /* CMPKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
 		43E0836AB7F78D7F2563BA2715E694C8 /* Pods-SampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-umbrella.h"; sourceTree = "<group>"; };
 		46997437C803F12E33B839243ACF9ED2 /* JWTAlgorithmDataHolderChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolderChain.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.h; sourceTree = "<group>"; };
 		46C7AC7834C7199C1619BE2BBADCC78B /* MF_Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = Base64/MF_Base64Additions.h; sourceTree = "<group>"; };
+		474C83A93F97718A34F2B921A871B158 /* CMPUpdateProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPUpdateProfileTemplate.h; sourceTree = "<group>"; };
+		48507D98D5E36DCDD3F367C28BE1CC81 /* CMPKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
+		48F2107397AA4BB734C49139552CF83E /* CMPJSONEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
 		499F7E8AC78388D3883339D12047E457 /* JWTClaimsSetVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetVerifier.h; path = Classes/ClaimSet/JWTClaimsSetVerifier.h; sourceTree = "<group>"; };
 		4A36F41E14236E2690355F41447D6EBB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		4C2D27D5B95BBD665298DB988AD087F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FC052F2A6EFDA417D11913CF4870702 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
-		512ACFFEE4BBA2E8D91BA6F30D776B52 /* CMPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLog.h; sourceTree = "<group>"; };
-		5261FBE2325FA638EC18F718148FBE34 /* CMPAPNSDetailsBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetailsBody.h; sourceTree = "<group>"; };
-		53119B9CC3F9FA1F2512A640308AF35D /* CMPUpdateProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPUpdateProfileTemplate.h; sourceTree = "<group>"; };
+		4F62BE6767D77067FF3A2484809B9C92 /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
+		4FF1512817DFCF7AB07C7AE6EC15553A /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
+		501907CF0EC586169F787D43EC857AF5 /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
+		5226720894F2E78034997A0B72D0ACCA /* CMPComapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
 		53374A0912BA015CAE9F13914FFC7360 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWT.framework; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5429D3F8B5A019F504101BF79C1133D4 /* CMPJSONDecoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
+		53530AE40A27293A6B26A4AB9CE45437 /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
 		54FD4173279D4803E71F10BA5EE66AB5 /* MF_Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = Base64/MF_Base64Additions.m; sourceTree = "<group>"; };
-		5596FD968EB8E3FE8C7CCBD9B028F222 /* CMPLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogLevel.h; sourceTree = "<group>"; };
-		58DBAF81B380CDBED84A75BF4215600C /* ComapiFoundationObjC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ComapiFoundationObjC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		55CA2998ED95AC83DC64DD1A07B3D375 /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
+		56EA492C869BC843D2FEC6E55C430ACA /* CMPSessionAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
 		63F8A24A8DB7A9B49D7E7C130CD85209 /* JWTClaimsSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSet.m; path = Classes/ClaimSet/JWTClaimsSet.m; sourceTree = "<group>"; };
+		648BC50D99E65E6FDC072440BFB31AE4 /* CMPLoggingDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLoggingDestination.h; sourceTree = "<group>"; };
+		66AD97C1FFD1110D22E45417666013FC /* CMPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLog.h; sourceTree = "<group>"; };
+		66B7F669C4FF668C9681D0B6C5EFCED7 /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
 		682F67EEF8E267AD3567990A155C3BA7 /* JWTAlgorithmFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmFactory.h; path = Classes/Algorithms/Base/JWTAlgorithmFactory.h; sourceTree = "<group>"; };
+		68369B95A33FBA48EE767528D4B882B2 /* CMPComapiClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
 		6968983454E75542B01811674D253A54 /* JWTAlgorithmHS256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS256.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.h; sourceTree = "<group>"; };
-		6B2C7FCEC3E591469CA62F0FF654E48A /* CMPComapiConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
 		6B650F43F4B1E4611FC99CC610E69659 /* JWTAlgorithmHS512.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS512.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.m; sourceTree = "<group>"; };
-		76D74F4871A974B2785D44DC605819B4 /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
-		791C26F74A1A2409F67FBAA321DB115F /* CMPQueryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
+		6B8D2ADA0CBFC67DD120D3033070E798 /* CMPProfileService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
+		6E0CB3CEAECC67551D3C706763503775 /* CMPAPNSDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetails.h; sourceTree = "<group>"; };
+		7398991617FFB767BA67CB335B3553E3 /* CMPServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPServices.h; sourceTree = "<group>"; };
 		79EB2BC936EF1743C4EC658C1BAAA91A /* JWT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWT.modulemap; sourceTree = "<group>"; };
-		7BDB68A98B9B59F14D98B89FF7F823D8 /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
-		7C5BBD9CBB28C498A4978D78938C71CA /* CMPConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
+		7B0FE80F7A467652D73DDFE29AB0D74F /* CMPLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogLevel.h; sourceTree = "<group>"; };
+		7CFC2FEDC247FAD33B9C3DCC9E93BAFE /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
 		7D784077CE5BA5E6C7864DF81BFA5113 /* JWT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWT.h; path = Classes/JWT.h; sourceTree = "<group>"; };
-		7EE45D23EC8ECD9397622784EBE0E7A2 /* CMPXcodeConsoleDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPXcodeConsoleDestination.h; sourceTree = "<group>"; };
 		7F9C1B52153A73A7DC8D38CA889C05DE /* Pods-SampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-resources.sh"; sourceTree = "<group>"; };
-		7FE10E8D352EDC908D1628DD669E2548 /* CMPJSONEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
+		80FCCBEAD7310F1A74B3356C58BAC700 /* CMPURLResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
 		81F25FCEB0CE9BC88E3487AA9279C668 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		840B9670DD4F8221F5DF6CA9D2A590AF /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
 		84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8B1F93D26AFCCC3D9090083FB129FBD0 /* JWTAlgorithmRSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmRSBase.m; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.m; sourceTree = "<group>"; };
+		8EAE6108E68B0C2F865DA80BF9DF219A /* CMPHTTPHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
 		90BDFDFFA90E2B954959FAD9AB54CD58 /* JWTClaimsSetSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetSerializer.m; path = Classes/ClaimSet/JWTClaimsSetSerializer.m; sourceTree = "<group>"; };
-		917DA9974E9EC0CC16582EB9BB503A61 /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
 		91E34C2187030136F6DB77752E5F4911 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9403FB04B531A4873509DFA79B6A7827 /* JWTClaimsSetVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetVerifier.m; path = Classes/ClaimSet/JWTClaimsSetVerifier.m; sourceTree = "<group>"; };
 		9B55D5F1E2E597124BB992FE0EBE772D /* JWTAlgorithmHS512.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS512.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.h; sourceTree = "<group>"; };
-		A10542041D46BC8509FAF18A54DA8C76 /* CMPLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
-		A311FD390A056CCDF42F3CD04B09ADED /* CMPComapiClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
-		A936EB57D909E0D3DB05625D5F74EADF /* CMPRequestPerformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
-		ADCF6566750FF5AA5B606F9CC371B47C /* CMPRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
+		A38BAE55FAE8AF626B60FB470931E0C3 /* NSString+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
+		A8DBD2BB79258044BE9D8683EC2D43D5 /* CMPAPNSDetailsBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetailsBody.h; sourceTree = "<group>"; };
+		AD443D101F6158A10457BCE2E019D79D /* CMPQueryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
 		AE0C4D71174D2426CC932D25E179C198 /* Pods-SampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SampleApp.modulemap"; sourceTree = "<group>"; };
 		B3618AAB9FE1E53E73ED6871895C6FF0 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B64930DA29CAE87812335B9C27006D26 /* CMPQueryProfilesTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryProfilesTemplate.h; sourceTree = "<group>"; };
 		B9B43DF05AFE196C8F30EB9D8D47DBCC /* Pods-SampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-frameworks.sh"; sourceTree = "<group>"; };
-		C52DEB994C4237203AD193C6E7A8B7B3 /* CMPErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
+		B9E71FF7F5BA0C75D8814F25337877B7 /* CMPJSONDecoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
+		BA88D30B46B0599FDD6CFCB10A237F1F /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
+		BC004AD2372ADA98A87B87079C6F8839 /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
+		C7B9512AEF81AEA86F25F9A55516B11D /* CMPPatchProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPPatchProfileTemplate.h; sourceTree = "<group>"; };
+		C7C62A835FF950BFB6EBB49366E5F8C5 /* CMPRequestPerforming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerforming.h; sourceTree = "<group>"; };
+		C9BC86CFC436251767E059DBEB3DEA75 /* CMPErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
 		CAAC90C777B1C8060FFA317199DB4287 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCBE4A56F1D2F048D9D044416F8FBD6B /* JWTAlgorithmRSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmRSBase.h; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.h; sourceTree = "<group>"; };
-		CEF8965E0A7370201A720FDF470BF6AA /* CMPAPNSDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetails.h; sourceTree = "<group>"; };
+		D07D8017251B6A49EBDD5BC58576BF02 /* CMPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
 		D102873E1445FC885B752F571AEBCB5D /* JWTAlgorithmNone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmNone.m; path = Classes/Algorithms/Base/JWTAlgorithmNone.m; sourceTree = "<group>"; };
-		D1923ECC0412B5369542BF2893BC237D /* CMPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
+		D320DFB41D04ED86FB83B801DC16225F /* NSData+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
+		D439D3204C59A46688FB8B7DC3F7CFD1 /* CMPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
 		D91FF55438C9F8C5AD16ADC129A1F3D7 /* JWTAlgorithmHSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHSBase.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.m; sourceTree = "<group>"; };
-		D92966597D82CB001204A2D78AE24873 /* NSString+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
+		DA5847A3618803087801ACC1A7A9BEE2 /* CMPProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfile.h; sourceTree = "<group>"; };
 		DB2380D700F4E9D43C78C8BF2D377496 /* JWTAlgorithmDataHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolder.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.m; sourceTree = "<group>"; };
-		DC957F7E673C62BB905BF4AF48EBB002 /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
-		DCBACAA31346E6D3024EAE8A3F39D09F /* CMPFileDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPFileDestination.h; sourceTree = "<group>"; };
-		DE60B834383520BB0CF1C62706959D69 /* CMPPatchProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPPatchProfileTemplate.h; sourceTree = "<group>"; };
+		DBE375BA5386DBDC920D8D5C9F4DC833 /* CMPLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
 		DF5536F291D62F3F0CBA7FBEA445962D /* JWTCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTCoding.m; path = Classes/Coding/JWTCoding.m; sourceTree = "<group>"; };
 		DF7862BDC02873C650BC4B703A92E570 /* JWT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-umbrella.h"; sourceTree = "<group>"; };
+		DF89AE444DDA03639D2AE77EBD9DE58C /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
 		E04572C869A3D5AD2F9ED3F2E9ED0653 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		E0DC0B0B1B67AC03B507C011B552B15D /* JWTAlgorithmNone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmNone.h; path = Classes/Algorithms/Base/JWTAlgorithmNone.h; sourceTree = "<group>"; };
 		E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
-		E5E0E9DB85AF4587CEB3498A311C2AEA /* CMPComapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
+		E411D7C82CA66A34E7525FC5D7049C3F /* CMPComapiFoundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CMPComapiFoundation.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E680340B5B8AA0FA9ABAFD6552EA3713 /* Base64-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-prefix.pch"; sourceTree = "<group>"; };
 		E84F594D1B864C95A224B85F418BB5DD /* JWT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-prefix.pch"; sourceTree = "<group>"; };
+		E8959BB3DB04D3EB33C170F905AD87E9 /* CMPConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
 		E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
-		E962D5A0652FE1BF876576500C05F605 /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
-		EA498A55463604B5788FCDDA7366BF34 /* CMPSessionService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
+		EA25524D769E43527C763DB561ED1478 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 		EABF0A6982FE0CF5E811F1E61EC3053D /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SampleApp.framework; path = "Pods-SampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB118CD5C4BE831E64C2A0D638FED66B /* JWTRSAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTRSAlgorithm.h; path = Classes/Algorithms/RSFamily/JWTRSAlgorithm.h; sourceTree = "<group>"; };
-		EE7C55C98142AE384E01962DCBE6DA0F /* CMPSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
 		EF0BC01C4CA11EC328544B7C2C510CBB /* Base64-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base64-dummy.m"; sourceTree = "<group>"; };
-		F429875B6432F126EB1F78ACDEFBDD0B /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
+		F3EF13A050175D9B5F8AEC069EC014B0 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
 		F5AB0F7509ED21C17F11679065B88349 /* JWTAlgorithmHS256.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS256.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.m; sourceTree = "<group>"; };
 		F64733301B08DF37BE4C19023F5F3A91 /* Base64.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Base64.modulemap; sourceTree = "<group>"; };
-		F6791B0E16127AD956D1BFA8A66CE7B7 /* CMPRequestPerforming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerforming.h; sourceTree = "<group>"; };
-		FC4B08A28B3888BADCFCA9EE31B20464 /* CMPURLResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
+		FA584138E854AE1317915733D5B33CFD /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
+		FA6CB1C13C81BD00592CE39558DB9CEC /* CMPQueryProfilesTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryProfilesTemplate.h; sourceTree = "<group>"; };
 		FCEEF1571059B7DBB2CA33486435931B /* JWTClaim.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaim.h; path = Classes/ClaimSet/JWTClaim.h; sourceTree = "<group>"; };
-		FD474EE385359AC429705ABF6BE9B8D9 /* CMPBaseService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPBaseService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +231,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		018CA70B5409D85772B89CA54C883646 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BF9AEC89F4B23231822F034E1542406 /* CMPComapiFoundation */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		090110D9F1587F2CA39161C5873CD408 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C9BC86CFC436251767E059DBEB3DEA75 /* CMPErrors.h */,
+			);
+			name = Errors;
+			path = Sources/Errors;
+			sourceTree = "<group>";
+		};
+		0B6A0EEB6949C6F36E6F8F16C8CA16F7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				374C4C1FAF6FBADD1038610100A68434 /* Authentication */,
+				4E2B06CE96A68AF1DF070A11E7FB5134 /* HTTPHeader */,
+				32A6D55E1DF235B8C799F868C3222A3A /* JSONCoding */,
+				99D6872AB74D5C946991DE91CF5FEF57 /* RequestManager */,
+				23995E3A2BEF329B84A0D6741189EE8E /* RequestTemplate */,
+				64C6274BC59DB99669B2B1C44489DB80 /* Services */,
+				268C4F8920C8F3632F4DEADB02E59DA8 /* SessionManager */,
+				DD82FD7D9246422E7956278E93D79CA0 /* Templates */,
+				2AD51C24F10A43F77D18CC556C66C477 /* URLResult */,
+			);
+			name = Networking;
+			path = Sources/Networking;
+			sourceTree = "<group>";
+		};
+		0DF166C30095A19D1D8383483C2D64ED /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				4F62BE6767D77067FF3A2484809B9C92 /* CMPAuthorizeSessionTemplate.h */,
+				53530AE40A27293A6B26A4AB9CE45437 /* CMPDeleteSessionTemplate.h */,
+				2DFECBF7F44475712671C64B1E157C36 /* CMPStartNewSessionTemplate.h */,
+				907C157ED5854BDF744CDDA3BE20BC3F /* Model */,
+			);
+			name = Session;
+			path = Session;
+			sourceTree = "<group>";
+		};
+		108E8A220958B421A49E06B5DCCA83ED /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				13C926AC85DE68AD8B182C3F663D22B1 /* CMPSetAPNSDetailsTemplate.h */,
+				D1F350B798A03C13BE5F57C187BDA8C5 /* Model */,
+			);
+			name = Push;
+			path = Push;
+			sourceTree = "<group>";
+		};
 		139D5FF785BEF5F741E6038B706FABC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,58 +297,55 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		15E4D82BE88ED92890F2156EA95B78B4 /* Session */ = {
+		1DC3DD3943EE3814413AB6FAF81D4F89 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				07CE303CFAFD1BDF2B6FA01799C5D61D /* CMPAuthorizeSessionTemplate.h */,
-				0FEC7436566C0A8635F44817BD3E01CA /* CMPDeleteSessionTemplate.h */,
-				249F2C61F619FE860C5CAA5074F71E85 /* CMPStartNewSessionTemplate.h */,
-				852DA4891D83F9E30914220BBE5B8074 /* Model */,
+				E8959BB3DB04D3EB33C170F905AD87E9 /* CMPConstants.h */,
 			);
-			name = Session;
-			path = Session;
+			name = Constants;
+			path = Sources/Constants;
 			sourceTree = "<group>";
 		};
-		23B3DE191D9048B90AACD79A203A267F /* Destinations */ = {
+		23995E3A2BEF329B84A0D6741189EE8E /* RequestTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				DCBACAA31346E6D3024EAE8A3F39D09F /* CMPFileDestination.h */,
-				079CB47ECE6C9CD046A8FCF276FD497D /* CMPLoggingDestination.h */,
-				7EE45D23EC8ECD9397622784EBE0E7A2 /* CMPXcodeConsoleDestination.h */,
+				FA584138E854AE1317915733D5B33CFD /* CMPHTTPRequestTemplate.h */,
+				D07D8017251B6A49EBDD5BC58576BF02 /* CMPRequestTemplate.h */,
+				3DBFF5EE01283DC968FD0F3A7DB2D559 /* CMPRequestTemplateResult.h */,
+				501907CF0EC586169F787D43EC857AF5 /* CMPStreamRequestTemplate.h */,
 			);
-			name = Destinations;
-			path = Destinations;
+			name = RequestTemplate;
+			path = RequestTemplate;
 			sourceTree = "<group>";
 		};
-		269CE46E240D7FD696FA4BA96CBCFC07 /* Session */ = {
+		268C4F8920C8F3632F4DEADB02E59DA8 /* SessionManager */ = {
 			isa = PBXGroup;
 			children = (
-				EA498A55463604B5788FCDDA7366BF34 /* CMPSessionService.h */,
+				BC004AD2372ADA98A87B87079C6F8839 /* CMPAuthChallengeHandler.h */,
+				55CA2998ED95AC83DC64DD1A07B3D375 /* CMPSessionAuthProvider.h */,
+				D439D3204C59A46688FB8B7DC3F7CFD1 /* CMPSessionManager.h */,
 			);
-			name = Session;
-			path = Session;
+			name = SessionManager;
+			path = SessionManager;
 			sourceTree = "<group>";
 		};
-		334AD54913263F26F13B452435CC2D71 /* Security */ = {
+		2AD51C24F10A43F77D18CC556C66C477 /* URLResult */ = {
 			isa = PBXGroup;
 			children = (
-				4334830F5F6D04F49C776D79D5753428 /* CMPKeychain.h */,
+				80FCCBEAD7310F1A74B3356C58BAC700 /* CMPURLResult.h */,
 			);
-			name = Security;
-			path = Sources/Security;
+			name = URLResult;
+			path = URLResult;
 			sourceTree = "<group>";
 		};
-		33B9C3B7B74F7B14C983A042AE989241 /* Profile */ = {
+		32A6D55E1DF235B8C799F868C3222A3A /* JSONCoding */ = {
 			isa = PBXGroup;
 			children = (
-				395FA5109705EF5888D619D0332C8AFA /* CMPGetProfileTemplate.h */,
-				DE60B834383520BB0CF1C62706959D69 /* CMPPatchProfileTemplate.h */,
-				B64930DA29CAE87812335B9C27006D26 /* CMPQueryProfilesTemplate.h */,
-				53119B9CC3F9FA1F2512A640308AF35D /* CMPUpdateProfileTemplate.h */,
-				B5D3927602DA11A324795E709392FB0A /* Model */,
+				B9E71FF7F5BA0C75D8814F25337877B7 /* CMPJSONDecoding.h */,
+				48F2107397AA4BB734C49139552CF83E /* CMPJSONEncoding.h */,
 			);
-			name = Profile;
-			path = Profile;
+			name = JSONCoding;
+			path = JSONCoding;
 			sourceTree = "<group>";
 		};
 		33D83B1500E04FB62D3814AC9EB306A1 /* Frameworks */ = {
@@ -304,33 +357,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		37CD391A455884A3D70117DA5D55F382 /* Profile */ = {
+		374C4C1FAF6FBADD1038610100A68434 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				0FB62C355F3EDF46D69FE9A6D0D7B50A /* CMPProfileService.h */,
+				7CFC2FEDC247FAD33B9C3DCC9E93BAFE /* CMPAuthenticationDelegate.h */,
 			);
-			name = Profile;
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		3810B6380E7A5FA5056940BF1CC64CC3 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				7C5BBD9CBB28C498A4978D78938C71CA /* CMPConstants.h */,
-			);
-			name = Constants;
-			path = Sources/Constants;
-			sourceTree = "<group>";
-		};
-		3A0C5FEDDB79B83AC256EE1B2324A67D /* SessionManager */ = {
-			isa = PBXGroup;
-			children = (
-				E962D5A0652FE1BF876576500C05F605 /* CMPAuthChallengeHandler.h */,
-				76D74F4871A974B2785D44DC605819B4 /* CMPSessionAuthProvider.h */,
-				27901DA2F43BB8502B86AFDD963AA25B /* CMPSessionManager.h */,
-			);
-			name = SessionManager;
-			path = SessionManager;
+			name = Authentication;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		3D38DD4AFCE429A93844A67994A1F277 /* Targets Support Files */ = {
@@ -341,28 +374,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3DC2660214C8716C462099900A90287F /* ComapiFoundationObjC */ = {
+		45F9A1440C8A028FEBCAF5230BED0EF8 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				6D06815D2FBD35C6C29A081720337E52 /* Comapi */,
-				3810B6380E7A5FA5056940BF1CC64CC3 /* Constants */,
-				542EFB0D8F989BCE0C89CA7C5E4DFD73 /* Errors */,
-				D52C554B9C827EFB3AB90BB47CC9E2B4 /* Log */,
-				A2CC8B0B4A360C1DEFF16AB6BDB2BDC5 /* Networking */,
-				ED664F9012973B71688753F7B16B7BF1 /* Pod */,
-				334AD54913263F26F13B452435CC2D71 /* Security */,
-				69681103887021BCA88BB65FEEFDE18D /* Utilities */,
+				DF89AE444DDA03639D2AE77EBD9DE58C /* CMPAPIConfiguration.h */,
+				012516024502F2023CADA70C4E101395 /* CMPComapiConfig.h */,
 			);
-			name = ComapiFoundationObjC;
-			path = "/Users/dominik.kowalski/Documents/comapi-ios-sdk-objective-c";
-			sourceTree = "<absolute>";
-		};
-		422C431F83D8FDA8B31360E6EA656B41 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3DC2660214C8716C462099900A90287F /* ComapiFoundationObjC */,
-			);
-			name = "Development Pods";
+			name = Config;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		4C9A4B67D596A7A60E6A02B9E18F7A72 /* Support Files */ = {
@@ -379,87 +398,59 @@
 			path = "../Target Support Files/Base64";
 			sourceTree = "<group>";
 		};
-		4CCFABC28CDB6C6DC0E118725F64B602 /* Model */ = {
+		4E2B06CE96A68AF1DF070A11E7FB5134 /* HTTPHeader */ = {
 			isa = PBXGroup;
 			children = (
-				CEF8965E0A7370201A720FDF470BF6AA /* CMPAPNSDetails.h */,
-				5261FBE2325FA638EC18F718148FBE34 /* CMPAPNSDetailsBody.h */,
+				8EAE6108E68B0C2F865DA80BF9DF219A /* CMPHTTPHeader.h */,
 			);
-			name = Model;
-			path = Model;
+			name = HTTPHeader;
+			path = HTTPHeader;
 			sourceTree = "<group>";
 		};
-		4D2BC5C25CB32A6B443621B221C36F03 /* Config */ = {
+		64C6274BC59DB99669B2B1C44489DB80 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				840B9670DD4F8221F5DF6CA9D2A590AF /* CMPAPIConfiguration.h */,
-				6B2C7FCEC3E591469CA62F0FF654E48A /* CMPComapiConfig.h */,
-			);
-			name = Config;
-			path = Config;
-			sourceTree = "<group>";
-		};
-		542EFB0D8F989BCE0C89CA7C5E4DFD73 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				C52DEB994C4237203AD193C6E7A8B7B3 /* CMPErrors.h */,
-			);
-			name = Errors;
-			path = Sources/Errors;
-			sourceTree = "<group>";
-		};
-		55A6ACFBFAC33A46967EE20FD61BBDFB /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				FD474EE385359AC429705ABF6BE9B8D9 /* CMPBaseService.h */,
-				2D272C7F6F83FD61BCA3048C93A8AD2F /* CMPServices.h */,
-				37CD391A455884A3D70117DA5D55F382 /* Profile */,
-				269CE46E240D7FD696FA4BA96CBCFC07 /* Session */,
+				1BBFFA80D4ABC6D36F0D9A405F32F2AF /* CMPBaseService.h */,
+				7398991617FFB767BA67CB335B3553E3 /* CMPServices.h */,
+				779C36DA908083572229E664871F2C6E /* Profile */,
+				FD6CFDFAC0840A6BB19581EB05DBD006 /* Session */,
 			);
 			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
-		6500F08ABA3AB37448596C31F5B20A10 /* RequestTemplate */ = {
+		65F9320ECD2AEA5C63E9D0B3DFFA8147 /* Comapi */ = {
 			isa = PBXGroup;
 			children = (
-				19D38319C7040C0FD8705C78ACF0C379 /* CMPHTTPRequestTemplate.h */,
-				D1923ECC0412B5369542BF2893BC237D /* CMPRequestTemplate.h */,
-				06E2ACFD2A2BB3209A28125A512E5F97 /* CMPRequestTemplateResult.h */,
-				DC957F7E673C62BB905BF4AF48EBB002 /* CMPStreamRequestTemplate.h */,
-			);
-			name = RequestTemplate;
-			path = RequestTemplate;
-			sourceTree = "<group>";
-		};
-		69681103887021BCA88BB65FEEFDE18D /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				42E2793E9172A5A150B8A99FA570F9B8 /* NSData+CMPUtility.h */,
-				4FC052F2A6EFDA417D11913CF4870702 /* NSDateFormatter+CMPUtility.h */,
-				D92966597D82CB001204A2D78AE24873 /* NSString+CMPUtility.h */,
-				2622B203BFCECEE056B04C71730B6586 /* NSURLResponse+CMPUtility.h */,
-			);
-			name = Utilities;
-			path = Sources/Utilities;
-			sourceTree = "<group>";
-		};
-		6D06815D2FBD35C6C29A081720337E52 /* Comapi */ = {
-			isa = PBXGroup;
-			children = (
-				E09552F913DD39B713FD7D3014BEE884 /* Client */,
-				A1C271D6F8613225AAFEC910C7EF47A5 /* Comapi */,
-				4D2BC5C25CB32A6B443621B221C36F03 /* Config */,
+				5226720894F2E78034997A0B72D0ACCA /* CMPComapi.h */,
 			);
 			name = Comapi;
-			path = Sources/Comapi;
+			path = Comapi;
+			sourceTree = "<group>";
+		};
+		69CE89CC48F690ED0B95326A2A908C95 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				68369B95A33FBA48EE767528D4B882B2 /* CMPComapiClient.h */,
+			);
+			name = Client;
+			path = Client;
+			sourceTree = "<group>";
+		};
+		779C36DA908083572229E664871F2C6E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6B8D2ADA0CBFC67DD120D3033070E798 /* CMPProfileService.h */,
+			);
+			name = Profile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				422C431F83D8FDA8B31360E6EA656B41 /* Development Pods */,
+				018CA70B5409D85772B89CA54C883646 /* Development Pods */,
 				33D83B1500E04FB62D3814AC9EB306A1 /* Frameworks */,
 				8754738B02763C40E2CB3CDFB99C632E /* Pods */,
 				139D5FF785BEF5F741E6038B706FABC7 /* Products */,
@@ -467,16 +458,24 @@
 			);
 			sourceTree = "<group>";
 		};
-		852DA4891D83F9E30914220BBE5B8074 /* Model */ = {
+		816A5F350D0EC992576D141D7CA3B486 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				F429875B6432F126EB1F78ACDEFBDD0B /* CMPAuthenticationChallenge.h */,
-				29B00E3B9A13368DEE1731F4F1A59113 /* CMPAuthorizeSessionBody.h */,
-				EE7C55C98142AE384E01962DCBE6DA0F /* CMPSession.h */,
-				2D347CD756B646A0BCC44F9B12CA58EC /* CMPSessionAuth.h */,
+				66AD97C1FFD1110D22E45417666013FC /* CMPLog.h */,
+				DBE375BA5386DBDC920D8D5C9F4DC833 /* CMPLogger.h */,
+				7B0FE80F7A467652D73DDFE29AB0D74F /* CMPLogLevel.h */,
+				F6882F35672008D2AD079D2AAAF73AD7 /* Destinations */,
 			);
-			name = Model;
-			path = Model;
+			name = Log;
+			path = Sources/Log;
+			sourceTree = "<group>";
+		};
+		846242239ACF7EDABE8CAAF6C76ADB0D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E411D7C82CA66A34E7525FC5D7049C3F /* CMPComapiFoundation.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		8754738B02763C40E2CB3CDFB99C632E /* Pods */ = {
@@ -486,6 +485,16 @@
 				87E4A82D9F391CE516F77A7980C0406E /* JWT */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		879C08F689C574DC5CFAC92CBD9447AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA5847A3618803087801ACC1A7A9BEE2 /* CMPProfile.h */,
+				AD443D101F6158A10457BCE2E019D79D /* CMPQueryBuilder.h */,
+			);
+			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		87E4A82D9F391CE516F77A7980C0406E /* JWT */ = {
@@ -531,34 +540,43 @@
 			path = JWT;
 			sourceTree = "<group>";
 		};
-		917D98AD398A805E17B4CB4A65CA75EF /* Templates */ = {
+		8BF9AEC89F4B23231822F034E1542406 /* CMPComapiFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				33B9C3B7B74F7B14C983A042AE989241 /* Profile */,
-				99BDB61A9DFDCEECFA7013FAAB102331 /* Push */,
-				15E4D82BE88ED92890F2156EA95B78B4 /* Session */,
+				F1BEF0A3325B2B572554B902AD9E8913 /* Comapi */,
+				1DC3DD3943EE3814413AB6FAF81D4F89 /* Constants */,
+				090110D9F1587F2CA39161C5873CD408 /* Errors */,
+				816A5F350D0EC992576D141D7CA3B486 /* Log */,
+				0B6A0EEB6949C6F36E6F8F16C8CA16F7 /* Networking */,
+				846242239ACF7EDABE8CAAF6C76ADB0D /* Pod */,
+				DA1A071401652B950B5B6353FE11A4CC /* Security */,
+				AD91B1D6F3F08FBBD476FD0BE7A06074 /* Utilities */,
 			);
-			name = Templates;
-			path = Templates;
+			name = CMPComapiFoundation;
+			path = /Users/dominik.kowalski/Documents/CMPComapiFoundation;
+			sourceTree = "<absolute>";
+		};
+		907C157ED5854BDF744CDDA3BE20BC3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3911017A50898DD727A0581B540E2090 /* CMPAuthenticationChallenge.h */,
+				66B7F669C4FF668C9681D0B6C5EFCED7 /* CMPAuthorizeSessionBody.h */,
+				04D8A379CDF719E717AEA2A571A615A4 /* CMPSession.h */,
+				56EA492C869BC843D2FEC6E55C430ACA /* CMPSessionAuth.h */,
+			);
+			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		939F1E3C3151CF6075DC37A6593755D6 /* HTTPHeader */ = {
+		99D6872AB74D5C946991DE91CF5FEF57 /* RequestManager */ = {
 			isa = PBXGroup;
 			children = (
-				192E67AF2728B63628DEB0AA215B72CF /* CMPHTTPHeader.h */,
+				3D52EFC58E45C1114585B0CE65249842 /* CMPRequestManager.h */,
+				F3EF13A050175D9B5F8AEC069EC014B0 /* CMPRequestPerformer.h */,
+				C7C62A835FF950BFB6EBB49366E5F8C5 /* CMPRequestPerforming.h */,
 			);
-			name = HTTPHeader;
-			path = HTTPHeader;
-			sourceTree = "<group>";
-		};
-		99BDB61A9DFDCEECFA7013FAAB102331 /* Push */ = {
-			isa = PBXGroup;
-			children = (
-				7BDB68A98B9B59F14D98B89FF7F823D8 /* CMPSetAPNSDetailsTemplate.h */,
-				4CCFABC28CDB6C6DC0E118725F64B602 /* Model */,
-			);
-			name = Push;
-			path = Push;
+			name = RequestManager;
+			path = RequestManager;
 			sourceTree = "<group>";
 		};
 		9E802E60A113B9EE20B7AF71223511DA /* Pods-SampleApp */ = {
@@ -579,15 +597,6 @@
 			path = "Target Support Files/Pods-SampleApp";
 			sourceTree = "<group>";
 		};
-		9F317516664A2164FA680A43E66D63B0 /* URLResult */ = {
-			isa = PBXGroup;
-			children = (
-				FC4B08A28B3888BADCFCA9EE31B20464 /* CMPURLResult.h */,
-			);
-			name = URLResult;
-			path = URLResult;
-			sourceTree = "<group>";
-		};
 		A1AC363423427D3051C78302F808C4FF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,50 +611,16 @@
 			path = "../Target Support Files/JWT";
 			sourceTree = "<group>";
 		};
-		A1C271D6F8613225AAFEC910C7EF47A5 /* Comapi */ = {
+		AD91B1D6F3F08FBBD476FD0BE7A06074 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E5E0E9DB85AF4587CEB3498A311C2AEA /* CMPComapi.h */,
+				D320DFB41D04ED86FB83B801DC16225F /* NSData+CMPUtility.h */,
+				EA25524D769E43527C763DB561ED1478 /* NSDateFormatter+CMPUtility.h */,
+				A38BAE55FAE8AF626B60FB470931E0C3 /* NSString+CMPUtility.h */,
+				4FF1512817DFCF7AB07C7AE6EC15553A /* NSURLResponse+CMPUtility.h */,
 			);
-			name = Comapi;
-			path = Comapi;
-			sourceTree = "<group>";
-		};
-		A2CC8B0B4A360C1DEFF16AB6BDB2BDC5 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				D124846C7182121569936ED23C35048B /* Authentication */,
-				939F1E3C3151CF6075DC37A6593755D6 /* HTTPHeader */,
-				C65ECFBB23432BBC7388E3F47711FF82 /* JSONCoding */,
-				D66EC5B3E8FD23AAAFA90A3D4F9EBDC8 /* RequestManager */,
-				6500F08ABA3AB37448596C31F5B20A10 /* RequestTemplate */,
-				55A6ACFBFAC33A46967EE20FD61BBDFB /* Services */,
-				3A0C5FEDDB79B83AC256EE1B2324A67D /* SessionManager */,
-				917D98AD398A805E17B4CB4A65CA75EF /* Templates */,
-				9F317516664A2164FA680A43E66D63B0 /* URLResult */,
-			);
-			name = Networking;
-			path = Sources/Networking;
-			sourceTree = "<group>";
-		};
-		B5D3927602DA11A324795E709392FB0A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				38D6763E1B3BC486F2928B4A870E3D00 /* CMPProfile.h */,
-				791C26F74A1A2409F67FBAA321DB115F /* CMPQueryBuilder.h */,
-			);
-			name = Model;
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C65ECFBB23432BBC7388E3F47711FF82 /* JSONCoding */ = {
-			isa = PBXGroup;
-			children = (
-				5429D3F8B5A019F504101BF79C1133D4 /* CMPJSONDecoding.h */,
-				7FE10E8D352EDC908D1628DD669E2548 /* CMPJSONEncoding.h */,
-			);
-			name = JSONCoding;
-			path = JSONCoding;
+			name = Utilities;
+			path = Sources/Utilities;
 			sourceTree = "<group>";
 		};
 		C9391BA242180D75672A974AE7D83470 /* Base64 */ = {
@@ -659,36 +634,14 @@
 			path = Base64;
 			sourceTree = "<group>";
 		};
-		D124846C7182121569936ED23C35048B /* Authentication */ = {
+		D1F350B798A03C13BE5F57C187BDA8C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				917DA9974E9EC0CC16582EB9BB503A61 /* CMPAuthenticationDelegate.h */,
+				6E0CB3CEAECC67551D3C706763503775 /* CMPAPNSDetails.h */,
+				A8DBD2BB79258044BE9D8683EC2D43D5 /* CMPAPNSDetailsBody.h */,
 			);
-			name = Authentication;
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		D52C554B9C827EFB3AB90BB47CC9E2B4 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				512ACFFEE4BBA2E8D91BA6F30D776B52 /* CMPLog.h */,
-				A10542041D46BC8509FAF18A54DA8C76 /* CMPLogger.h */,
-				5596FD968EB8E3FE8C7CCBD9B028F222 /* CMPLogLevel.h */,
-				23B3DE191D9048B90AACD79A203A267F /* Destinations */,
-			);
-			name = Log;
-			path = Sources/Log;
-			sourceTree = "<group>";
-		};
-		D66EC5B3E8FD23AAAFA90A3D4F9EBDC8 /* RequestManager */ = {
-			isa = PBXGroup;
-			children = (
-				ADCF6566750FF5AA5B606F9CC371B47C /* CMPRequestManager.h */,
-				A936EB57D909E0D3DB05625D5F74EADF /* CMPRequestPerformer.h */,
-				F6791B0E16127AD956D1BFA8A66CE7B7 /* CMPRequestPerforming.h */,
-			);
-			name = RequestManager;
-			path = RequestManager;
+			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D9CD5CDAF49BD2D7FBEDEA36D7FEFA8B /* iOS */ = {
@@ -700,21 +653,68 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E09552F913DD39B713FD7D3014BEE884 /* Client */ = {
+		DA1A071401652B950B5B6353FE11A4CC /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				A311FD390A056CCDF42F3CD04B09ADED /* CMPComapiClient.h */,
+				48507D98D5E36DCDD3F367C28BE1CC81 /* CMPKeychain.h */,
 			);
-			name = Client;
-			path = Client;
+			name = Security;
+			path = Sources/Security;
 			sourceTree = "<group>";
 		};
-		ED664F9012973B71688753F7B16B7BF1 /* Pod */ = {
+		DD82FD7D9246422E7956278E93D79CA0 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				58DBAF81B380CDBED84A75BF4215600C /* ComapiFoundationObjC.podspec */,
+				E698414ED0BE121618DE44111B77F397 /* Profile */,
+				108E8A220958B421A49E06B5DCCA83ED /* Push */,
+				0DF166C30095A19D1D8383483C2D64ED /* Session */,
 			);
-			name = Pod;
+			name = Templates;
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		E698414ED0BE121618DE44111B77F397 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BA88D30B46B0599FDD6CFCB10A237F1F /* CMPGetProfileTemplate.h */,
+				C7B9512AEF81AEA86F25F9A55516B11D /* CMPPatchProfileTemplate.h */,
+				FA6CB1C13C81BD00592CE39558DB9CEC /* CMPQueryProfilesTemplate.h */,
+				474C83A93F97718A34F2B921A871B158 /* CMPUpdateProfileTemplate.h */,
+				879C08F689C574DC5CFAC92CBD9447AF /* Model */,
+			);
+			name = Profile;
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F1BEF0A3325B2B572554B902AD9E8913 /* Comapi */ = {
+			isa = PBXGroup;
+			children = (
+				69CE89CC48F690ED0B95326A2A908C95 /* Client */,
+				65F9320ECD2AEA5C63E9D0B3DFFA8147 /* Comapi */,
+				45F9A1440C8A028FEBCAF5230BED0EF8 /* Config */,
+			);
+			name = Comapi;
+			path = Sources/Comapi;
+			sourceTree = "<group>";
+		};
+		F6882F35672008D2AD079D2AAAF73AD7 /* Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				11922DE147BAFFF4E043777A35DA4B1C /* CMPFileDestination.h */,
+				648BC50D99E65E6FDC072440BFB31AE4 /* CMPLoggingDestination.h */,
+				35E142ED7363108792346EE53A022A3A /* CMPXcodeConsoleDestination.h */,
+			);
+			name = Destinations;
+			path = Destinations;
+			sourceTree = "<group>";
+		};
+		FD6CFDFAC0840A6BB19581EB05DBD006 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				03E67D826698B1D9D608F8823A653BE4 /* CMPSessionService.h */,
+			);
+			name = Session;
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -914,41 +914,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		086922F8EE2F0DF50FABA46C3249F25C /* Debug */ = {
+		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
@@ -980,45 +1005,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		275FB8D5537F2F1136C2352E0E610A1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1095,70 +1081,116 @@
 			};
 			name = Debug;
 		};
-		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
+		59079F22DBFE3BECEDF98AB88C840441 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SYMROOT = "${SRCROOT}/../build";
+				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
+				PRODUCT_MODULE_NAME = JWT;
+				PRODUCT_NAME = JWT;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
+		710297E8168BD66CC5061E39C2A27FBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B168B5C556D7EEB2466EF8777919D142 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1208,7 +1240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1216,48 +1248,14 @@
 			};
 			name = Release;
 		};
-		59079F22DBFE3BECEDF98AB88C840441 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWT/JWT-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWT/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JWT/JWT.modulemap";
-				PRODUCT_MODULE_NAME = JWT;
-				PRODUCT_NAME = JWT;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
-				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
+				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1274,8 +1272,8 @@
 		B335D67B3A3F6C3E391B0E003BD91FB4 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				086922F8EE2F0DF50FABA46C3249F25C /* Debug */,
-				275FB8D5537F2F1136C2352E0E610A1B /* Release */,
+				710297E8168BD66CC5061E39C2A27FBC /* Debug */,
+				B168B5C556D7EEB2466EF8777919D142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,6 @@
 //
 //  NSDateFormatter+Utility.m
-//  comapi-ios-sdk-objective-c
+//  CMPComapiFoundation
 //
 //  Created by Dominik Kowalski on 14/08/2018.
 //  Copyright © 2018 Comapi. All rights reserved.

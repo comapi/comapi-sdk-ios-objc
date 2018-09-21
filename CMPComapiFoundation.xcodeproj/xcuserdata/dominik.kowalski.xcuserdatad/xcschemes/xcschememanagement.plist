@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CMPComapiFoundationTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>SampleApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>comapi-ios-sdk-objective-c.xcscheme</key>
+		<key>CMPComapiFoundation.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>comapi_ios_sdk_objective_c_tests.xcscheme</key>
+		<key>CMPComapiFoundation_tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

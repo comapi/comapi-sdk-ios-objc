@@ -1,11 +1,11 @@
 PODS:
   - Base64 (1.1.2)
-  - ComapiFoundationObjC (0.0.1)
+  - CMPComapiFoundation (0.0.1)
   - JWT (2.2.0):
     - Base64 (~> 1.1.2)
 
 DEPENDENCIES:
-  - ComapiFoundationObjC (from `/Users/dominik.kowalski/Documents/comapi-ios-sdk-objective-c`)
+  - CMPComapiFoundation (from `/Users/dominik.kowalski/Documents/CMPComapiFoundation`)
   - JWT
 
 SPEC REPOS:
@@ -14,14 +14,14 @@ SPEC REPOS:
     - JWT
 
 EXTERNAL SOURCES:
-  ComapiFoundationObjC:
-    :path: "/Users/dominik.kowalski/Documents/comapi-ios-sdk-objective-c"
+  CMPComapiFoundation:
+    :path: "/Users/dominik.kowalski/Documents/CMPComapiFoundation"
 
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  ComapiFoundationObjC: 4370c012358d1b275f674830dd8ea276209d6d97
+  CMPComapiFoundation: 5c68fabd7c116ac914c1f427b0a3930223023aa3
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
 
-PODFILE CHECKSUM: eeb1a1d0517961b0c284e747facc7dec6f3d6d88
+PODFILE CHECKSUM: 2cc99d61e382e351852fbcd0a97b7dc0419d2ce8
 
 COCOAPODS: 1.5.3

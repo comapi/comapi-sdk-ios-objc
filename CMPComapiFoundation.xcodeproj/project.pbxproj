@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
+		8921D2C7215520C400976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2C5215520C400976FFA /* Info.plist */; };
+		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; };
+		8921D2CB215520D100976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2CA215520D100976FFA /* Info.plist */; };
 		89259E7321524F3A00C73A02 /* CMPProfileDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7221524F3A00C73A02 /* CMPProfileDetailsView.m */; };
 		89259E7621525A1B00C73A02 /* CMPProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7521525A1B00C73A02 /* CMPProfileDetailsViewController.m */; };
 		89259E7921525A7900C73A02 /* CMPProfileDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7821525A7900C73A02 /* CMPProfileDetailsViewModel.m */; };
@@ -16,7 +19,7 @@
 		89259E8321528E1500C73A02 /* CMPMockAuthenticationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E8221528E1500C73A02 /* CMPMockAuthenticationDelegate.m */; };
 		89259E8621528E5100C73A02 /* CMPMockUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E8521528E5100C73A02 /* CMPMockUserDefaults.m */; };
 		89342DA3213E9BE0000D0F2D /* CMPAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DA2213E9BE0000D0F2D /* CMPAuthenticationManager.m */; };
-		89342DA4213EBF44000D0F2D /* comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */; };
+		89342DA4213EBF44000D0F2D /* CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; };
 		89342DAB213EC05D000D0F2D /* CMPLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DAA213EC05D000D0F2D /* CMPLoginView.m */; };
 		89342DAE213EC7E1000D0F2D /* CMPBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DAD213EC7E1000D0F2D /* CMPBaseCell.m */; };
 		89342DB1213EC84F000D0F2D /* CMPTitledInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */; };
@@ -105,7 +108,6 @@
 		89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */; };
 		89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */; };
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
-		89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
 		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
@@ -138,7 +140,7 @@
 		89EA5CDA214962AC00C29D08 /* CMPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CD9214962AC00C29D08 /* CMPProfileViewController.m */; };
 		89EA5CDD214962C900C29D08 /* CMPProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CDC214962C900C29D08 /* CMPProfileViewModel.m */; };
 		89EA5CE4214967D800C29D08 /* CMPTitledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CE3214967D800C29D08 /* CMPTitledCell.m */; };
-		89EA5CFD214ACC6D00C29D08 /* comapi_ios_sdk_objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */; };
+		89EA5CFD214ACC6D00C29D08 /* CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; };
 		89EA5D1A214ACCB700C29D08 /* Session.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D09214ACCB700C29D08 /* Session.json */; };
 		89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D0A214ACCB700C29D08 /* AuthorizeSessionBody.json */; };
 		89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */ = {isa = PBXBuildFile; fileRef = 89EA5D10214ACCB700C29D08 /* SessionAuth.json */; };
@@ -175,7 +177,7 @@
 			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
-			remoteInfo = "comapi-ios-sdk-objective-c";
+			remoteInfo = CMPComapiFoundation;
 		};
 		89EA5D452151359B00C29D08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -187,6 +189,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8921D2C6215520C400976FFA /* CMPComapiFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPComapiFoundation.h; sourceTree = "<group>"; };
+		8921D2CA215520D100976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89259E7121524F3A00C73A02 /* CMPProfileDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileDetailsView.h; sourceTree = "<group>"; };
 		89259E7221524F3A00C73A02 /* CMPProfileDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileDetailsView.m; sourceTree = "<group>"; };
 		89259E7421525A1B00C73A02 /* CMPProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileDetailsViewController.h; sourceTree = "<group>"; };
@@ -312,9 +317,7 @@
 		89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAppConfigurator.m; sourceTree = "<group>"; };
 		89957AA321398B9D008EE0BE /* CMPLoginBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginBundle.h; sourceTree = "<group>"; };
 		89957AA421398B9D008EE0BE /* CMPLoginBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginBundle.m; sourceTree = "<group>"; };
-		89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = comapi_ios_sdk_objective_c.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comapi_ios_sdk_objective_c.h; sourceTree = "<group>"; };
-		89C8DE422122DF3C00555495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CMPComapiFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE4C2122F4B400555495 /* CMPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
 		89C8DE4D2122F4B400555495 /* CMPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionManager.m; sourceTree = "<group>"; };
 		89C8DE512122F7AB00555495 /* CMPSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
@@ -351,8 +354,7 @@
 		89EA5CDC214962C900C29D08 /* CMPProfileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileViewModel.m; sourceTree = "<group>"; };
 		89EA5CE2214967D800C29D08 /* CMPTitledCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTitledCell.h; sourceTree = "<group>"; };
 		89EA5CE3214967D800C29D08 /* CMPTitledCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTitledCell.m; sourceTree = "<group>"; };
-		89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = comapi_ios_sdk_objective_c_tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89EA5CFC214ACC6D00C29D08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89EA5CF8214ACC6D00C29D08 /* CMPComapiFoundation_tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMPComapiFoundation_tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EA5D09214ACCB700C29D08 /* Session.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Session.json; sourceTree = "<group>"; };
 		89EA5D0A214ACCB700C29D08 /* AuthorizeSessionBody.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorizeSessionBody.json; sourceTree = "<group>"; };
 		89EA5D10214ACCB700C29D08 /* SessionAuth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SessionAuth.json; sourceTree = "<group>"; };
@@ -393,7 +395,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89342DA4213EBF44000D0F2D /* comapi_ios_sdk_objective_c.framework in Frameworks */,
+				89342DA4213EBF44000D0F2D /* CMPComapiFoundation.framework in Frameworks */,
 				74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,7 +411,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89EA5CFD214ACC6D00C29D08 /* comapi_ios_sdk_objective_c.framework in Frameworks */,
+				89EA5CFD214ACC6D00C29D08 /* CMPComapiFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +424,23 @@
 				C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8921D2C4215520C400976FFA /* CMPComapiFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				8921D2C5215520C400976FFA /* Info.plist */,
+				8921D2C6215520C400976FFA /* CMPComapiFoundation.h */,
+			);
+			path = CMPComapiFoundation;
+			sourceTree = "<group>";
+		};
+		8921D2C9215520D100976FFA /* CMPComapiFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				8921D2CA215520D100976FFA /* Info.plist */,
+			);
+			path = CMPComapiFoundationTests;
 			sourceTree = "<group>";
 		};
 		89259E6C21524EF500C73A02 /* ProfileDetails */ = {
@@ -875,10 +894,10 @@
 		89C8DE342122DF3C00555495 = {
 			isa = PBXGroup;
 			children = (
+				8921D2C9215520D100976FFA /* CMPComapiFoundationTests */,
+				8921D2C4215520C400976FFA /* CMPComapiFoundation */,
 				89EA5D04214ACCB700C29D08 /* Tests */,
 				89C8DE492122F47000555495 /* Sources */,
-				89EA5CF9214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */,
-				89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */,
 				89957A66213935E0008EE0BE /* SampleApp */,
 				89C8DE3F2122DF3C00555495 /* Products */,
 				F026D228D8308D4507B88AE3 /* Pods */,
@@ -889,20 +908,11 @@
 		89C8DE3F2122DF3C00555495 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */,
+				89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */,
 				89957A65213935E0008EE0BE /* SampleApp.app */,
-				89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */,
+				89EA5CF8214ACC6D00C29D08 /* CMPComapiFoundation_tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		89C8DE402122DF3C00555495 /* comapi-ios-sdk-objective-c */ = {
-			isa = PBXGroup;
-			children = (
-				89C8DE412122DF3C00555495 /* comapi_ios_sdk_objective_c.h */,
-				89C8DE422122DF3C00555495 /* Info.plist */,
-			);
-			path = "comapi-ios-sdk-objective-c";
 			sourceTree = "<group>";
 		};
 		89C8DE492122F47000555495 /* Sources */ = {
@@ -1042,14 +1052,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		89EA5CF9214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */ = {
-			isa = PBXGroup;
-			children = (
-				89EA5CFC214ACC6D00C29D08 /* Info.plist */,
-			);
-			path = comapi_ios_sdk_objective_c_tests;
-			sourceTree = "<group>";
-		};
 		89EA5D04214ACCB700C29D08 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,7 +1129,6 @@
 				895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */,
 				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
 				89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */,
-				89C8DE432122DF3C00555495 /* comapi_ios_sdk_objective_c.h in Headers */,
 				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
 				89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */,
 				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
@@ -1144,6 +1145,7 @@
 				89EA5CCF2149457600C29D08 /* CMPQueryProfilesTemplate.h in Headers */,
 				89957A36213592C9008EE0BE /* CMPLog.h in Headers */,
 				89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */,
+				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
 				89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */,
 				895FF50821271AEC0007FAC3 /* CMPURLResult.h in Headers */,
 				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
@@ -1201,9 +1203,9 @@
 			productReference = 89957A65213935E0008EE0BE /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */ = {
+		89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */;
+			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation" */;
 			buildPhases = (
 				89C8DE392122DF3C00555495 /* Sources */,
 				89C8DE3A2122DF3C00555495 /* Frameworks */,
@@ -1214,14 +1216,14 @@
 			);
 			dependencies = (
 			);
-			name = "comapi-ios-sdk-objective-c";
-			productName = "comapi-ios-sdk-objective-c";
-			productReference = 89C8DE3E2122DF3C00555495 /* comapi_ios_sdk_objective_c.framework */;
+			name = CMPComapiFoundation;
+			productName = CMPComapiFoundation;
+			productReference = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		89EA5CF7214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */ = {
+		89EA5CF7214ACC6D00C29D08 /* CMPComapiFoundation_tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "comapi_ios_sdk_objective_c_tests" */;
+			buildConfigurationList = 89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation_tests" */;
 			buildPhases = (
 				89EA5CF4214ACC6D00C29D08 /* Sources */,
 				89EA5CF5214ACC6D00C29D08 /* Frameworks */,
@@ -1233,9 +1235,9 @@
 				89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */,
 				89EA5D462151359B00C29D08 /* PBXTargetDependency */,
 			);
-			name = comapi_ios_sdk_objective_c_tests;
-			productName = comapi_ios_sdk_objective_c_tests;
-			productReference = 89EA5CF8214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests.xctest */;
+			name = CMPComapiFoundation_tests;
+			productName = CMPComapiFoundation_tests;
+			productReference = 89EA5CF8214ACC6D00C29D08 /* CMPComapiFoundation_tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1259,7 +1261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "comapi-ios-sdk-objective-c" */;
+			buildConfigurationList = 89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "CMPComapiFoundation" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1272,9 +1274,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */,
+				89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */,
 				89957A64213935E0008EE0BE /* SampleApp */,
-				89EA5CF7214ACC6D00C29D08 /* comapi_ios_sdk_objective_c_tests */,
+				89EA5CF7214ACC6D00C29D08 /* CMPComapiFoundation_tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1294,6 +1296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8921D2C7215520C400976FFA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1303,6 +1306,7 @@
 			files = (
 				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
 				896244DB2153CC35007F2117 /* ProfileArray.json in Resources */,
+				8921D2CB215520D100976FFA /* Info.plist in Resources */,
 				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
 				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
 				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
@@ -1476,7 +1480,7 @@
 /* Begin PBXTargetDependency section */
 		89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 89C8DE3D2122DF3C00555495 /* comapi-ios-sdk-objective-c */;
+			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
 			targetProxy = 89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */;
 		};
 		89EA5D462151359B00C29D08 /* PBXTargetDependency */ = {
@@ -1670,7 +1674,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1678,7 +1682,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c";
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.CMPComapiFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1695,7 +1699,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "comapi-ios-sdk-objective-c/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1703,7 +1707,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c";
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.CMPComapiFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1715,13 +1719,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
-				INFOPLIST_FILE = comapi_ios_sdk_objective_c_tests/Info.plist;
+				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.CMPComapiFoundation-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
@@ -1733,13 +1737,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
-				INFOPLIST_FILE = comapi_ios_sdk_objective_c_tests/Info.plist;
+				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.comapi-ios-sdk-objective-c-tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.comapi.CMPComapiFoundation-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/SampleApp";
@@ -1758,7 +1762,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "comapi-ios-sdk-objective-c" */ = {
+		89C8DE382122DF3C00555495 /* Build configuration list for PBXProject "CMPComapiFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89C8DE442122DF3C00555495 /* Debug */,
@@ -1767,7 +1771,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "comapi-ios-sdk-objective-c" */ = {
+		89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89C8DE472122DF3C00555495 /* Debug */,
@@ -1776,7 +1780,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "comapi_ios_sdk_objective_c_tests" */ = {
+		89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation_tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89EA5D01214ACC6D00C29D08 /* Debug */,

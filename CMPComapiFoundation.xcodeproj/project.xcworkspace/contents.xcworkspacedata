@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:comapi-ios-sdk-objective-c.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
