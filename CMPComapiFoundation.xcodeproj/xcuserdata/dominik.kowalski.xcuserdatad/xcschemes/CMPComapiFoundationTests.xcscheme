@@ -16,9 +16,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89EA5CF7214ACC6D00C29D08"
-            BuildableName = "comapi_ios_sdk_objective_c_tests.xctest"
-            BlueprintName = "comapi_ios_sdk_objective_c_tests"
-            ReferencedContainer = "container:comapi-ios-sdk-objective-c.xcodeproj">
+            BuildableName = "CMPComapiFoundation_tests.xctest"
+            BlueprintName = "CMPComapiFoundation_tests"
+            ReferencedContainer = "container:CMPComapiFoundation.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -27,9 +27,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89EA5CF7214ACC6D00C29D08"
-               BuildableName = "comapi_ios_sdk_objective_c_tests.xctest"
-               BlueprintName = "comapi_ios_sdk_objective_c_tests"
-               ReferencedContainer = "container:comapi-ios-sdk-objective-c.xcodeproj">
+               BuildableName = "CMPComapiFoundation_tests.xctest"
+               BlueprintName = "CMPComapiFoundation_tests"
+               ReferencedContainer = "container:CMPComapiFoundation.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
