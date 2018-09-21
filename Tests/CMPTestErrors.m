@@ -7,7 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "CMPErrors.h"
 
 @interface CMPTestErrors : XCTestCase
 

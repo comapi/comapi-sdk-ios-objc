@@ -7,7 +7,6 @@
 //
 
 #import "CMPProfile.h"
-#import "NSString+CMPUtility.h"
 
 @implementation CMPProfile
 

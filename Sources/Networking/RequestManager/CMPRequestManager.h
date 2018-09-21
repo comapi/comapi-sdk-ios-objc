@@ -6,7 +6,6 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPErrors.h"
 #import "CMPRequestTemplate.h"
 
 @class CMPRequestManager;

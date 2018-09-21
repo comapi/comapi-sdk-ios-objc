@@ -8,7 +8,6 @@
 
 #import "CMPXcodeConsoleDestination.h"
 #import "CMPLogLevel.h"
-#import "NSDateFormatter+CMPUtility.h"
 #import "CMPLog.h"
 
 @implementation CMPXcodeConsoleDestination

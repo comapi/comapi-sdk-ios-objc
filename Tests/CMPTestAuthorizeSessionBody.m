@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
-#import "NSString+CMPUtility.h"
 #import "CMPAuthorizeSessionBody.h"
 #import "CMPResourceLoader.h"
 
