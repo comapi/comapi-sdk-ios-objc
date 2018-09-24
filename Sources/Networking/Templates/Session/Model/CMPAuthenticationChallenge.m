@@ -7,6 +7,7 @@
 //
 
 #import "CMPAuthenticationChallenge.h"
+#import "CMPUtilities.h"
 
 @implementation CMPAuthenticationChallenge
 

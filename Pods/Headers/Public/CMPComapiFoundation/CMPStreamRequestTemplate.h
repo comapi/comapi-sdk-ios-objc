@@ -1,1 +1,1 @@
-../../../../Sources/Networking/RequestTemplate/CMPStreamRequestTemplate.h
+../../../../Sources/Networking/Templates/RequestTemplate/CMPStreamRequestTemplate.h

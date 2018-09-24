@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
 		891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 891E081B2155282B00ED18D3 /* CMPUtilities.h */; };
-		891E0824215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */; };
 		8921D2C7215520C400976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2C5215520C400976FFA /* Info.plist */; };
-		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; };
+		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8921D2CB215520D100976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2CA215520D100976FFA /* Info.plist */; };
 		89259E7321524F3A00C73A02 /* CMPProfileDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7221524F3A00C73A02 /* CMPProfileDetailsView.m */; };
 		89259E7621525A1B00C73A02 /* CMPProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7521525A1B00C73A02 /* CMPProfileDetailsViewController.m */; };
@@ -44,17 +43,17 @@
 		8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */; };
 		8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */; };
 		8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */; };
-		8972C301212C168800C76B19 /* CMPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FF212C168800C76B19 /* CMPErrors.h */; };
+		8972C301212C168800C76B19 /* CMPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FF212C168800C76B19 /* CMPErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C302212C168800C76B19 /* CMPErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C300212C168800C76B19 /* CMPErrors.m */; };
-		8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C303212C1DCC00C76B19 /* CMPConstants.h */; };
+		8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C303212C1DCC00C76B19 /* CMPConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C306212C1DCC00C76B19 /* CMPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C304212C1DCC00C76B19 /* CMPConstants.m */; };
-		8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C309212C2A1900C76B19 /* CMPComapiClient.h */; };
+		8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C309212C2A1900C76B19 /* CMPComapiClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30A212C2A1900C76B19 /* CMPComapiClient.m */; };
-		8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C30E212C2A5E00C76B19 /* CMPComapi.h */; };
+		8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C30E212C2A5E00C76B19 /* CMPComapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30F212C2A5E00C76B19 /* CMPComapi.m */; };
-		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; };
+		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C314212C32CC00C76B19 /* CMPComapiConfig.m */; };
-		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; };
+		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */; };
 		8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */; };
 		8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */; };
@@ -89,9 +88,9 @@
 		89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4C2136A5AF008EE0BE /* CMPAuthChallengeHandler.h */; };
 		89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4F2137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h */; };
 		89957A522137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A502137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.m */; };
-		89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A542137DE78008EE0BE /* CMPAPNSDetails.h */; };
+		89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A542137DE78008EE0BE /* CMPAPNSDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89957A572137DE78008EE0BE /* CMPAPNSDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A552137DE78008EE0BE /* CMPAPNSDetails.m */; };
-		89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A582137DFD8008EE0BE /* CMPAPNSDetailsBody.h */; };
+		89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A582137DFD8008EE0BE /* CMPAPNSDetailsBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A592137DFD8008EE0BE /* CMPAPNSDetailsBody.m */; };
 		89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5D2137E351008EE0BE /* CMPJSONDecoding.h */; };
 		89957A602137E35F008EE0BE /* CMPJSONEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5F2137E35F008EE0BE /* CMPJSONEncoding.h */; };
@@ -112,9 +111,9 @@
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
-		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
+		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE542122F7AB00555495 /* CMPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE522122F7AB00555495 /* CMPSession.m */; };
-		89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE552122F95000555495 /* CMPSessionAuth.h */; };
+		89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE552122F95000555495 /* CMPSessionAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE562122F95000555495 /* CMPSessionAuth.m */; };
 		89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5A2122FCEC00555495 /* NSString+CMPUtility.h */; };
 		89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */; };
@@ -122,7 +121,7 @@
 		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
 		89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */; };
 		89DCBB44212F0139001016FF /* CMPAuthorizeSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */; };
-		89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */; };
+		89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89DCBB4921342787001016FF /* CMPAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */; };
 		89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */; };
 		89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */; };
@@ -130,7 +129,7 @@
 		89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */; };
 		89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */; };
 		89EA5CBE2147E6B800C29D08 /* CMPGetProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CBC2147E6B800C29D08 /* CMPGetProfileTemplate.m */; };
-		89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC12147EA0000C29D08 /* CMPProfile.h */; };
+		89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC12147EA0000C29D08 /* CMPProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89EA5CC42147EA0000C29D08 /* CMPProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CC22147EA0000C29D08 /* CMPProfile.m */; };
 		89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC5214902FA00C29D08 /* CMPUpdateProfileTemplate.h */; };
 		89EA5CC8214902FA00C29D08 /* CMPUpdateProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CC6214902FA00C29D08 /* CMPUpdateProfileTemplate.m */; };
@@ -192,7 +191,6 @@
 
 /* Begin PBXFileReference section */
 		891E081B2155282B00ED18D3 /* CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPUtilities.h; sourceTree = "<group>"; };
-		891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMPComapiFoundation-Prefix.pch"; sourceTree = "<group>"; };
 		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8921D2C6215520C400976FFA /* CMPComapiFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPComapiFoundation.h; sourceTree = "<group>"; };
 		8921D2CA215520D100976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -922,7 +920,6 @@
 		89C8DE492122F47000555495 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				891E0823215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch */,
 				89957A212135763C008EE0BE /* Log */,
 				8972C330212DA3F500C76B19 /* Security */,
 				895FF4FD2126F0600007FAC3 /* Constants */,
@@ -1132,54 +1129,53 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */,
+				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
+				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
+				8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */,
+				8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */,
 				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
-				89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */,
-				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
-				89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */,
-				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
-				891E0824215531D500ED18D3 /* CMPComapiFoundation-Prefix.pch in Headers */,
-				89EA5CB92147E00000C29D08 /* CMPQueryBuilder.h in Headers */,
-				891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */,
-				89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */,
 				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
-				89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */,
-				89957A602137E35F008EE0BE /* CMPJSONEncoding.h in Headers */,
-				89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */,
-				89957A4021359E69008EE0BE /* CMPFileDestination.h in Headers */,
+				89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */,
+				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
 				89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */,
-				89957A302135884C008EE0BE /* CMPLoggingDestination.h in Headers */,
+				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
+				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
+				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
+				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
+				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
+				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
+				8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */,
+				8972C327212D76D300C76B19 /* CMPServices.h in Headers */,
+				89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */,
+				89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */,
+				89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */,
 				89EA5CCB21490E3B00C29D08 /* CMPPatchProfileTemplate.h in Headers */,
 				89EA5CCF2149457600C29D08 /* CMPQueryProfilesTemplate.h in Headers */,
-				89957A36213592C9008EE0BE /* CMPLog.h in Headers */,
-				89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */,
-				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
+				891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */,
+				89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */,
+				895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */,
 				89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */,
+				89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */,
+				89EA5CB92147E00000C29D08 /* CMPQueryBuilder.h in Headers */,
+				89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */,
+				89957A602137E35F008EE0BE /* CMPJSONEncoding.h in Headers */,
+				89957A4021359E69008EE0BE /* CMPFileDestination.h in Headers */,
+				89957A302135884C008EE0BE /* CMPLoggingDestination.h in Headers */,
+				89957A36213592C9008EE0BE /* CMPLog.h in Headers */,
 				895FF50821271AEC0007FAC3 /* CMPURLResult.h in Headers */,
-				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
-				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
-				89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */,
-				8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */,
 				89957A3A21359308008EE0BE /* CMPXcodeConsoleDestination.h in Headers */,
-				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
 				895FF4FB2126ECEE0007FAC3 /* CMPRequestTemplate.h in Headers */,
 				89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */,
 				89EA5D31214F9D5700C29D08 /* CMPRequestPerforming.h in Headers */,
 				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
-				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
 				89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */,
 				8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */,
 				89957A492136A2C5008EE0BE /* CMPStreamRequestTemplate.h in Headers */,
-				8972C327212D76D300C76B19 /* CMPServices.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
-				8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */,
 				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,
-				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
-				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
 				89957A442136A1EB008EE0BE /* CMPRequestTemplateResult.h in Headers */,
-				8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */,
 				89957A472136A233008EE0BE /* CMPHTTPRequestTemplate.h in Headers */,
 				8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */,
 				8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */,
@@ -1682,8 +1678,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1709,8 +1705,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/CMPComapiFoundation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

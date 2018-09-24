@@ -7,6 +7,7 @@
 //
 
 #import "CMPLog.h"
+#import "CMPUtilities.h"
 
 @implementation CMPLog
 

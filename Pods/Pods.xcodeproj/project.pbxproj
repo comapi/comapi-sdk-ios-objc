@@ -81,124 +81,125 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		012516024502F2023CADA70C4E101395 /* CMPComapiConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
-		03E67D826698B1D9D608F8823A653BE4 /* CMPSessionService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
-		04D8A379CDF719E717AEA2A571A615A4 /* CMPSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
+		00A26CCF98339B4938CBAB33214D0B18 /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
+		02BB8ED9C1C41B1735FB102C214196FF /* CMPPatchProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPPatchProfileTemplate.h; sourceTree = "<group>"; };
 		077B096C7411706572BF55DAF041C477 /* JWTAlgorithmDataHolderChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolderChain.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.m; sourceTree = "<group>"; };
 		0B26C1CF8FCE727032C2AE06B2946D54 /* JWTBase64Coder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTBase64Coder.m; path = Classes/Supplement/JWTBase64Coder.m; sourceTree = "<group>"; };
+		0D0076EB7A0C371E5199A5197E468296 /* CMPLoggingDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLoggingDestination.h; sourceTree = "<group>"; };
 		104E472AB2EC51111F19CB2FE553BEB7 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base64.framework; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		11922DE147BAFFF4E043777A35DA4B1C /* CMPFileDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPFileDestination.h; sourceTree = "<group>"; };
-		13C926AC85DE68AD8B182C3F663D22B1 /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
+		12313F9EA34CF3C698DA04A5C72F77F0 /* CMPErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
 		16461DDD278E5C5CBEC32AF0B2AAE415 /* JWTCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTCoding.h; path = Classes/Coding/JWTCoding.h; sourceTree = "<group>"; };
 		19553283BD4A9B5F7C1D12EA19D5AD0B /* JWTAlgorithmFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmFactory.m; path = Classes/Algorithms/Base/JWTAlgorithmFactory.m; sourceTree = "<group>"; };
-		1BBFFA80D4ABC6D36F0D9A405F32F2AF /* CMPBaseService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPBaseService.h; sourceTree = "<group>"; };
 		1C1B84CFA613F078EBA5139B7E09BB58 /* JWTAlgorithmHSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHSBase.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.h; sourceTree = "<group>"; };
 		1D9334631D30FC17E3E2C0D7FB9ACE0D /* JWTClaimsSetSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetSerializer.h; path = Classes/ClaimSet/JWTClaimsSetSerializer.h; sourceTree = "<group>"; };
 		1EE9413FEF8FECDDD40AAEDF942EA096 /* JWT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWT.xcconfig; sourceTree = "<group>"; };
+		225CF2B1E6AF26E5E94809EABBA817A9 /* CMPSessionAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
 		22DB42ED2FE259B8014ED80BAEF0C1AD /* JWTAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithm.h; path = Classes/Algorithms/Base/JWTAlgorithm.h; sourceTree = "<group>"; };
 		244CFE2736D888AC617373C9CCF8F31B /* JWTBase64Coder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTBase64Coder.h; path = Classes/Supplement/JWTBase64Coder.h; sourceTree = "<group>"; };
 		24696E0754AF273A31ADF3DC87BF2F02 /* Base64.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base64.xcconfig; sourceTree = "<group>"; };
 		250BA16FA1B3D38BBD4646270B0537EE /* JWTDeprecations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTDeprecations.h; path = Classes/Supplement/JWTDeprecations.h; sourceTree = "<group>"; };
 		254B60E7ED0981F8277E681A5C641FD9 /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2DFECBF7F44475712671C64B1E157C36 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
+		26222BF69BA1D07111E08D9EE4203C91 /* CMPBaseService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPBaseService.h; sourceTree = "<group>"; };
 		329D5373D2152DF776C160E352D06B8D /* JWTAlgorithmDataHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolder.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.h; sourceTree = "<group>"; };
 		355F351AA1D613D78F0A3CEB8036FF85 /* JWTClaimsSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSet.h; path = Classes/ClaimSet/JWTClaimsSet.h; sourceTree = "<group>"; };
-		35E142ED7363108792346EE53A022A3A /* CMPXcodeConsoleDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPXcodeConsoleDestination.h; sourceTree = "<group>"; };
 		371591A744E9E7BA0CD8A22B94B8BE89 /* JWTAlgorithmHS384.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS384.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.m; sourceTree = "<group>"; };
+		37410259B1C57BD5444021CC7DD816FF /* CMPKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
+		3837EE05798F0690F81A7EE7820ED7AC /* CMPComapiFoundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CMPComapiFoundation.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		39022E5D7B44B18393A7CFAB2C38FC0D /* JWTAlgorithmHS384.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS384.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS384.h; sourceTree = "<group>"; };
-		3911017A50898DD727A0581B540E2090 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
-		3D52EFC58E45C1114585B0CE65249842 /* CMPRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
-		3DBFF5EE01283DC968FD0F3A7DB2D559 /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
 		3F9114950C8E075A49BD680A58FD181F /* JWT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWT-dummy.m"; sourceTree = "<group>"; };
+		3FB318ABFD5D9E69F9BC7102FFA486AC /* CMPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
 		40147AF106CDC689B0C729C4064211AC /* JWTClaim.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaim.m; path = Classes/ClaimSet/JWTClaim.m; sourceTree = "<group>"; };
 		418AD10F11C81649FD64B5DDED639720 /* Base64-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-umbrella.h"; sourceTree = "<group>"; };
 		43E0836AB7F78D7F2563BA2715E694C8 /* Pods-SampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-umbrella.h"; sourceTree = "<group>"; };
 		46997437C803F12E33B839243ACF9ED2 /* JWTAlgorithmDataHolderChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmDataHolderChain.h; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolderChain.h; sourceTree = "<group>"; };
 		46C7AC7834C7199C1619BE2BBADCC78B /* MF_Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base64Additions.h; path = Base64/MF_Base64Additions.h; sourceTree = "<group>"; };
-		474C83A93F97718A34F2B921A871B158 /* CMPUpdateProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPUpdateProfileTemplate.h; sourceTree = "<group>"; };
-		48507D98D5E36DCDD3F367C28BE1CC81 /* CMPKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPKeychain.h; sourceTree = "<group>"; };
-		48F2107397AA4BB734C49139552CF83E /* CMPJSONEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
 		499F7E8AC78388D3883339D12047E457 /* JWTClaimsSetVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaimsSetVerifier.h; path = Classes/ClaimSet/JWTClaimsSetVerifier.h; sourceTree = "<group>"; };
 		4A36F41E14236E2690355F41447D6EBB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		4B599DFB49DB406810BED39A55BD6676 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
 		4C2D27D5B95BBD665298DB988AD087F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F62BE6767D77067FF3A2484809B9C92 /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
-		4FF1512817DFCF7AB07C7AE6EC15553A /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
-		501907CF0EC586169F787D43EC857AF5 /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
-		5226720894F2E78034997A0B72D0ACCA /* CMPComapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
+		51A6209CB5709598045C0EF177FBF6F5 /* CMPSessionService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionService.h; sourceTree = "<group>"; };
+		51A830ABC2219913F5A382C2DE9AEF68 /* CMPHTTPHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
 		53374A0912BA015CAE9F13914FFC7360 /* JWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWT.framework; path = JWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53530AE40A27293A6B26A4AB9CE45437 /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
+		5473209F737C73342EF031808AF1F05D /* NSString+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
 		54FD4173279D4803E71F10BA5EE66AB5 /* MF_Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base64Additions.m; path = Base64/MF_Base64Additions.m; sourceTree = "<group>"; };
-		55CA2998ED95AC83DC64DD1A07B3D375 /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
-		56EA492C869BC843D2FEC6E55C430ACA /* CMPSessionAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuth.h; sourceTree = "<group>"; };
+		559F4CBCC5518FE0B51569BBD16ABF25 /* CMPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
+		6336100DB4D9967F03A960B4EA9B9B22 /* CMPQueryProfilesTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryProfilesTemplate.h; sourceTree = "<group>"; };
 		63F8A24A8DB7A9B49D7E7C130CD85209 /* JWTClaimsSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSet.m; path = Classes/ClaimSet/JWTClaimsSet.m; sourceTree = "<group>"; };
-		648BC50D99E65E6FDC072440BFB31AE4 /* CMPLoggingDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLoggingDestination.h; sourceTree = "<group>"; };
-		66AD97C1FFD1110D22E45417666013FC /* CMPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLog.h; sourceTree = "<group>"; };
-		66B7F669C4FF668C9681D0B6C5EFCED7 /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
+		6419C48BF24FD534742DEDD76A017002 /* CMPComapiClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
+		65D39385BAEA9A22F7DD68F7C736D051 /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
 		682F67EEF8E267AD3567990A155C3BA7 /* JWTAlgorithmFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmFactory.h; path = Classes/Algorithms/Base/JWTAlgorithmFactory.h; sourceTree = "<group>"; };
-		68369B95A33FBA48EE767528D4B882B2 /* CMPComapiClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiClient.h; sourceTree = "<group>"; };
 		6968983454E75542B01811674D253A54 /* JWTAlgorithmHS256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS256.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.h; sourceTree = "<group>"; };
+		6AD466B8BD4B263C9315B98484530421 /* CMPXcodeConsoleDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPXcodeConsoleDestination.h; sourceTree = "<group>"; };
 		6B650F43F4B1E4611FC99CC610E69659 /* JWTAlgorithmHS512.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS512.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.m; sourceTree = "<group>"; };
-		6B8D2ADA0CBFC67DD120D3033070E798 /* CMPProfileService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
-		6E0CB3CEAECC67551D3C706763503775 /* CMPAPNSDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetails.h; sourceTree = "<group>"; };
-		7398991617FFB767BA67CB335B3553E3 /* CMPServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPServices.h; sourceTree = "<group>"; };
+		70233AE1B2C141B1C159E77ACDD85142 /* CMPProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfile.h; sourceTree = "<group>"; };
+		712505C55A53F165ECC9E5D5E0ECAE89 /* CMPJSONDecoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
+		745CEC4F4E93DB7317F0B0C747028936 /* CMPComapiConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapiConfig.h; sourceTree = "<group>"; };
+		794BEC88D116C4EAE0226ED3DB28BD9D /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
 		79EB2BC936EF1743C4EC658C1BAAA91A /* JWT.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWT.modulemap; sourceTree = "<group>"; };
-		7B0FE80F7A467652D73DDFE29AB0D74F /* CMPLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogLevel.h; sourceTree = "<group>"; };
-		7CFC2FEDC247FAD33B9C3DCC9E93BAFE /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
+		7CA6FA810136E9C1D9ABEDD79E118473 /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
 		7D784077CE5BA5E6C7864DF81BFA5113 /* JWT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWT.h; path = Classes/JWT.h; sourceTree = "<group>"; };
 		7F9C1B52153A73A7DC8D38CA889C05DE /* Pods-SampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-resources.sh"; sourceTree = "<group>"; };
-		80FCCBEAD7310F1A74B3356C58BAC700 /* CMPURLResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
+		80FFEB300CFF2EDDF7B29E9F264D6E2B /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 		81F25FCEB0CE9BC88E3487AA9279C668 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84633D73F5CA2C65C42D1EF6AC99F844 /* CMPLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
 		84DB02098D3DBA6AD6DFF2A3C0451ED3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		86A30537349CE4F60A41460A0854D2C6 /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
+		8AB46159AC755044515DE3345B4BC8C3 /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
 		8B1F93D26AFCCC3D9090083FB129FBD0 /* JWTAlgorithmRSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmRSBase.m; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.m; sourceTree = "<group>"; };
-		8EAE6108E68B0C2F865DA80BF9DF219A /* CMPHTTPHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
+		8C661181406BEBDD5924FA237705AC0D /* CMPLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLog.h; sourceTree = "<group>"; };
+		8FA2920BBC33F0333F25A4A3F065862C /* NSData+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
 		90BDFDFFA90E2B954959FAD9AB54CD58 /* JWTClaimsSetSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetSerializer.m; path = Classes/ClaimSet/JWTClaimsSetSerializer.m; sourceTree = "<group>"; };
 		91E34C2187030136F6DB77752E5F4911 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
+		92DB966B844E860470F5C292FB79CD6F /* CMPURLResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPURLResult.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9403FB04B531A4873509DFA79B6A7827 /* JWTClaimsSetVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTClaimsSetVerifier.m; path = Classes/ClaimSet/JWTClaimsSetVerifier.m; sourceTree = "<group>"; };
+		953DBFA09BB53CC0412F71472F7C713D /* CMPSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSession.h; sourceTree = "<group>"; };
 		9B55D5F1E2E597124BB992FE0EBE772D /* JWTAlgorithmHS512.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmHS512.h; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS512.h; sourceTree = "<group>"; };
-		A38BAE55FAE8AF626B60FB470931E0C3 /* NSString+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPUtility.h"; sourceTree = "<group>"; };
-		A8DBD2BB79258044BE9D8683EC2D43D5 /* CMPAPNSDetailsBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetailsBody.h; sourceTree = "<group>"; };
-		AD443D101F6158A10457BCE2E019D79D /* CMPQueryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
+		9C5D0C219A2513CEB39E4B614512B31F /* CMPProfileService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfileService.h; sourceTree = "<group>"; };
+		9C62A80BC71032F34315D340F2DBFAF9 /* CMPServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPServices.h; sourceTree = "<group>"; };
+		9C7612E6FAC09AD93BBA3EEF8810DAF4 /* CMPJSONEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONEncoding.h; sourceTree = "<group>"; };
+		A33C524895BE9AD0E09D3DD962894A86 /* CMPUpdateProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPUpdateProfileTemplate.h; sourceTree = "<group>"; };
 		AE0C4D71174D2426CC932D25E179C198 /* Pods-SampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SampleApp.modulemap"; sourceTree = "<group>"; };
+		B0F48EBE2509A01AD599F5CD4603F262 /* CMPAuthenticationChallenge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationChallenge.h; sourceTree = "<group>"; };
 		B3618AAB9FE1E53E73ED6871895C6FF0 /* Base64.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base64.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B43DF05AFE196C8F30EB9D8D47DBCC /* Pods-SampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-frameworks.sh"; sourceTree = "<group>"; };
-		B9E71FF7F5BA0C75D8814F25337877B7 /* CMPJSONDecoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPJSONDecoding.h; sourceTree = "<group>"; };
-		BA88D30B46B0599FDD6CFCB10A237F1F /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
-		BC004AD2372ADA98A87B87079C6F8839 /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
-		C7B9512AEF81AEA86F25F9A55516B11D /* CMPPatchProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPPatchProfileTemplate.h; sourceTree = "<group>"; };
-		C7C62A835FF950BFB6EBB49366E5F8C5 /* CMPRequestPerforming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerforming.h; sourceTree = "<group>"; };
-		C9BC86CFC436251767E059DBEB3DEA75 /* CMPErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPErrors.h; sourceTree = "<group>"; };
+		BCDC4EE2B1897580349B90A9657CE341 /* CMPLogLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogLevel.h; sourceTree = "<group>"; };
+		BD176E6D9AD4E0BA69F39D07639C8B13 /* CMPAPNSDetailsBody.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetailsBody.h; sourceTree = "<group>"; };
+		C3B13574658E5920AE7ED969ECB37542 /* CMPQueryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
+		C5835D79C9EB081580F99887641A5D63 /* CMPFileDestination.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPFileDestination.h; sourceTree = "<group>"; };
 		CAAC90C777B1C8060FFA317199DB4287 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCBE4A56F1D2F048D9D044416F8FBD6B /* JWTAlgorithmRSBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmRSBase.h; path = Classes/Algorithms/RSFamily/JWTAlgorithmRSBase.h; sourceTree = "<group>"; };
-		D07D8017251B6A49EBDD5BC58576BF02 /* CMPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplate.h; sourceTree = "<group>"; };
+		CEEFB68F91B4FBCE9B5F84C72BED6989 /* CMPConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
+		D01E8F4A854740B9BAA6C955BA72C7C0 /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
 		D102873E1445FC885B752F571AEBCB5D /* JWTAlgorithmNone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmNone.m; path = Classes/Algorithms/Base/JWTAlgorithmNone.m; sourceTree = "<group>"; };
-		D320DFB41D04ED86FB83B801DC16225F /* NSData+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+CMPUtility.h"; sourceTree = "<group>"; };
-		D439D3204C59A46688FB8B7DC3F7CFD1 /* CMPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
+		D2D0DDFB9AB34371D56F47095F120B95 /* CMPComapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPComapi.h; sourceTree = "<group>"; };
 		D91FF55438C9F8C5AD16ADC129A1F3D7 /* JWTAlgorithmHSBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHSBase.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHSBase.m; sourceTree = "<group>"; };
-		DA5847A3618803087801ACC1A7A9BEE2 /* CMPProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPProfile.h; sourceTree = "<group>"; };
 		DB2380D700F4E9D43C78C8BF2D377496 /* JWTAlgorithmDataHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmDataHolder.m; path = Classes/Algorithms/Holders/JWTAlgorithmDataHolder.m; sourceTree = "<group>"; };
-		DBE375BA5386DBDC920D8D5C9F4DC833 /* CMPLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
+		DC0DE3486012DDFB2DD102A47B31FE1B /* CMPRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
 		DF5536F291D62F3F0CBA7FBEA445962D /* JWTCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTCoding.m; path = Classes/Coding/JWTCoding.m; sourceTree = "<group>"; };
 		DF7862BDC02873C650BC4B703A92E570 /* JWT-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-umbrella.h"; sourceTree = "<group>"; };
-		DF89AE444DDA03639D2AE77EBD9DE58C /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
 		E04572C869A3D5AD2F9ED3F2E9ED0653 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		E0DC0B0B1B67AC03B507C011B552B15D /* JWTAlgorithmNone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTAlgorithmNone.h; path = Classes/Algorithms/Base/JWTAlgorithmNone.h; sourceTree = "<group>"; };
 		E3428D834FFEECC083594BDB801435A3 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
-		E411D7C82CA66A34E7525FC5D7049C3F /* CMPComapiFoundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = CMPComapiFoundation.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E65AD1A8C27B76EFBCBA54C0510C604D /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
 		E680340B5B8AA0FA9ABAFD6552EA3713 /* Base64-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base64-prefix.pch"; sourceTree = "<group>"; };
 		E84F594D1B864C95A224B85F418BB5DD /* JWT-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWT-prefix.pch"; sourceTree = "<group>"; };
-		E8959BB3DB04D3EB33C170F905AD87E9 /* CMPConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPConstants.h; sourceTree = "<group>"; };
+		E8D4E878CA905D46E806C774AA347C58 /* CMPStartNewSessionTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPStartNewSessionTemplate.h; sourceTree = "<group>"; };
 		E8FD1522BAF9AB40CDEE436868B4393C /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
-		EA25524D769E43527C763DB561ED1478 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 		EABF0A6982FE0CF5E811F1E61EC3053D /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SampleApp.framework; path = "Pods-SampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB118CD5C4BE831E64C2A0D638FED66B /* JWTRSAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTRSAlgorithm.h; path = Classes/Algorithms/RSFamily/JWTRSAlgorithm.h; sourceTree = "<group>"; };
+		EBE0A214404878355826CDA3BF16C23A /* CMPUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPUtilities.h; sourceTree = "<group>"; };
+		EDA50235D04653D19DB5F4B4D6AB0379 /* CMPAPNSDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPNSDetails.h; sourceTree = "<group>"; };
 		EF0BC01C4CA11EC328544B7C2C510CBB /* Base64-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base64-dummy.m"; sourceTree = "<group>"; };
-		F3EF13A050175D9B5F8AEC069EC014B0 /* CMPRequestPerformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerformer.h; sourceTree = "<group>"; };
+		F2F135B2D5E110C1B9D7FA6A3525E909 /* CMPAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAuthenticationDelegate.h; sourceTree = "<group>"; };
+		F3F85432655B542747A249045E71E651 /* CMPAPIConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPAPIConfiguration.h; sourceTree = "<group>"; };
 		F5AB0F7509ED21C17F11679065B88349 /* JWTAlgorithmHS256.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JWTAlgorithmHS256.m; path = Classes/Algorithms/HSFamily/JWTAlgorithmHS256.m; sourceTree = "<group>"; };
 		F64733301B08DF37BE4C19023F5F3A91 /* Base64.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Base64.modulemap; sourceTree = "<group>"; };
-		FA584138E854AE1317915733D5B33CFD /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
-		FA6CB1C13C81BD00592CE39558DB9CEC /* CMPQueryProfilesTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPQueryProfilesTemplate.h; sourceTree = "<group>"; };
+		F8B11E3E3447E457FE5CB35546086805 /* CMPRequestPerforming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPRequestPerforming.h; sourceTree = "<group>"; };
+		FA7B20241178828872C47977FBD3E93D /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
 		FCEEF1571059B7DBB2CA33486435931B /* JWTClaim.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JWTClaim.h; path = Classes/ClaimSet/JWTClaim.h; sourceTree = "<group>"; };
+		FD22BBA4EC57C84C08BD99AF46781A9C /* NSURLResponse+CMPUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+CMPUtility.h"; sourceTree = "<group>"; };
+		FD9A417D1B27418769E218E7B5658BCA /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,57 +235,58 @@
 		018CA70B5409D85772B89CA54C883646 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8BF9AEC89F4B23231822F034E1542406 /* CMPComapiFoundation */,
+				29DB9773C8C9523F03AC9F875EC08221 /* CMPComapiFoundation */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		090110D9F1587F2CA39161C5873CD408 /* Errors */ = {
+		05CE33F6C6B32645DE6F383713B55A3F /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				C9BC86CFC436251767E059DBEB3DEA75 /* CMPErrors.h */,
+				F3F85432655B542747A249045E71E651 /* CMPAPIConfiguration.h */,
+				745CEC4F4E93DB7317F0B0C747028936 /* CMPComapiConfig.h */,
 			);
-			name = Errors;
-			path = Sources/Errors;
+			name = Config;
+			path = Config;
 			sourceTree = "<group>";
 		};
-		0B6A0EEB6949C6F36E6F8F16C8CA16F7 /* Networking */ = {
+		09323C1EF92C5C31C9EEF555E02D60CE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				374C4C1FAF6FBADD1038610100A68434 /* Authentication */,
-				4E2B06CE96A68AF1DF070A11E7FB5134 /* HTTPHeader */,
-				32A6D55E1DF235B8C799F868C3222A3A /* JSONCoding */,
-				99D6872AB74D5C946991DE91CF5FEF57 /* RequestManager */,
-				23995E3A2BEF329B84A0D6741189EE8E /* RequestTemplate */,
-				64C6274BC59DB99669B2B1C44489DB80 /* Services */,
-				268C4F8920C8F3632F4DEADB02E59DA8 /* SessionManager */,
-				DD82FD7D9246422E7956278E93D79CA0 /* Templates */,
-				2AD51C24F10A43F77D18CC556C66C477 /* URLResult */,
+				8B5B7849BDDAD7EDA13A2BC269591A33 /* Authentication */,
+				C01BE0CE14E3DD74573A651EA47E7C42 /* HTTPHeader */,
+				42195B354DF29079503FFDF41C464740 /* JSONCoding */,
+				0E495689D8B82C441374CF0214CEC781 /* RequestManager */,
+				C24B1EEC5CADFFF104FEA177CDB47436 /* Services */,
+				760F9ED0DD670C6D1DD915D87DC50A96 /* SessionManager */,
+				2CC53B6F575350FB9C7578AFF0EE8BC5 /* Templates */,
+				D5F39573AC906F0CE780BE547397E85C /* URLResult */,
 			);
 			name = Networking;
 			path = Sources/Networking;
 			sourceTree = "<group>";
 		};
-		0DF166C30095A19D1D8383483C2D64ED /* Session */ = {
+		0E495689D8B82C441374CF0214CEC781 /* RequestManager */ = {
 			isa = PBXGroup;
 			children = (
-				4F62BE6767D77067FF3A2484809B9C92 /* CMPAuthorizeSessionTemplate.h */,
-				53530AE40A27293A6B26A4AB9CE45437 /* CMPDeleteSessionTemplate.h */,
-				2DFECBF7F44475712671C64B1E157C36 /* CMPStartNewSessionTemplate.h */,
-				907C157ED5854BDF744CDDA3BE20BC3F /* Model */,
+				DC0DE3486012DDFB2DD102A47B31FE1B /* CMPRequestManager.h */,
+				4B599DFB49DB406810BED39A55BD6676 /* CMPRequestPerformer.h */,
+				F8B11E3E3447E457FE5CB35546086805 /* CMPRequestPerforming.h */,
+			);
+			name = RequestManager;
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		11F62744C0ED5120278677B6FAB1BA2E /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				D01E8F4A854740B9BAA6C955BA72C7C0 /* CMPAuthorizeSessionTemplate.h */,
+				8AB46159AC755044515DE3345B4BC8C3 /* CMPDeleteSessionTemplate.h */,
+				E8D4E878CA905D46E806C774AA347C58 /* CMPStartNewSessionTemplate.h */,
+				AEA24B8FB1AFA50295E57A03EC5B6AA6 /* Model */,
 			);
 			name = Session;
 			path = Session;
-			sourceTree = "<group>";
-		};
-		108E8A220958B421A49E06B5DCCA83ED /* Push */ = {
-			isa = PBXGroup;
-			children = (
-				13C926AC85DE68AD8B182C3F663D22B1 /* CMPSetAPNSDetailsTemplate.h */,
-				D1F350B798A03C13BE5F57C187BDA8C5 /* Model */,
-			);
-			name = Push;
-			path = Push;
 			sourceTree = "<group>";
 		};
 		139D5FF785BEF5F741E6038B706FABC7 /* Products */ = {
@@ -297,55 +299,73 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1DC3DD3943EE3814413AB6FAF81D4F89 /* Constants */ = {
+		15536D93E42F28D8B5881EA08E01788D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E8959BB3DB04D3EB33C170F905AD87E9 /* CMPConstants.h */,
+				EDA50235D04653D19DB5F4B4D6AB0379 /* CMPAPNSDetails.h */,
+				BD176E6D9AD4E0BA69F39D07639C8B13 /* CMPAPNSDetailsBody.h */,
 			);
-			name = Constants;
-			path = Sources/Constants;
+			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		23995E3A2BEF329B84A0D6741189EE8E /* RequestTemplate */ = {
+		1D04E1F6CFE758C9881CD6E171E3F70A /* Destinations */ = {
 			isa = PBXGroup;
 			children = (
-				FA584138E854AE1317915733D5B33CFD /* CMPHTTPRequestTemplate.h */,
-				D07D8017251B6A49EBDD5BC58576BF02 /* CMPRequestTemplate.h */,
-				3DBFF5EE01283DC968FD0F3A7DB2D559 /* CMPRequestTemplateResult.h */,
-				501907CF0EC586169F787D43EC857AF5 /* CMPStreamRequestTemplate.h */,
+				C5835D79C9EB081580F99887641A5D63 /* CMPFileDestination.h */,
+				0D0076EB7A0C371E5199A5197E468296 /* CMPLoggingDestination.h */,
+				6AD466B8BD4B263C9315B98484530421 /* CMPXcodeConsoleDestination.h */,
 			);
-			name = RequestTemplate;
-			path = RequestTemplate;
+			name = Destinations;
+			path = Destinations;
 			sourceTree = "<group>";
 		};
-		268C4F8920C8F3632F4DEADB02E59DA8 /* SessionManager */ = {
+		27978B700110B473AE13C4449EAE8F25 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				BC004AD2372ADA98A87B87079C6F8839 /* CMPAuthChallengeHandler.h */,
-				55CA2998ED95AC83DC64DD1A07B3D375 /* CMPSessionAuthProvider.h */,
-				D439D3204C59A46688FB8B7DC3F7CFD1 /* CMPSessionManager.h */,
+				51A6209CB5709598045C0EF177FBF6F5 /* CMPSessionService.h */,
 			);
-			name = SessionManager;
-			path = SessionManager;
+			name = Session;
+			path = Session;
 			sourceTree = "<group>";
 		};
-		2AD51C24F10A43F77D18CC556C66C477 /* URLResult */ = {
+		29DB9773C8C9523F03AC9F875EC08221 /* CMPComapiFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				80FCCBEAD7310F1A74B3356C58BAC700 /* CMPURLResult.h */,
+				319F65CE2090BFB9914C029D27AC90E8 /* Comapi */,
+				BE588751F283625A157093435B2E217C /* Constants */,
+				6CB14099F278909E00DF97614F8E40A9 /* Errors */,
+				5E71ECCC22D418F88AB5D6F07A9363BC /* Log */,
+				09323C1EF92C5C31C9EEF555E02D60CE /* Networking */,
+				AC93396F7AB6B7F36EED9A76035AEFD8 /* Pod */,
+				5F694B28F3FE50E0EFCB36E1BBF594A3 /* Security */,
+				944AC3D0EB4C50AFAE9D876F8F02D5B7 /* Utilities */,
 			);
-			name = URLResult;
-			path = URLResult;
+			name = CMPComapiFoundation;
+			path = /Users/dominik.kowalski/Documents/CMPComapiFoundation;
+			sourceTree = "<absolute>";
+		};
+		2CC53B6F575350FB9C7578AFF0EE8BC5 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				A4BA82A0B04ACE4436AC2918CFD17137 /* Profile */,
+				4BF4A1B38B91E4C0F0A1D9D4B906B57E /* Push */,
+				6786801C33437E6FD49DD13211503158 /* RequestTemplate */,
+				11F62744C0ED5120278677B6FAB1BA2E /* Session */,
+			);
+			name = Templates;
+			path = Templates;
 			sourceTree = "<group>";
 		};
-		32A6D55E1DF235B8C799F868C3222A3A /* JSONCoding */ = {
+		319F65CE2090BFB9914C029D27AC90E8 /* Comapi */ = {
 			isa = PBXGroup;
 			children = (
-				B9E71FF7F5BA0C75D8814F25337877B7 /* CMPJSONDecoding.h */,
-				48F2107397AA4BB734C49139552CF83E /* CMPJSONEncoding.h */,
+				3D91E37B5BA066EFFFCB1108AB55C8E5 /* Client */,
+				8421AB6A09A74A720F1CB9D11A70DD5A /* Comapi */,
+				05CE33F6C6B32645DE6F383713B55A3F /* Config */,
 			);
-			name = JSONCoding;
-			path = JSONCoding;
+			name = Comapi;
+			path = Sources/Comapi;
 			sourceTree = "<group>";
 		};
 		33D83B1500E04FB62D3814AC9EB306A1 /* Frameworks */ = {
@@ -357,15 +377,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		374C4C1FAF6FBADD1038610100A68434 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				7CFC2FEDC247FAD33B9C3DCC9E93BAFE /* CMPAuthenticationDelegate.h */,
-			);
-			name = Authentication;
-			path = Authentication;
-			sourceTree = "<group>";
-		};
 		3D38DD4AFCE429A93844A67994A1F277 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,14 +385,33 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		45F9A1440C8A028FEBCAF5230BED0EF8 /* Config */ = {
+		3D91E37B5BA066EFFFCB1108AB55C8E5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				DF89AE444DDA03639D2AE77EBD9DE58C /* CMPAPIConfiguration.h */,
-				012516024502F2023CADA70C4E101395 /* CMPComapiConfig.h */,
+				6419C48BF24FD534742DEDD76A017002 /* CMPComapiClient.h */,
 			);
-			name = Config;
-			path = Config;
+			name = Client;
+			path = Client;
+			sourceTree = "<group>";
+		};
+		42195B354DF29079503FFDF41C464740 /* JSONCoding */ = {
+			isa = PBXGroup;
+			children = (
+				712505C55A53F165ECC9E5D5E0ECAE89 /* CMPJSONDecoding.h */,
+				9C7612E6FAC09AD93BBA3EEF8810DAF4 /* CMPJSONEncoding.h */,
+			);
+			name = JSONCoding;
+			path = JSONCoding;
+			sourceTree = "<group>";
+		};
+		4BF4A1B38B91E4C0F0A1D9D4B906B57E /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				E65AD1A8C27B76EFBCBA54C0510C604D /* CMPSetAPNSDetailsTemplate.h */,
+				15536D93E42F28D8B5881EA08E01788D /* Model */,
+			);
+			name = Push;
+			path = Push;
 			sourceTree = "<group>";
 		};
 		4C9A4B67D596A7A60E6A02B9E18F7A72 /* Support Files */ = {
@@ -398,52 +428,66 @@
 			path = "../Target Support Files/Base64";
 			sourceTree = "<group>";
 		};
-		4E2B06CE96A68AF1DF070A11E7FB5134 /* HTTPHeader */ = {
+		5E71ECCC22D418F88AB5D6F07A9363BC /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				8EAE6108E68B0C2F865DA80BF9DF219A /* CMPHTTPHeader.h */,
+				8C661181406BEBDD5924FA237705AC0D /* CMPLog.h */,
+				84633D73F5CA2C65C42D1EF6AC99F844 /* CMPLogger.h */,
+				BCDC4EE2B1897580349B90A9657CE341 /* CMPLogLevel.h */,
+				1D04E1F6CFE758C9881CD6E171E3F70A /* Destinations */,
 			);
-			name = HTTPHeader;
-			path = HTTPHeader;
+			name = Log;
+			path = Sources/Log;
 			sourceTree = "<group>";
 		};
-		64C6274BC59DB99669B2B1C44489DB80 /* Services */ = {
+		5F694B28F3FE50E0EFCB36E1BBF594A3 /* Security */ = {
 			isa = PBXGroup;
 			children = (
-				1BBFFA80D4ABC6D36F0D9A405F32F2AF /* CMPBaseService.h */,
-				7398991617FFB767BA67CB335B3553E3 /* CMPServices.h */,
-				779C36DA908083572229E664871F2C6E /* Profile */,
-				FD6CFDFAC0840A6BB19581EB05DBD006 /* Session */,
+				37410259B1C57BD5444021CC7DD816FF /* CMPKeychain.h */,
 			);
-			name = Services;
-			path = Services;
+			name = Security;
+			path = Sources/Security;
 			sourceTree = "<group>";
 		};
-		65F9320ECD2AEA5C63E9D0B3DFFA8147 /* Comapi */ = {
+		64EDC7D10BC4E55407A317154E6BCD1E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5226720894F2E78034997A0B72D0ACCA /* CMPComapi.h */,
-			);
-			name = Comapi;
-			path = Comapi;
-			sourceTree = "<group>";
-		};
-		69CE89CC48F690ED0B95326A2A908C95 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				68369B95A33FBA48EE767528D4B882B2 /* CMPComapiClient.h */,
-			);
-			name = Client;
-			path = Client;
-			sourceTree = "<group>";
-		};
-		779C36DA908083572229E664871F2C6E /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				6B8D2ADA0CBFC67DD120D3033070E798 /* CMPProfileService.h */,
+				9C5D0C219A2513CEB39E4B614512B31F /* CMPProfileService.h */,
 			);
 			name = Profile;
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		6786801C33437E6FD49DD13211503158 /* RequestTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				FD9A417D1B27418769E218E7B5658BCA /* CMPHTTPRequestTemplate.h */,
+				559F4CBCC5518FE0B51569BBD16ABF25 /* CMPRequestTemplate.h */,
+				7CA6FA810136E9C1D9ABEDD79E118473 /* CMPRequestTemplateResult.h */,
+				794BEC88D116C4EAE0226ED3DB28BD9D /* CMPStreamRequestTemplate.h */,
+			);
+			name = RequestTemplate;
+			path = RequestTemplate;
+			sourceTree = "<group>";
+		};
+		6CB14099F278909E00DF97614F8E40A9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				12313F9EA34CF3C698DA04A5C72F77F0 /* CMPErrors.h */,
+			);
+			name = Errors;
+			path = Sources/Errors;
+			sourceTree = "<group>";
+		};
+		760F9ED0DD670C6D1DD915D87DC50A96 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				65D39385BAEA9A22F7DD68F7C736D051 /* CMPAuthChallengeHandler.h */,
+				00A26CCF98339B4938CBAB33214D0B18 /* CMPSessionAuthProvider.h */,
+				3FB318ABFD5D9E69F9BC7102FFA486AC /* CMPSessionManager.h */,
+			);
+			name = SessionManager;
+			path = SessionManager;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -458,24 +502,13 @@
 			);
 			sourceTree = "<group>";
 		};
-		816A5F350D0EC992576D141D7CA3B486 /* Log */ = {
+		8421AB6A09A74A720F1CB9D11A70DD5A /* Comapi */ = {
 			isa = PBXGroup;
 			children = (
-				66AD97C1FFD1110D22E45417666013FC /* CMPLog.h */,
-				DBE375BA5386DBDC920D8D5C9F4DC833 /* CMPLogger.h */,
-				7B0FE80F7A467652D73DDFE29AB0D74F /* CMPLogLevel.h */,
-				F6882F35672008D2AD079D2AAAF73AD7 /* Destinations */,
+				D2D0DDFB9AB34371D56F47095F120B95 /* CMPComapi.h */,
 			);
-			name = Log;
-			path = Sources/Log;
-			sourceTree = "<group>";
-		};
-		846242239ACF7EDABE8CAAF6C76ADB0D /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				E411D7C82CA66A34E7525FC5D7049C3F /* CMPComapiFoundation.podspec */,
-			);
-			name = Pod;
+			name = Comapi;
+			path = Comapi;
 			sourceTree = "<group>";
 		};
 		8754738B02763C40E2CB3CDFB99C632E /* Pods */ = {
@@ -485,16 +518,6 @@
 				87E4A82D9F391CE516F77A7980C0406E /* JWT */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		879C08F689C574DC5CFAC92CBD9447AF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DA5847A3618803087801ACC1A7A9BEE2 /* CMPProfile.h */,
-				AD443D101F6158A10457BCE2E019D79D /* CMPQueryBuilder.h */,
-			);
-			name = Model;
-			path = Model;
 			sourceTree = "<group>";
 		};
 		87E4A82D9F391CE516F77A7980C0406E /* JWT */ = {
@@ -540,43 +563,26 @@
 			path = JWT;
 			sourceTree = "<group>";
 		};
-		8BF9AEC89F4B23231822F034E1542406 /* CMPComapiFoundation */ = {
+		8B5B7849BDDAD7EDA13A2BC269591A33 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				F1BEF0A3325B2B572554B902AD9E8913 /* Comapi */,
-				1DC3DD3943EE3814413AB6FAF81D4F89 /* Constants */,
-				090110D9F1587F2CA39161C5873CD408 /* Errors */,
-				816A5F350D0EC992576D141D7CA3B486 /* Log */,
-				0B6A0EEB6949C6F36E6F8F16C8CA16F7 /* Networking */,
-				846242239ACF7EDABE8CAAF6C76ADB0D /* Pod */,
-				DA1A071401652B950B5B6353FE11A4CC /* Security */,
-				AD91B1D6F3F08FBBD476FD0BE7A06074 /* Utilities */,
+				F2F135B2D5E110C1B9D7FA6A3525E909 /* CMPAuthenticationDelegate.h */,
 			);
-			name = CMPComapiFoundation;
-			path = /Users/dominik.kowalski/Documents/CMPComapiFoundation;
-			sourceTree = "<absolute>";
-		};
-		907C157ED5854BDF744CDDA3BE20BC3F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3911017A50898DD727A0581B540E2090 /* CMPAuthenticationChallenge.h */,
-				66B7F669C4FF668C9681D0B6C5EFCED7 /* CMPAuthorizeSessionBody.h */,
-				04D8A379CDF719E717AEA2A571A615A4 /* CMPSession.h */,
-				56EA492C869BC843D2FEC6E55C430ACA /* CMPSessionAuth.h */,
-			);
-			name = Model;
-			path = Model;
+			name = Authentication;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
-		99D6872AB74D5C946991DE91CF5FEF57 /* RequestManager */ = {
+		944AC3D0EB4C50AFAE9D876F8F02D5B7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				3D52EFC58E45C1114585B0CE65249842 /* CMPRequestManager.h */,
-				F3EF13A050175D9B5F8AEC069EC014B0 /* CMPRequestPerformer.h */,
-				C7C62A835FF950BFB6EBB49366E5F8C5 /* CMPRequestPerforming.h */,
+				EBE0A214404878355826CDA3BF16C23A /* CMPUtilities.h */,
+				8FA2920BBC33F0333F25A4A3F065862C /* NSData+CMPUtility.h */,
+				80FFEB300CFF2EDDF7B29E9F264D6E2B /* NSDateFormatter+CMPUtility.h */,
+				5473209F737C73342EF031808AF1F05D /* NSString+CMPUtility.h */,
+				FD22BBA4EC57C84C08BD99AF46781A9C /* NSURLResponse+CMPUtility.h */,
 			);
-			name = RequestManager;
-			path = RequestManager;
+			name = Utilities;
+			path = Sources/Utilities;
 			sourceTree = "<group>";
 		};
 		9E802E60A113B9EE20B7AF71223511DA /* Pods-SampleApp */ = {
@@ -611,16 +617,67 @@
 			path = "../Target Support Files/JWT";
 			sourceTree = "<group>";
 		};
-		AD91B1D6F3F08FBBD476FD0BE7A06074 /* Utilities */ = {
+		A4BA82A0B04ACE4436AC2918CFD17137 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D320DFB41D04ED86FB83B801DC16225F /* NSData+CMPUtility.h */,
-				EA25524D769E43527C763DB561ED1478 /* NSDateFormatter+CMPUtility.h */,
-				A38BAE55FAE8AF626B60FB470931E0C3 /* NSString+CMPUtility.h */,
-				4FF1512817DFCF7AB07C7AE6EC15553A /* NSURLResponse+CMPUtility.h */,
+				FA7B20241178828872C47977FBD3E93D /* CMPGetProfileTemplate.h */,
+				02BB8ED9C1C41B1735FB102C214196FF /* CMPPatchProfileTemplate.h */,
+				6336100DB4D9967F03A960B4EA9B9B22 /* CMPQueryProfilesTemplate.h */,
+				A33C524895BE9AD0E09D3DD962894A86 /* CMPUpdateProfileTemplate.h */,
+				E2127F1867C32427128CF38D23F4F15E /* Model */,
 			);
-			name = Utilities;
-			path = Sources/Utilities;
+			name = Profile;
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		AC93396F7AB6B7F36EED9A76035AEFD8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3837EE05798F0690F81A7EE7820ED7AC /* CMPComapiFoundation.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		AEA24B8FB1AFA50295E57A03EC5B6AA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0F48EBE2509A01AD599F5CD4603F262 /* CMPAuthenticationChallenge.h */,
+				86A30537349CE4F60A41460A0854D2C6 /* CMPAuthorizeSessionBody.h */,
+				953DBFA09BB53CC0412F71472F7C713D /* CMPSession.h */,
+				225CF2B1E6AF26E5E94809EABBA817A9 /* CMPSessionAuth.h */,
+			);
+			name = Model;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE588751F283625A157093435B2E217C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CEEFB68F91B4FBCE9B5F84C72BED6989 /* CMPConstants.h */,
+			);
+			name = Constants;
+			path = Sources/Constants;
+			sourceTree = "<group>";
+		};
+		C01BE0CE14E3DD74573A651EA47E7C42 /* HTTPHeader */ = {
+			isa = PBXGroup;
+			children = (
+				51A830ABC2219913F5A382C2DE9AEF68 /* CMPHTTPHeader.h */,
+			);
+			name = HTTPHeader;
+			path = HTTPHeader;
+			sourceTree = "<group>";
+		};
+		C24B1EEC5CADFFF104FEA177CDB47436 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				26222BF69BA1D07111E08D9EE4203C91 /* CMPBaseService.h */,
+				9C62A80BC71032F34315D340F2DBFAF9 /* CMPServices.h */,
+				64EDC7D10BC4E55407A317154E6BCD1E /* Profile */,
+				27978B700110B473AE13C4449EAE8F25 /* Session */,
+			);
+			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C9391BA242180D75672A974AE7D83470 /* Base64 */ = {
@@ -634,14 +691,13 @@
 			path = Base64;
 			sourceTree = "<group>";
 		};
-		D1F350B798A03C13BE5F57C187BDA8C5 /* Model */ = {
+		D5F39573AC906F0CE780BE547397E85C /* URLResult */ = {
 			isa = PBXGroup;
 			children = (
-				6E0CB3CEAECC67551D3C706763503775 /* CMPAPNSDetails.h */,
-				A8DBD2BB79258044BE9D8683EC2D43D5 /* CMPAPNSDetailsBody.h */,
+				92DB966B844E860470F5C292FB79CD6F /* CMPURLResult.h */,
 			);
-			name = Model;
-			path = Model;
+			name = URLResult;
+			path = URLResult;
 			sourceTree = "<group>";
 		};
 		D9CD5CDAF49BD2D7FBEDEA36D7FEFA8B /* iOS */ = {
@@ -653,68 +709,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		DA1A071401652B950B5B6353FE11A4CC /* Security */ = {
+		E2127F1867C32427128CF38D23F4F15E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				48507D98D5E36DCDD3F367C28BE1CC81 /* CMPKeychain.h */,
+				70233AE1B2C141B1C159E77ACDD85142 /* CMPProfile.h */,
+				C3B13574658E5920AE7ED969ECB37542 /* CMPQueryBuilder.h */,
 			);
-			name = Security;
-			path = Sources/Security;
-			sourceTree = "<group>";
-		};
-		DD82FD7D9246422E7956278E93D79CA0 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-				E698414ED0BE121618DE44111B77F397 /* Profile */,
-				108E8A220958B421A49E06B5DCCA83ED /* Push */,
-				0DF166C30095A19D1D8383483C2D64ED /* Session */,
-			);
-			name = Templates;
-			path = Templates;
-			sourceTree = "<group>";
-		};
-		E698414ED0BE121618DE44111B77F397 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				BA88D30B46B0599FDD6CFCB10A237F1F /* CMPGetProfileTemplate.h */,
-				C7B9512AEF81AEA86F25F9A55516B11D /* CMPPatchProfileTemplate.h */,
-				FA6CB1C13C81BD00592CE39558DB9CEC /* CMPQueryProfilesTemplate.h */,
-				474C83A93F97718A34F2B921A871B158 /* CMPUpdateProfileTemplate.h */,
-				879C08F689C574DC5CFAC92CBD9447AF /* Model */,
-			);
-			name = Profile;
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		F1BEF0A3325B2B572554B902AD9E8913 /* Comapi */ = {
-			isa = PBXGroup;
-			children = (
-				69CE89CC48F690ED0B95326A2A908C95 /* Client */,
-				65F9320ECD2AEA5C63E9D0B3DFFA8147 /* Comapi */,
-				45F9A1440C8A028FEBCAF5230BED0EF8 /* Config */,
-			);
-			name = Comapi;
-			path = Sources/Comapi;
-			sourceTree = "<group>";
-		};
-		F6882F35672008D2AD079D2AAAF73AD7 /* Destinations */ = {
-			isa = PBXGroup;
-			children = (
-				11922DE147BAFFF4E043777A35DA4B1C /* CMPFileDestination.h */,
-				648BC50D99E65E6FDC072440BFB31AE4 /* CMPLoggingDestination.h */,
-				35E142ED7363108792346EE53A022A3A /* CMPXcodeConsoleDestination.h */,
-			);
-			name = Destinations;
-			path = Destinations;
-			sourceTree = "<group>";
-		};
-		FD6CFDFAC0840A6BB19581EB05DBD006 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				03E67D826698B1D9D608F8823A653BE4 /* CMPSessionService.h */,
-			);
-			name = Session;
-			path = Session;
+			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 Client to connect your iOS application with [Comapi](http://comapi.com/) services and add it as a channel to our cloud messaging platform. Written in Objective-C.
 For more information about the integration please visit [the website](http://docs.comapi.com/reference#one-sdk-ios).
 						DESC
-  s.homepage         = 'https://github.com/comapi/comapi-sdk-ios-objective-c'
+  s.homepage         = 'https://github.com/comapi/CMPComapiFoundation'
   s.author           = { 'Comapi' => 'technicalmanagement@comapi.com' }
   s.source           =  { :path => '/Users/dominik.kowalski/Documents/CMPComapiFoundation' }
   s.social_media_url = 'https://twitter.com/comapimessaging'
@@ -16,6 +16,6 @@ For more information about the integration please visit [the website](http://doc
   s.platform     = :ios, '9.0'
   s.requires_arc = true
 
-  s.source_files = 'Sources/**/*.{h, m}'
+  s.source_files = 'Sources/**/*.{h,m}'
   s.resources = []
 end

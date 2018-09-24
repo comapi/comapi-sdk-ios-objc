@@ -7,6 +7,7 @@
 //
 
 #import "CMPProfile.h"
+#import "CMPUtilities.h"
 
 @implementation CMPProfile
 
