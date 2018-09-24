@@ -7,6 +7,7 @@
 //
 
 #import "CMPRequestTemplate.h"
+#import "CMPUtilities.h"
 
 @implementation CMPRequestTemplate
 

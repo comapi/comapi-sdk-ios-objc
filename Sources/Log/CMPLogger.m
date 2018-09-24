@@ -8,6 +8,7 @@
 
 #import "CMPLogger.h"
 #import "CMPLog.h"
+#import "CMPUtilities.h"
 
 void logWithLevel(CMPLogLevel logLevel, id params, ...) {
     NSMutableArray *arguments = [NSMutableArray new];

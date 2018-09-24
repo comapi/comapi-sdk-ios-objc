@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPErrors.h"
+#import "CMPUtilities.h"
 
 @implementation CMPErrors
 

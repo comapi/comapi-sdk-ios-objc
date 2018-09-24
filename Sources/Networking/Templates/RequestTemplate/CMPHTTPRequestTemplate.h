@@ -6,8 +6,8 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPRequestTemplateResult.h"
+#import "CMPUtilities.h"
 
 @protocol CMPHTTPRequestTemplate
 

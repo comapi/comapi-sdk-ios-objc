@@ -9,6 +9,7 @@
 #import "CMPFileDestination.h"
 #import "CMPLogLevel.h"
 #import "CMPLog.h"
+#import "CMPUtilities.h"
 
 @interface CMPFileDestination ()
 

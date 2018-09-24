@@ -7,6 +7,7 @@
 //
 
 #import "CMPURLResult.h"
+#import "CMPUtilities.h"
 
 @implementation CMPURLResult
 

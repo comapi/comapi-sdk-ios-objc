@@ -7,6 +7,7 @@
 //
 
 #import "CMPSession.h"
+#import "CMPUtilities.h"
 
 @implementation CMPSession
 

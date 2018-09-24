@@ -8,6 +8,7 @@
 
 #import "CMPAuthorizeSessionBody.h"
 #import <UIKit/UIKit.h>
+#import "CMPUtilities.h"
 
 @implementation CMPAuthorizeSessionBody
 

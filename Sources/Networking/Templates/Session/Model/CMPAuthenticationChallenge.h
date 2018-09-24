@@ -6,7 +6,6 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
