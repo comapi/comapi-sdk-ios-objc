@@ -10,6 +10,12 @@
 
 @class CMPRequestManager;
 
+@protocol CMPRequestManagerDelegate
+
+- (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager;
+
+@end
+
 typedef NS_ENUM(NSInteger, CMPTokenState) {
     CMPTokenStateMissing,
     CMPTokenStateAwaiting,
@@ -19,15 +25,9 @@ typedef NS_ENUM(NSInteger, CMPTokenState) {
 
 typedef void(^CMPPendingOperation)(void);
 
-@protocol CMPRequestManagerDelegate
-
-- (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager;
-
-@end
-
 @interface CMPRequestManager : NSObject
 
-@property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
+@property (nonatomic, weak, nullable) id<CMPRequestPerforming> requestPerformer;
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
 - (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer;

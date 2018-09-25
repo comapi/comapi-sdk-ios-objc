@@ -59,15 +59,15 @@
             [NSException raise:@"failed client init" format:@""];
         }
         __weak typeof(self) weakSelf = self;
-        [self.client.services.session startSessionWithCompletion:^{
-            CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
-            CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
-            
-            UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-            [nav pushViewController:vc animated:YES];
-        } failure:^(NSError * _Nullable error) {
-            NSLog(@"%@", [error localizedFailureReason]);
-        }];
+        //[self.client.services.session startSessionWithCompletion:^{
+        CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
+        CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
+        
+        UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+        [nav pushViewController:vc animated:YES];
+//        } failure:^(NSError * _Nullable error) {
+//            NSLog(@"%@", [error localizedFailureReason]);
+//        }];
     }
 }
 
@@ -75,7 +75,9 @@
     NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
     [defaults setObject:nil forKey:@"loginInfo"];
     [defaults synchronize];
-    NSLog(@"restarting...");
+    
+    logWithLevel(CMPLogLevelWarning, @"restarting...", nil);
+    
     [self.client.services.session endSessionWithCompletion:^(CMPRequestTemplateResult * _Nonnull result) {
         UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
         [nav popToRootViewControllerAnimated:YES];

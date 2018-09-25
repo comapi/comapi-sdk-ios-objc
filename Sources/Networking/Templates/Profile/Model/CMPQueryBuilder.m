@@ -63,7 +63,7 @@
     
     [elements enumerateObjectsUsingBlock:^(CMPQueryElements * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *begin = ![query isEqualToString:@""] ? [CMPQueryBuilder valueForQueryElement:CMPQueryElementAnd] : [CMPQueryBuilder valueForQueryElement:CMPQueryElementBegin];
-         query = [query stringByAppendingString:[NSString stringWithFormat:@"%@%@%@%@", begin, obj.key, [CMPQueryBuilder valueForQueryElement:obj.element], obj.value.description]];
+        query = [query stringByAppendingString:[NSString stringWithFormat:@"%@%@%@%@", begin, obj.key, [CMPQueryBuilder valueForQueryElement:obj.element], obj.value.description]];
     }];
     
     return query;

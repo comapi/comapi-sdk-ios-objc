@@ -36,10 +36,6 @@
     }
 
     XCTAssertEqualObjects(object.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
-    XCTAssertEqualObjects(object.createdOn, [@"2018-07-03T11:25:46.047Z" asDate]);
-    XCTAssertEqualObjects(object.createdBy, @"interactive:dominik.kowalski@comapi.com");
-    XCTAssertEqualObjects(object.updatedOn, [@"2018-07-03T11:25:46.047Z" asDate]);
-    XCTAssertEqualObjects(object.updatedBy, @"interactive:dominik.kowalski@comapi.com");
 }
 
 @end

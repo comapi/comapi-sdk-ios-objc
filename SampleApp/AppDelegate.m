@@ -16,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.configurator = [[CMPAppConfigurator alloc] initWithWindow:self.window];
     [self.configurator start];
@@ -24,6 +24,27 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSError *error = nil;
+    NSString *token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+    if (token) {
+        CMPComapiClient *client = [CMPComapi shared:&error];
+        if (error) {
+            // error occurred
+            return;
+        }
+        
+        [client setPushToken:token completion:^(BOOL success, NSError * error) {
+            if (error || !success) {
+                // error occurred
+            } else {
+                // push token set
+            }
+        }];
+    }
+    
+    // rest of you push notification code
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

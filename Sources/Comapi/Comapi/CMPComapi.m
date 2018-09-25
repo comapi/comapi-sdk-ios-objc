@@ -38,8 +38,6 @@ static CMPComapiClient *_shared = nil;
 + (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config error:(NSError *__autoreleasing *)error {
     CMPComapiClient *instance = [[CMPComapiClient alloc] initWithApiSpaceID:config.id authenticationDelegate:config.authDelegate apiConfiguration:config.apiConfig];
     
-    logWithLevel(CMPLogLevelInfo, instance, @"some random stuff", nil);
-    
     return instance;
 }
 
