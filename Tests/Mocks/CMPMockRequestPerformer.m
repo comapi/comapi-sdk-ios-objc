@@ -67,17 +67,11 @@
 
 - (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
     if (self.completionValues.count == 0) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(nil, nil, [[NSError alloc] init]);
-        });
+        completion(nil, nil, [[NSError alloc] init]);
     } else {
         CMPMockRequestResult *completionValue = [[self.completionValues firstObject] copy];
-        NSString *data = [[NSString alloc] initWithData:completionValue.data encoding:NSUTF8StringEncoding];
         [self.completionValues removeObjectAtIndex:0];
-        NSLog(@"%@", data);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(completionValue.data, completionValue.response, completionValue.error);
-        });
+        completion(completionValue.data, completionValue.response, completionValue.error);
     }
     
 }

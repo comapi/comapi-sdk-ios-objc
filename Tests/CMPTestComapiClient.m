@@ -30,7 +30,6 @@
     
     self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
     self.config = [[CMPAPIConfiguration alloc] initWithScheme:@"https" host:@"stage-api.comapi.com" port:443];
-    
 }
 
 - (void)tearDown {
@@ -39,7 +38,7 @@
 }
 
 - (void)testSetPushToken {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     CMPMockRequestResult *completionValue = [[CMPMockRequestResult alloc] initWithData:nil response:[NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]] error:nil];

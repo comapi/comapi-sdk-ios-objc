@@ -1,11 +1,9 @@
 PODS:
   - Base64 (1.1.2)
-  - CMPComapiFoundation (0.0.1)
   - JWT (2.2.0):
     - Base64 (~> 1.1.2)
 
 DEPENDENCIES:
-  - CMPComapiFoundation (from `/Users/dominik.kowalski/Documents/CMPComapiFoundation`)
   - JWT
 
 SPEC REPOS:
@@ -13,15 +11,10 @@ SPEC REPOS:
     - Base64
     - JWT
 
-EXTERNAL SOURCES:
-  CMPComapiFoundation:
-    :path: "/Users/dominik.kowalski/Documents/CMPComapiFoundation"
-
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  CMPComapiFoundation: 5c68fabd7c116ac914c1f427b0a3930223023aa3
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
 
-PODFILE CHECKSUM: 2cc99d61e382e351852fbcd0a97b7dc0419d2ce8
+PODFILE CHECKSUM: 44bbe88d5f597d2a7eaf6497b2bc6bfe8eb027cb
 
 COCOAPODS: 1.5.3

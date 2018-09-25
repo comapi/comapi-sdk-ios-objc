@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
+#import "CMPKeychain.h"
 
 @interface CMPTestKeychain : XCTestCase
 

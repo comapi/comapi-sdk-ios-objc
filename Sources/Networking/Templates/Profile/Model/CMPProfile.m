@@ -31,18 +31,6 @@
         if (JSON[@"email"] != nil && [JSON[@"email"] isKindOfClass:NSString.class]) {
             self.email = JSON[@"email"];
         }
-        if (JSON[@"_createdOn"] != nil && [JSON[@"_createdOn"] isKindOfClass:NSString.class]) {
-            self.createdOn = [(NSString *)JSON[@"_createdOn"] asDate];
-        }
-        if (JSON[@"_createdBy"] != nil && [JSON[@"_createdBy"] isKindOfClass:NSString.class]) {
-            self.createdBy = JSON[@"_createdBy"];
-        }
-        if (JSON[@"_updatedOn"] != nil && [JSON[@"_updatedOn"] isKindOfClass:NSString.class]) {
-            self.updatedOn = [(NSString *)JSON[@"_updatedOn"] asDate];
-        }
-        if (JSON[@"_updatedBy"] != nil && [JSON[@"_updatedBy"] isKindOfClass:NSString.class]) {
-            self.updatedBy = JSON[@"_updatedBy"];
-        }
     }
     
     return self;

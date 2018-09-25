@@ -10,9 +10,9 @@
 
 @interface CMPRequestManager ()
 
-@property (atomic, copy) NSMutableArray<CMPPendingOperation>* pendingOperations;
-@property (atomic) CMPTokenState tokenState;
-@property (atomic, nullable) NSString *token;
+@property (nonatomic, strong) NSMutableArray<CMPPendingOperation>* pendingOperations;
+@property (nonatomic) CMPTokenState tokenState;
+@property (nonatomic, strong, nullable) NSString *token;
 
 @end
 
@@ -23,6 +23,8 @@
     
     if (self) {
         self.requestPerformer = requestPerformer;
+        self.pendingOperations = [NSMutableArray array];
+        self.tokenState = CMPTokenStateMissing;
     }
     
     return self;
@@ -32,12 +34,12 @@
     __weak typeof(self) weakSelf = self;
     switch (self.tokenState) {
         case CMPTokenStateMissing: {
-            [self.pendingOperations addObject: ^{ [weakSelf performUsingTemplateBuilder:templateBuilder completion:completion]; }];
+            [self.pendingOperations addObject: [^{ [weakSelf performUsingTemplateBuilder:templateBuilder completion:completion]; } copy]];
             [self requestToken];
             break;
         }
         case CMPTokenStateAwaiting: {
-            [self.pendingOperations addObject: ^{ [weakSelf performUsingTemplateBuilder:templateBuilder completion:completion]; }];
+            [self.pendingOperations addObject: [^{ [weakSelf performUsingTemplateBuilder:templateBuilder completion:completion]; } copy]];
             break;
         }
         case CMPTokenStateReady: {
@@ -56,7 +58,7 @@
 }
 
 - (void)runAllPendingOperations {
-    NSArray<CMPPendingOperation> *operations = [self.pendingOperations copy];
+    NSMutableArray<CMPPendingOperation> *operations = [self.pendingOperations copy];
     [self.pendingOperations removeAllObjects];
     [operations enumerateObjectsUsingBlock:^(CMPPendingOperation _Nonnull operation, NSUInteger idx, BOOL * _Nonnull stop) {
         operation();

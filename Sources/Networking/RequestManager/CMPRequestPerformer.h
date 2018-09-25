@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSURLSession *session;
 
+- (instancetype)init;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 #import "CMPResourceLoader.h"
 #import "CMPTestMocks.h"
 #import "CMPAuthenticationChallenge.h"
+#import "NSString+CMPUtility.h"
 
 @interface CMPTestAuthenticationChallenge : XCTestCase
 

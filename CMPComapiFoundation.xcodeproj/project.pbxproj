@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */; };
+		754949947B416EF848D60ADE /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */; };
 		891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 891E081B2155282B00ED18D3 /* CMPUtilities.h */; };
-		8921D2C7215520C400976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2C5215520C400976FFA /* Info.plist */; };
-		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8921D2CB215520D100976FFA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8921D2CA215520D100976FFA /* Info.plist */; };
+		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; };
 		89259E7321524F3A00C73A02 /* CMPProfileDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7221524F3A00C73A02 /* CMPProfileDetailsView.m */; };
 		89259E7621525A1B00C73A02 /* CMPProfileDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7521525A1B00C73A02 /* CMPProfileDetailsViewController.m */; };
 		89259E7921525A7900C73A02 /* CMPProfileDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89259E7821525A7900C73A02 /* CMPProfileDetailsViewModel.m */; };
@@ -43,17 +41,17 @@
 		8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2F3212AE5F900C76B19 /* CMPHTTPHeader.m */; };
 		8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FA212C128100C76B19 /* NSURLResponse+CMPUtility.h */; };
 		8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2FB212C128100C76B19 /* NSURLResponse+CMPUtility.m */; };
-		8972C301212C168800C76B19 /* CMPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FF212C168800C76B19 /* CMPErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8972C301212C168800C76B19 /* CMPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2FF212C168800C76B19 /* CMPErrors.h */; };
 		8972C302212C168800C76B19 /* CMPErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C300212C168800C76B19 /* CMPErrors.m */; };
-		8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C303212C1DCC00C76B19 /* CMPConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C303212C1DCC00C76B19 /* CMPConstants.h */; };
 		8972C306212C1DCC00C76B19 /* CMPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C304212C1DCC00C76B19 /* CMPConstants.m */; };
 		8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C309212C2A1900C76B19 /* CMPComapiClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30A212C2A1900C76B19 /* CMPComapiClient.m */; };
-		8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C30E212C2A5E00C76B19 /* CMPComapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C30E212C2A5E00C76B19 /* CMPComapi.h */; };
 		8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C30F212C2A5E00C76B19 /* CMPComapi.m */; };
-		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C313212C32CC00C76B19 /* CMPComapiConfig.h */; };
 		8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C314212C32CC00C76B19 /* CMPComapiConfig.m */; };
-		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C318212C34E000C76B19 /* CMPAuthenticationDelegate.h */; };
 		8972C31E212C354E00C76B19 /* CMPAuthenticationChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C31C212C354E00C76B19 /* CMPAuthenticationChallenge.h */; };
 		8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C31D212C354E00C76B19 /* CMPAuthenticationChallenge.m */; };
 		8972C322212C3F1E00C76B19 /* CMPAPIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C320212C3F1E00C76B19 /* CMPAPIConfiguration.h */; };
@@ -70,6 +68,8 @@
 		8972C33C212EC5A900C76B19 /* CMPProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C33A212EC5A900C76B19 /* CMPProfileService.m */; };
 		8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C33F212ED54B00C76B19 /* CMPStartNewSessionTemplate.h */; };
 		8972C342212ED54B00C76B19 /* CMPStartNewSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C340212ED54B00C76B19 /* CMPStartNewSessionTemplate.m */; };
+		897E7C82215A6AE700DB7389 /* CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; };
+		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89957A2C21357791008EE0BE /* CMPLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A2A21357791008EE0BE /* CMPLogger.h */; };
 		89957A2D21357791008EE0BE /* CMPLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A2B21357791008EE0BE /* CMPLogger.m */; };
 		89957A302135884C008EE0BE /* CMPLoggingDestination.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A2F2135884C008EE0BE /* CMPLoggingDestination.h */; };
@@ -88,14 +88,13 @@
 		89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4C2136A5AF008EE0BE /* CMPAuthChallengeHandler.h */; };
 		89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4F2137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h */; };
 		89957A522137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A502137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.m */; };
-		89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A542137DE78008EE0BE /* CMPAPNSDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A542137DE78008EE0BE /* CMPAPNSDetails.h */; };
 		89957A572137DE78008EE0BE /* CMPAPNSDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A552137DE78008EE0BE /* CMPAPNSDetails.m */; };
-		89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A582137DFD8008EE0BE /* CMPAPNSDetailsBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A582137DFD8008EE0BE /* CMPAPNSDetailsBody.h */; };
 		89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A592137DFD8008EE0BE /* CMPAPNSDetailsBody.m */; };
 		89957A5E2137E351008EE0BE /* CMPJSONDecoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5D2137E351008EE0BE /* CMPJSONDecoding.h */; };
 		89957A602137E35F008EE0BE /* CMPJSONEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A5F2137E35F008EE0BE /* CMPJSONEncoding.h */; };
 		89957A69213935E0008EE0BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A68213935E0008EE0BE /* AppDelegate.m */; };
-		89957A6F213935E0008EE0BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89957A6D213935E0008EE0BE /* Main.storyboard */; };
 		89957A71213935E3008EE0BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89957A70213935E3008EE0BE /* Assets.xcassets */; };
 		89957A74213935E3008EE0BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89957A72213935E3008EE0BE /* LaunchScreen.storyboard */; };
 		89957A77213935E3008EE0BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A76213935E3008EE0BE /* main.m */; };
@@ -111,9 +110,9 @@
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
-		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
 		89C8DE542122F7AB00555495 /* CMPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE522122F7AB00555495 /* CMPSession.m */; };
-		89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE552122F95000555495 /* CMPSessionAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE552122F95000555495 /* CMPSessionAuth.h */; };
 		89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE562122F95000555495 /* CMPSessionAuth.m */; };
 		89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5A2122FCEC00555495 /* NSString+CMPUtility.h */; };
 		89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */; };
@@ -121,7 +120,7 @@
 		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
 		89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */; };
 		89DCBB44212F0139001016FF /* CMPAuthorizeSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */; };
-		89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */; };
 		89DCBB4921342787001016FF /* CMPAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */; };
 		89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */; };
 		89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */; };
@@ -129,7 +128,7 @@
 		89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */; };
 		89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */; };
 		89EA5CBE2147E6B800C29D08 /* CMPGetProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CBC2147E6B800C29D08 /* CMPGetProfileTemplate.m */; };
-		89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC12147EA0000C29D08 /* CMPProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC12147EA0000C29D08 /* CMPProfile.h */; };
 		89EA5CC42147EA0000C29D08 /* CMPProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CC22147EA0000C29D08 /* CMPProfile.m */; };
 		89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CC5214902FA00C29D08 /* CMPUpdateProfileTemplate.h */; };
 		89EA5CC8214902FA00C29D08 /* CMPUpdateProfileTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CC6214902FA00C29D08 /* CMPUpdateProfileTemplate.m */; };
@@ -173,6 +172,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		897E7C84215A6AE700DB7389 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
+			remoteInfo = CMPComapiFoundation;
+		};
 		89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
@@ -189,7 +195,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		897E7C86215A6AE700DB7389 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		891E081B2155282B00ED18D3 /* CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPUtilities.h; sourceTree = "<group>"; };
 		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8921D2C6215520C400976FFA /* CMPComapiFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPComapiFoundation.h; sourceTree = "<group>"; };
@@ -292,7 +313,6 @@
 		89957A65213935E0008EE0BE /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89957A67213935E0008EE0BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		89957A68213935E0008EE0BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		89957A6E213935E0008EE0BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89957A70213935E3008EE0BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89957A73213935E3008EE0BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89957A75213935E3008EE0BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -387,9 +407,8 @@
 		89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthorizeSessionTemplate.m; sourceTree = "<group>"; };
 		89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestDeleteSessionTemplate.m; sourceTree = "<group>"; };
 		89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSetAPNSDetailsTemplate.m; sourceTree = "<group>"; };
-		BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
-		C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,7 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				89342DA4213EBF44000D0F2D /* CMPComapiFoundation.framework in Frameworks */,
-				74BCE5392E5D994017DA9715 /* Pods_SampleApp.framework in Frameworks */,
+				754949947B416EF848D60ADE /* Pods_SampleApp.framework in Frameworks */,
+				897E7C82215A6AE700DB7389 /* CMPComapiFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,12 +440,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		66A88DB8C45AF2FC68C4BDFE /* Frameworks */ = {
+		0E7B2FCA56376FE3626DC553 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C302DD7B0BF4D0E8133D5B8C /* Pods_SampleApp.framework */,
+				C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A59226F3E3E71A0D5592856 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */,
+				E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8921D2C4215520C400976FFA /* CMPComapiFoundation */ = {
@@ -805,7 +834,6 @@
 				89957A7B2139361E008EE0BE /* Base */,
 				89957A67213935E0008EE0BE /* AppDelegate.h */,
 				89957A68213935E0008EE0BE /* AppDelegate.m */,
-				89957A6D213935E0008EE0BE /* Main.storyboard */,
 				89957A70213935E3008EE0BE /* Assets.xcassets */,
 				89957A72213935E3008EE0BE /* LaunchScreen.storyboard */,
 				89957A75213935E3008EE0BE /* Info.plist */,
@@ -902,8 +930,8 @@
 				89C8DE492122F47000555495 /* Sources */,
 				89957A66213935E0008EE0BE /* SampleApp */,
 				89C8DE3F2122DF3C00555495 /* Products */,
-				F026D228D8308D4507B88AE3 /* Pods */,
-				66A88DB8C45AF2FC68C4BDFE /* Frameworks */,
+				2A59226F3E3E71A0D5592856 /* Pods */,
+				0E7B2FCA56376FE3626DC553 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1113,15 +1141,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		F026D228D8308D4507B88AE3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */,
-				E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1129,9 +1148,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */,
 				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
 				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
-				8972C30B212C2A1900C76B19 /* CMPComapiClient.h in Headers */,
 				8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */,
 				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
 				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
@@ -1192,15 +1211,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89957A78213935E3008EE0BE /* Build configuration list for PBXNativeTarget "SampleApp" */;
 			buildPhases = (
-				4BBEE0D786B28AC508BE9E8B /* [CP] Check Pods Manifest.lock */,
+				919A2AB6AE5BDA8FD102AEE4 /* [CP] Check Pods Manifest.lock */,
 				89957A61213935E0008EE0BE /* Sources */,
 				89957A62213935E0008EE0BE /* Frameworks */,
 				89957A63213935E0008EE0BE /* Resources */,
-				E70419ABDD578752920A999B /* [CP] Embed Pods Frameworks */,
+				F91BD850B5355FD991FEF8D9 /* [CP] Embed Pods Frameworks */,
+				897E7C86215A6AE700DB7389 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				897E7C85215A6AE700DB7389 /* PBXTargetDependency */,
 			);
 			name = SampleApp;
 			productName = SampleApp;
@@ -1292,7 +1313,6 @@
 			files = (
 				89957A74213935E3008EE0BE /* LaunchScreen.storyboard in Resources */,
 				89957A71213935E3008EE0BE /* Assets.xcassets in Resources */,
-				89957A6F213935E0008EE0BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1300,7 +1320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8921D2C7215520C400976FFA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1310,7 +1329,6 @@
 			files = (
 				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
 				896244DB2153CC35007F2117 /* ProfileArray.json in Resources */,
-				8921D2CB215520D100976FFA /* Info.plist in Resources */,
 				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
 				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
 				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
@@ -1323,7 +1341,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4BBEE0D786B28AC508BE9E8B /* [CP] Check Pods Manifest.lock */ = {
+		919A2AB6AE5BDA8FD102AEE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1341,7 +1359,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E70419ABDD578752920A999B /* [CP] Embed Pods Frameworks */ = {
+		F91BD850B5355FD991FEF8D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1482,6 +1500,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		897E7C85215A6AE700DB7389 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
+			targetProxy = 897E7C84215A6AE700DB7389 /* PBXContainerItemProxy */;
+		};
 		89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
@@ -1495,14 +1518,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		89957A6D213935E0008EE0BE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89957A6E213935E0008EE0BE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		89957A72213935E3008EE0BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1516,7 +1531,7 @@
 /* Begin XCBuildConfiguration section */
 		89957A79213935E3008EE0BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE7F0EA6D2FCBF71FB089A8D /* Pods-SampleApp.debug.xcconfig */;
+			baseConfigurationReference = 692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1535,7 +1550,7 @@
 		};
 		89957A7A213935E3008EE0BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6DCA2B23151DB58B842E5D1 /* Pods-SampleApp.release.xcconfig */;
+			baseConfigurationReference = E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1727,9 +1742,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
-				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = CMPComapiFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1747,9 +1762,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sources/CMPComapiFoundation-Prefix.pch";
-				INFOPLIST_FILE = CMPComapiFoundation_tests/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = CMPComapiFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

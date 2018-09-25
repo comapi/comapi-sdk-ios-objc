@@ -15,7 +15,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 @interface CMPSessionManager ()
 
-@property (nonatomic, strong, nullable) CMPComapiClient *client;
+@property (nonatomic, weak, nullable) CMPComapiClient *client;
 @property (nonatomic, strong) CMPRequestManager *requestManager;
 
 @property (nonatomic, weak, nullable) id<CMPAuthenticationDelegate> authenticationDelegate;
@@ -73,7 +73,11 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     if (token && session) {
         CMPSessionAuth *sessionAuth = [[CMPSessionAuth alloc] initWithToken:token session:session];
         self.sessionAuth = sessionAuth;
-        [self.requestManager updateToken:token];
+        if (self.isSessionValid) {
+            [self.requestManager updateToken:token];
+        } else {
+            [self authenticateWithSuccess:nil failure:nil];
+        }
     }
 }
 
@@ -130,14 +134,14 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
             NSString *authenticationID = challenge.authenticationID != nil ? challenge.authenticationID : @"";
             [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID challengeHandler:self];
         } else {
-            [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus :CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
+            [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus:CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }
     }];
 }
 
 // MARK: - CMPSessionAuthProvider
 
-- (void)authenticateWithSuccess:(void (^)(void))success failure:(void (^)(NSError *))failure {
+- (void)authenticateWithSuccess:(void(^)(void))success failure:(void(^)(NSError *))failure {
     if (self.client) {
         self.client.state = CMPSDKStateSessionStarting;
         self.didFinishAuthentication = success;

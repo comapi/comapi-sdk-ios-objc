@@ -14,10 +14,12 @@
 @interface CMPComapiClient ()
 
 @property (nonatomic, strong) NSString *apiSpaceID;
+
 @property (nonatomic, strong) CMPRequestManager *requestManager;
-@property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
-@property (nonatomic, strong) CMPAPIConfiguration *apiConfiguration;
 @property (nonatomic, strong) CMPSessionManager *sessionManager;
+@property (nonatomic, strong) CMPAPIConfiguration *apiConfiguration;
+
+@property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
 
 @end
 
@@ -39,11 +41,12 @@
         self.requestPerformer = requestPerformer;
         
         self.requestManager = [[CMPRequestManager alloc] initWithRequestPerformer:self.requestPerformer];
-        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
-        self.services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
-        
         self.requestManager.delegate = self;
+        
+        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
         [self.sessionManager bindClient:self];
+        
+        self.services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
         
         self.state = CMPSDKStateInitilised;
     }

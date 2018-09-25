@@ -14,10 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *email;
-@property (nonatomic, strong, nullable) NSDate *createdOn;
-@property (nonatomic, strong, nullable) NSString *createdBy;
-@property (nonatomic, strong, nullable) NSDate *updatedOn;
-@property (nonatomic, strong, nullable) NSString *updatedBy;
 
 - (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON;
 
