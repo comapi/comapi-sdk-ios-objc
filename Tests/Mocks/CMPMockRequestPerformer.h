@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<NSURLRequest *> *receivedRequests;
 @property (nonatomic, strong) NSMutableArray<CMPMockRequestResult *> *completionValues;
 
-- (instancetype)init;
 - (instancetype)initWithSessionAndAuth;
 
 @end

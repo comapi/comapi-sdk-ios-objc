@@ -7,6 +7,7 @@
 //
 
 #import "CMPProfileViewModel.h"
+#import <UserNotifications/UserNotifications.h>
 
 @implementation CMPProfileViewModel
 
@@ -30,6 +31,12 @@
             weakSelf.profiles = result.object;
             completion(nil);
         }
+    }];
+}
+
+- (void)registerForRemoteNotificationsWithCompletion:(void (^)(BOOL, NSError * _Nonnull))completion {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        completion(granted, error);
     }];
 }
 

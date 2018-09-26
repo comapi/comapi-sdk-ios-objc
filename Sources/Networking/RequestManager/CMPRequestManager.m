@@ -23,7 +23,7 @@
     
     if (self) {
         self.requestPerformer = requestPerformer;
-        self.pendingOperations = [NSMutableArray array];
+        self.pendingOperations = [NSMutableArray new];
         self.tokenState = CMPTokenStateMissing;
     }
     

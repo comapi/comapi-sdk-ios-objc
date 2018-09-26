@@ -17,5 +17,6 @@
 
 - (instancetype)initWithClient:(CMPComapiClient *)client;
 - (void)getProfilesWithCompletion:(void(^)(NSError * _Nullable))completion;
+- (void)registerForRemoteNotificationsWithCompletion:(void (^)(BOOL, NSError * _Nonnull))completion;
 
 @end

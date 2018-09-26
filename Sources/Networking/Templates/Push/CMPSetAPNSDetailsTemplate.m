@@ -68,9 +68,8 @@
         return;
     }
     
-    __weak CMPSetAPNSDetailsTemplate *weakSelf = self;
     [performer performRequest:request completion:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        result([weakSelf resultFromData:data urlResponse:response]);
+        result([self resultFromData:data urlResponse:response]);
     }];
 }
 

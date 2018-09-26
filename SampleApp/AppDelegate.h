@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CMPAppConfigurator.h"
 
+extern NSString * const kCMPPushRegistrationStatusChangedNotification;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
