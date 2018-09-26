@@ -68,7 +68,6 @@
 		8972C33C212EC5A900C76B19 /* CMPProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C33A212EC5A900C76B19 /* CMPProfileService.m */; };
 		8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C33F212ED54B00C76B19 /* CMPStartNewSessionTemplate.h */; };
 		8972C342212ED54B00C76B19 /* CMPStartNewSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C340212ED54B00C76B19 /* CMPStartNewSessionTemplate.m */; };
-		897E7C82215A6AE700DB7389 /* CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; };
 		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89957A2C21357791008EE0BE /* CMPLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A2A21357791008EE0BE /* CMPLogger.h */; };
 		89957A2D21357791008EE0BE /* CMPLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A2B21357791008EE0BE /* CMPLogger.m */; };
@@ -215,6 +214,7 @@
 		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8921D2C6215520C400976FFA /* CMPComapiFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPComapiFoundation.h; sourceTree = "<group>"; };
 		8921D2CA215520D100976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8922B9D9215BCE4C001FD018 /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		89259E7121524F3A00C73A02 /* CMPProfileDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileDetailsView.h; sourceTree = "<group>"; };
 		89259E7221524F3A00C73A02 /* CMPProfileDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileDetailsView.m; sourceTree = "<group>"; };
 		89259E7421525A1B00C73A02 /* CMPProfileDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileDetailsViewController.h; sourceTree = "<group>"; };
@@ -418,7 +418,6 @@
 			files = (
 				89342DA4213EBF44000D0F2D /* CMPComapiFoundation.framework in Frameworks */,
 				754949947B416EF848D60ADE /* Pods_SampleApp.framework in Frameworks */,
-				897E7C82215A6AE700DB7389 /* CMPComapiFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +823,7 @@
 		89957A66213935E0008EE0BE /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				8922B9D9215BCE4C001FD018 /* SampleApp.entitlements */,
 				89259E6C21524EF500C73A02 /* ProfileDetails */,
 				89EA5CB12141313C00C29D08 /* Profile */,
 				89342DA0213E9BC6000D0F2D /* Authentication */,
@@ -1276,6 +1276,14 @@
 				TargetAttributes = {
 					89957A64213935E0008EE0BE = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					89C8DE3D2122DF3C00555495 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1534,6 +1542,7 @@
 			baseConfigurationReference = 692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;
@@ -1553,6 +1562,7 @@
 			baseConfigurationReference = E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;

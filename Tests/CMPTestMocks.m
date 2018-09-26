@@ -22,4 +22,12 @@
     return [NSURL URLWithString:@"http://192.168.99.100:8000"];
 }
 
++ (NSErrorDomain)mockErrorDomain {
+    return @"comapi.mocks.domain";
+}
+
++ (NSUInteger)mockStatusCode {
+    return 11111;
+}
+
 @end

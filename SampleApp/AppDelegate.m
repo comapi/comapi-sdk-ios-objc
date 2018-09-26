@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegistrationStatusChangedNotification";
+
 @interface AppDelegate ()
 
 @end
@@ -25,25 +27,29 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSError *error = nil;
-    NSString *token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+    const unsigned *tokenBytes = [deviceToken bytes];
+    NSString *token = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
     if (token) {
-        CMPComapiClient *client = [CMPComapi shared:&error];
-        if (error) {
-            // error occurred
-            return;
+        CMPComapiClient *client = self.configurator.client;
+        if (client) {
+            [client setPushToken:token completion:^(BOOL success, NSError * error) {
+                if (error || !success) {
+                    NSLog(@"%@", error.localizedDescription);
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kCMPPushRegistrationStatusChangedNotification object:@(NO) userInfo:nil];
+                } else {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kCMPPushRegistrationStatusChangedNotification object:@(YES) userInfo:nil];
+                }
+            }];
         }
-        
-        [client setPushToken:token completion:^(BOOL success, NSError * error) {
-            if (error || !success) {
-                // error occurred
-            } else {
-                // push token set
-            }
-        }];
     }
-    
-    // rest of you push notification code
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"%@", error.localizedDescription);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCMPPushRegistrationStatusChangedNotification object:@(NO) userInfo:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

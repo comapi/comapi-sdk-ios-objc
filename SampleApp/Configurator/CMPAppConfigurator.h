@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithWindow:(UIWindow *)window;
 - (void)start;
 - (void)restart;
+- (void)registerForRemoteNotificationsWithCompletion:(void(^)(BOOL, NSError *))completion;
 
 @end
 

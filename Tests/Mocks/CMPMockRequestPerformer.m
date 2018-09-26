@@ -36,17 +36,6 @@
 
 @implementation CMPMockRequestPerformer
 
-- (instancetype)init {
-    self = [super init];
-    
-    if (self) {
-        self.receivedRequests = [NSMutableArray new];
-        self.completionValues = [NSMutableArray new];
-    }
-    
-    return self;
-}
-
 - (instancetype)initWithSessionAndAuth {
     self = [super init];
     
@@ -67,7 +56,7 @@
 
 - (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
     if (self.completionValues.count == 0) {
-        completion(nil, nil, [[NSError alloc] init]);
+        completion(nil, nil, [[NSError alloc] initWithDomain:[CMPTestMocks mockErrorDomain] code:[CMPTestMocks mockStatusCode] userInfo:@{}]);
     } else {
         CMPMockRequestResult *completionValue = [[self.completionValues firstObject] copy];
         [self.completionValues removeObjectAtIndex:0];

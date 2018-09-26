@@ -41,15 +41,33 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifcationStatusChanged:) name:kCMPPushRegistrationStatusChangedNotification object:nil];
+    
     __weak typeof(self) weakSelf = self;
     [self.viewModel getProfilesWithCompletion:^(NSError * _Nullable err) {
         [weakSelf reload];
+        [weakSelf.viewModel registerForRemoteNotificationsWithCompletion:^(BOOL success, NSError * _Nonnull error) {
+            if (!error && success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication.sharedApplication registerForRemoteNotifications];
+                });
+            }
+        }];
     }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCMPPushRegistrationStatusChangedNotification object:nil];
 }
 
 - (void)delegates {
     self.profileView.tableView.delegate = self;
     self.profileView.tableView.dataSource = self;
+    
+    self.profileView.didChangeSwitchValue = ^{
+        NSLog(@"value changed");
+    };
 }
 
 - (void)navigation {
@@ -72,6 +90,11 @@
 
 - (void)reload {
     [self.profileView.tableView reloadData];
+}
+
+- (void)notifcationStatusChanged:(NSNotification *)notification {
+    BOOL value = [(NSNumber *)notification.object boolValue];
+    [self.profileView.notificationSwitch setOn:value];
 }
 
 // MARK: - UITableViewDelegate & UITableViewDataSource

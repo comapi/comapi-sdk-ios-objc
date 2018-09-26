@@ -54,7 +54,7 @@
         [expectation fulfill];
     }];
     
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testStartSession {
@@ -79,11 +79,11 @@
         [expectation fulfill];
     }];
     
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testEndSession {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL] statusCode:204 httpVersion:@"HTTP/1.1" headers:@{}];
@@ -100,11 +100,11 @@
         [expectation fulfill];
     }];
     
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testGetProfile {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
@@ -122,11 +122,11 @@
         [expectation fulfill];
     }];
     
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testQueryProfile {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
@@ -149,11 +149,11 @@
         [expectation fulfill];
     }];
 
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testUpdateProfile {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
@@ -173,11 +173,11 @@
         [expectation fulfill];
     }];
 
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 - (void)testPatchProfile {
-    self.requestPerformer = [[CMPMockRequestPerformer alloc] init];
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
     NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
@@ -197,7 +197,7 @@
             [expectation fulfill];
     }];
 
-    [self waitForExpectations:@[expectation] timeout:5.0];
+    [self waitForExpectations:@[expectation] timeout:15.0];
 }
 
 

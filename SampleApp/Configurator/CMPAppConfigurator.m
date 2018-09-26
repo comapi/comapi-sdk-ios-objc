@@ -8,9 +8,13 @@
 
 #import "CMPAppConfigurator.h"
 #import "CMPProfileViewController.h"
+#import "AppDelegate.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 @interface CMPAppConfigurator ()
 
+@property (nonatomic, weak, nullable) AppDelegate *appDelegate;
 @property (nonatomic, strong, nullable) CMPLoginBundle *loginInfo;
 
 - (CMPLoginBundle *)checkForLoginInfo;
@@ -23,6 +27,7 @@
     self = [super init];
     
     if (self) {
+        self.appDelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
         self.window = window;
     }
     

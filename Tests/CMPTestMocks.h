@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)mockAuthenticationToken;
 + (NSString *)mockApiSpaceID;
 + (NSURL *)mockBaseURL;
++ (NSErrorDomain)mockErrorDomain;
++ (NSUInteger)mockStatusCode;
 
 @end
 
