@@ -17,13 +17,17 @@
     [self.sessionAuthProvider authenticateWithSuccess:completion failure:failure];
 }
 
-- (void)endSessionWithCompletion:(void (^)(CMPRequestTemplateResult *))completion {
+- (void)endSessionWithCompletion:(void (^)(BOOL, NSError * _Nullable))completion {
     CMPDeleteSessionTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPDeleteSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:self.sessionAuthProvider.sessionAuth.session.id];
     };
 
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
-        completion(result);
+        if (result.error) {
+            completion(NO, result.error);
+        } else {
+            completion(YES, nil);
+        }
     }];
 }
 

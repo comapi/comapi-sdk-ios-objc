@@ -31,7 +31,17 @@
 }
 
 - (NSString *)utf8StringValue {
-    return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:self options:NSJSONReadingAllowFragments error:&error];
+    if (error) {
+        return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    }
+    NSData *prettyPrintedData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted | NSJSONReadingAllowFragments error:&error];
+    if (error) {
+        return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    }
+    
+    return [[NSString alloc] initWithData:prettyPrintedData encoding:NSUTF8StringEncoding];
 }
 
 @end

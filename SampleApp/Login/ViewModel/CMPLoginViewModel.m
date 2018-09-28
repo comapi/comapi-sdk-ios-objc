@@ -32,7 +32,7 @@
         return;
     }
     
-    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self];
+    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelError];
     NSError *initError = nil;
     self.client = [CMPComapi initialiseWithConfig:config error:&initError];
     if (initError) {

@@ -57,22 +57,22 @@
     CMPLoginBundle *loginInfo = [self checkForLoginInfo];
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
-        CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self];
+        CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelError];
         NSError *error = nil;
         self.client = [CMPComapi initialiseWithConfig:config error:&error];
         if (error) {
             [NSException raise:@"failed client init" format:@""];
         }
         __weak typeof(self) weakSelf = self;
-        //[self.client.services.session startSessionWithCompletion:^{
-        CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
-        CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
-        
-        UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-        [nav pushViewController:vc animated:YES];
-//        } failure:^(NSError * _Nullable error) {
-//            NSLog(@"%@", [error localizedFailureReason]);
-//        }];
+        [self.client.services.session startSessionWithCompletion:^{
+            CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
+            CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
+            
+            UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+            [nav pushViewController:vc animated:YES];
+        } failure:^(NSError * _Nullable error) {
+            [NSException raise:@"session start error" format:@"%@", error.localizedDescription];
+        }];
     }
 }
 
@@ -83,7 +83,7 @@
     
     logWithLevel(CMPLogLevelWarning, @"restarting...", nil);
     
-    [self.client.services.session endSessionWithCompletion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.session endSessionWithCompletion:^(BOOL success, NSError * error) {
         UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
         [nav popToRootViewControllerAnimated:YES];
     }];

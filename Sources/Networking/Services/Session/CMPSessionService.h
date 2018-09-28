@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CMPSessionServiceable
 
 - (void)startSessionWithCompletion:(void(^)(void))completion failure:(void(^)(NSError * _Nullable))failure;
-- (void)endSessionWithCompletion:(void (^)(CMPRequestTemplateResult *))completion;
+- (void)endSessionWithCompletion:(void (^)(BOOL, NSError * _Nullable))completion;
 - (void)startAuthenticationWithChallengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler;
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler;
 

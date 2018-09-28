@@ -71,8 +71,6 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...) {
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         instance = [[CMPLogger alloc] init];
-        [instance addDestination:[CMPLog consoleDestination]];
-        [instance addDestination:[CMPLog fileDestination]];
     });
     
     return instance;
@@ -81,6 +79,15 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...) {
 - (void)addDestination:(id<CMPLoggingDestination>)destination {
     dispatch_sync(self.queue, ^{
         [self.loggingDestinations addObject:destination];
+    });
+}
+
+- (void)resetDestinations {
+    dispatch_sync(self.queue, ^{
+        [self.loggingDestinations removeAllObjects];
+        
+        [self.loggingDestinations addObject:[CMPLog fileDestination]];
+        [self.loggingDestinations addObject:[CMPLog consoleDestination]];
     });
 }
 

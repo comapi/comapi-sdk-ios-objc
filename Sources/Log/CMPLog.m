@@ -7,16 +7,17 @@
 //
 
 #import "CMPLog.h"
+#import "CMPLogConfig.h"
 #import "CMPUtilities.h"
 
 @implementation CMPLog
 
 + (CMPXcodeConsoleDestination *)consoleDestination {
-    return [[CMPXcodeConsoleDestination alloc] initWithMinimumLevel:CMPLogLevelVerbose];
+    return [[CMPXcodeConsoleDestination alloc] initWithMinimumLevel:[CMPLogConfig logLevel]];
 }
 
 + (CMPFileDestination *)fileDestination {
-    return [[CMPFileDestination alloc] initWithMinimumLevel:CMPLogLevelVerbose];
+    return [[CMPFileDestination alloc] initWithMinimumLevel:[CMPLogConfig logLevel]];
 }
 
 + (NSString *)stringFromItems:(NSArray<id> *)items separator:(NSString *)separator terminator:(NSString *)terminator {

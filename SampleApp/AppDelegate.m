@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegistrationStatusChangedNotification";
 
 @interface AppDelegate ()
@@ -18,7 +19,9 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
+    UNUserNotificationCenter.currentNotificationCenter.delegate = self;
+    
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.configurator = [[CMPAppConfigurator alloc] initWithWindow:self.window];
     [self.configurator start];
@@ -27,11 +30,13 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    const unsigned *tokenBytes = [deviceToken bytes];
-    NSString *token = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
-                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    NSMutableString *token = [NSMutableString string];
+    
+    const char *data = [deviceToken bytes];
+    for (NSUInteger i = 0; i < [deviceToken length]; i++) {
+        [token appendFormat:@"%.2hhx", data[i]];
+    }
+    
     if (token) {
         CMPComapiClient *client = self.configurator.client;
         if (client) {
@@ -50,6 +55,14 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"%@", error.localizedDescription);
     [[NSNotificationCenter defaultCenter] postNotificationName:kCMPPushRegistrationStatusChangedNotification object:@(NO) userInfo:nil];
+}
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    completionHandler((UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound));
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    completionHandler();
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
