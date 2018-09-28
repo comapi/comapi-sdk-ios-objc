@@ -29,6 +29,6 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
 - (BOOL)isSessionSuccessfullyCreated;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration requestPerformer:(id<CMPRequestPerforming>)requestPerformer;
-- (void)setPushToken:(NSString *)token completion:(void(^)(BOOL, NSError *))completion;
+- (void)setPushToken:(NSString *)deviceToken completion:(void(^)(BOOL, NSError *))completion;
 
 @end

@@ -62,7 +62,7 @@
     return [self.sessionManager isSessionValid];
 }
 
--(void)setPushToken:(NSString *)token completion:(void (^)(BOOL, NSError *))completion {
+-(void)setPushToken:(NSString *)deviceToken completion:(void (^)(BOOL, NSError *))completion {
     CMPSetAPNSDetailsTemplate *(^builder)(NSString *) = ^(NSString *token) {
         NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
         NSString *environment = @"";
@@ -73,7 +73,7 @@
             environment = @"production";
         #endif
         
-        CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:token];
+        CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:deviceToken];
         CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
         NSString *sessionId = self.sessionManager.sessionAuth.session.id != nil ? self.sessionManager.sessionAuth.session.id : @"";
         return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];

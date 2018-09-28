@@ -24,11 +24,11 @@
 
 - (void)getProfilesWithCompletion:(void(^)(NSError * _Nullable))completion {
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(CMPRequestTemplateResult * _Nonnull result) {
-        if (result.error) {
-            completion(result.error);
+    [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(NSArray<CMPProfile *> * profiles, NSError * error) {
+        if (error) {
+            completion(error);
         } else {
-            weakSelf.profiles = result.object;
+            weakSelf.profiles = [profiles mutableCopy];
             completion(nil);
         }
     }];

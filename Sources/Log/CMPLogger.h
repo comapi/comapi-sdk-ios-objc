@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
+- (void)resetDestinations;
 
 @end
 

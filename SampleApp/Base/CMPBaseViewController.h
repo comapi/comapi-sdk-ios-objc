@@ -25,8 +25,6 @@ extern NSString * const kCMPLoadingStopNotification;
 
 - (instancetype)init;
 
-- (void)showLoader;
-- (void)hideLoader;
 - (void)back;
 
 - (void)registerForLoadingNotifcations;

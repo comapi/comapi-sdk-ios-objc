@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) CMPComapiClient *client;
 
 - (instancetype)initWithWindow:(UIWindow *)window;
+
 - (void)start;
 - (void)restart;
-- (void)registerForRemoteNotificationsWithCompletion:(void(^)(BOOL, NSError *))completion;
 
 @end
 
