@@ -93,10 +93,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.session endSessionWithCompletion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.session endSessionWithCompletion:^(BOOL result, NSError * error) {
         id self = weakSelf;
-        XCTAssertNil(result.error);
-        XCTAssertTrue([(NSNumber *)result.object boolValue]);
+        XCTAssertNil(error);
+        XCTAssertTrue(result);
         [expectation fulfill];
     }];
     
@@ -115,10 +115,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile getProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.profile getProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPProfile * profile, NSError * error) {
         id self = weakSelf;
-        XCTAssertNil(result.error);
-        XCTAssertTrue([result.object isKindOfClass:CMPProfile.class]);
+        XCTAssertNil(error);
+        XCTAssertNotNil(profile);
         [expectation fulfill];
     }];
     
@@ -138,13 +138,12 @@
     CMPQueryElements *equalTo = [[CMPQueryElements alloc] initWithKey:@"id" element:CMPQueryElementEqual value:@"90419e09-1f5b-4fc2-97c8-b878793c53f0"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile queryProfilesWithQueryElements:@[equalTo] completion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.profile queryProfilesWithQueryElements:@[equalTo] completion:^(NSArray<CMPProfile *> * profiles, NSError * error) {
         id self = weakSelf;
-        XCTAssertNil(result.error);
-        XCTAssertTrue([result.object isKindOfClass:NSArray.class]);
-        NSArray<CMPProfile *> *array = result.object;
-        XCTAssertTrue(array.count == 1);
-        CMPProfile *profile = array[0];
+        XCTAssertNil(error);
+        XCTAssertNotNil(profiles);
+        XCTAssertTrue(profiles.count == 1);
+        CMPProfile *profile = profiles[0];
         XCTAssertEqualObjects(profile.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
         [expectation fulfill];
     }];
@@ -164,11 +163,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
 
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile updateProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.profile updateProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
         id self = weakSelf;
-        XCTAssertNil(result.error);
-        XCTAssertTrue([result.object isKindOfClass:CMPProfile.class]);
-        CMPProfile *profile = result.object;
+        XCTAssertNil(error);
+        XCTAssertNotNil(profile);
         XCTAssertEqualObjects(profile.email, @"test2@mail.com");
         [expectation fulfill];
     }];
@@ -188,11 +186,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile patchProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPRequestTemplateResult * _Nonnull result) {
+    [self.client.services.profile patchProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
             id self = weakSelf;
-            XCTAssertNil(result.error);
-            XCTAssertTrue([result.object isKindOfClass:CMPProfile.class]);
-            CMPProfile *profile = result.object;
+            XCTAssertNil(error);
+            XCTAssertNotNil(profile);
             XCTAssertEqualObjects(profile.email, @"test2@mail.com");
             [expectation fulfill];
     }];
