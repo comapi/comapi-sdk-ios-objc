@@ -57,7 +57,7 @@
     CMPLoginBundle *loginInfo = [self checkForLoginInfo];
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
-        CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelError];
+        CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
         NSError *error = nil;
         self.client = [CMPComapi initialiseWithConfig:config error:&error];
         if (error) {
