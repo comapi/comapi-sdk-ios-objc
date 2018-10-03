@@ -8,47 +8,50 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const CMPRequestTemplateErrorDomain;
+extern NSString * const CMPRequestTemplateErrorDomain NS_SWIFT_NAME(RequestTemplateErrorDomain);
 
-extern NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorNotFoundStatusCode;
-extern NSUInteger const CMPRequestTemplateErrorUpdateConflictStatusCode;
+typedef NSUInteger CMPRequestTemplateErrorStatusCode NS_TYPED_ENUM NS_SWIFT_NAME(RequestTemplateErrorStatusCode);
 
-extern NSString * const CMPAuthenticationErrorDomain;
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorRequestCreationFailedStatusCode NS_SWIFT_NAME(creationFailed);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorResponseParsingFailedStatusCode NS_SWIFT_NAME(parsingFailed);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorConnectionFailedStatusCode NS_SWIFT_NAME(connectionFailed);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorWrongCodeStatusCode NS_SWIFT_NAME(wrongStatusCode);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorNotFoundStatusCode NS_SWIFT_NAME(notFound);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorUpdateConflictStatusCode NS_SWIFT_NAME(updateConflict);
 
-extern NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode;
+extern NSString * const CMPAuthenticationErrorDomain NS_SWIFT_NAME(AuthenticationErrorDomain);
 
-extern NSString * const CMPComapiErrorDomain;
+typedef NSUInteger CMPAuthenticationErrorStatusCode NS_TYPED_ENUM NS_SWIFT_NAME(AuthenticationErrorStatusCode);
 
-extern NSUInteger const CMPComapiErrorAlreadyInitialisedStatusCode;
-extern NSUInteger const CMPComapiErrorNotInitialisedStatusCode;
+extern CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorMissingTokenStatusCode NS_SWIFT_NAME(missingToken);
 
-extern NSString * const CMPHTTPMethodGET;
-extern NSString * const CMPHTTPMethodPOST;
-extern NSString * const CMPHTTPMethodPUT;
-extern NSString * const CMPHTTPMethodPATCH;
-extern NSString * const CMPHTTPMethodDELETE;
-extern NSString * const CMPHTTPMethodHEAD;
+typedef NSString * CMPHTTPMethod NS_TYPED_ENUM NS_SWIFT_NAME(HTTPMethod);
 
-extern NSString * const CMPHTTPHeaderContentType;
-extern NSString * const CMPHTTPHeaderAuthorization;
-extern NSString * const CMPHTTPHeaderIfMatch;
+extern CMPHTTPMethod const CMPHTTPMethodGET NS_SWIFT_NAME(get);
+extern CMPHTTPMethod const CMPHTTPMethodPOST NS_SWIFT_NAME(post);
+extern CMPHTTPMethod const CMPHTTPMethodPUT NS_SWIFT_NAME(put);
+extern CMPHTTPMethod const CMPHTTPMethodPATCH NS_SWIFT_NAME(patch);
+extern CMPHTTPMethod const CMPHTTPMethodDELETE NS_SWIFT_NAME(delete);
+extern CMPHTTPMethod const CMPHTTPMethodHEAD NS_SWIFT_NAME(head);
 
-extern NSString * const CMPHTTPHeaderContentTypeJSON;
-extern NSString * const CMPHTTPHeaderContentTypeURL;
+typedef NSString * CMPHTTPHeaderType NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(HTTPHeaderType);
 
-extern NSString * const CMPPlatformInfo;
+extern CMPHTTPHeaderType const CMPHTTPHeaderContentType NS_SWIFT_NAME(contentType);
+extern CMPHTTPHeaderType const CMPHTTPHeaderAuthorization NS_SWIFT_NAME(authorization);
+extern CMPHTTPHeaderType const CMPHTTPHeaderIfMatch NS_SWIFT_NAME(ifMatch);
 
-extern NSString * const CMPSDKVersion;
-extern NSString * const CMPSDKType;
+typedef NSString * CMPSDKInfo NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(SDKInfo);
 
-extern NSString * const CMPQueueNameLog;
-extern NSString * const CMPQueueNameFileDestination;
+extern CMPSDKInfo const CMPSDKInfoPlatform NS_SWIFT_NAME(platform);
+extern CMPSDKInfo const CMPSDKInfoVersion NS_SWIFT_NAME(version);
+extern CMPSDKInfo const CMPSDKInfoType NS_SWIFT_NAME(type);
 
-extern NSString * const CMPLogFileName;
+typedef NSString * CMPQueueName NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(QueueName);
 
-extern NSString * const CMPDefaultTerminator;
-extern NSString * const CMPDefaultSeparator;
+extern CMPQueueName const CMPQueueNameConsole NS_SWIFT_NAME(console);
+extern CMPQueueName const CMPQueueNameFileDestination NS_SWIFT_NAME(file);
+
+extern NSString * const CMPLogFileName NS_SWIFT_NAME(LogFileName);
+
+extern NSString * const CMPDefaultTerminator NS_SWIFT_NAME(DefaultTerminator);
+extern NSString * const CMPDefaultSeparator NS_SWIFT_NAME(DefaultSeparator);

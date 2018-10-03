@@ -10,11 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(APIConfiguration)
 @interface CMPAPIConfiguration : NSObject
 
 @property (nonatomic, strong) NSString* scheme;
 @property (nonatomic, strong) NSString* host;
 @property (nonatomic) NSUInteger port;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port;
 + (instancetype)production;

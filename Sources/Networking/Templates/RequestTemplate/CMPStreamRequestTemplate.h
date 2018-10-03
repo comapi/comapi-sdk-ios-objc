@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(StreamRequestTemplate)
 @protocol CMPStreamRequestTemplate
 
 - (nullable NSInputStream *)httpBodyStream;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -10,10 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Profile)
 @interface CMPProfile : NSObject <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *email;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON;
 

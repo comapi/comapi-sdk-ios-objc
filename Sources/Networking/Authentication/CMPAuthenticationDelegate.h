@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(AuthenticationDelegate)
 @protocol CMPAuthenticationDelegate <NSObject>
 
 - (void)clientWith:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void(^)(NSString * _Nullable))continueWithToken;

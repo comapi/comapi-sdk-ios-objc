@@ -9,6 +9,9 @@
 #import "CMPRequestTemplateResult.h"
 #import "CMPUtilities.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(HTTPRequestTemplate)
 @protocol CMPHTTPRequestTemplate
 
 - (NSArray<NSString *> *)pathComponents;
@@ -21,3 +24,5 @@
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
 
 @end
+
+NS_ASSUME_NONNULL_END

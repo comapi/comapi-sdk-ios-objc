@@ -56,7 +56,7 @@
     return self;
 }
 
-- (NSData *)encode:(NSError *__autoreleasing *)error {
+- (NSData *)encode {
     NSDictionary *dict = @{@"id" : self.id,
                            @"nonce" : self.nonce,
                            @"provider" : self.provider,
@@ -73,7 +73,6 @@
     NSError *serializationError = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     

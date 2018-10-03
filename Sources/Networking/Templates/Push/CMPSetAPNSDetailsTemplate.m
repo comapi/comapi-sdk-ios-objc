@@ -23,16 +23,11 @@
 }
 
 - (nullable NSData *)httpBody {
-    NSError *error = nil;
-    NSData *data = [self.body encode:&error];
-    if (error) {
-        return nil;
-    }
-    return data;
+    return [self.body encode];
 }
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
-    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
+    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
     CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"%@ %@", @"Bearer", self.token]];
     NSSet<CMPHTTPHeader *> *headers = [NSSet setWithObjects:contentType, authorization, nil];
     return headers;

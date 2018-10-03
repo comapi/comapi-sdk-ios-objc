@@ -18,4 +18,7 @@ For more information about the integration please visit [the website](http://doc
 
   s.source_files = 'Sources/**/*.{h,m}'
   s.resources = []
+
+  s.dependency 'SocketRocket'
+  
 end

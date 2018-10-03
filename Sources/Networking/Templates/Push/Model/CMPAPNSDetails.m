@@ -22,7 +22,7 @@
     return self;
 }
 
-- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+- (nullable NSData *)encode {
     NSDictionary<NSString *, id> *dict = @{@"bundleID" : self.bundleID,
                                            @"environment" : self.environment,
                                            @"token" : self.token};

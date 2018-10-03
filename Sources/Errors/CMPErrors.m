@@ -34,15 +34,4 @@
     }
 }
 
-+ (NSError *)comapiErrorWithStatus:(CMPComapiError)status underlyingError:(NSError *)error {
-    switch (status) {
-        case CMPComapiErrorNotInitialised:
-            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorNotInitialisedStatusCode userInfo:error != nil ?@{NSUnderlyingErrorKey : error} : @{}];
-        case CMPComapiErrorAlreadyInitialised:
-            return [[NSError alloc] initWithDomain:CMPComapiErrorDomain code:CMPComapiErrorAlreadyInitialisedStatusCode userInfo:error != nil ?@{NSUnderlyingErrorKey : error} : @{}];
-        default:
-            break;
-    }
-}
-
 @end

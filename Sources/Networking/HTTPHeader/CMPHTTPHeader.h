@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(HTTPHeader)
 @interface CMPHTTPHeader : NSObject
 
 @property (nonatomic, strong) NSString *value;
 @property (nonatomic, strong) NSString *field;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithField:(NSString *)field value:(NSString *)value;
 
 @end
+
+NS_ASSUME_NONNULL_END

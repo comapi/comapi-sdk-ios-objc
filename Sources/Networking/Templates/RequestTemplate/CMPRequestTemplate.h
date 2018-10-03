@@ -11,12 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(RequestTemplate)
 @interface CMPRequestTemplate : NSObject
 
 @property (nonatomic, strong) NSString *apiSpaceID;
 @property (nonatomic, strong) NSString *scheme;
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic) NSUInteger port;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID;
 - (NSURLRequest *)requestFromHTTPRequestTemplate:(id<CMPHTTPRequestTemplate>)template;

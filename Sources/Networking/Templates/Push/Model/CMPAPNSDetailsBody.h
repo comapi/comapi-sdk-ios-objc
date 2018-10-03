@@ -9,10 +9,17 @@
 #import "CMPAPNSDetails.h"
 #import "CMPJSONEncoding.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(APNSDetailsBody)
 @interface CMPAPNSDetailsBody : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) CMPAPNSDetails *apns;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithAPNSDetails:(CMPAPNSDetails *)apnsDetails;
 
 @end
+
+NS_ASSUME_NONNULL_END

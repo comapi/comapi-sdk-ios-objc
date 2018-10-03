@@ -13,6 +13,7 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...);
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Logging)
 @protocol CMPLogging
 
 - (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level;
@@ -25,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(Logger)
 @interface CMPLogger : NSObject <CMPLogging>
 
 + (instancetype)shared;

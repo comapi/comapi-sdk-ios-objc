@@ -8,11 +8,18 @@
 
 #import "CMPRequestTemplate.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(DeleteSessionTemplate)
 @interface CMPDeleteSessionTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *sessionID;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID;
 
 @end
+
+NS_ASSUME_NONNULL_END

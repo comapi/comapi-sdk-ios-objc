@@ -2,19 +2,23 @@ PODS:
   - Base64 (1.1.2)
   - JWT (2.2.0):
     - Base64 (~> 1.1.2)
+  - SocketRocket (0.5.1)
 
 DEPENDENCIES:
   - JWT
+  - SocketRocket
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Base64
     - JWT
+    - SocketRocket
 
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: 44bbe88d5f597d2a7eaf6497b2bc6bfe8eb027cb
+PODFILE CHECKSUM: e2c6c4f144326fb7da32b9968813444b1e2b2e25
 
 COCOAPODS: 1.5.3

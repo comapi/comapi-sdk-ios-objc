@@ -16,7 +16,7 @@
 }
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
-    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
+    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
     NSSet<CMPHTTPHeader *> *headers = [NSSet setWithObject:contentType];
     return headers;
 }
@@ -35,12 +35,11 @@
 
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        NSError *parseError = nil;
-        CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data error:&parseError];
+        CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data];
         if (object) {
             return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
         } else {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:nil];
             return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
         }
     }

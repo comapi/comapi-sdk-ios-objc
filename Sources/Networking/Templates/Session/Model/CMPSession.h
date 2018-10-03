@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Session)
 @interface CMPSession : NSObject <CMPJSONEncoding, NSCoding>
 
 @property (nonatomic, nullable) NSString *id;
@@ -26,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) NSString *profileId;
 @property (nonatomic, nullable) NSDate *expiresOn;
 @property (nonatomic) BOOL isActive;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 

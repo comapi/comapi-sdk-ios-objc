@@ -11,11 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(SetAPNSDetailsTemplate)
 @interface CMPSetAPNSDetailsTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) CMPAPNSDetailsBody *body;
 @property (nonatomic, strong) NSString *sessionID;
 @property (nonatomic, strong) NSString *token;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID body:(CMPAPNSDetailsBody *)body;
 

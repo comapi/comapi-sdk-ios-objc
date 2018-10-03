@@ -23,7 +23,7 @@
 }
 
 - (void)updateEmail:(NSString *)email completion:(void (^)(NSError * _Nullable))completion {
-    [self.client.services.profile updateProfileForProfileID:self.profile.id attributes:@{@"email" : email} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile updateProfileWithProfileID:self.profile.id attributes:@{@"email" : email} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
         if (error) {
             completion(error);
         } else {

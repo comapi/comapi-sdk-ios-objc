@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(FileDestination)
 @interface CMPFileDestination : NSObject <CMPLoggingDestination>
 
 - (instancetype)initWithMinimumLevel:(CMPLogLevel)minimumLevel;

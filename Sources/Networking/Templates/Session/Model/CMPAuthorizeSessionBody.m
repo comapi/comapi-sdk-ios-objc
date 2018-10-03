@@ -19,10 +19,10 @@
         self.authenticationID = authenticationID;
         self.authenticationToken = authenticationToken;
         self.deviceID = [[UIDevice currentDevice] model];
-        self.platform = CMPPlatformInfo;
+        self.platform = CMPSDKInfoPlatform;
         self.platformVersion = [[UIDevice currentDevice] systemVersion];
-        self.sdkType = CMPSDKType;
-        self.sdkVersion = CMPSDKVersion;
+        self.sdkType = CMPSDKInfoType;
+        self.sdkVersion = CMPSDKInfoVersion;
     }
     
     return self;
@@ -44,7 +44,7 @@
     return self;
 }
 
-- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
+- (nullable NSData *)encode {
     NSDictionary *dict = @{@"authenticationId" : self.authenticationID,
                            @"authenticationToken" : self.authenticationToken,
                            @"deviceId" : self.deviceID,
@@ -55,7 +55,6 @@
     NSError *serializationError = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     

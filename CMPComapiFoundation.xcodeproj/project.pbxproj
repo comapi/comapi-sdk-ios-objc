@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32E47F8A9683A46F4FDABEE2 /* Pods_CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394F04B58A3E638FC0AAA9FE /* Pods_CMPComapiFoundation.framework */; };
 		754949947B416EF848D60ADE /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */; };
 		891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 891E081B2155282B00ED18D3 /* CMPUtilities.h */; };
 		8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8921D2C6215520C400976FFA /* CMPComapiFoundation.h */; };
@@ -119,6 +120,16 @@
 		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
 		89D2C450215E558D006BEC4E /* CMPLogConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C44E215E558D006BEC4E /* CMPLogConfig.h */; };
 		89D2C451215E558D006BEC4E /* CMPLogConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C44F215E558D006BEC4E /* CMPLogConfig.m */; };
+		89D2C45521637C2A006BEC4E /* CMPSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C45321637C2A006BEC4E /* CMPSocketManager.h */; };
+		89D2C45621637C2A006BEC4E /* CMPSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C45421637C2A006BEC4E /* CMPSocketManager.m */; };
+		89D2C45A21638A75006BEC4E /* CMPSocketTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C45821638A75006BEC4E /* CMPSocketTemplate.h */; };
+		89D2C45B21638A75006BEC4E /* CMPSocketTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C45921638A75006BEC4E /* CMPSocketTemplate.m */; };
+		89D2C48121651BDD006BEC4E /* CMPEventContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C47F21651BDD006BEC4E /* CMPEventContainer.h */; };
+		89D2C48221651BDD006BEC4E /* CMPEventContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C48021651BDD006BEC4E /* CMPEventContainer.m */; };
+		89D2C48521651F64006BEC4E /* CMPEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C48321651F64006BEC4E /* CMPEvent.h */; };
+		89D2C48621651F64006BEC4E /* CMPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C48421651F64006BEC4E /* CMPEvent.m */; };
+		89D2C48C21651F9B006BEC4E /* CMPConversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C48A21651F9B006BEC4E /* CMPConversation.h */; };
+		89D2C48D21651F9B006BEC4E /* CMPConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C48B21651F9B006BEC4E /* CMPConversation.m */; };
 		89DCBB43212F0139001016FF /* CMPAuthorizeSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */; };
 		89DCBB44212F0139001016FF /* CMPAuthorizeSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */; };
 		89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */; };
@@ -211,6 +222,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0BA376D183BB5331B5AB2AAB /* Pods-CMPComapiFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMPComapiFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CMPComapiFoundation/Pods-CMPComapiFoundation.debug.xcconfig"; sourceTree = "<group>"; };
+		394F04B58A3E638FC0AAA9FE /* Pods_CMPComapiFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMPComapiFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		891E081B2155282B00ED18D3 /* CMPUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPUtilities.h; sourceTree = "<group>"; };
 		8921D2C5215520C400976FFA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -354,6 +367,16 @@
 		89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+CMPUtility.m"; sourceTree = "<group>"; };
 		89D2C44E215E558D006BEC4E /* CMPLogConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogConfig.h; sourceTree = "<group>"; };
 		89D2C44F215E558D006BEC4E /* CMPLogConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLogConfig.m; sourceTree = "<group>"; };
+		89D2C45321637C2A006BEC4E /* CMPSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSocketManager.h; sourceTree = "<group>"; };
+		89D2C45421637C2A006BEC4E /* CMPSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSocketManager.m; sourceTree = "<group>"; };
+		89D2C45821638A75006BEC4E /* CMPSocketTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSocketTemplate.h; sourceTree = "<group>"; };
+		89D2C45921638A75006BEC4E /* CMPSocketTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSocketTemplate.m; sourceTree = "<group>"; };
+		89D2C47F21651BDD006BEC4E /* CMPEventContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPEventContainer.h; sourceTree = "<group>"; };
+		89D2C48021651BDD006BEC4E /* CMPEventContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPEventContainer.m; sourceTree = "<group>"; };
+		89D2C48321651F64006BEC4E /* CMPEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPEvent.h; sourceTree = "<group>"; };
+		89D2C48421651F64006BEC4E /* CMPEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPEvent.m; sourceTree = "<group>"; };
+		89D2C48A21651F9B006BEC4E /* CMPConversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConversation.h; sourceTree = "<group>"; };
+		89D2C48B21651F9B006BEC4E /* CMPConversation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConversation.m; sourceTree = "<group>"; };
 		89DCBB41212F0138001016FF /* CMPAuthorizeSessionTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionTemplate.h; sourceTree = "<group>"; };
 		89DCBB42212F0138001016FF /* CMPAuthorizeSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthorizeSessionTemplate.m; sourceTree = "<group>"; };
 		89DCBB4621342787001016FF /* CMPAuthorizeSessionBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthorizeSessionBody.h; sourceTree = "<group>"; };
@@ -411,6 +434,7 @@
 		89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestAuthorizeSessionTemplate.m; sourceTree = "<group>"; };
 		89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestDeleteSessionTemplate.m; sourceTree = "<group>"; };
 		89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestSetAPNSDetailsTemplate.m; sourceTree = "<group>"; };
+		C81DD0FAA65D714F990C8B93 /* Pods-CMPComapiFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMPComapiFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-CMPComapiFoundation/Pods-CMPComapiFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -429,6 +453,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E47F8A9683A46F4FDABEE2 /* Pods_CMPComapiFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				C9AA92934DEA14629FEFB225 /* Pods_SampleApp.framework */,
+				394F04B58A3E638FC0AAA9FE /* Pods_CMPComapiFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -456,6 +482,8 @@
 			children = (
 				692EC800CF79397362DA4DBE /* Pods-SampleApp.debug.xcconfig */,
 				E3BA8D1CB8B5917E430FEB2B /* Pods-SampleApp.release.xcconfig */,
+				0BA376D183BB5331B5AB2AAB /* Pods-CMPComapiFoundation.debug.xcconfig */,
+				C81DD0FAA65D714F990C8B93 /* Pods-CMPComapiFoundation.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -587,6 +615,7 @@
 		895FF4F72126ECB70007FAC3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				89D2C45221637545006BEC4E /* WebSocket */,
 				89957A5C2137E31E008EE0BE /* JSONCoding */,
 				8972C33D212ED53000C76B19 /* Templates */,
 				8972C324212D76B000C76B19 /* Services */,
@@ -748,7 +777,9 @@
 		8972C33D212ED53000C76B19 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				89D2C47B21651B8B006BEC4E /* Event */,
 				895FF4F82126ECCC0007FAC3 /* RequestTemplate */,
+				89D2C45721638A53006BEC4E /* Socket */,
 				89EA5CB52147D62B00C29D08 /* Profile */,
 				89957A4E2137DBBD008EE0BE /* Push */,
 				8972C33E212ED53700C76B19 /* Session */,
@@ -992,6 +1023,69 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		89D2C45221637545006BEC4E /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				89D2C45321637C2A006BEC4E /* CMPSocketManager.h */,
+				89D2C45421637C2A006BEC4E /* CMPSocketManager.m */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		89D2C45721638A53006BEC4E /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				89D2C45821638A75006BEC4E /* CMPSocketTemplate.h */,
+				89D2C45921638A75006BEC4E /* CMPSocketTemplate.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		89D2C47B21651B8B006BEC4E /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				89D2C47C21651B94006BEC4E /* Model */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		89D2C47C21651B94006BEC4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89D2C48921651F80006BEC4E /* Session */,
+				89D2C48821651F77006BEC4E /* Profile */,
+				89D2C48721651F6F006BEC4E /* Conversation */,
+				89D2C47F21651BDD006BEC4E /* CMPEventContainer.h */,
+				89D2C48021651BDD006BEC4E /* CMPEventContainer.m */,
+				89D2C48321651F64006BEC4E /* CMPEvent.h */,
+				89D2C48421651F64006BEC4E /* CMPEvent.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89D2C48721651F6F006BEC4E /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				89D2C48A21651F9B006BEC4E /* CMPConversation.h */,
+				89D2C48B21651F9B006BEC4E /* CMPConversation.m */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		89D2C48821651F77006BEC4E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		89D2C48921651F80006BEC4E /* Session */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		89DCBB45213426D4001016FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1157,16 +1251,19 @@
 				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
 				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
 				8972C315212C32CC00C76B19 /* CMPComapiConfig.h in Headers */,
+				89D2C48C21651F9B006BEC4E /* CMPConversation.h in Headers */,
 				8972C31A212C34E000C76B19 /* CMPAuthenticationDelegate.h in Headers */,
 				89C8DE572122F95000555495 /* CMPSessionAuth.h in Headers */,
 				89957A562137DE78008EE0BE /* CMPAPNSDetails.h in Headers */,
 				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
 				89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */,
 				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
+				89D2C48121651BDD006BEC4E /* CMPEventContainer.h in Headers */,
 				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
 				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
 				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
 				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
+				89D2C45521637C2A006BEC4E /* CMPSocketManager.h in Headers */,
 				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
 				8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */,
 				8972C327212D76D300C76B19 /* CMPServices.h in Headers */,
@@ -1196,9 +1293,11 @@
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
 				89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */,
 				8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */,
+				89D2C48521651F64006BEC4E /* CMPEvent.h in Headers */,
 				89957A492136A2C5008EE0BE /* CMPStreamRequestTemplate.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
+				89D2C45A21638A75006BEC4E /* CMPSocketTemplate.h in Headers */,
 				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,
 				89957A442136A1EB008EE0BE /* CMPRequestTemplateResult.h in Headers */,
 				89957A472136A233008EE0BE /* CMPHTTPRequestTemplate.h in Headers */,
@@ -1239,6 +1338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89C8DE462122DF3C00555495 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation" */;
 			buildPhases = (
+				D6F0B36B66C10197319B52E7 /* [CP] Check Pods Manifest.lock */,
 				89C8DE392122DF3C00555495 /* Sources */,
 				89C8DE3A2122DF3C00555495 /* Frameworks */,
 				89C8DE3B2122DF3C00555495 /* Headers */,
@@ -1294,6 +1394,7 @@
 					};
 					89C8DE3D2122DF3C00555495 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					89EA5CF7214ACC6D00C29D08 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1374,6 +1475,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D6F0B36B66C10197319B52E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CMPComapiFoundation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F91BD850B5355FD991FEF8D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1381,11 +1500,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Base64/Base64.framework",
 				"${BUILT_PRODUCTS_DIR}/JWT/JWT.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWT.framework",
 			);
@@ -1437,10 +1558,12 @@
 				89D2C451215E558D006BEC4E /* CMPLogConfig.m in Sources */,
 				8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */,
 				8972C31F212C354E00C76B19 /* CMPAuthenticationChallenge.m in Sources */,
+				89D2C48D21651F9B006BEC4E /* CMPConversation.m in Sources */,
 				89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */,
 				89EA5CD02149457600C29D08 /* CMPQueryProfilesTemplate.m in Sources */,
 				8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */,
 				89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */,
+				89D2C48221651BDD006BEC4E /* CMPEventContainer.m in Sources */,
 				89957A2D21357791008EE0BE /* CMPLogger.m in Sources */,
 				8972C33C212EC5A900C76B19 /* CMPProfileService.m in Sources */,
 				8972C316212C32CC00C76B19 /* CMPComapiConfig.m in Sources */,
@@ -1455,6 +1578,7 @@
 				89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */,
 				89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */,
 				8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */,
+				89D2C48621651F64006BEC4E /* CMPEvent.m in Sources */,
 				8972C342212ED54B00C76B19 /* CMPStartNewSessionTemplate.m in Sources */,
 				8972C328212D76D300C76B19 /* CMPServices.m in Sources */,
 				89957A522137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.m in Sources */,
@@ -1466,6 +1590,7 @@
 				89C8DE542122F7AB00555495 /* CMPSession.m in Sources */,
 				8972C334212DA40700C76B19 /* CMPKeychain.m in Sources */,
 				8972C338212EC59B00C76B19 /* CMPSessionService.m in Sources */,
+				89D2C45B21638A75006BEC4E /* CMPSocketTemplate.m in Sources */,
 				895FF4F62126E9620007FAC3 /* CMPRequestPerformer.m in Sources */,
 				89EA5CC42147EA0000C29D08 /* CMPProfile.m in Sources */,
 				89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */,
@@ -1476,6 +1601,7 @@
 				89957A572137DE78008EE0BE /* CMPAPNSDetails.m in Sources */,
 				89EA5CC8214902FA00C29D08 /* CMPUpdateProfileTemplate.m in Sources */,
 				89957A3D21359683008EE0BE /* CMPLogLevel.m in Sources */,
+				89D2C45621637C2A006BEC4E /* CMPSocketManager.m in Sources */,
 				89957A4121359E69008EE0BE /* CMPFileDestination.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1707,7 +1833,9 @@
 		};
 		89C8DE472122DF3C00555495 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BA376D183BB5331B5AB2AAB /* Pods-CMPComapiFoundation.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1728,13 +1856,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.CMPComapiFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		89C8DE482122DF3C00555495 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C81DD0FAA65D714F990C8B93 /* Pods-CMPComapiFoundation.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1755,6 +1887,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.CMPComapiFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

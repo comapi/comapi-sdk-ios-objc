@@ -9,11 +9,18 @@
 #import "CMPRequestTemplate.h"
 #import "CMPProfile.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(GetProfileTemplate)
 @interface CMPGetProfileTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) NSString *profileID;
 @property (nonatomic, strong) NSString *token;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 -(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token;
 
 @end
+
+NS_ASSUME_NONNULL_END

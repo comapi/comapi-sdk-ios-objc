@@ -13,12 +13,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(ComapiConfig)
 @interface CMPComapiConfig : NSObject
 
 @property (nonatomic, strong, readonly) NSString* id;
 @property (nonatomic, strong, readonly) id<CMPAuthenticationDelegate> authDelegate;
 @property (nonatomic, strong) CMPAPIConfiguration *apiConfig;
 @property (nonatomic) CMPLogLevel logLevel;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)authenticationDelegate logLevel:(CMPLogLevel)logLevel;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)authenticationDelegate;

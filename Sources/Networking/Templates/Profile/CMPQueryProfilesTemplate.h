@@ -11,10 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(QueryProfilesTemplate)
 @interface CMPQueryProfilesTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) NSString *queryString;
 @property (nonatomic, strong) NSString *token;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token queryString:(NSString *)queryString;
 

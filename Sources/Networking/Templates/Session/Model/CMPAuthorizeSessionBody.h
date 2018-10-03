@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(AuthorizeSessionBody)
 @interface CMPAuthorizeSessionBody : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong) NSString *authenticationID;
@@ -19,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *platformVersion;
 @property (nonatomic, strong) NSString *sdkType;
 @property (nonatomic, strong) NSString *sdkVersion;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken;
 - (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken deviceID:(NSString *)deviceID platform:(NSString *)platform platformVersion:(NSString *)platformVersion sdkType:(NSString *)sdkType sdkVersion:(NSString *)sdkVersion;

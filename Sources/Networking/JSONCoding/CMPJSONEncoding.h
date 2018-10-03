@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+NS_SWIFT_NAME(JSONEncoding)
 @protocol CMPJSONEncoding <NSObject>
 
-- (nullable NSData *)encode:(NSError **)error;
+- (nullable NSData *)encode;
 
 @end

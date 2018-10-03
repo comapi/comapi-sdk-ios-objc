@@ -11,11 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Comapi)
 @interface CMPComapi : NSObject
 
-+ (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config error:(NSError **)error;
-+ (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config error:(NSError **)error;
-+ (CMPComapiClient *)shared:(NSError **)error;
+@property (class, nonatomic, strong, readonly, nullable) CMPComapiClient *shared;
+
+- (instancetype)init NS_UNAVAILABLE;
+
++ (nullable CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config;
++ (nullable CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config;
 
 @end
 

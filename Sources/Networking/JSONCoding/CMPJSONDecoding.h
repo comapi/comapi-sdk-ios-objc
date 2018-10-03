@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+NS_SWIFT_NAME(JSONDecoding)
 @protocol CMPJSONDecoding <NSObject>
 
-- (nullable instancetype)decodeWithData:(NSData *)data error:(NSError **)error;
+- (nullable instancetype)decodeWithData:(NSData *)data;
 
 @end

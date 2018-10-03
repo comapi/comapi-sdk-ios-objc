@@ -11,10 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Services)
 @interface CMPServices : NSObject
 
 @property (nonatomic, strong) id<CMPSessionServiceable> session;
 @property (nonatomic, strong) id<CMPProfileServiceable> profile;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)configuration requestManager:(CMPRequestManager *)requestManager sessionAuthProvider:(id<CMPSessionAuthProvider>)authProvider;
 

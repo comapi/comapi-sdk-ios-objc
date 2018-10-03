@@ -8,12 +8,19 @@
 
 #import "CMPJSONEncoding.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(APNSDetails)
 @interface CMPAPNSDetails : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSString *bundleID;
 @property (nonatomic, strong, nullable) NSString *environment;
 @property (nonatomic, strong, nullable) NSString *token;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -14,7 +14,7 @@
 
 @implementation CMPProfileService
 
-- (void)getProfileForProfileID:(NSString *)profileID completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
+- (void)getProfileWithProfileID:(NSString *)profileID completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
     CMPGetProfileTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPGetProfileTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID token:token];
     };
@@ -30,7 +30,7 @@
     }];
 }
 
-- (void)updateProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
+- (void)updateProfileWithProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
     CMPUpdateProfileTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPUpdateProfileTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID token:token eTag:eTag attributes:attributes];
     };
@@ -46,7 +46,7 @@
     }];
 }
 
-- (void)patchProfileForProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
+- (void)patchProfileWithProfileID:(NSString *)profileID attributes:(NSDictionary<NSString *,NSString *> *)attributes eTag:(NSString * _Nullable)eTag completion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
     CMPPatchProfileTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPPatchProfileTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID token:token eTag:eTag attributes:attributes];
     };

@@ -12,7 +12,7 @@
 @implementation CMPAuthenticationChallenge
 
 - (instancetype)initWithJSON:(NSDictionary<NSString *,id> *)json {
-    CMPAuthenticationChallenge* challenge = [[CMPAuthenticationChallenge alloc] init];
+    CMPAuthenticationChallenge* challenge = [CMPAuthenticationChallenge new];
     
     if (json[@"authenticationId"] != nil && [json[@"authenticationId"] isKindOfClass:[NSString class]]) {
         challenge.authenticationID = json[@"authenticationId"];
@@ -30,11 +30,10 @@
     return challenge;
 }
 
-- (instancetype)decodeWithData:(NSData *)data error:(NSError *__autoreleasing *)error {
+- (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     return [self initWithJSON:json];

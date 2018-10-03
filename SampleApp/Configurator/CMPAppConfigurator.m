@@ -58,9 +58,9 @@
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
         CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
-        NSError *error = nil;
-        self.client = [CMPComapi initialiseWithConfig:config error:&error];
-        if (error) {
+        
+        self.client = [CMPComapi initialiseWithConfig:config];
+        if (!self.client) {
             [NSException raise:@"failed client init" format:@""];
         }
         __weak typeof(self) weakSelf = self;
