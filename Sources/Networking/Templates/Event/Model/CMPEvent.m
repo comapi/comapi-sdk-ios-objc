@@ -11,3 +11,9 @@
 @implementation CMPEvent
 
 @end
+
+@implementation CMPEventContext
+
+
+
+@end

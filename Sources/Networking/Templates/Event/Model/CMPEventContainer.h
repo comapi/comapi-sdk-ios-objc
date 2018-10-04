@@ -6,13 +6,14 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPEvent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPEventContainer : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) CMPEvent *event;
 
 @end
 

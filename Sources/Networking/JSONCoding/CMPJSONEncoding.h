@@ -10,7 +10,8 @@
 
 NS_SWIFT_NAME(JSONEncoding)
 @protocol CMPJSONEncoding <NSObject>
-
+@optional
 - (nullable NSData *)encode;
+- (id)json;
 
 @end

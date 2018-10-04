@@ -37,7 +37,7 @@ static CMPComapiClient *_shared = nil;
 }
 
 + (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config {
-    if (_shared != nil) {
+    if (!_shared) {
         logWithLevel(CMPLogLevelError, @"Client already initialised, returnig current client...", nil);
         return _shared;
     }
