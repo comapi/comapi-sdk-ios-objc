@@ -24,6 +24,8 @@
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorNotFoundStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
         case CMPRequestTemplateErrorUpdateConflict:
             return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorUpdateConflictStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
+        case CMPRequestTemplateErrorAlreadyExists:
+            return [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorUpdateConflictStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
     }
 }
 

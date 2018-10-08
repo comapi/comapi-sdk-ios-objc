@@ -10,7 +10,7 @@
 
 @implementation CMPNewConversation
 
-- (instancetype)initWithID:(NSString *)ID name:(NSString *)name description:(NSString *)descirption roles:(CMPRoles *)roles participants:(NSMutableArray<CMPConversationParticipant *> *)participants isPublic:(BOOL *)isPublic {
+- (instancetype)initWithID:(NSString *)ID name:(NSString *)name description:(NSString *)descirption roles:(CMPRoles *)roles participants:(NSMutableArray<CMPConversationParticipant *> *)participants isPublic:(BOOL)isPublic {
     self = [super init];
     
     if (self) {
@@ -25,19 +25,23 @@
     return self;
 }
 
-- (NSData *)encode {
+- (id)json {
     NSMutableArray<NSDictionary<NSString *, id> *> *participants = [NSMutableArray new];
     [self.participants enumerateObjectsUsingBlock:^(CMPConversationParticipant * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [participants addObject:[obj json]];
     }];
-    NSDictionary<NSString *, id> *dict = @{@"id" : self.id,
-                                           @"name" : self.name,
-                                           @"description" : self.conversationDescription,
-                                           @"roles" : [self.roles json],
-                                           @"isPublic" : [NSNumber numberWithBool:*self.isPublic],
-                                           @"participants" : participants};
+    
+    return @{@"id" : self.id,
+            @"name" : self.name,
+            @"description" : self.conversationDescription,
+            @"roles" : [self.roles json],
+            @"isPublic" : [NSNumber numberWithBool:self.isPublic],
+            @"participants" : participants};
+}
+
+- (NSData *)encode {
     NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {
         return nil;
     }

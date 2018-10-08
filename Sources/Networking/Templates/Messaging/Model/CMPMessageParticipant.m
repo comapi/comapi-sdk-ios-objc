@@ -1,21 +1,21 @@
 //
-//  CMPConversationParticipant.m
+//  CMPMessageParticipant.m
 //  CMPComapiFoundation
 //
-//  Created by Dominik Kowalski on 04/10/2018.
+//  Created by Dominik Kowalski on 08/10/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPConversationParticipant.h"
+#import "CMPMessageParticipant.h"
 
-@implementation CMPConversationParticipant
+@implementation CMPMessageParticipant
 
-- (instancetype)initWithID:(NSString *)ID role:(NSString *)role {
+- (instancetype)initWithID:(NSString *)ID name:(NSString *)name {
     self = [super init];
     
     if (self) {
         self.id = ID;
-        self.role = role;
+        self.name = name;
     }
     
     return self;
@@ -25,25 +25,20 @@
     self = [super init];
     
     if (self) {
+        if (JSON[@"name"] && [JSON[@"name"] isKindOfClass:NSString.class]) {
+            self.name = JSON[@"name"];
+        }
         if (JSON[@"id"] && [JSON[@"id"] isKindOfClass:NSString.class]) {
             self.id = JSON[@"id"];
-        }
-        if (JSON[@"role"] && [JSON[@"role"] isKindOfClass:NSString.class]) {
-            self.role = JSON[@"role"];
         }
     }
     
     return self;
 }
 
-- (id)json {
-    return @{@"id" : self.id,
-             @"role" : self.role};
-}
-
 - (nullable instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
@@ -51,5 +46,3 @@
 }
 
 @end
-
-

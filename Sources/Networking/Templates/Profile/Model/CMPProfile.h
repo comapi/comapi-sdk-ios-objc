@@ -18,8 +18,6 @@ NS_SWIFT_NAME(Profile)
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON;
-
 @end
 
 NS_ASSUME_NONNULL_END

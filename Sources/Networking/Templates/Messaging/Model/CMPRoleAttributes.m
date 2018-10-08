@@ -22,7 +22,7 @@
     return self;
 }
 
-- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON {
+- (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
     if (self) {

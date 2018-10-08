@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(SessionServiceable)
-@protocol CMPSessionServiceable
+@protocol CMPSessionServiceable <NSObject>
 
 - (void)startSessionWithCompletion:(void(^)(void))completion failure:(void(^)(NSError * _Nullable))failure NS_SWIFT_NAME(startSession(completion:failure:));
 - (void)endSessionWithCompletion:(void (^)(BOOL, NSError * _Nullable))completion
