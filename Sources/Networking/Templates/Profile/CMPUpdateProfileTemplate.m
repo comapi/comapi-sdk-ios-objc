@@ -34,7 +34,7 @@
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     NSMutableSet<CMPHTTPHeader *> *headers = [NSMutableSet set];
-    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:CMPHTTPHeaderContentTypeJSON];
+    CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
     CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"%@ %@", @"Bearer", self.token]];
     if (self.eTag) {
         CMPHTTPHeader *ifMatch = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderIfMatch value:self.eTag];

@@ -10,43 +10,35 @@
 
 NSString * const CMPRequestTemplateErrorDomain = @"com.comapi.foundation.request.template";
 
-NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode = 5551;
-NSUInteger const CMPRequestTemplateErrorResponseParsingFailedStatusCode = 5552;
-NSUInteger const CMPRequestTemplateErrorConnectionFailedStatusCode = 5553;
-NSUInteger const CMPRequestTemplateErrorWrongCodeStatusCode = 5554;
-NSUInteger const CMPRequestTemplateErrorNotFoundStatusCode = 5555;
-NSUInteger const CMPRequestTemplateErrorUpdateConflictStatusCode = 5556;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorRequestCreationFailedStatusCode = 5551;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorResponseParsingFailedStatusCode = 5552;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorConnectionFailedStatusCode = 5553;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorWrongCodeStatusCode = 5554;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorNotFoundStatusCode = 5555;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorUpdateConflictStatusCode = 5556;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorAlreadyExistsStatusCode = 5557;
 
 NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
 
-NSUInteger const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
+CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
 
-NSString * const CMPComapiErrorDomain = @"com.comapi.foundation.comapi";
+CMPHTTPMethod const CMPHTTPMethodGET = @"GET";
+CMPHTTPMethod const CMPHTTPMethodPOST = @"POST";
+CMPHTTPMethod const CMPHTTPMethodPUT = @"PUT";
+CMPHTTPMethod const CMPHTTPMethodPATCH = @"PATCH";
+CMPHTTPMethod const CMPHTTPMethodDELETE = @"DELETE";
+CMPHTTPMethod const CMPHTTPMethodHEAD = @"HEAD";
 
-NSUInteger const CMPComapiErrorAlreadyInitialisedStatusCode = 5571;
-NSUInteger const CMPComapiErrorNotInitialisedStatusCode = 5572;
+CMPHTTPHeaderType const CMPHTTPHeaderContentType = @"Content-Type";
+CMPHTTPHeaderType const CMPHTTPHeaderAuthorization = @"Authorization";
+CMPHTTPHeaderType const CMPHTTPHeaderIfMatch = @"If-Match";
 
-NSString * const CMPHTTPMethodGET = @"GET";
-NSString * const CMPHTTPMethodPOST = @"POST";
-NSString * const CMPHTTPMethodPUT = @"PUT";
-NSString * const CMPHTTPMethodPATCH = @"PATCH";
-NSString * const CMPHTTPMethodDELETE = @"DELETE";
-NSString * const CMPHTTPMethodHEAD = @"HEAD";
+CMPSDKInfo const CMPSDKInfoPlatform = @"iOS";
+CMPSDKInfo const CMPSDKInfoVersion = @"1.0.0";
+CMPSDKInfo const CMPSDKInfoType = @"native";
 
-NSString * const CMPHTTPHeaderContentType = @"Content-Type";
-NSString * const CMPHTTPHeaderAuthorization = @"Authorization";
-NSString * const CMPHTTPHeaderIfMatch = @"If-Match";
-
-NSString * const CMPHTTPHeaderContentTypeJSON = @"application/json";
-NSString * const CMPHTTPHeaderContentTypeURL = @"application/x-www-form-urlencoded";
-
-NSString * const CMPPlatformInfo = @"iOS";
-
-NSString * const CMPSDKVersion = @"1.0.0";
-NSString * const CMPSDKType = @"native";
-
-NSString * const CMPQueueNameLog = @"com.comapi.foundation.log";
-NSString * const CMPQueueNameFileDestination = @"com.comapi.foundation.log.fileDestination";
+CMPQueueName const CMPQueueNameConsole = @"com.comapi.foundation.console";
+CMPQueueName const CMPQueueNameFileDestination = @"com.comapi.foundation.log.fileDestination";
 
 NSString * const CMPDefaultTerminator = @"\n";
 NSString * const CMPDefaultSeparator = @"\n";
