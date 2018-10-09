@@ -5,9 +5,8 @@
 //  Created by Dominik Kowalski on 27/08/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
-
-#import "CMPAuthorizeSessionBody.h"
 #import <UIKit/UIKit.h>
+#import "CMPAuthorizeSessionBody.h"
 #import "CMPUtilities.h"
 
 @implementation CMPAuthorizeSessionBody
@@ -19,10 +18,10 @@
         self.authenticationID = authenticationID;
         self.authenticationToken = authenticationToken;
         self.deviceID = [[UIDevice currentDevice] model];
-        self.platform = CMPPlatformInfo;
+        self.platform = CMPSDKInfoPlatform;
         self.platformVersion = [[UIDevice currentDevice] systemVersion];
-        self.sdkType = CMPSDKType;
-        self.sdkVersion = CMPSDKVersion;
+        self.sdkType = CMPSDKInfoType;
+        self.sdkVersion = CMPSDKInfoVersion;
     }
     
     return self;

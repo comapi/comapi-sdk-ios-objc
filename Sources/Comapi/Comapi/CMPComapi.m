@@ -10,8 +10,6 @@
 
 @interface CMPComapi ()
 
-@property (class, nonatomic, strong, nullable) CMPComapiClient *shared;
-
 @end
 
 @implementation CMPComapi
@@ -23,31 +21,30 @@ static CMPComapiClient *_shared = nil;
 }
 
 + (CMPComapiClient *)shared {
-    return _shared;
-}
-
-+ (CMPComapiClient *)shared:(NSError **)error {
-    CMPComapiClient *client = [CMPComapi shared];
+    CMPComapiClient *client = _shared;
     if (!client) {
-        *error = [CMPErrors comapiErrorWithStatus:CMPComapiErrorNotInitialised underlyingError:nil];
         return nil;
     }
     return client;
 }
 
-+ (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config error:(NSError *__autoreleasing *)error {
++ (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config {
     CMPComapiClient *instance = [[CMPComapiClient alloc] initWithApiSpaceID:config.id authenticationDelegate:config.authDelegate apiConfiguration:config.apiConfig];
+    
+    logWithLevel(CMPLogLevelInfo, @"Client initialised.", nil);
     
     return instance;
 }
 
-+ (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config error:(NSError *__autoreleasing *)error {
-    if ([CMPComapi shared]) {
-        *error = [CMPErrors comapiErrorWithStatus:CMPComapiErrorAlreadyInitialised underlyingError:nil];
-        return nil;
++ (CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config {
+    if (!_shared) {
+        logWithLevel(CMPLogLevelError, @"Client already initialised, returnig current client...", nil);
+        return _shared;
     }
     
     [self setShared:[[CMPComapiClient alloc] initWithApiSpaceID:config.id authenticationDelegate:config.authDelegate apiConfiguration:config.apiConfig]];
+    
+    logWithLevel(CMPLogLevelInfo, @"Shared client initialised.", nil);
     
     return _shared;
 }

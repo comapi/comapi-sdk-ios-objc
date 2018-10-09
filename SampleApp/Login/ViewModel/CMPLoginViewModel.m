@@ -34,14 +34,10 @@
     }
     
     CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
-    NSError *initError = nil;
-    self.client = [CMPComapi initialiseWithConfig:config error:&initError];
-    if (initError) {
-        [NSException raise:@"failed client init" format:@""];
-    }
+    self.client = [CMPComapi initialiseWithConfig:config];
     AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
     appDel.configurator.client = self.client;
-    if (!initError) {
+    if (self.client) {
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
             [weakSelf saveLocally];
@@ -50,7 +46,7 @@
             completion(err);
         }];
     } else {
-        completion(initError);
+        [NSException raise:@"failed client init" format:@""];
     }
 }
 
