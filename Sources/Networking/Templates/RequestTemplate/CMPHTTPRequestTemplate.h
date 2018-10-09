@@ -14,14 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(HTTPRequestTemplate)
 @protocol CMPHTTPRequestTemplate
 
+@required
+- (NSString *)httpMethod;
 - (NSArray<NSString *> *)pathComponents;
 - (nullable NSDictionary<NSString *, NSString *> *) query;
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders;
 - (nullable NSData *)httpBody;
-- (NSString *)httpMethod;
 
-- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPRequestTemplateResult *))result;
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPRequestTemplateResult *))result;
+
+@optional
+- (nullable NSInputStream *)httpBodyStream;
 
 @end
 

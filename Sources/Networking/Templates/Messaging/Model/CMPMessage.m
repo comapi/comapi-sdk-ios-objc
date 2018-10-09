@@ -10,7 +10,7 @@
 
 @implementation CMPMessage
 
-- (instancetype)initWithID:(NSString *)ID metadata:(NSDictionary<NSString *,id> *)metadata context:(CMPMessageContext *)context parts:(NSArray<CMPMessagePart *> *)parts statusUpdates:(NSDictionary<NSString *,CMPMessageStatusUpdate *> *)statusUpdates {
+- (instancetype)initWithID:(NSString *)ID metadata:(NSDictionary<NSString *,id> *)metadata context:(CMPMessageContext *)context parts:(NSArray<CMPMessagePart *> *)parts statusUpdates:(NSDictionary<NSString *,CMPMessageStatus *> *)statusUpdates {
     self = [super init];
     
     if (self) {
@@ -46,10 +46,10 @@
             self.parts = [NSArray arrayWithArray:parts];
         }
         if (JSON[@"statusUpdates"] && [JSON[@"statusUpdates"] isKindOfClass:NSDictionary.class]) {
-            NSMutableDictionary<NSString *, CMPMessageStatusUpdate *> *statusUpdates = [NSMutableDictionary new];
+            NSMutableDictionary<NSString *, CMPMessageStatus *> *statusUpdates = [NSMutableDictionary new];
             NSDictionary<NSString *, NSDictionary<NSString *, id> *> *objects = JSON[@"statusUpdates"];
             [objects enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSDictionary * _Nonnull obj, BOOL * _Nonnull stop) {
-                statusUpdates[key] = [[CMPMessageStatusUpdate alloc] initWithJSON:obj];
+                statusUpdates[key] = [[CMPMessageStatus alloc] initWithJSON:obj];
             }];
             self.statusUpdates = [NSDictionary dictionaryWithDictionary:statusUpdates];
         }

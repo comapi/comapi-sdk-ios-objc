@@ -2,23 +2,22 @@
 //  CMPMessageStatusUpdate.m
 //  CMPComapiFoundation
 //
-//  Created by Dominik Kowalski on 09/10/2018.
+//  Created by Dominik Kowalski on 05/10/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPMessageStatusUpdate.h"
-#import "NSString+CMPUtility.h"
+#import "CMPMessageStatus.h"
 #import "NSDateFormatter+CMPUtility.h"
+#import "NSString+CMPUtility.h"
 
-@implementation CMPMessageStatusUpdate
+@implementation CMPMessageStatus
 
-- (instancetype)initWithStatus:(NSString *)status timestamp:(NSDate *)timestamp messageIDs:(NSArray<NSString *> *)messageIDs {
+- (instancetype)initWithStatus:(NSString *)status timestamp:(NSDate *)timestamp {
     self = [super init];
     
     if (self) {
         self.status = status;
         self.timestamp = timestamp;
-        self.messageIDs = messageIDs;
     }
     
     return self;
@@ -34,15 +33,12 @@
         if (JSON[@"timestamp"] && [JSON[@"timestamp"] isKindOfClass:NSString.class]) {
             self.timestamp = [(NSString *)JSON[@"timestamp"] asDate];
         }
-        if (JSON[@"messageIds"] && [JSON[@"messageIds"] isKindOfClass:NSArray.class]) {
-            self.messageIDs = JSON[@"messageIds"];
-        }
     }
     
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data { 
+- (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
@@ -53,8 +49,7 @@
 
 - (id)json {
     return @{@"status" : self.status,
-             @"timestamp" : [[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp],
-             @"messageIds" : self.messageIDs};
+             @"on" : [[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp]};
 }
 
 - (NSData *)encode {

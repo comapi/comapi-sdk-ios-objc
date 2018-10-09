@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPMessageStatusUpdate.h"
+#import "CMPMessageStatus.h"
 #import "CMPMessagePart.h"
 #import "CMPMessageContext.h"
 
@@ -17,11 +17,11 @@ NS_SWIFT_NAME(Message)
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *metadata;
-@property (nonatomic, strong, nullable) NSDictionary<NSString *, CMPMessageStatusUpdate *> *statusUpdates;
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, CMPMessageStatus *> *statusUpdates;
 @property (nonatomic, strong, nullable) NSArray<CMPMessagePart *> *parts;
 @property (nonatomic, strong, nullable) CMPMessageContext *context;
 
--(instancetype)initWithID:(nullable NSString *)ID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatusUpdate *> *)statusUpdates;
+-(instancetype)initWithID:(nullable NSString *)ID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates;
 
 @end
 

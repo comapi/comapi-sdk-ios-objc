@@ -16,6 +16,10 @@
 #import "CMPAddConversationTemplate.h"
 #import "CMPUpdateConversationTemplate.h"
 #import "CMPDeleteConversationTemplate.h"
+#import "CMPGetMessagesTemplate.h"
+#import "CMPSendMessagesTemplate.h"
+#import "CMPSendStatusUpdateTemplate.h"
+#import "CMPContentUploadTemplate.h"
 
 @implementation CMPMessagingService
 
@@ -155,70 +159,77 @@
     }];
 }
 
+#pragma mark - Messages
+
+- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void (^)(CMPGetMessagesResult * _Nullable, NSError * _Nullable))completion {
+    CMPGetMessagesTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        return [[CMPGetMessagesTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID from:from limit:limit token:token];
+    };
+    
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * _Nonnull result) {
+        if (result.error) {
+            completion(nil, result.error);
+        } else {
+            completion(result.object, nil);
+        }
+    }];
+}
+
+- (void)sendMessage:(CMPSendableMessage *)message toConversationWithID:(NSString *)conversationID completion:(void (^)(CMPSendMessagesResult * _Nullable, NSError * _Nullable))completion {
+    CMPSendMessagesTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        return [[CMPSendMessagesTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID message:message token:token];
+    };
+    
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * _Nonnull result) {
+        if (result.error) {
+            completion(nil, result.error);
+        } else {
+            completion(result.object, nil);
+        }
+    }];
+}
+
+#pragma mark - Status
+
+- (void)updateStatusForMessagesWithIDs:(NSArray<NSString *> *)messageIDs status:(NSString *)status conversationID:(NSString *)conversationID timestamp:(NSDate *)timestamp completion:(void (^)(BOOL, NSError * _Nullable))completion {
+    CMPSendStatusUpdateTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        CMPMessageStatusUpdate *statusUpdate = [[CMPMessageStatusUpdate alloc] initWithStatus:status timestamp:timestamp messageIDs:messageIDs];
+        return [[CMPSendStatusUpdateTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID token:token statusUpdates:@[statusUpdate]];
+    };
+    
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * _Nonnull result) {
+        if (result.error) {
+            completion(NO, result.error);
+        } else {
+            completion(YES, nil);
+        }
+    }];
+}
+
+#pragma mark - Content
+
+- (void)uploadContent:(CMPContentData *)content folder:(NSString *)folder completion:(void (^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion {
+    CMPContentUploadTemplate *(^builder)(NSString *) = ^(NSString *token) {
+        return [[CMPContentUploadTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID content:content folder:folder token:token];
+    };
+    
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * _Nonnull result) {
+        if (result.error) {
+            completion(nil, result.error);
+        } else {
+            completion(result.object, nil);
+        }
+    }];
+}
+
+- (void)uploadUrl:(NSURL *)url filename:(NSString *)filename type:(NSString *)type folder:(NSString *)folder completion:(void (^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion {
+    CMPContentData *content = [[CMPContentData alloc] initWithUrl:url type:type name:filename];
+    [self uploadContent:content folder:folder completion:completion];
+}
+
+- (void)uploadData:(NSData *)data filename:(NSString *)filename type:(NSString *)type folder:(NSString *)folder completion:(void (^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion {
+    CMPContentData *content = [[CMPContentData alloc] initWithData:data type:type name:filename];
+    [self uploadContent:content folder:folder completion:completion];
+}
+
 @end
-
-
-
-//public func getParticipants(forConversationId conversationId: String, completion: @escaping (Result<[ConversationParticipant], NSError>) -> Void){
-//
-//    let builder = { token in
-//        return GetParticipantsTemplate( scheme: self.apiConfiguration.scheme,
-//                                       host: self.apiConfiguration.host,
-//                                       port: self.apiConfiguration.port,
-//                                       apiSpaceId: self.apiSpaceId,
-//                                       conversationId: conversationId,
-//                                       token: token)
-//    }
-//
-//    self.requestManager.performUsing(templateBuilder: builder) { (result) in
-//        switch result {
-//        case .success(let value):
-//            completion(.success(value.parsedResult))
-//        case .failure(let error):
-//            completion(.failure(error as NSError))
-//        }
-//    }
-//}
-//
-//public func addParticipants(forConversationId conversationId: String, participants: [ConversationParticipant], completion: @escaping (Result<Bool, NSError>) -> Void){
-//
-//    let builder = { token in
-//        return AddParticipantsTemplate( scheme: self.apiConfiguration.scheme,
-//                                       host: self.apiConfiguration.host,
-//                                       port: self.apiConfiguration.port,
-//                                       apiSpaceId: self.apiSpaceId,
-//                                       conversationId: conversationId,
-//                                       token: token,
-//                                       participants: participants)
-//    }
-//
-//    self.requestManager.performUsing(templateBuilder: builder) { (result) in
-//        switch result {
-//        case .success(let value):
-//            completion(.success(value.parsedResult))
-//        case .failure(let error):
-//            completion(.failure(error as NSError))
-//        }
-//    }
-//}
-//
-//public func removeParticipants(forConversationId conversationId: String, participants: [ConversationParticipant], completion: @escaping (Result<Bool, NSError>) -> Void){
-//    let builder = { token in
-//        return RemoveParticipantsTemplate( scheme: self.apiConfiguration.scheme,
-//                                          host: self.apiConfiguration.host,
-//                                          port: self.apiConfiguration.port,
-//                                          apiSpaceId: self.apiSpaceId,
-//                                          conversationId: conversationId,
-//                                          token: token,
-//                                          participants: participants)
-//    }
-//
-//    self.requestManager.performUsing(templateBuilder: builder) { (result) in
-//        switch result {
-//        case .success(let value):
-//            completion(.success(value.parsedResult))
-//        case .failure(let error):
-//            completion(.failure(error as NSError))
-//        }
-//    }
-//}
