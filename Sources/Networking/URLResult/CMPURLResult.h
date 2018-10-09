@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(URLResult)
 @interface CMPURLResult : NSObject
 
 @property (nonatomic, strong) NSURLRequest *request;

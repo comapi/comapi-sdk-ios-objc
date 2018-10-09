@@ -8,6 +8,9 @@
 
 #import "CMPSessionAuth.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(SessionAuthProvider)
 @protocol CMPSessionAuthProvider
 
 @property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
@@ -15,3 +18,5 @@
 - (void)authenticateWithSuccess:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError *))failure;
 
 @end
+
+NS_ASSUME_NONNULL_END

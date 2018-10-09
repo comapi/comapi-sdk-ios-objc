@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(ProfileServiceable)
 @protocol CMPProfileServiceable
 
 - (void)getProfileForProfileID:(NSString *)profileID completion:(void(^)(CMPProfile * _Nullable, NSError * _Nullable))completion;
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ProfileService)
 @interface CMPProfileService : CMPBaseService <CMPProfileServiceable>
 
 @end

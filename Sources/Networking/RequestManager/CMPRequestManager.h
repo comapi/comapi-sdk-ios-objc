@@ -10,6 +10,9 @@
 
 @class CMPRequestManager;
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(RequestManagerDelegate)
 @protocol CMPRequestManagerDelegate
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager;
@@ -21,10 +24,11 @@ typedef NS_ENUM(NSInteger, CMPTokenState) {
     CMPTokenStateAwaiting,
     CMPTokenStateReady,
     CMPTokenStateFailed
-};
+} NS_SWIFT_NAME(TokenState);
 
-typedef void(^CMPPendingOperation)(void);
+typedef void(^CMPPendingOperation)(void) NS_SWIFT_NAME(PendingOperation);
 
+NS_SWIFT_NAME(RequestManager)
 @interface CMPRequestManager : NSObject
 
 @property (nonatomic, weak, nullable) id<CMPRequestPerforming> requestPerformer;
@@ -37,4 +41,4 @@ typedef void(^CMPPendingOperation)(void);
 
 @end
 
-
+NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(AuthorizeSessionBody)
 @interface CMPAuthorizeSessionBody : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong) NSString *authenticationID;

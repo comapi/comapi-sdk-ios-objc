@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(RequestTemplateResult)
 @interface CMPRequestTemplateResult : NSObject
 
 @property (nonatomic, nullable) id object;
@@ -16,3 +19,5 @@
 - (instancetype)initWithObject:(nullable id)object error:(nullable NSError *)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

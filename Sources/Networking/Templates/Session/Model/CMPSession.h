@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Session)
 @interface CMPSession : NSObject <CMPJSONEncoding, NSCoding>
 
 @property (nonatomic, nullable) NSString *id;

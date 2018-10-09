@@ -82,7 +82,6 @@
 		89957A442136A1EB008EE0BE /* CMPRequestTemplateResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A422136A1EB008EE0BE /* CMPRequestTemplateResult.h */; };
 		89957A452136A1EB008EE0BE /* CMPRequestTemplateResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A432136A1EB008EE0BE /* CMPRequestTemplateResult.m */; };
 		89957A472136A233008EE0BE /* CMPHTTPRequestTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A462136A22D008EE0BE /* CMPHTTPRequestTemplate.h */; };
-		89957A492136A2C5008EE0BE /* CMPStreamRequestTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A482136A2C5008EE0BE /* CMPStreamRequestTemplate.h */; };
 		89957A4B2136A57B008EE0BE /* CMPSessionAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4A2136A57B008EE0BE /* CMPSessionAuthProvider.h */; };
 		89957A4D2136A5AF008EE0BE /* CMPAuthChallengeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4C2136A5AF008EE0BE /* CMPAuthChallengeHandler.h */; };
 		89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A4F2137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h */; };
@@ -301,7 +300,6 @@
 		89957A422136A1EB008EE0BE /* CMPRequestTemplateResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestTemplateResult.h; sourceTree = "<group>"; };
 		89957A432136A1EB008EE0BE /* CMPRequestTemplateResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestTemplateResult.m; sourceTree = "<group>"; };
 		89957A462136A22D008EE0BE /* CMPHTTPRequestTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPHTTPRequestTemplate.h; sourceTree = "<group>"; };
-		89957A482136A2C5008EE0BE /* CMPStreamRequestTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPStreamRequestTemplate.h; sourceTree = "<group>"; };
 		89957A4A2136A57B008EE0BE /* CMPSessionAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionAuthProvider.h; sourceTree = "<group>"; };
 		89957A4C2136A5AF008EE0BE /* CMPAuthChallengeHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAuthChallengeHandler.h; sourceTree = "<group>"; };
 		89957A4F2137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSetAPNSDetailsTemplate.h; sourceTree = "<group>"; };
@@ -607,7 +605,6 @@
 				89957A422136A1EB008EE0BE /* CMPRequestTemplateResult.h */,
 				89957A432136A1EB008EE0BE /* CMPRequestTemplateResult.m */,
 				89957A462136A22D008EE0BE /* CMPHTTPRequestTemplate.h */,
-				89957A482136A2C5008EE0BE /* CMPStreamRequestTemplate.h */,
 			);
 			path = RequestTemplate;
 			sourceTree = "<group>";
@@ -705,7 +702,6 @@
 				8972C32C212D778D00C76B19 /* CMPBaseService.h */,
 				8972C32D212D778D00C76B19 /* CMPBaseService.m */,
 				8972C32B212D76F000C76B19 /* Session */,
-				8972C32A212D76E500C76B19 /* Messages */,
 				8972C329212D76DF00C76B19 /* Profile */,
 			);
 			path = Services;
@@ -718,13 +714,6 @@
 				8972C33A212EC5A900C76B19 /* CMPProfileService.m */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		8972C32A212D76E500C76B19 /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Messages;
 			sourceTree = "<group>";
 		};
 		8972C32B212D76F000C76B19 /* Session */ = {
@@ -1196,7 +1185,6 @@
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
 				89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */,
 				8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */,
-				89957A492136A2C5008EE0BE /* CMPStreamRequestTemplate.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
 				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,

@@ -9,6 +9,9 @@
 #import "CMPRequestTemplate.h"
 #import "CMPAuthorizeSessionBody.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(AuthorizeSessionTemplate)
 @interface CMPAuthorizeSessionTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, nonnull, strong) CMPAuthorizeSessionBody *body;
@@ -16,3 +19,5 @@
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID body:(CMPAuthorizeSessionBody *)body;
 
 @end
+
+NS_ASSUME_NONNULL_END

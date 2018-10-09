@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString * const CMPRequestTemplateErrorDomain;
 
 extern NSUInteger const CMPRequestTemplateErrorRequestCreationFailedStatusCode;
@@ -52,3 +54,5 @@ extern NSString * const CMPLogFileName;
 
 extern NSString * const CMPDefaultTerminator;
 extern NSString * const CMPDefaultSeparator;
+
+NS_ASSUME_NONNULL_END

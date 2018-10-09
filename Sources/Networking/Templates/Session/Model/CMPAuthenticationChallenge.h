@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(AuthenticationChallenge)
 @interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding>
 
 @property (nonatomic, strong) NSString *authenticationID;

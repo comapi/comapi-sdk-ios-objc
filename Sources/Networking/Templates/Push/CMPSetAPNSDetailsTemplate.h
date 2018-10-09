@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(SetAPNSDetailsTemplate)
 @interface CMPSetAPNSDetailsTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) CMPAPNSDetailsBody *body;

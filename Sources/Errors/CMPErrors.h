@@ -17,17 +17,18 @@ typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
     CMPRequestTemplateErrorUnexpectedStatusCode,
     CMPRequestTemplateErrorNotFound,
     CMPRequestTemplateErrorUpdateConflict
-};
+} NS_SWIFT_NAME(RequestTemplateError);
 
 typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {
     CMPAuthenticationErrorMissingToken,
-};
+} NS_SWIFT_NAME(AuthenticationError);
 
 typedef NS_ENUM(NSUInteger, CMPComapiError) {
     CMPComapiErrorAlreadyInitialised,
     CMPComapiErrorNotInitialised,
-};
+} NS_SWIFT_NAME(AuthenticationError);
 
+NS_SWIFT_NAME(Errors)
 @interface CMPErrors : NSObject
 
 + (NSError *)requestTemplateErrorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error;

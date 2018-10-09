@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, CMPQueryElement) {
     CMPQueryElementEqual,
     CMPQueryElementUnequal,
@@ -22,8 +24,9 @@ typedef NS_ENUM(NSUInteger, CMPQueryElement) {
     CMPQueryElementNotInArray,
     CMPQueryElementAnd,
     CMPQueryElementBegin
-};
+} NS_SWIFT_NAME(QueryElement);
 
+NS_SWIFT_NAME(QueryElements)
 @interface CMPQueryElements: NSObject
 
 @property (nonatomic, strong) NSString *key;
@@ -34,8 +37,11 @@ typedef NS_ENUM(NSUInteger, CMPQueryElement) {
 
 @end
 
+NS_SWIFT_NAME(QueryBuilder)
 @interface CMPQueryBuilder : NSObject
 
 + (NSString *)buildQueryWithElements:(NSArray<CMPQueryElements *> *)elements;
 
 @end
+
+NS_ASSUME_NONNULL_END

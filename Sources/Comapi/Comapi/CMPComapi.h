@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Comapi)
 @interface CMPComapi : NSObject
 
 + (CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config error:(NSError **)error;

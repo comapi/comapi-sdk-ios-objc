@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(LogConfig)
 @interface CMPLogConfig : NSObject
 
 @property (class, nonatomic, readwrite) CMPLogLevel logLevel;

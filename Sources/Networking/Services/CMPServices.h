@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Services)
 @interface CMPServices : NSObject
 
 @property (nonatomic, strong) id<CMPSessionServiceable> session;

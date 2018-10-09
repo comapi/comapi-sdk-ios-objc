@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(RequestTemplate)
 @interface CMPRequestTemplate : NSObject
 
 @property (nonatomic, strong) NSString *apiSpaceID;

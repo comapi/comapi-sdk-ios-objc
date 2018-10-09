@@ -10,6 +10,7 @@
 #import "CMPRequestManager.h"
 #import "CMPSessionAuthProvider.h"
 
+NS_SWIFT_NAME(BaseService)
 @interface CMPBaseService : NSObject
 
 @property (nonatomic, strong) NSString *apiSpaceID;

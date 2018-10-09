@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(XcodeConsoleDestination)
 @interface CMPXcodeConsoleDestination : NSObject <CMPLoggingDestination>
 
 - (instancetype)initWithMinimumLevel:(CMPLogLevel)minimumLevel;

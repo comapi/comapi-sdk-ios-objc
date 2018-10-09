@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(SessionServiceable)
 @protocol CMPSessionServiceable
 
 - (void)startSessionWithCompletion:(void(^)(void))completion failure:(void(^)(NSError * _Nullable))failure;
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(SessionService)
 @interface CMPSessionService : CMPBaseService <CMPSessionServiceable>
 
 @end

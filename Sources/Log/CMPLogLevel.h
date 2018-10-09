@@ -16,8 +16,9 @@ typedef NS_ENUM(NSUInteger, CMPLogLevel) {
     CMPLogLevelInfo,
     CMPLogLevelWarning,
     CMPLogLevelError
-};
+} NS_SWIFT_NAME(LogLevel);
 
+NS_SWIFT_NAME(LogLevelRepresenter)
 @interface CMPLogLevelRepresenter: NSObject
 
 + (NSString *)emojiRepresentationForLogLevel:(CMPLogLevel)logLevel;

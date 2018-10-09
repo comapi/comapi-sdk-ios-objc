@@ -11,6 +11,8 @@
 #import "CMPRequestManager.h"
 #import "CMPServices.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, CMPSDKState) {
     CMPSDKStateNotInitialised,
     CMPSDKStateInitilised,
@@ -18,8 +20,9 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
     CMPSDKStateSessionOff,
     CMPSDKStateSessionStarting,
     CMPSDKStateSessionActive
-};
+} NS_SWIFT_NAME(SDKState);
 
+NS_SWIFT_NAME(ComapiClient)
 @interface CMPComapiClient : NSObject <CMPRequestManagerDelegate>
 
 @property (nonatomic) CMPSDKState state;
@@ -32,3 +35,5 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
 - (void)setPushToken:(NSString *)deviceToken completion:(void(^)(BOOL, NSError *))completion;
 
 @end
+
+NS_ASSUME_NONNULL_END

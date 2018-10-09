@@ -9,6 +9,9 @@
 #import "CMPAuthenticationChallenge.h"
 #import "CMPSessionAuth.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(AuthChallengeHandler)
 @protocol CMPAuthChallengeHandler
 
 - (void)handleAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge;
@@ -16,3 +19,5 @@
 - (void)authenticationFinishedWithSessionAuth:(CMPSessionAuth *)sessionAuth;
 
 @end
+
+NS_ASSUME_NONNULL_END

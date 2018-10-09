@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(LoggingDestination)
 @protocol CMPLoggingDestination <NSObject>
 
 @property (nonatomic, readwrite) CMPLogLevel minimumLogLevel;

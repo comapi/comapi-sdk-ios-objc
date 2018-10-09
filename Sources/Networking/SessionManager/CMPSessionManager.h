@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(SessionManager)
 @interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
 
 @property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;

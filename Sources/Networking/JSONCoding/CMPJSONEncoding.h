@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(JSONEncoding)
 @protocol CMPJSONEncoding <NSObject>
 
 - (nullable NSData *)encode:(NSError **)error;
 
 @end
+
+NS_ASSUME_NONNULL_END
