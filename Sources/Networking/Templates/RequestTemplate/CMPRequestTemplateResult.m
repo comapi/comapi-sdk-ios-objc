@@ -10,7 +10,7 @@
 
 @implementation CMPRequestTemplateResult
 
--(instancetype)initWithObject:(id)object error:(NSError *)error {
+- (instancetype)initWithObject:(id)object error:(NSError *)error {
     self = [super init];
     
     if (self) {

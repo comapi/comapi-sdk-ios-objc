@@ -8,6 +8,7 @@
 
 #import "CMPSessionService.h"
 #import "CMPProfileService.h"
+#import "CMPMessagingService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_SWIFT_NAME(Services)
 
 @property (nonatomic, strong) id<CMPSessionServiceable> session;
 @property (nonatomic, strong) id<CMPProfileServiceable> profile;
+@property (nonatomic, strong) id<CMPMessagingServiceable> messaging;
 
 - (instancetype)init NS_UNAVAILABLE;
 

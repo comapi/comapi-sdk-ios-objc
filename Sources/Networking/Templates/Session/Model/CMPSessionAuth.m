@@ -10,14 +10,14 @@
 
 @implementation CMPSessionAuth
 
-- (instancetype)initWithJSON:(NSDictionary *)json {
+- (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     if (self) {
-        if (json[@"token"] && [json[@"token"] isKindOfClass:[NSString class]]) {
-            self.token = json[@"token"];
+        if (JSON[@"token"] && [JSON[@"token"] isKindOfClass:[NSString class]]) {
+            self.token = JSON[@"token"];
         }
-        if (json[@"session"] && [json[@"session"] isKindOfClass:[NSDictionary class]]) {
-            self.session = [[CMPSession alloc] initWithJSON:json[@"session"]];
+        if (JSON[@"session"] && [JSON[@"session"] isKindOfClass:[NSDictionary class]]) {
+            self.session = [[CMPSession alloc] initWithJSON:JSON[@"session"]];
         }
     }
     return self;
@@ -34,11 +34,11 @@
 
 - (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+    NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [self initWithJSON:JSON];
 }
     
 @end

@@ -14,7 +14,7 @@
     [events enumerateObjectsUsingBlock:^(NSDictionary<NSString *,id> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
     }];
-    
+
     return [NSArray arrayWithArray:parsedEvents];
 }
 

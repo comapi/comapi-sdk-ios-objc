@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(HTTPRequestTemplate)
-@protocol CMPHTTPRequestTemplate
+@protocol CMPHTTPRequestTemplate <NSObject>
 
 @required
 - (NSString *)httpMethod;

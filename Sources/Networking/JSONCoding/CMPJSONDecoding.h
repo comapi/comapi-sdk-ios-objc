@@ -10,10 +10,8 @@
 
 NS_SWIFT_NAME(JSONDecoding)
 @protocol CMPJSONDecoding <NSObject>
-@required
-- (nullable instancetype)decodeWithData:(NSData *)data;
-
 @optional
 - (instancetype)initWithJSON:(id)JSON;
+- (nullable instancetype)decodeWithData:(NSData *)data;
 
 @end

@@ -9,13 +9,18 @@
 #import "CMPLoginViewModel.h"
 #import "AppDelegate.h"
 
+//@"aa67c980-7215-4f30-b81e-245e31aa8fef"
+//@"iOStest"
+//@"https://api.comapi.com/defaultauth"
+//@"https://api.comapi.com"
+//@"bbf888f67ddf3ce11cc13039efbd8996c8bb1622"
 @implementation CMPLoginViewModel
 
 - (instancetype)init {
     self = [super init];
 
     if (self) {
-        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"aa67c980-7215-4f30-b81e-245e31aa8fef" profileID:@"iOStest" issuer:@"https://api.comapi.com/defaultauth" audience:@"https://api.comapi.com" secret:@"bbf888f67ddf3ce11cc13039efbd8996c8bb1622"];
+        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"be466e4b-1340-41fc-826e-20445ab658f1" profileID:@"sub" issuer:@"local" audience:@"local" secret:@"secret"];
     }
     
     return self;

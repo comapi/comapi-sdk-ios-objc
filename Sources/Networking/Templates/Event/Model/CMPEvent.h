@@ -6,15 +6,22 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPJSONDecoding.h"
+
+@class CMPEventContext;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPEvent : NSObject
+@interface CMPEvent : NSObject <CMPJSONDecoding>
+
+@property (nonatomic, strong, nullable) NSString *eventID;
+@property (nonatomic, strong, nullable) NSString *apiSpaceID;
+@property (nonatomic, strong, nullable) NSString *name;
+@property (nonatomic, strong, nullable) CMPEventContext *context;
 
 @end
 
-@interface CMPEventContext : NSObject
+@interface CMPEventContext : NSObject <CMPJSONDecoding>
 
 @property (nonatomic, strong) NSString *createdBy;
 

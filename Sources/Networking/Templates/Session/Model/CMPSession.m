@@ -11,45 +11,45 @@
 
 @implementation CMPSession
 
-- (instancetype)initWithJSON:(NSDictionary *)json {
+- (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
     if (self) {
-        if (json[@"id"] != nil && [json[@"id"] isKindOfClass:[NSString class]]) {
-            self.id = json[@"id"];
+        if (JSON[@"id"] != nil && [JSON[@"id"] isKindOfClass:[NSString class]]) {
+            self.id = JSON[@"id"];
         }
-        if (json[@"nonce"] != nil && [json[@"nonce"] isKindOfClass:[NSString class]]) {
-            self.nonce = json[@"nonce"];
+        if (JSON[@"nonce"] != nil && [JSON[@"nonce"] isKindOfClass:[NSString class]]) {
+            self.nonce = JSON[@"nonce"];
         }
-        if (json[@"provider"] != nil && [json[@"provider"] isKindOfClass:[NSString class]]) {
-            self.provider = json[@"provider"];
+        if (JSON[@"provider"] != nil && [JSON[@"provider"] isKindOfClass:[NSString class]]) {
+            self.provider = JSON[@"provider"];
         }
-        if (json[@"expiresOn"] != nil && [json[@"expiresOn"] isKindOfClass:[NSString class]]) {
-            self.expiresOn = [(NSString *)json[@"expiresOn"] asDate];
+        if (JSON[@"expiresOn"] != nil && [JSON[@"expiresOn"] isKindOfClass:[NSString class]]) {
+            self.expiresOn = [(NSString *)JSON[@"expiresOn"] asDate];
         }
-        if (json[@"isActive"] != nil && [json[@"isActive"] isKindOfClass:[NSNumber class]]) {
-            self.isActive = [(NSNumber *)json[@"isActive"] boolValue];
+        if (JSON[@"isActive"] != nil && [JSON[@"isActive"] isKindOfClass:[NSNumber class]]) {
+            self.isActive = [(NSNumber *)JSON[@"isActive"] boolValue];
         }
-        if (json[@"deviceId"] != nil && [json[@"deviceId"] isKindOfClass:[NSString class]]) {
-            self.deviceID = json[@"deviceId"];
+        if (JSON[@"deviceId"] != nil && [JSON[@"deviceId"] isKindOfClass:[NSString class]]) {
+            self.deviceID = JSON[@"deviceId"];
         }
-        if (json[@"platform"] != nil && [json[@"platform"] isKindOfClass:[NSString class]]) {
-            self.platform = json[@"platform"];
+        if (JSON[@"platform"] != nil && [JSON[@"platform"] isKindOfClass:[NSString class]]) {
+            self.platform = JSON[@"platform"];
         }
-        if (json[@"platformVersion"] != nil && [json[@"platformVersion"] isKindOfClass:[NSString class]]) {
-            self.platformVersion = json[@"platformVersion"];
+        if (JSON[@"platformVersion"] != nil && [JSON[@"platformVersion"] isKindOfClass:[NSString class]]) {
+            self.platformVersion = JSON[@"platformVersion"];
         }
-        if (json[@"sdkType"] != nil && [json[@"sdkType"] isKindOfClass:[NSString class]]) {
-            self.sdkType = json[@"sdkType"];
+        if (JSON[@"sdkType"] != nil && [JSON[@"sdkType"] isKindOfClass:[NSString class]]) {
+            self.sdkType = JSON[@"sdkType"];
         }
-        if (json[@"sdkVersion"] != nil && [json[@"sdkVersion"] isKindOfClass:[NSString class]]) {
-            self.sdkVersion = json[@"sdkVersion"];
+        if (JSON[@"sdkVersion"] != nil && [JSON[@"sdkVersion"] isKindOfClass:[NSString class]]) {
+            self.sdkVersion = JSON[@"sdkVersion"];
         }
-        if (json[@"profileId"] != nil && [json[@"profileId"] isKindOfClass:[NSString class]]) {
-            self.profileId = json[@"profileId"];
+        if (JSON[@"profileId"] != nil && [JSON[@"profileId"] isKindOfClass:[NSString class]]) {
+            self.profileId = JSON[@"profileId"];
         }
-        if (json[@"sourceIp"] != nil && [json[@"sourceIp"] isKindOfClass:[NSString class]]) {
-            self.sourceIP = json[@"sourceIp"];
+        if (JSON[@"sourceIp"] != nil && [JSON[@"sourceIp"] isKindOfClass:[NSString class]]) {
+            self.sourceIP = JSON[@"sourceIp"];
         }
     }
     
@@ -71,12 +71,12 @@
                            @"sourceIp" : self.sourceIP};
     
     NSError *serializationError = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
     
-    return json;
+    return data;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {

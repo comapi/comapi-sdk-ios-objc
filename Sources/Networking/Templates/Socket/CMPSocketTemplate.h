@@ -18,7 +18,7 @@ NS_SWIFT_NAME(SocketTemplate)
 
 - (instancetype)init NS_UNAVAILABLE;
 
--(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token;
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token;
 
 @end
 

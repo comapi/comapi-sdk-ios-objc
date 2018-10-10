@@ -119,6 +119,8 @@
 		897B8370216CD7EB003D4206 /* CMPMessageStatusUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B836E216CD7EB003D4206 /* CMPMessageStatusUpdate.m */; };
 		897B8373216CDC80003D4206 /* CMPSendStatusUpdateTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B8371216CDC80003D4206 /* CMPSendStatusUpdateTemplate.h */; };
 		897B8374216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8372216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m */; };
+		897B8378216E1D6F003D4206 /* CMPConversationEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B8376216E1D6F003D4206 /* CMPConversationEvents.h */; };
+		897B8379216E1D6F003D4206 /* CMPConversationEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8377216E1D6F003D4206 /* CMPConversationEvents.m */; };
 		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		898305FF21675B7800F155C7 /* CMPAddParticipantsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */; };
 		8983060021675B7800F155C7 /* CMPAddParticipantsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */; };
@@ -417,6 +419,8 @@
 		897B836E216CD7EB003D4206 /* CMPMessageStatusUpdate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPMessageStatusUpdate.m; sourceTree = "<group>"; };
 		897B8371216CDC80003D4206 /* CMPSendStatusUpdateTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSendStatusUpdateTemplate.h; sourceTree = "<group>"; };
 		897B8372216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSendStatusUpdateTemplate.m; sourceTree = "<group>"; };
+		897B8376216E1D6F003D4206 /* CMPConversationEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConversationEvents.h; sourceTree = "<group>"; };
+		897B8377216E1D6F003D4206 /* CMPConversationEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConversationEvents.m; sourceTree = "<group>"; };
 		898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsTemplate.h; sourceTree = "<group>"; };
 		898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsTemplate.m; sourceTree = "<group>"; };
 		89957A2A21357791008EE0BE /* CMPLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
@@ -937,6 +941,15 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		897B8375216E1D4D003D4206 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				897B8376216E1D6F003D4206 /* CMPConversationEvents.h */,
+				897B8377216E1D6F003D4206 /* CMPConversationEvents.m */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
 		89957A212135763C008EE0BE /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -1190,6 +1203,7 @@
 		89D2C47C21651B94006BEC4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				897B8375216E1D4D003D4206 /* Conversation */,
 				89D2C48921651F80006BEC4E /* Session */,
 				89D2C48821651F77006BEC4E /* Profile */,
 				89D2C47F21651BDD006BEC4E /* CMPEventContainer.h */,
@@ -1533,6 +1547,7 @@
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
 				89D2C45A21638A75006BEC4E /* CMPSocketTemplate.h in Headers */,
 				897B834B216B8436003D4206 /* CMPOrphanedEvent.h in Headers */,
+				897B8378216E1D6F003D4206 /* CMPConversationEvents.h in Headers */,
 				895FF4F52126E9620007FAC3 /* CMPRequestPerformer.h in Headers */,
 				89957A442136A1EB008EE0BE /* CMPRequestTemplateResult.h in Headers */,
 				89957A472136A233008EE0BE /* CMPHTTPRequestTemplate.h in Headers */,
@@ -1846,6 +1861,7 @@
 				89DCBB4921342787001016FF /* CMPAuthorizeSessionBody.m in Sources */,
 				895FF50921271AEC0007FAC3 /* CMPURLResult.m in Sources */,
 				897B832021679683003D4206 /* CMPDeleteConversationTemplate.m in Sources */,
+				897B8379216E1D6F003D4206 /* CMPConversationEvents.m in Sources */,
 				895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */,
 				8972C323212C3F1E00C76B19 /* CMPAPIConfiguration.m in Sources */,
 				89957A37213592C9008EE0BE /* CMPLog.m in Sources */,
@@ -1953,18 +1969,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = JE27K8BAX2;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.donkynetworks.internaltest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Donky Internal Test (Enterprise)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1975,18 +1991,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = JE27K8BAX2;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 927YWC6SVK;
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.donkynetworks.internaltest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Donky Internal Test (Enterprise)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

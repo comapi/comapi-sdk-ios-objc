@@ -49,7 +49,9 @@
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
         request.HTTPMethod = template.httpMethod;
         request.HTTPBody = template.httpBody;
-        request.HTTPBodyStream = template.httpBodyStream;
+        if ([template respondsToSelector:@selector(httpBodyStream)]) {
+            request.HTTPBodyStream = template.httpBodyStream;
+        }
         [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
             [request setValue:obj.value forHTTPHeaderField:obj.field];
         }];
