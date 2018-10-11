@@ -7,10 +7,11 @@
 //
 
 #import "CMPJSONEncoding.h"
+#import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPMessageAlertPlatforms : NSObject <CMPJSONEncoding>
+@interface CMPMessageAlertPlatforms : NSObject <CMPJSONEncoding, CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *apns;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *fcm;

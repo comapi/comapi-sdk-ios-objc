@@ -21,6 +21,21 @@
     return self;
 }
 
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"apns"] && [JSON[@"apns"] isKindOfClass:NSDictionary.class]) {
+            self.apns = JSON[@"apns"];
+        }
+        if (JSON[@"fcm"] && [JSON[@"fcm"] isKindOfClass:NSDictionary.class]) {
+            self.fcm = JSON[@"fcm"];
+        }
+    }
+    
+    return self;
+}
+
 - (id)json {
     return @{@"apns" : self.apns,
              @"fcm" : self.fcm};

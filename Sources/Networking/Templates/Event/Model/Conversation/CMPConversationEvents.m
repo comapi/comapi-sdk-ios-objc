@@ -38,9 +38,6 @@
     self = [super initWithJSON:JSON];
     
     if (self) {
-        if (JSON[@"name"] && [JSON[@"name"] isKindOfClass:NSString.class]) {
-            self.name = JSON[@"name"];
-        }
         if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
             self.payload = [[CMPConversationEventCreatePayload alloc] initWithJSON:JSON[@"payload"]];
         }
@@ -138,7 +135,7 @@
         if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
             self.roles = [[CMPRoles alloc] initWithJSON:JSON[@"roles"]];
         }
-        if (JSON[@"description"] && [JSON[@"description"] isKindOfClass:NSArray.class]) {
+        if (JSON[@"description"] && [JSON[@"description"] isKindOfClass:NSString.class]) {
             self.eventDescription = JSON[@"description"];
         }
     }
@@ -236,7 +233,7 @@
         if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
             self.roles = [[CMPRoles alloc] initWithJSON:JSON[@"roles"]];
         }
-        if (JSON[@"description"] && [JSON[@"description"] isKindOfClass:NSArray.class]) {
+        if (JSON[@"description"] && [JSON[@"description"] isKindOfClass:NSString.class]) {
             self.eventDescription = JSON[@"description"];
         }
     }
@@ -412,6 +409,98 @@
         }
         if (JSON[@"publishedOn"] && [JSON[@"publishedOn"] isKindOfClass:NSDictionary.class]) {
             self.publishedOn = JSON[@"publishedOn"];
+        }
+    }
+    
+    return self;
+}
+
+@end
+
+#pragma mark - ParticipantTypingOn
+
+@implementation CMPConversationEventParticipantTyping
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super initWithJSON:JSON];
+    
+    if (self) {
+        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
+            self.payload = [[CMPConversationEventParticipantTypingPayload alloc] initWithJSON:JSON[@"payload"]];
+        }
+    }
+    
+    return self;
+}
+
+- (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [self initWithJSON:json];
+}
+
+@end
+
+@implementation CMPConversationEventParticipantTypingPayload
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"profileId"] && [JSON[@"profileId"] isKindOfClass:NSString.class]) {
+            self.profileID = JSON[@"profileId"];
+        }
+        if (JSON[@"conversationId"] && [JSON[@"conversationId"] isKindOfClass:NSString.class]) {
+            self.conversationID = JSON[@"conversationId"];
+        }
+    }
+    
+    return self;
+}
+
+@end
+
+#pragma mark - ParticipantTypingOff
+
+@implementation CMPConversationEventParticipantTypingOff
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super initWithJSON:JSON];
+    
+    if (self) {
+        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
+            self.payload = [[CMPConversationEventParticipantTypingOffPayload alloc] initWithJSON:JSON[@"payload"]];
+        }
+    }
+    
+    return self;
+}
+
+- (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [self initWithJSON:json];
+}
+
+@end
+
+@implementation CMPConversationEventParticipantTypingOffPayload
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"profileId"] && [JSON[@"profileId"] isKindOfClass:NSString.class]) {
+            self.profileID = JSON[@"profileId"];
+        }
+        if (JSON[@"conversationId"] && [JSON[@"conversationId"] isKindOfClass:NSString.class]) {
+            self.conversationID = JSON[@"conversationId"];
         }
     }
     

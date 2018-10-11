@@ -121,6 +121,12 @@
 		897B8374216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8372216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m */; };
 		897B8378216E1D6F003D4206 /* CMPConversationEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B8376216E1D6F003D4206 /* CMPConversationEvents.h */; };
 		897B8379216E1D6F003D4206 /* CMPConversationEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8377216E1D6F003D4206 /* CMPConversationEvents.m */; };
+		897B8380216F74C2003D4206 /* CMPProfileEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B837E216F74C2003D4206 /* CMPProfileEvents.h */; };
+		897B8381216F74C2003D4206 /* CMPProfileEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B837F216F74C2003D4206 /* CMPProfileEvents.m */; };
+		897B8384216F796E003D4206 /* CMPSocketEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B8382216F796E003D4206 /* CMPSocketEvents.h */; };
+		897B8385216F796E003D4206 /* CMPSocketEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8383216F796E003D4206 /* CMPSocketEvents.m */; };
+		897B8389216F7B98003D4206 /* CMPConversationMessageEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B8387216F7B98003D4206 /* CMPConversationMessageEvents.h */; };
+		897B838A216F7B98003D4206 /* CMPConversationMessageEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B8388216F7B98003D4206 /* CMPConversationMessageEvents.m */; };
 		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		898305FF21675B7800F155C7 /* CMPAddParticipantsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */; };
 		8983060021675B7800F155C7 /* CMPAddParticipantsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */; };
@@ -421,6 +427,12 @@
 		897B8372216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSendStatusUpdateTemplate.m; sourceTree = "<group>"; };
 		897B8376216E1D6F003D4206 /* CMPConversationEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConversationEvents.h; sourceTree = "<group>"; };
 		897B8377216E1D6F003D4206 /* CMPConversationEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConversationEvents.m; sourceTree = "<group>"; };
+		897B837E216F74C2003D4206 /* CMPProfileEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPProfileEvents.h; sourceTree = "<group>"; };
+		897B837F216F74C2003D4206 /* CMPProfileEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPProfileEvents.m; sourceTree = "<group>"; };
+		897B8382216F796E003D4206 /* CMPSocketEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSocketEvents.h; sourceTree = "<group>"; };
+		897B8383216F796E003D4206 /* CMPSocketEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSocketEvents.m; sourceTree = "<group>"; };
+		897B8387216F7B98003D4206 /* CMPConversationMessageEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConversationMessageEvents.h; sourceTree = "<group>"; };
+		897B8388216F7B98003D4206 /* CMPConversationMessageEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConversationMessageEvents.m; sourceTree = "<group>"; };
 		898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsTemplate.h; sourceTree = "<group>"; };
 		898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsTemplate.m; sourceTree = "<group>"; };
 		89957A2A21357791008EE0BE /* CMPLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
@@ -950,6 +962,15 @@
 			path = Conversation;
 			sourceTree = "<group>";
 		};
+		897B8386216F7B2D003D4206 /* ConversationMessage */ = {
+			isa = PBXGroup;
+			children = (
+				897B8387216F7B98003D4206 /* CMPConversationMessageEvents.h */,
+				897B8388216F7B98003D4206 /* CMPConversationMessageEvents.m */,
+			);
+			path = ConversationMessage;
+			sourceTree = "<group>";
+		};
 		89957A212135763C008EE0BE /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,6 +1224,7 @@
 		89D2C47C21651B94006BEC4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				897B8386216F7B2D003D4206 /* ConversationMessage */,
 				897B8375216E1D4D003D4206 /* Conversation */,
 				89D2C48921651F80006BEC4E /* Session */,
 				89D2C48821651F77006BEC4E /* Profile */,
@@ -1264,6 +1286,8 @@
 		89D2C48821651F77006BEC4E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				897B837E216F74C2003D4206 /* CMPProfileEvents.h */,
+				897B837F216F74C2003D4206 /* CMPProfileEvents.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1271,6 +1295,8 @@
 		89D2C48921651F80006BEC4E /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				897B8382216F796E003D4206 /* CMPSocketEvents.h */,
+				897B8383216F796E003D4206 /* CMPSocketEvents.m */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -1505,6 +1531,7 @@
 				89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */,
 				89EA5CCB21490E3B00C29D08 /* CMPPatchProfileTemplate.h in Headers */,
 				89EA5CCF2149457600C29D08 /* CMPQueryProfilesTemplate.h in Headers */,
+				897B8380216F74C2003D4206 /* CMPProfileEvents.h in Headers */,
 				891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */,
 				89EA5CC7214902FA00C29D08 /* CMPUpdateProfileTemplate.h in Headers */,
 				897B833B216B583B003D4206 /* CMPMessageParticipant.h in Headers */,
@@ -1533,6 +1560,7 @@
 				895FF4FB2126ECEE0007FAC3 /* CMPRequestTemplate.h in Headers */,
 				897B8353216C9FCA003D4206 /* CMPSendMessagesResult.h in Headers */,
 				89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */,
+				897B8384216F796E003D4206 /* CMPSocketEvents.h in Headers */,
 				897B831B21679310003D4206 /* CMPUpdateConversationTemplate.h in Headers */,
 				89EA5D31214F9D5700C29D08 /* CMPRequestPerforming.h in Headers */,
 				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
@@ -1542,6 +1570,7 @@
 				897B8367216CC15B003D4206 /* CMPContentUploadTemplate.h in Headers */,
 				89D7323F21668068002BF47B /* CMPGetParticipantsTemplate.h in Headers */,
 				89D2C48521651F64006BEC4E /* CMPEvent.h in Headers */,
+				897B8389216F7B98003D4206 /* CMPConversationMessageEvents.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
 				897B8343216B7714003D4206 /* CMPMessageAlert.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
@@ -1813,6 +1842,7 @@
 			files = (
 				8972C2F5212AE5F900C76B19 /* CMPHTTPHeader.m in Sources */,
 				897B8368216CC15B003D4206 /* CMPContentUploadTemplate.m in Sources */,
+				897B8385216F796E003D4206 /* CMPSocketEvents.m in Sources */,
 				89D2C451215E558D006BEC4E /* CMPLogConfig.m in Sources */,
 				89D7323C21667F42002BF47B /* CMPEventParser.m in Sources */,
 				897B8354216C9FCA003D4206 /* CMPSendMessagesResult.m in Sources */,
@@ -1824,6 +1854,7 @@
 				89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */,
 				89EA5CD02149457600C29D08 /* CMPQueryProfilesTemplate.m in Sources */,
 				8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */,
+				897B838A216F7B98003D4206 /* CMPConversationMessageEvents.m in Sources */,
 				89D2C4A72166451B006BEC4E /* CMPEventQueryTemplate.m in Sources */,
 				89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */,
 				897B8318216790DD003D4206 /* CMPAddConversationTemplate.m in Sources */,
@@ -1848,6 +1879,7 @@
 				89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */,
 				89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */,
 				897B8358216CA198003D4206 /* CMPSendMessagesTemplate.m in Sources */,
+				897B8381216F74C2003D4206 /* CMPProfileEvents.m in Sources */,
 				8972C311212C2A5E00C76B19 /* CMPComapi.m in Sources */,
 				89D2C4A32166302D006BEC4E /* CMPConversationParticipant.m in Sources */,
 				897B8340216B646A003D4206 /* CMPMessageAlertPlatforms.m in Sources */,

@@ -20,6 +20,18 @@
     return self;
 }
 
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"platforms"] && [JSON[@"platforms"] isKindOfClass:NSDictionary.class]) {
+            self.platforms = [[CMPMessageAlertPlatforms alloc] initWithJSON:JSON[@"platforms"]];
+        }
+    }
+    
+    return self;
+}
+
 - (id)json {
     return @{@"platforms" : self.platforms};
 }
