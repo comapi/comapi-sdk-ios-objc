@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(EventParser)
 @interface CMPEventParser : NSObject
 
-+ (NSArray<CMPEvent *> *)parseEvents:(NSArray<NSDictionary<NSString *, id> *> *)events;
++ (CMPEvent *)parseEventForData:(NSData *)data;
++ (NSArray<CMPEvent *> *)parseEventsForData:(NSData *)data;
 
 @end
 

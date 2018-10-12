@@ -18,7 +18,7 @@ NS_SWIFT_NAME(Conversation)
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) CMPRoles *roles;
 @property (nonatomic, strong, nullable) NSString *conversationDescription;
-@property (nonatomic) BOOL isPublic;
+@property (nonatomic, strong) NSNumber *isPublic;
 
 //public var id: String
 //public var name: String

@@ -28,7 +28,7 @@
             self.roles = [[CMPRoles alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:JSON[@"roles"] options:0 error:&error]];
         }
         if (JSON[@"isPublic"] && [JSON[@"isPublic"] isKindOfClass:NSNumber.class]) {
-            self.isPublic = [(NSNumber *)JSON[@"isPublic"] boolValue];
+            self.isPublic = JSON[@"isPublic"];
         }
     }
     
@@ -40,7 +40,7 @@
                                            @"name" : self.name,
                                            @"description" : self.conversationDescription,
                                            @"roles" : [self.roles json],
-                                           @"isPublic" : [NSNumber numberWithBool:self.isPublic]};
+                                           @"isPublic" : self.isPublic};
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
     if (error) {

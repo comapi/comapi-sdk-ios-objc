@@ -11,6 +11,7 @@
 #import "CMPProfile.h"
 #import "AppDelegate.h"
 #import "CMPProfileDetailsViewController.h"
+#import "CMPConversationsViewController.h"
 
 @interface CMPProfileViewController ()
 
@@ -115,10 +116,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CMPProfileDetailsViewModel *vm = [[CMPProfileDetailsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
-    CMPProfileDetailsViewController *vc = [[CMPProfileDetailsViewController alloc] initWithViewModel:vm state:self.viewModel.profiles[indexPath.row].id == self.viewModel.client.profileID ? CMPProfileStateSelf : CMPPRofileStateOther];
+    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
+    CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
     
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

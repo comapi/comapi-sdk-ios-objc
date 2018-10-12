@@ -22,6 +22,13 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
     CMPSDKStateSessionActive
 } NS_SWIFT_NAME(SDKState);
 
+NS_SWIFT_NAME(EventDelegate)
+@protocol CMPEventDelegate <NSObject>
+
+- (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event;
+
+@end
+
 NS_SWIFT_NAME(ComapiClient)
 @interface CMPComapiClient: NSObject <CMPRequestManagerDelegate>
 
@@ -35,6 +42,9 @@ NS_SWIFT_NAME(ComapiClient)
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration requestPerformer:(id<CMPRequestPerforming>)requestPerformer;
 - (void)setPushToken:(NSString *)deviceToken completion:(void(^)(BOOL, NSError * _Nullable))completion NS_SWIFT_NAME(set(pushToken:completion:));
+
+- (void)addEventDelegate:(id<CMPEventDelegate>)delegate;
+- (void)removeEventDelegate:(id<CMPEventDelegate>)delegate;
 
 @end
 

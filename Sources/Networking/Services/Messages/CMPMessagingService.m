@@ -25,7 +25,7 @@
 
 #pragma mark - Events
 
-- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void (^)(NSArray<CMPEventContainer *> * _Nonnull, NSError * _Nullable))completion {
+- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void (^)(NSArray<CMPEvent *> * _Nonnull, NSError * _Nullable))completion {
     CMPEventQueryTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPEventQueryTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID from:from limit:limit token:token];
     };
@@ -130,7 +130,7 @@
 }
 
 
-- (void)getConversationsWithScope:(nonnull NSString *)scope profileID:(nonnull NSString *)profileID completion:(nonnull void (^)(NSArray<CMPConversation *> * _Nullable, NSError * _Nullable))completion {
+- (void)getConversationsWithScope:(nullable NSString *)scope profileID:(NSString *)profileID completion:(void(^)(NSArray<CMPConversation *> * _Nullable, NSError * _Nullable))completion {
     CMPGetConversationsTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPGetConversationsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID scope:scope token:token];
     };

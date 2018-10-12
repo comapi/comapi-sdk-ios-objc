@@ -29,7 +29,7 @@
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders { 
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"Bearer %@", self.token]];
     return [NSSet setWithObjects:contentType, authorization, nil];
 }
 
@@ -66,7 +66,7 @@
             [conversations addObject:[[CMPConversation alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:obj options:0 error:&parseError]]];
         }];
 
-        return [[CMPRequestTemplateResult alloc] initWithObject:[NSNumber numberWithBool:YES] error:nil];
+        return [[CMPRequestTemplateResult alloc] initWithObject:conversations error:nil];
     } else if ([response httpStatusCode] == 404) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
@@ -90,50 +90,3 @@
 }
 
 @end
-
-//public enum ConversationScope: String {
-//case `public`
-//case participant
-//case all
-//}
-//
-//struct GetConversationsTemplate: RequestTemplate {
-//    var scheme: String
-//    var host: String
-//    var port: Int
-//    var pathComponents: [String] { return ["apispaces", apiSpaceId, "conversations"] }
-//    var query: [String : String]? {
-//        var query = [String:String]()
-//        if let scope = scope { query["scope"] = scope.rawValue}
-//        if let profileId = profileId { query["profileId"] = profileId }
-//        return query
-//    }
-//
-//    let httpMethod: HTTPMethod = .get
-//    var httpHeaders: Set<HTTPHeader>? { return [.contentType(.JSON), .authorization(token)] }
-//    let httpBody: Data? = nil
-//
-//    // MARK: -
-//
-//    var apiSpaceId: String
-//    var token: String
-//    var scope: ConversationScope?
-//    var profileId: String?
-//
-//    static func result(from data: Data, urlResponse: URLResponse) -> Result<[Conversation], TemplateResultError> {
-//        switch urlResponse.httpStatusCode {
-//
-//        case 200?:
-//            do {
-//                let conversationJSONs: [Conversation.JSON] = try JSONDecoder.default().decode([Conversation.JSON].self, from: data)
-//                return try .success(conversationJSONs.map(Conversation.from))
-//            }
-//            catch {
-//                return .failure(.unexpectedJSON)
-//            }
-//
-//        default:
-//            return .failure(.unexpectedStatusCode)
-//        }
-//    }
-//}

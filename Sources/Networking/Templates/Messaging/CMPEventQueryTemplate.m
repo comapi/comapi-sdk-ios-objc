@@ -38,7 +38,7 @@
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization  value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"Bearer %@", self.token]];
     return [NSSet setWithObjects:contentType, authorization, nil];
 }
 
@@ -52,19 +52,10 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        NSError *parseError = nil;
-        NSArray<NSDictionary<NSString *, id> *> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-        if (parseError) {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
-            return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
-        }
-        
-        NSArray<CMPEvent *> *events =[CMPEventParser parseEvents:json];
-        
+        NSArray<CMPEvent *> *events = [CMPEventParser parseEventsForData:data];
         return [[CMPRequestTemplateResult alloc] initWithObject:events error:nil];
     }
-    
-    
+
     NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
     return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }

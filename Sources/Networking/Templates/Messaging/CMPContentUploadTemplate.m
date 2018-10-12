@@ -34,7 +34,7 @@
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
     CMPHTTPHeader *contentFilename = [[CMPHTTPHeader alloc] initWithField:@"Content-Filename" value:self.content.name ? self.content.name : @""];
     CMPHTTPHeader *contentType = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderContentType value:@"application/json"];
-    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:self.token];
+    CMPHTTPHeader *authorization = [[CMPHTTPHeader alloc] initWithField:CMPHTTPHeaderAuthorization value:[NSString stringWithFormat:@"Bearer %@", self.token]];
     return [NSSet setWithObjects:contentFilename, contentType, authorization, nil];
 }
 

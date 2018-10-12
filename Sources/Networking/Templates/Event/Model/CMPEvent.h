@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface CMPEvent : NSObject <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSString *eventID;

@@ -20,7 +20,7 @@
 }
 
 - (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
-    logWithLevel(CMPLogLevelInfo, @"WILL PERFORM REQUEST:", request, @"BODY:", [request.HTTPBody utf8StringValue], nil);
+    logWithLevel(CMPLogLevelInfo, @"WILL PERFORM REQUEST:", [request description], nil);
     
     if ([request.HTTPMethod isEqualToString:@"POST"] && request.HTTPBodyStream != nil) {
         NSData *data = [[NSData alloc] initWithInputStream:request.HTTPBodyStream];

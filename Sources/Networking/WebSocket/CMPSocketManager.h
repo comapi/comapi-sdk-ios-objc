@@ -8,6 +8,7 @@
 
 #import "CMPSessionAuthProvider.h"
 #import "CMPAPIConfiguration.h"
+#import "CMPComapiClient.h"
 
 #import <SocketRocket/SocketRocket.h>
 
@@ -19,6 +20,11 @@ NS_SWIFT_NAME(SocketManager)
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)apiConfiguration sessionAuthProvider:(id<CMPSessionAuthProvider>)sessionAuthProvider;
+
+- (void)bindClient:(CMPComapiClient *)client;
+
+- (void)addEventDelegate:(id<CMPEventDelegate>)delegate;
+- (void)removeEventDelegate:(id<CMPEventDelegate>)delegate;
 
 - (void)startSocket;
 - (void)closeSocket;

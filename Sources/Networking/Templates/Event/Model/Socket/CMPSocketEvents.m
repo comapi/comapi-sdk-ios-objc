@@ -17,7 +17,7 @@
         if (JSON[@"socketId"] && [JSON[@"socketId"] isKindOfClass:NSString.class]) {
             self.socketID = JSON[@"socketId"];
         }
-        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSString.class]) {
+        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSNumber.class]) {
             self.accountID = JSON[@"accountId"];
         }
     }

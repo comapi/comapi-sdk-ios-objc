@@ -8,7 +8,8 @@
 
 #import "CMPSocketManager.h"
 #import "CMPSocketTemplate.h"
-#import "CMPComapiClient.h"
+#import "CMPEventParser.h"
+#import "CMPBroadcastDelegate.h"
 
 NSUInteger const CMPSocketReopenDelay = 5;
 NSUInteger const CMPPingTimerInterval = 240;
@@ -21,6 +22,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 @property (nonatomic, strong, readonly) NSString *apiSpaceID;
 @property (nonatomic, strong, readonly) CMPAPIConfiguration *apiConfiguration;
 @property (nonatomic, strong, readonly) id<CMPSessionAuthProvider> sessionAuthProvider;
+@property (nonatomic, strong) CMPBroadcastDelegate<id<CMPEventDelegate>> *eventListener;
 @property (nonatomic, weak, nullable) CMPComapiClient *client;
 
 - (void)handleSocketMessage:(id)message;
@@ -36,9 +38,24 @@ NSUInteger const CMPPingTimerInterval = 240;
         _apiSpaceID = apiSpaceID;
         _apiConfiguration = apiConfiguration;
         _sessionAuthProvider = sessionAuthProvider;
+        _eventListener = [[CMPBroadcastDelegate alloc] init];
     }
     
     return self;
+}
+
+- (void)bindClient:(CMPComapiClient *)client {
+    self.client = client;
+}
+
+- (void)addEventDelegate:(id<CMPEventDelegate>)delegate {
+    [self.eventListener addDelegate:delegate];
+    logWithLevel(CMPLogLevelVerbose, @"Socket: event delegate added:", delegate, nil);
+}
+
+- (void)removeEventDelegate:(id<CMPEventDelegate>)delegate {
+    [self.eventListener removeDelegate:delegate];
+    logWithLevel(CMPLogLevelVerbose, @"Socket: event delegate removed:", delegate, nil);
 }
 
 - (void)startSocket {
@@ -49,7 +66,7 @@ NSUInteger const CMPPingTimerInterval = 240;
     
     NSString *token = self.sessionAuthProvider.sessionAuth.token;
     if (!token) {
-        logWithLevel(CMPLogLevelError, @"Socket: No authorization token, intercepting socket connection...");
+        logWithLevel(CMPLogLevelError, @"Socket: No authorization token, intercepting socket connection...", nil);
         return;
     }
     
@@ -57,6 +74,7 @@ NSUInteger const CMPPingTimerInterval = 240;
     NSURLRequest *request = [template requestFromHTTPRequestTemplate:template];
     self.socket = [[SRWebSocket alloc] initWithURLRequest:request];
     self.socket.delegate = self;
+    [self.socket open];
 }
 
 - (void)closeSocket {
@@ -65,24 +83,27 @@ NSUInteger const CMPPingTimerInterval = 240;
 }
 
 - (void)sendPing {
-    logWithLevel(CMPLogLevelVerbose, @"Socket: ping");
+    logWithLevel(CMPLogLevelVerbose, @"Socket: ping", nil);
     [self.socket sendPing:nil];
 }
 
 - (void)handleSocketMessage:(id)message {
     if ([message isKindOfClass:NSString.class]) {
         NSData *data = [(NSString *)message dataUsingEncoding:NSUTF8StringEncoding];
-        
-        logWithLevel(CMPLogLevelVerbose, @"Socket: received event:", @"");
+        __block CMPEvent *event = [CMPEventParser parseEventForData:data];
+        [self.eventListener invokeDelegatesWithBlock:^(id<CMPEventDelegate> _Nonnull delegate) {
+            [delegate client:self.client didReceiveEvent:event];
+        }];
+        logWithLevel(CMPLogLevelVerbose, @"Socket: received event:", event.name, nil);
     } else {
-        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Socket: unexpected message type - %@", [message class]], message);
+        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Socket: unexpected message type - %@", [message class], nil], message);
     }
 }
 
 #pragma mark - SRWebSocketDelegate
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-    logWithLevel(CMPLogLevelVerbose, @"Socket: opened");
+    logWithLevel(CMPLogLevelVerbose, @"Socket: opened", nil);
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
@@ -91,11 +112,11 @@ NSUInteger const CMPPingTimerInterval = 240;
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     NSString *message = [[NSString alloc] initWithData:pongPayload encoding:NSUTF8StringEncoding];
-    logWithLevel(CMPLogLevelVerbose, @"Socket: pong", message);
+    logWithLevel(CMPLogLevelVerbose, @"Socket: pong", message, nil);
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    logWithLevel(CMPLogLevelError, @"Socket: error", error.localizedDescription);
+    logWithLevel(CMPLogLevelError, @"Socket: error", error.localizedDescription, nil);
     [pingTimer invalidate];
     self.socket = nil;
     __weak typeof(self) weakSelf = self;
@@ -105,7 +126,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    logWithLevel(CMPLogLevelVerbose, @"Socket: closed with code:", code, @"reason:", reason, @"clean close:", wasClean);
+    logWithLevel(CMPLogLevelVerbose, @"Socket: closed with code:", code, @"reason:", reason, @"clean close:", wasClean, nil);
     [pingTimer invalidate];
     self.socket = nil;
 }

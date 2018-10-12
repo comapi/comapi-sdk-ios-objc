@@ -7,8 +7,8 @@
 //
 
 #import "CMPBaseService.h"
+#import "CMPEvent.h"
 #import "CMPConversationParticipant.h"
-#import "CMPEventContainer.h"
 #import "CMPConversation.h"
 #import "CMPNewConversation.h"
 #import "CMPConversationUpdate.h"
@@ -25,7 +25,7 @@ NS_SWIFT_NAME(MessagingServiceable)
 
 #pragma mark - Events
 
-- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(NSArray<CMPEventContainer *> *, NSError * _Nullable))completion;
+- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(NSArray<CMPEvent *> *, NSError * _Nullable))completion;
 
 #pragma mark - ConversationParticipants
 
@@ -36,7 +36,7 @@ NS_SWIFT_NAME(MessagingServiceable)
 #pragma mark - Conversation
 
 - (void)getConversationWithConversationID:(NSString *)conversationID completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
-- (void)getConversationsWithScope:(NSString *)scope profileID:(NSString *)profileID completion:(void(^)(NSArray<CMPConversation *> * _Nullable, NSError * _Nullable))completion;
+- (void)getConversationsWithScope:(nullable NSString *)scope profileID:(NSString *)profileID completion:(void(^)(NSArray<CMPConversation *> * _Nullable, NSError * _Nullable))completion;
 - (void)addConversationWithConversation:(CMPNewConversation *)conversation completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
 - (void)updateConversationWithConversationID:(NSString *)conversationID conversation:(CMPConversationUpdate *)conversation eTag:(nullable NSString *)eTag completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
 - (void)deleteConversationWithConversationID:(NSString *)conversationID eTag:(nullable NSString *)eTag completion:(void(^)(BOOL, NSError * _Nullable))completion;
