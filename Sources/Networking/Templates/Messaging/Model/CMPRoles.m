@@ -46,14 +46,17 @@
     return [self initWithJSON:json];
 }
 
-- (nullable NSData *)encode {
+- (id)json {
     NSDictionary<NSString *, id> *ownerAttributesDict = [self.owner json];
     NSDictionary<NSString *, id> *participantsAttributesDict = [self.participants json];
-    
     NSDictionary<NSString *, id> *dict = @{@"owner" : ownerAttributesDict,
                                            @"participant" : participantsAttributesDict};
+    return dict;
+}
+
+- (nullable NSData *)encode {
     NSError *error = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {
         return nil;
     }

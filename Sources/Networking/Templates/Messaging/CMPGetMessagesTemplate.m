@@ -7,6 +7,7 @@
 //
 
 #import "CMPGetMessagesTemplate.h"
+#import "CMPGetMessagesResult.h"
 
 @implementation CMPGetMessagesTemplate
 
@@ -52,7 +53,8 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        return [[CMPRequestTemplateResult alloc] initWithObject:[NSNumber numberWithBool:YES] error:nil];
+        CMPGetMessagesResult *result = [[CMPGetMessagesResult alloc] decodeWithData:data];
+        return [[CMPRequestTemplateResult alloc] initWithObject:result error:nil];
     } else if ([response httpStatusCode] == 404) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];

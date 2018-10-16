@@ -35,7 +35,7 @@
             self.metadata = JSON[@"metadata"];
         }
         if (JSON[@"context"] && [JSON[@"context"] isKindOfClass:NSDictionary.class]) {
-            self.context = [[CMPMessageContext alloc] initWithJSON:JSON[@"metadata"]];
+            self.context = [[CMPMessageContext alloc] initWithJSON:JSON[@"context"]];
         }
         if (JSON[@"parts"] && [JSON[@"parts"] isKindOfClass:NSArray.class]) {
             NSMutableArray<CMPMessagePart *> *parts = [NSMutableArray new];

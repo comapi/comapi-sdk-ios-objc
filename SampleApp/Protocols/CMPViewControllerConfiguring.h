@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CMPViewControllerConfiguring
+@protocol CMPViewControllerConfiguring <NSObject>
 
 @required
 - (void)navigation;

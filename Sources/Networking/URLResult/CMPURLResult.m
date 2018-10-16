@@ -23,9 +23,9 @@
 }
 
 - (NSString *)description {
-    return [@[@"URL_REQUEST:",
+    return [@[@"REQUEST:",
               [NSString stringWithFormat:@"%@", [self.request URL]],
-              @"URL_RESPONSE:",
+              @"RESPONSE:",
               [NSString stringWithFormat:@"%@", self.response],
               @"DATA:",
               [NSString stringWithFormat:@"%@", [self.data utf8StringValue]],

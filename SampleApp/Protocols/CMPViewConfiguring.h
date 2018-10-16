@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol CMPViewConfiguring
+@protocol CMPViewConfiguring <NSObject>
 
 @required
 - (void)configure;

@@ -8,6 +8,8 @@
 
 #import "CMPConversationsViewController.h"
 #import "CMPTitledCell.h"
+#import "CMPCreateConversationViewController.h"
+#import "CMPChatViewController.h"
 
 @interface CMPConversationsViewController ()
 
@@ -79,7 +81,10 @@
 }
 
 - (void)createConversation {
+    CMPCreateConversationViewModel *vm = [[CMPCreateConversationViewModel alloc] initWithClient:self.viewModel.client];
+    CMPCreateConversationViewController *vc = [[CMPCreateConversationViewController alloc] initWithViewModel:vm];
     
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)reload {
@@ -104,7 +109,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    CMPConversation *conversation = _viewModel.conversations[indexPath.row];
+    CMPChatViewModel *vm = [[CMPChatViewModel alloc] initWithClient:_viewModel.client conversation:conversation];
+    CMPChatViewController *vc = [[CMPChatViewController alloc] initWithViewModel:vm];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

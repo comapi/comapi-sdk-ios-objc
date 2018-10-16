@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, CMPMessageOwnership) {
+    CMPMessageOwnershipSelf,
+    CMPMessageOwnershipOther,
+};
+
 @interface CMPBaseCell : UITableViewCell
 
 @end

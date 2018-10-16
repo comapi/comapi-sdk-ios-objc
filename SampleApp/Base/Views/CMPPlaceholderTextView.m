@@ -61,20 +61,26 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
     [self.placeholderLabel setHidden: ![textView.text isEqualToString:@""]];
-    
-    self.didChangeText(textView);
+    if (self.didChangeText) {
+        self.didChangeText(textView);
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    self.didBeginEditing(textView);
+    if (self.didBeginEditing) {
+        self.didBeginEditing(textView);
+    }
+    
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-    self.didEndEditing(textView);
+    if (self.didEndEditing) {
+        self.didEndEditing(textView);
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if ([text isEqualToString:@"\n"]) {
+    if ([text isEqualToString:@"\n"] && self.didReturnTap) {
         self.didReturnTap(textView);
     }
     

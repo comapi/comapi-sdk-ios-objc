@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) NSArray<CMPMessagePart *> *parts;
 @property (nonatomic, strong, nullable) CMPMessageAlert *alert;
 
--(instancetype)initWithMetadata:(nullable NSDictionary<NSString *, id> *)metadata parts:(nullable NSArray<CMPMessagePart *> *)parts alert:(CMPMessageAlert *)alert;
+-(instancetype)initWithMetadata:(nullable NSDictionary<NSString *, id> *)metadata parts:(nullable NSArray<CMPMessagePart *> *)parts alert:(nullable CMPMessageAlert *)alert;
 
 @end
 
