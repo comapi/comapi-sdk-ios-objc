@@ -37,9 +37,9 @@
     
     [self addSubview:self.placeholderLabel];
     
-    NSLayoutConstraint *top = [[self.placeholderLabel topAnchor] constraintEqualToAnchor: self.topAnchor];
-    NSLayoutConstraint *leading = [[self.placeholderLabel leadingAnchor] constraintEqualToAnchor: self.leadingAnchor];
-    NSLayoutConstraint *trailing = [[self.placeholderLabel trailingAnchor] constraintEqualToAnchor: self.trailingAnchor];
+    NSLayoutConstraint *top = [[self.placeholderLabel topAnchor] constraintEqualToAnchor: self.topAnchor constant:10];
+    NSLayoutConstraint *leading = [[self.placeholderLabel leadingAnchor] constraintEqualToAnchor: self.leadingAnchor constant:10];
+    NSLayoutConstraint *trailing = [[self.placeholderLabel trailingAnchor] constraintEqualToAnchor: self.trailingAnchor constant:-10];
     
     [NSLayoutConstraint activateConstraints:@[top, leading, trailing]];
 }

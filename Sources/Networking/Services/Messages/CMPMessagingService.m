@@ -170,6 +170,9 @@
         if (result.error) {
             completion(nil, result.error);
         } else {
+            CMPGetMessagesResult *object = (CMPGetMessagesResult *)result.object;
+            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"context.sentOn" ascending:YES];
+            object.messages = [object.messages sortedArrayUsingDescriptors:@[sortDescriptor]];
             completion(result.object, nil);
         }
     }];

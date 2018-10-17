@@ -43,7 +43,9 @@
     
     __weak typeof(self) weakSelf = self;
     self.inputMessageView.didTapSendButton = ^{
-        weakSelf.didTapSendButton(weakSelf.inputMessageView.inputTextView.text);
+        if (weakSelf.didTapSendButton) {
+            weakSelf.didTapSendButton(weakSelf.inputMessageView.inputTextView.text);
+        }
         [weakSelf.inputMessageView.inputTextView clearInput];
     };
     self.inputMessageView.inputTextView.didChangeText = ^(UITextView *textView) {
@@ -52,7 +54,9 @@
         weakSelf.inputMessageView.sendButton.enabled = ![textView.text isEqualToString:@""];
     };
     self.inputMessageView.didTapUploadButton = ^{
-        weakSelf.didTapUploadButton();
+        if (weakSelf.didTapUploadButton) {
+            weakSelf.didTapUploadButton();
+        }
     };
     self.inputMessageView.translatesAutoresizingMaskIntoConstraints = NO;
 }

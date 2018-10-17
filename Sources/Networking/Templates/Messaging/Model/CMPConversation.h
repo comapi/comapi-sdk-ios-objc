@@ -20,15 +20,6 @@ NS_SWIFT_NAME(Conversation)
 @property (nonatomic, strong, nullable) NSString *conversationDescription;
 @property (nonatomic, strong) NSNumber *isPublic;
 
-//public var id: String
-//public var name: String
-//public var conversationDescription: String?
-//public var roles: Roles
-//public var isPublic: Bool
-//public var createdOn: Date?
-//public var updatedOn: Date?
-//public var isDeleted: Bool?
-//public var deletedOn: Date?
 @end
 
 NS_ASSUME_NONNULL_END

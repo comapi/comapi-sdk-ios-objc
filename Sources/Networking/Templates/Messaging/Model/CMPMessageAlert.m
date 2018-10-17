@@ -33,7 +33,10 @@
 }
 
 - (id)json {
-    return @{@"platforms" : self.platforms};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValuesForKeysWithDictionary:@{@"platforms" : [self.platforms json]}];
+    
+    return dict;
 }
 
 - (NSData *)encode {

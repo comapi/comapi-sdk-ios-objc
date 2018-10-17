@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleApp/Conversations/Create/ViewModel/CMPCreateConversationViewModel.m"
-            timestampString = "561398328.127301"
+            timestampString = "561477571.2461981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleApp/Conversations/Create/ViewModel/CMPCreateConversationViewModel.m"
-            timestampString = "561398328.127703"
+            timestampString = "561477571.246611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleApp/Conversations/Create/ViewModel/CMPCreateConversationViewModel.m"
-            timestampString = "561398328.127799"
+            timestampString = "561477571.246683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -58,28 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleApp/Conversations/Create/ViewModel/CMPCreateConversationViewModel.m"
-            timestampString = "561398328.127882"
+            timestampString = "561477571.246755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-createConversation:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Networking/Templates/Messaging/Model/CMPSendableMessage.m"
-            timestampString = "561395155.131855"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-json"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

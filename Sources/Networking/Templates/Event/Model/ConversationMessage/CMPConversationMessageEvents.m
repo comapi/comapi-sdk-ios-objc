@@ -60,7 +60,7 @@
     self = [super initWithJSON:JSON];
 
     if (self) {
-        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSString.class]) {
+        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
             self.payload = [[CMPConversationMessageEventDeliveredPayload alloc] initWithJSON:JSON[@"payload"]];
         }
     }
@@ -112,7 +112,7 @@
     self = [super initWithJSON:JSON];
     
     if (self) {
-        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSString.class]) {
+        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
             self.payload = [[CMPConversationMessageEventReadPayload alloc] initWithJSON:JSON[@"payload"]];
         }
     }
@@ -172,11 +172,11 @@
     self = [super initWithJSON:JSON];
     
     if (self) {
-        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSString.class]) {
+        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSDictionary.class]) {
             self.payload = [[CMPConversationMessageEventSentPayload alloc] initWithJSON:JSON[@"payload"]];
         }
         if (JSON[@"publishedOn"] && [JSON[@"publishedOn"] isKindOfClass:NSString.class]) {
-            self.publishedOn = [(NSString *)JSON[@"payload"] asDate];
+            self.publishedOn = [(NSString *)JSON[@"publishedOn"] asDate];
         }
     }
     

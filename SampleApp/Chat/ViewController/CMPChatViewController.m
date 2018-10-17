@@ -8,6 +8,7 @@
 
 #import "CMPChatViewController.h"
 #import "CMPChatTextMessageCell.h"
+#import "CMPAddParticipantsViewController.h"
 
 @interface CMPChatViewController ()
 
@@ -125,10 +126,33 @@
 
 - (void)navigation {
     self.title = _viewModel.conversation.name;
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:0];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    self.navigationItem.leftBarButtonItem = backBarButton;
+    
+    UIButton *addParticipantButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [addParticipantButton setImage:[UIImage imageNamed:@"add"] forState:0];
+    [addParticipantButton addTarget:self action:@selector(addParticipant) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *addParticipantBarButton = [[UIBarButtonItem alloc] initWithCustomView:addParticipantButton];
+    
+    self.navigationItem.rightBarButtonItem = addParticipantBarButton;
 }
 
 - (void)reload {
     [self.chatView.tableView reloadData];
+}
+
+- (void)addParticipant {
+    CMPAddParticipantsViewModel *vm = [[CMPAddParticipantsViewModel alloc] initWithClient:_viewModel.client conversationID:_viewModel.conversation.id];
+    CMPAddParticipantsViewController *vc = [[CMPAddParticipantsViewController alloc] initWithViewModel:vm];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -153,131 +177,4 @@
     }
 }
 
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.messages.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let msg = viewModel.messages[indexPath.row]
-//
-//        if let _ = msg.parts?.first?.url {
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as? ChatImageMessageCell {
-//
-//                if let fromID = msg.context?.from?.id, let profileID = viewModel.client.profileId {
-//                    let isMine = fromID == profileID
-//                    if indexPath.row == viewModel.messages.count - 1 {
-//                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other, downloader: viewModel.downloader, statusViewHidden: false)
-//                    } else {
-//                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other, downloader: viewModel.downloader)
-//                    }
-//                }
-//
-//                return cell
-//            }
-//        } else {
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: "textCell", for: indexPath) as? ChatTextMessageCell {
-//                let msg = viewModel.messages[indexPath.row]
-//
-//
-//                return cell
-//            }
-//        }
-//
-//        return UITableViewCell()
-//        }
-//        }
-
-
 @end
-
-////
-////  ChatViewController.swift
-////  ComapiChatSDKTestApp
-////
-////  Created by Dominik Kowalski on 02/07/2018.
-////  Copyright © 2018 Dominik Kowalski. All rights reserved.
-////
-//
-//import UIKit
-//
-//class ChatViewController: BaseViewController {
-//
-//    var chatView: ChatView { return view as! ChatView }
-//
-//    let viewModel: ChatViewModel
-//
-//    init(viewModel: ChatViewModel) {
-//
-//        self.viewModel = viewModel
-//
-//        super.init()
-//
-//        navigation()
-//        delegates()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    override func loadView() {
-//        view = ChatView()
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        registerForKeyboardNotifications()
-//        registerForLoadingNotification()
-//
-//        viewModel.queryEvents(success: { [weak self] in
-//            self?.viewModel.getMessages(success: { [weak self] in
-//                self?.reload()
-//            }) { (error) in
-//                print(error)
-//            }
-//        }) { (error) in
-//            print(error)
-//        }
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        unregisterFromKeyboardNotifications()
-//        unregisterFromLoadingNotification()
-//    }
-//
-//    override func delegates() {
-
-//    }
-//
-//    override func navigation() {
-//        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-//        backButton.setImage(UIImage(named: "back"), for: UIControlState())
-//        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
-//
-//        let backBarButton = UIBarButtonItem(customView: backButton)
-//
-//        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-//        rightButton.setImage(UIImage(named: "add"), for: UIControlState())
-//        rightButton.addTarget(self, action: #selector(addParticipant), for: .touchUpInside)
-//
-//        let rightBarButton = UIBarButtonItem(customView: rightButton)
-//
-//        navigationItem.rightBarButtonItem = rightBarButton
-//        navigationItem.leftBarButtonItem = backBarButton
-//        navigationItem.title = viewModel.conversation.name
-//    }
-//
-//    func reload() {
-//        chatView.tableView.reloadData()
-//    }
-//
-//    @objc func addParticipant() {
-//        let vm = AddParticipantViewModel(client: viewModel.client, conversationId: viewModel.conversation.id)
-//        let vc = AddParticipantViewController(viewModel: vm)
-//        present(vc, animated: true, completion: nil)
-//    }
-//}
-//
-//extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
-

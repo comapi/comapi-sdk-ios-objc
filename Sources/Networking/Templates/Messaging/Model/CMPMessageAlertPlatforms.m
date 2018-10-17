@@ -37,8 +37,11 @@
 }
 
 - (id)json {
-    return @{@"apns" : self.apns,
-             @"fcm" : self.fcm};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.apns forKey:@"apns"];
+    [dict setValue:self.fcm forKey:@"fcm"];
+    
+    return dict;
 }
 
 - (NSData *)encode {

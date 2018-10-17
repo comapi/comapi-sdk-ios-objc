@@ -58,11 +58,14 @@
 }
 
 - (id)json {
-    return @{@"name" : self.name,
-             @"type" : self.type,
-             @"data" : self.data,
-             @"url" : [self.url absoluteString],
-             @"size" : self.size};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.type forKey:@"type"];
+    [dict setValue:self.data forKey:@"data"];
+    [dict setValue:self.url forKey:@"url"];
+    [dict setValue:self.size forKey:@"size"];
+    
+    return dict;
 }
 
 @end

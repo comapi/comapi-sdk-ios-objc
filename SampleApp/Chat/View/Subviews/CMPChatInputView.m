@@ -36,7 +36,15 @@
     self.layer.shadowOffset = CGSizeMake(0, 0);
     self.layer.shadowOpacity = 0.3;
     self.backgroundColor = UIColor.grayColor;
-    
+//    inputTextView.backgroundColor = .clear
+//    inputTextView.layer.borderWidth = 1.0
+//    inputTextView.layer.borderColor = UIColor.white.cgColor
+//    inputTextView.inputAccessoryView = nil
+//    inputTextView.isScrollEnabled = false
+//    inputTextView.setPlaceholder(text: "New message...")
+//    inputTextView.layer.masksToBounds = true
+//    inputTextView.layer.cornerRadius = 4
+//    inputTextView.clipsToBounds = true
     self.inputTextView.backgroundColor = UIColor.clearColor;
     self.inputTextView.layer.borderWidth = 1.0;
     self.inputTextView.layer.borderColor = UIColor.whiteColor.CGColor;
@@ -54,11 +62,15 @@
     [self.sendButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     [self.sendButton setTitleColor:UIColor.redColor forState:UIControlStateDisabled];
     [self.sendButton addTarget:self action:@selector(sendTapped) forControlEvents:UIControlEventTouchUpInside];
+    //[self.sendButton setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    //[self.sendButton setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.uploadButton.enabled = YES;
     [self.uploadButton setImage:[UIImage imageNamed:@"photo"] forState:0];
     [self.uploadButton addTarget:self action:@selector(uploadTapped) forControlEvents:UIControlEventTouchUpInside];
+    //[self.uploadButton setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    //[self.uploadButton setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     self.uploadButton.translatesAutoresizingMaskIntoConstraints = NO;
 
 }
@@ -70,6 +82,25 @@
 }
 
 - (void)constrain {
+    
+    //view.snp.remakeConstraints {
+        //            switch view {
+        //            case inputTextView:
+        //                $0.height.greaterThanOrEqualTo(40)
+        //                $0.bottom.equalToSuperview().offset(-8)
+        //                $0.top.equalToSuperview().offset(8)
+        //            case sendButton:
+        //                $0.trailing.equalToSuperview().offset(-8)
+        //                $0.centerY.equalToSuperview()
+        //                $0.leading.equalTo(inputTextView.snp.trailing).offset(8)
+        //            case uploadButton:
+        //                $0.leading.equalToSuperview().offset(8)
+        //                $0.centerY.equalToSuperview()
+        //                $0.trailing.equalTo(inputTextView.snp.leading).offset(-8)
+        //            default:
+        //                break
+        //            }
+        //        }
     NSLayoutConstraint *textViewHeight = [self.inputTextView.heightAnchor constraintGreaterThanOrEqualToConstant:40];
     NSLayoutConstraint *textViewBottom = [self.inputTextView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-8];
     NSLayoutConstraint *textViewTop = [self.inputTextView.topAnchor constraintEqualToAnchor:self.topAnchor constant:8];
@@ -79,14 +110,16 @@
     NSLayoutConstraint *sendTrailing = [self.sendButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-8];
     NSLayoutConstraint *sendCenterY = [self.sendButton.centerYAnchor constraintEqualToAnchor:self.centerYAnchor];
     NSLayoutConstraint *sendLeading = [self.sendButton.leadingAnchor constraintEqualToAnchor:self.inputTextView.trailingAnchor constant:8];
+    NSLayoutConstraint *sendWidth = [self.sendButton.widthAnchor constraintGreaterThanOrEqualToConstant:46];
     
-    [NSLayoutConstraint activateConstraints:@[sendTrailing, sendCenterY, sendLeading]];
+    [NSLayoutConstraint activateConstraints:@[sendTrailing, sendWidth, sendCenterY, sendLeading]];
     
     NSLayoutConstraint *uploadTrailing = [self.uploadButton.trailingAnchor constraintEqualToAnchor:self.inputTextView.leadingAnchor constant:-8];
     NSLayoutConstraint *uploadCenterY = [self.uploadButton.centerYAnchor constraintEqualToAnchor:self.centerYAnchor];
     NSLayoutConstraint *uploadLeading = [self.uploadButton.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:8];
+    NSLayoutConstraint *uploadWidth = [self.uploadButton.widthAnchor constraintEqualToConstant:24];
     
-    [NSLayoutConstraint activateConstraints:@[uploadTrailing, uploadCenterY, uploadLeading]];
+    [NSLayoutConstraint activateConstraints:@[uploadTrailing, uploadCenterY, uploadLeading, uploadWidth]];
 }
 
 - (void)sendTapped {

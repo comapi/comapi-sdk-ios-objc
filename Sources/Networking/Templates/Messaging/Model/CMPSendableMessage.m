@@ -27,9 +27,13 @@
     [self.parts enumerateObjectsUsingBlock:^(CMPMessagePart * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [parts addObject:[obj json]];
     }];
-    return @{@"metadata" : self.metadata,
-             @"parts" : parts,
-             @"alert" : [self.alert json]};
+    
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.metadata forKey:@"metadata"];
+    [dict setValue:parts forKey:@"parts"];
+    [dict setValue:self.alert forKey:@"alert"];
+
+    return dict;
 }
 
 - (NSData *)encode {

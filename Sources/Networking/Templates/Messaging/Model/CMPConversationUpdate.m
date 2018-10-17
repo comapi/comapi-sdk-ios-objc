@@ -25,9 +25,9 @@
 }
 
 - (nullable NSData *)encode {
-    NSDictionary<NSString *, id> *dict = @{@"id" : self.id,
-                                           @"name" : self.name,
-                                           @"description" : self.conversationDescription,
+    NSDictionary<NSString *, id> *dict = @{@"id" : [self.id valueOrNull],
+                                           @"name" : [self.name valueOrNull],
+                                           @"description" : [self.conversationDescription valueOrNull],
                                            @"roles" : [self.roles json],
                                            @"isPublic" : [NSNumber numberWithBool:*self.isPublic]};
     NSError *error = nil;

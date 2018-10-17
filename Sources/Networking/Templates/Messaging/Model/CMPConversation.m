@@ -35,14 +35,20 @@
     return self;
 }
 
-- (nullable NSData *)encode {
-    NSDictionary<NSString *, id> *dict = @{@"id" : self.id,
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:nil forKey:@""];
+    [dict setValuesForKeysWithDictionary:@{@"id" : self.id,
                                            @"name" : self.name,
                                            @"description" : self.conversationDescription,
                                            @"roles" : [self.roles json],
-                                           @"isPublic" : self.isPublic};
+                                           @"isPublic" : self.isPublic}];
+    return dict;
+}
+
+- (nullable NSData *)encode {
     NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {
         return nil;
     }
