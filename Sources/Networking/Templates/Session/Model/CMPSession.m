@@ -11,73 +11,77 @@
 
 @implementation CMPSession
 
-- (instancetype)initWithJSON:(NSDictionary *)json {
+- (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
     if (self) {
-        if (json[@"id"] != nil && [json[@"id"] isKindOfClass:[NSString class]]) {
-            self.id = json[@"id"];
+        if (JSON[@"id"] != nil && [JSON[@"id"] isKindOfClass:[NSString class]]) {
+            self.id = JSON[@"id"];
         }
-        if (json[@"nonce"] != nil && [json[@"nonce"] isKindOfClass:[NSString class]]) {
-            self.nonce = json[@"nonce"];
+        if (JSON[@"nonce"] != nil && [JSON[@"nonce"] isKindOfClass:[NSString class]]) {
+            self.nonce = JSON[@"nonce"];
         }
-        if (json[@"provider"] != nil && [json[@"provider"] isKindOfClass:[NSString class]]) {
-            self.provider = json[@"provider"];
+        if (JSON[@"provider"] != nil && [JSON[@"provider"] isKindOfClass:[NSString class]]) {
+            self.provider = JSON[@"provider"];
         }
-        if (json[@"expiresOn"] != nil && [json[@"expiresOn"] isKindOfClass:[NSString class]]) {
-            self.expiresOn = [(NSString *)json[@"expiresOn"] asDate];
+        if (JSON[@"expiresOn"] != nil && [JSON[@"expiresOn"] isKindOfClass:[NSString class]]) {
+            self.expiresOn = [(NSString *)JSON[@"expiresOn"] asDate];
         }
-        if (json[@"isActive"] != nil && [json[@"isActive"] isKindOfClass:[NSNumber class]]) {
-            self.isActive = [(NSNumber *)json[@"isActive"] boolValue];
+        if (JSON[@"isActive"] != nil && [JSON[@"isActive"] isKindOfClass:[NSNumber class]]) {
+            self.isActive = JSON[@"isActive"];
         }
-        if (json[@"deviceId"] != nil && [json[@"deviceId"] isKindOfClass:[NSString class]]) {
-            self.deviceID = json[@"deviceId"];
+        if (JSON[@"deviceId"] != nil && [JSON[@"deviceId"] isKindOfClass:[NSString class]]) {
+            self.deviceID = JSON[@"deviceId"];
         }
-        if (json[@"platform"] != nil && [json[@"platform"] isKindOfClass:[NSString class]]) {
-            self.platform = json[@"platform"];
+        if (JSON[@"platform"] != nil && [JSON[@"platform"] isKindOfClass:[NSString class]]) {
+            self.platform = JSON[@"platform"];
         }
-        if (json[@"platformVersion"] != nil && [json[@"platformVersion"] isKindOfClass:[NSString class]]) {
-            self.platformVersion = json[@"platformVersion"];
+        if (JSON[@"platformVersion"] != nil && [JSON[@"platformVersion"] isKindOfClass:[NSString class]]) {
+            self.platformVersion = JSON[@"platformVersion"];
         }
-        if (json[@"sdkType"] != nil && [json[@"sdkType"] isKindOfClass:[NSString class]]) {
-            self.sdkType = json[@"sdkType"];
+        if (JSON[@"sdkType"] != nil && [JSON[@"sdkType"] isKindOfClass:[NSString class]]) {
+            self.sdkType = JSON[@"sdkType"];
         }
-        if (json[@"sdkVersion"] != nil && [json[@"sdkVersion"] isKindOfClass:[NSString class]]) {
-            self.sdkVersion = json[@"sdkVersion"];
+        if (JSON[@"sdkVersion"] != nil && [JSON[@"sdkVersion"] isKindOfClass:[NSString class]]) {
+            self.sdkVersion = JSON[@"sdkVersion"];
         }
-        if (json[@"profileId"] != nil && [json[@"profileId"] isKindOfClass:[NSString class]]) {
-            self.profileId = json[@"profileId"];
+        if (JSON[@"profileId"] != nil && [JSON[@"profileId"] isKindOfClass:[NSString class]]) {
+            self.profileID = JSON[@"profileId"];
         }
-        if (json[@"sourceIp"] != nil && [json[@"sourceIp"] isKindOfClass:[NSString class]]) {
-            self.sourceIP = json[@"sourceIp"];
+        if (JSON[@"sourceIp"] != nil && [JSON[@"sourceIp"] isKindOfClass:[NSString class]]) {
+            self.sourceIP = JSON[@"sourceIp"];
         }
     }
     
     return self;
 }
 
-- (NSData *)encode:(NSError *__autoreleasing *)error {
-    NSDictionary *dict = @{@"id" : self.id,
-                           @"nonce" : self.nonce,
-                           @"provider" : self.provider,
-                           @"expiresOn" : [[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn],
-                           @"isActive" : [NSNumber numberWithBool:self.isActive],
-                           @"deviceId" : self.deviceID,
-                           @"platform" : self.platform,
-                           @"platformVersion" : self.platformVersion,
-                           @"sdkType" : self.sdkType,
-                           @"sdkVersion" : self.sdkVersion,
-                           @"profileId" : self.profileId,
-                           @"sourceIp" : self.sourceIP};
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.nonce forKey:@"nonce"];
+    [dict setValue:self.provider forKey:@"provider"];
+    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
+    [dict setValue:self.isActive forKey:@"isActive"];
+    [dict setValue:self.platform forKey:@"platform"];
+    [dict setValue:self.platformVersion forKey:@"platformVersion"];
+    [dict setValue:self.sdkType forKey:@"sdkType"];
+    [dict setValue:self.sdkVersion forKey:@"sdkVersion"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.deviceID forKey:@"deviceId"];
+    [dict setValue:self.sourceIP forKey:@"sourceIp"];
     
+    return dict;
+}
+
+- (NSData *)encode {    
     NSError *serializationError = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     
-    return json;
+    return data;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
@@ -89,7 +93,7 @@
     [aCoder encodeObject:self.platform forKey:@"platform"];
     [aCoder encodeObject:self.platformVersion forKey:@"platformVersion"];
     [aCoder encodeObject:self.sdkType forKey:@"sdkType"];
-    [aCoder encodeObject:self.profileId forKey:@"profileId"];
+    [aCoder encodeObject:self.profileID forKey:@"profileId"];
     [aCoder encodeObject:self.sourceIP forKey:@"sourceIp"];
     [aCoder encodeBool:self.isActive forKey:@"isActive"];
 }
@@ -106,7 +110,7 @@
         self.platform = [aDecoder decodeObjectForKey:@"platform"];
         self.platformVersion = [aDecoder decodeObjectForKey:@"platformVersion"];
         self.sdkType = [aDecoder decodeObjectForKey:@"sdkType"];
-        self.profileId = [aDecoder decodeObjectForKey:@"profileId"];
+        self.profileID = [aDecoder decodeObjectForKey:@"profileId"];
         self.sourceIP = [aDecoder decodeObjectForKey:@"sourceIp"];
     }
     

@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(JSONEncoding)
 @protocol CMPJSONEncoding <NSObject>
-
-- (nullable NSData *)encode:(NSError **)error;
+@optional
+- (nullable NSData *)encode;
+- (id)json;
 
 @end
 

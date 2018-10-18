@@ -5,8 +5,9 @@
 //  Created by Dominik Kowalski on 27/08/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
-#import <UIKit/UIKit.h>
+
 #import "CMPAuthorizeSessionBody.h"
+#import <UIKit/UIKit.h>
 #import "CMPUtilities.h"
 
 @implementation CMPAuthorizeSessionBody
@@ -43,18 +44,23 @@
     return self;
 }
 
-- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
-    NSDictionary *dict = @{@"authenticationId" : self.authenticationID,
-                           @"authenticationToken" : self.authenticationToken,
-                           @"deviceId" : self.deviceID,
-                           @"platform" : self.platform,
-                           @"platformVersion" : self.platformVersion,
-                           @"sdkType" : self.sdkType,
-                           @"sdkVersion" : self.sdkVersion};
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.authenticationID forKey:@"authenticationId"];
+    [dict setValue:self.authenticationToken forKey:@"authenticationToken"];
+    [dict setValue:self.deviceID forKey:@"deviceId"];
+    [dict setValue:self.platform forKey:@"platform"];
+    [dict setValue:self.platformVersion forKey:@"platformVersion"];
+    [dict setValue:self.sdkType forKey:@"sdkType"];
+    [dict setValue:self.sdkVersion forKey:@"sdkVersion"];
+    
+    return dict;
+}
+
+- (nullable NSData *)encode {
     NSError *serializationError = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     

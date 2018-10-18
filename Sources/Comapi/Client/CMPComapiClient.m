@@ -13,7 +13,7 @@
 
 @interface CMPComapiClient ()
 
-@property (nonatomic, strong) NSString *apiSpaceID;
+@property (nonatomic, copy) NSString *apiSpaceID;
 
 @property (nonatomic, strong) CMPRequestManager *requestManager;
 @property (nonatomic, strong) CMPSessionManager *sessionManager;
@@ -34,7 +34,7 @@
     self = [super init];
     
     if (self) {
-        self.state = CMPSDKStateInitialising;
+        _state = CMPSDKStateInitialising;
         
         self.apiConfiguration = configuration;
         self.apiSpaceID = apiSpaceID;
@@ -46,23 +46,23 @@
         self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
         [self.sessionManager bindClient:self];
         
-        self.services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
+        _services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
         
-        self.state = CMPSDKStateInitilised;
+        _state = CMPSDKStateInitilised;
     }
     
     return self;
 }
 
-- (NSString *)profileID {
-    return self.sessionManager.sessionAuth.session.profileId;
+- (NSString *)getProfileID {
+    return self.sessionManager.sessionAuth.session.profileID;
 }
 
--(BOOL)isSessionSuccessfullyCreated {
+- (BOOL)isSessionSuccessfullyCreated {
     return [self.sessionManager isSessionValid];
 }
 
--(void)setPushToken:(NSString *)deviceToken completion:(void (^)(BOOL, NSError *))completion {
+- (void)setPushToken:(NSString *)deviceToken completion:(void (^)(BOOL, NSError *))completion {
     CMPSetAPNSDetailsTemplate *(^builder)(NSString *) = ^(NSString *token) {
         NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
         NSString *environment = @"";

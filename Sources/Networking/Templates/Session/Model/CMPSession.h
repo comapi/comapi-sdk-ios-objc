@@ -8,11 +8,12 @@
 
 #import "CMPAuthenticationChallenge.h"
 #import "CMPJSONEncoding.h"
+#import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Session)
-@interface CMPSession : NSObject <CMPJSONEncoding, NSCoding>
+@interface CMPSession : NSObject <CMPJSONEncoding, CMPJSONDecoding, NSCoding>
 
 @property (nonatomic, nullable) NSString *id;
 @property (nonatomic, nullable) NSString *nonce;
@@ -24,11 +25,11 @@ NS_SWIFT_NAME(Session)
 @property (nonatomic, nullable) NSString *sdkType;
 @property (nonatomic, nullable) NSString *sdkVersion;
 @property (nonatomic, nullable) NSString *sourceIP;
-@property (nonatomic, nullable) NSString *profileId;
+@property (nonatomic, nullable) NSString *profileID;
 @property (nonatomic, nullable) NSDate *expiresOn;
-@property (nonatomic) BOOL isActive;
+@property (nonatomic, nullable) NSNumber *isActive;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

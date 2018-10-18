@@ -59,14 +59,8 @@
 
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        NSError *parseError = nil;
-        CMPProfile *object = [[CMPProfile alloc] decodeWithData:data error:&parseError];
-        if (object) {
-            return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
-        } else {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
-            return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
-        }
+        CMPProfile *object = [[CMPProfile alloc] decodeWithData:data];
+        return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     } else if ([response httpStatusCode] == 404) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];

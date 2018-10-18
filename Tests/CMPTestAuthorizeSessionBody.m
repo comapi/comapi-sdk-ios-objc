@@ -43,9 +43,9 @@
     XCTAssertEqualObjects(sessionBody.deviceID, @"iPhone 6,1");
     XCTAssertEqualObjects(sessionBody.sdkType, @"native");
 
-    NSData *encodedData = [sessionBody encode:&error];
+    NSData *encodedData = [sessionBody encode];
     NSDictionary<NSString *, id> *decodedJson = [NSJSONSerialization JSONObjectWithData:encodedData options:0 error:&error];
-    CMPAuthorizeSessionBody *decodedSessionBody = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:json[@"authenticationId"] authenticationToken:json[@"authenticationToken"] deviceID:json[@"deviceId"] platform:json[@"platform"] platformVersion:json[@"platformVersion"] sdkType:json[@"sdkType"] sdkVersion:json[@"sdkVersion"]];
+    CMPAuthorizeSessionBody *decodedSessionBody = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:decodedJson[@"authenticationId"] authenticationToken:decodedJson[@"authenticationToken"] deviceID:decodedJson[@"deviceId"] platform:decodedJson[@"platform"] platformVersion:decodedJson[@"platformVersion"] sdkType:decodedJson[@"sdkType"] sdkVersion:decodedJson[@"sdkVersion"]];
     if (error) {
         XCTFail();
     }

@@ -33,12 +33,16 @@ NS_SWIFT_NAME(QueryElements)
 @property (nonatomic) CMPQueryElement element;
 @property (nonatomic, strong) NSString *value;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithKey:(NSString *)key element:(CMPQueryElement)element value:(NSString *)value;
 
 @end
 
 NS_SWIFT_NAME(QueryBuilder)
 @interface CMPQueryBuilder : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
 
 + (NSString *)buildQueryWithElements:(NSArray<CMPQueryElements *> *)elements;
 

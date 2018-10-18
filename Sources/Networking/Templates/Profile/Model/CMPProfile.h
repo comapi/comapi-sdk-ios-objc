@@ -16,7 +16,7 @@ NS_SWIFT_NAME(Profile)
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *email;
 
-- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)JSON;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

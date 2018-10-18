@@ -25,18 +25,6 @@
     [super tearDown];
 }
 
-- (void)testComapiErrors {
-    NSError *notInitialised = [CMPErrors comapiErrorWithStatus:CMPComapiErrorNotInitialised underlyingError:nil];
-    
-    XCTAssertEqual(notInitialised.code, 5572);
-    XCTAssertEqualObjects(notInitialised.domain, @"com.comapi.foundation.comapi");
-    
-    NSError *alreadyInitialised = [CMPErrors comapiErrorWithStatus:CMPComapiErrorAlreadyInitialised underlyingError:nil];
-    
-    XCTAssertEqual(alreadyInitialised.code, 5571);
-    XCTAssertEqualObjects(alreadyInitialised.domain, @"com.comapi.foundation.comapi");
-}
-
 - (void)testRequestTemplateErrors {
     NSError *requestCreationFailed = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
     

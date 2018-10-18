@@ -23,12 +23,7 @@
 }
 
 - (nullable NSData *)httpBody {
-    NSError *error = nil;
-    NSData *data = [self.body encode:&error];
-    if (error) {
-        return nil;
-    }
-    return data;
+    return [self.body encode];
 }
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {

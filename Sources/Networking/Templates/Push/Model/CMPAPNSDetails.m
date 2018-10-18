@@ -22,12 +22,18 @@
     return self;
 }
 
-- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
-    NSDictionary<NSString *, id> *dict = @{@"bundleID" : self.bundleID,
-                                           @"environment" : self.environment,
-                                           @"token" : self.token};
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.bundleID forKey:@"bundleId"];
+    [dict setValue:self.environment forKey:@"environment"];
+    [dict setValue:self.token forKey:@"token"];
+    
+    return dict;
+}
+
+- (nullable NSData *)encode {
     NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }

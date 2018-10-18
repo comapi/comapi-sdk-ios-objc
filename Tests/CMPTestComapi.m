@@ -33,29 +33,16 @@
 }
 
 - (void)testInitialiseWithConfig {
-    NSError *error = nil;
-    CMPComapiClient *client = [CMPComapi initialiseWithConfig:self.config error:&error];
-    if (error) {
-        XCTFail();
-    }
+    CMPComapiClient *client = [CMPComapi initialiseWithConfig:self.config];
     
     XCTAssertNotNil(client);
 }
 
 - (void)testInitialiseSharedInstanceWithConfig {
-    NSError *error = nil;
-    CMPComapiClient *client = [CMPComapi initialiseSharedInstanceWithConfig:self.config error:&error];
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-        XCTFail();
-    }
+    CMPComapiClient *client = [CMPComapi initialiseSharedInstanceWithConfig:self.config];
     
     XCTAssertNotNil(client);
-    XCTAssertNotNil([CMPComapi shared:&error]);
-    
-    if (error) {
-        XCTFail();
-    }
+    XCTAssertNotNil([CMPComapi shared]);
 }
 
 @end

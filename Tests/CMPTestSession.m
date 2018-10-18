@@ -46,9 +46,9 @@
     XCTAssertEqualObjects(session.sdkType, @"native");
     XCTAssertEqualObjects(session.sdkVersion, @"1.0.0");
     XCTAssertEqualObjects(session.sourceIP, @"89.73.249.16");
-    XCTAssertEqualObjects(session.profileId, @"test1");
+    XCTAssertEqualObjects(session.profileID, @"test1");
 
-    NSData *encodedData = [session encode:&error];
+    NSData *encodedData = [session encode];
     NSDictionary<NSString *, id> *decodedJson = [NSJSONSerialization JSONObjectWithData:encodedData options:0 error:&error];
     CMPSession *decodedSession = [[CMPSession alloc] initWithJSON:decodedJson];
     if (error) {
@@ -65,7 +65,7 @@
     XCTAssertEqualObjects(decodedSession.sdkType, @"native");
     XCTAssertEqualObjects(decodedSession.sdkVersion, @"1.0.0");
     XCTAssertEqualObjects(decodedSession.sourceIP, @"89.73.249.16");
-    XCTAssertEqualObjects(decodedSession.profileId, @"test1");
+    XCTAssertEqualObjects(decodedSession.profileID, @"test1");
 }
 
 @end

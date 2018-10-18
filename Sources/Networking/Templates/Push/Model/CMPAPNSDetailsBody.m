@@ -20,15 +20,17 @@
     return self;
 }
 
-- (nullable NSData *)encode:(NSError *__autoreleasing *)error {
-    NSDictionary<NSString *, id> *apnsDict = @{@"bundleId" : self.apns.bundleID,
-                                               @"environment" : self.apns.environment,
-                                               @"token" : self.apns.token};
-    NSDictionary<NSString *, id> *dict = @{@"apns" : apnsDict};
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:[self.apns json] forKey:@"apns"];
+    
+    return dict;
+}
+
+- (nullable NSData *)encode {
     NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
-        *error = serializationError;
         return nil;
     }
     return data;

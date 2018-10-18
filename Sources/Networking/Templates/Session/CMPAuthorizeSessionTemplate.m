@@ -22,12 +22,7 @@
 }
 
 - (nullable NSData *)httpBody {
-    NSError *error = nil;
-    NSData *data = [self.body encode:&error];
-    if (error) {
-        return nil;
-    }
-    return data;
+    return [self.body encode];
 }
 
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders {
@@ -50,14 +45,8 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        NSError *parseError = nil;
-        CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data error:&parseError];
-        if (object) {
-            return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
-        } else {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
-            return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
-        }
+        CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data];
+        return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     }
     
     NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
