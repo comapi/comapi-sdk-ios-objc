@@ -69,7 +69,7 @@
             } else {
                 CMPRoles *roles = [self createRoles];
                 weakSelf.conversation.participants = @[me];
-                weakSelf.conversation.isPublic = isPublic;
+                weakSelf.conversation.isPublic = [NSNumber numberWithBool:isPublic];
                 weakSelf.conversation.roles = roles;
                 weakSelf.conversation.id = id;
                 

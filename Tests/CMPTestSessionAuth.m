@@ -29,23 +29,19 @@
 
 - (void)testJSONDecoding {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"SessionAuth"];
-    NSError *error = nil;
-    CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data error:&error];
-    if (error) {
-        XCTFail();
-    }
+    CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data];
     
     XCTAssertEqualObjects(object.token, @"aae066f4-399b-4251-8776-b6244c8acbc1");
     XCTAssertEqualObjects(object.session.id, @"f7636495-e553-4abd-a247-c99d1758f5e9");
     XCTAssertEqualObjects(object.session.nonce, @"17796561-bc4c-49b4-a83f-6e6bc7611448");
     XCTAssertEqualObjects(object.session.provider, @"jsonWebToken");
-    XCTAssertEqual(object.session.isActive, YES);
+    XCTAssertEqualObjects(object.session.isActive, @(YES));
     XCTAssertEqualObjects(object.session.deviceID, @"iPhone 6,1");
     XCTAssertEqualObjects(object.session.platformVersion, @"10.0.1");
     XCTAssertEqualObjects(object.session.sdkType, @"native");
     XCTAssertEqualObjects(object.session.sdkVersion, @"0.0.1");
     XCTAssertEqualObjects(object.session.sourceIP, @"80.80.80.80");
-    XCTAssertEqualObjects(object.session.profileId, @"dominik.kowalski");
+    XCTAssertEqualObjects(object.session.profileID, @"dominik.kowalski");
 }
 
 @end

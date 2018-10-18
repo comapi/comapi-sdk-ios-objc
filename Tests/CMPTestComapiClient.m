@@ -115,7 +115,7 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile getProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile getProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPProfile * profile, NSError * error) {
         id self = weakSelf;
         XCTAssertNil(error);
         XCTAssertNotNil(profile);
@@ -163,7 +163,7 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
 
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile updateProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile updateProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
         id self = weakSelf;
         XCTAssertNil(error);
         XCTAssertNotNil(profile);
@@ -186,7 +186,7 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile patchProfileForProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile patchProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
             id self = weakSelf;
             XCTAssertNil(error);
             XCTAssertNotNil(profile);

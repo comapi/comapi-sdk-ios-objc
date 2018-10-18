@@ -28,7 +28,7 @@
             self.expiresOn = [(NSString *)JSON[@"expiresOn"] asDate];
         }
         if (JSON[@"isActive"] != nil && [JSON[@"isActive"] isKindOfClass:[NSNumber class]]) {
-            self.isActive = [(NSNumber *)JSON[@"isActive"] boolValue];
+            self.isActive = JSON[@"isActive"];
         }
         if (JSON[@"deviceId"] != nil && [JSON[@"deviceId"] isKindOfClass:[NSString class]]) {
             self.deviceID = JSON[@"deviceId"];
@@ -46,7 +46,7 @@
             self.sdkVersion = JSON[@"sdkVersion"];
         }
         if (JSON[@"profileId"] != nil && [JSON[@"profileId"] isKindOfClass:[NSString class]]) {
-            self.profileId = JSON[@"profileId"];
+            self.profileID = JSON[@"profileId"];
         }
         if (JSON[@"sourceIp"] != nil && [JSON[@"sourceIp"] isKindOfClass:[NSString class]]) {
             self.sourceIP = JSON[@"sourceIp"];
@@ -56,22 +56,40 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.nonce forKey:@"nonce"];
+    [dict setValue:self.provider forKey:@"provider"];
+    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
+    [dict setValue:self.isActive forKey:@"isActive"];
+    [dict setValue:self.platform forKey:@"platform"];
+    [dict setValue:self.platformVersion forKey:@"platformVersion"];
+    [dict setValue:self.sdkType forKey:@"sdkType"];
+    [dict setValue:self.sdkVersion forKey:@"sdkVersion"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.deviceID forKey:@"deviceId"];
+    [dict setValue:self.sourceIP forKey:@"sourceIp"];
+    
+    return dict;
+}
+
 - (NSData *)encode {
-    NSDictionary *dict = @{@"id" : self.id,
-                           @"nonce" : self.nonce,
-                           @"provider" : self.provider,
-                           @"expiresOn" : [[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn],
-                           @"isActive" : [NSNumber numberWithBool:self.isActive],
-                           @"deviceId" : self.deviceID,
-                           @"platform" : self.platform,
-                           @"platformVersion" : self.platformVersion,
-                           @"sdkType" : self.sdkType,
-                           @"sdkVersion" : self.sdkVersion,
-                           @"profileId" : self.profileId,
-                           @"sourceIp" : self.sourceIP};
+//    NSDictionary *dict = @{@"id" : self.id,
+//                           @"nonce" : self.nonce,
+//                           @"provider" : self.provider,
+//                           @"expiresOn" : [[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn],
+//                           @"isActive" : self.isActive,
+//                           @"deviceId" : self.deviceID,
+//                           @"platform" : self.platform,
+//                           @"platformVersion" : self.platformVersion,
+//                           @"sdkType" : self.sdkType,
+//                           @"sdkVersion" : self.sdkVersion,
+//                           @"profileId" : self.profileId,
+//                           @"sourceIp" : self.sourceIP};
     
     NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&serializationError];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
@@ -88,7 +106,7 @@
     [aCoder encodeObject:self.platform forKey:@"platform"];
     [aCoder encodeObject:self.platformVersion forKey:@"platformVersion"];
     [aCoder encodeObject:self.sdkType forKey:@"sdkType"];
-    [aCoder encodeObject:self.profileId forKey:@"profileId"];
+    [aCoder encodeObject:self.profileID forKey:@"profileId"];
     [aCoder encodeObject:self.sourceIP forKey:@"sourceIp"];
     [aCoder encodeBool:self.isActive forKey:@"isActive"];
 }
@@ -105,7 +123,7 @@
         self.platform = [aDecoder decodeObjectForKey:@"platform"];
         self.platformVersion = [aDecoder decodeObjectForKey:@"platformVersion"];
         self.sdkType = [aDecoder decodeObjectForKey:@"sdkType"];
-        self.profileId = [aDecoder decodeObjectForKey:@"profileId"];
+        self.profileID = [aDecoder decodeObjectForKey:@"profileId"];
         self.sourceIP = [aDecoder decodeObjectForKey:@"sourceIp"];
     }
     

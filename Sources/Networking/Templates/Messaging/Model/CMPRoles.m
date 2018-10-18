@@ -47,10 +47,10 @@
 }
 
 - (id)json {
-    NSDictionary<NSString *, id> *ownerAttributesDict = [self.owner json];
-    NSDictionary<NSString *, id> *participantsAttributesDict = [self.participants json];
-    NSDictionary<NSString *, id> *dict = @{@"owner" : ownerAttributesDict,
-                                           @"participant" : participantsAttributesDict};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:[self.owner json] forKey:@"owner"];
+    [dict setValue:[self.participants json] forKey:@"participant"];
+    
     return dict;
 }
 

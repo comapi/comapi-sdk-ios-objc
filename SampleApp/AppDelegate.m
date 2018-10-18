@@ -62,6 +62,7 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    
     completionHandler();
 }
 

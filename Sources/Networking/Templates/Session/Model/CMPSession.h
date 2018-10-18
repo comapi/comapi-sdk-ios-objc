@@ -25,9 +25,9 @@ NS_SWIFT_NAME(Session)
 @property (nonatomic, nullable) NSString *sdkType;
 @property (nonatomic, nullable) NSString *sdkVersion;
 @property (nonatomic, nullable) NSString *sourceIP;
-@property (nonatomic, nullable) NSString *profileId;
+@property (nonatomic, nullable) NSString *profileID;
 @property (nonatomic, nullable) NSDate *expiresOn;
-@property (nonatomic) BOOL isActive;
+@property (nonatomic, nullable) NSNumber *isActive;
 
 - (instancetype)init NS_UNAVAILABLE;
 

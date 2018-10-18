@@ -28,11 +28,7 @@
 
 - (void)testJSONDecoding {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"AuthenticationChallenge"];
-    NSError *error = nil;
-    CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data error:&error];
-    if (error) {
-        XCTFail();
-    }
+    CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data];
     
     XCTAssertEqualObjects(object.authenticationID, @"f6c4003a-c572-48fb-8a01-56b027e20cc3");
     XCTAssertEqualObjects(object.provider, @"jsonWebToken");

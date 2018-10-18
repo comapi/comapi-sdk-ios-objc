@@ -19,9 +19,9 @@ NS_SWIFT_NAME(NewConversation)
 @property (nonatomic, strong, nullable) NSString *conversationDescription;
 @property (nonatomic, strong, nullable) CMPRoles *roles;
 @property (nonatomic, strong, nullable) NSArray<CMPConversationParticipant *> *participants;
-@property (nonatomic) BOOL isPublic;
+@property (nonatomic, strong, nullable) NSNumber *isPublic;
 
-- (instancetype)initWithID:(nullable NSString *)ID name:(nullable NSString *)name description:(nullable NSString *)descirption roles:(nullable CMPRoles *)roles participants:(nullable NSArray<CMPConversationParticipant *> *)participants isPublic:(BOOL)isPublic;
+- (instancetype)initWithID:(nullable NSString *)ID name:(nullable NSString *)name description:(nullable NSString *)descirption roles:(nullable CMPRoles *)roles participants:(nullable NSArray<CMPConversationParticipant *> *)participants isPublic:(nullable NSNumber *)isPublic;
 //public var id: String?
 //public var name: String?
 //public var conversationDescription: String?

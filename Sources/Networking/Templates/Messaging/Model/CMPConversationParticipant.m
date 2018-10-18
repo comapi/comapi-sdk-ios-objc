@@ -37,8 +37,11 @@
 }
 
 - (id)json {
-    return @{@"id" : self.id,
-             @"role" : self.role};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.role forKey:@"role"];
+    
+    return dict;
 }
 
 - (nullable instancetype)decodeWithData:(NSData *)data {

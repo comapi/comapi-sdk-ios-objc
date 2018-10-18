@@ -52,9 +52,12 @@
 }
 
 - (id)json {
-    return @{@"status" : self.status,
-             @"timestamp" : [[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp],
-             @"messageIds" : self.messageIDs};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.status forKey:@"status"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    [dict setValue:self.messageIDs forKey:@"messageIds"];
+    
+    return dict;
 }
 
 - (NSData *)encode {

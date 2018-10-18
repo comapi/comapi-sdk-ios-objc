@@ -17,9 +17,9 @@ NS_SWIFT_NAME(ConversationUpdate)
 @property (nonatomic, strong, nullable) NSString *name;
 @property (nonatomic, strong, nullable) NSString *conversationDescription;
 @property (nonatomic, strong, nullable) CMPRoles *roles;
-@property (nonatomic, nullable) BOOL *isPublic;
+@property (nonatomic, strong, nullable) NSNumber *isPublic;
 
-- (instancetype)initWithID:(nullable NSString *)id name:(nullable NSString *)name description:(nullable NSString*)description roles:(nullable CMPRoles *)roles isPublic:(nullable BOOL *)isPublic;
+- (instancetype)initWithID:(nullable NSString *)id name:(nullable NSString *)name description:(nullable NSString*)description roles:(nullable CMPRoles *)roles isPublic:(nullable NSNumber *)isPublic;
 
 //public var id: String?
 //public var name: String?

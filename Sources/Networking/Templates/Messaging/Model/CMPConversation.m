@@ -37,12 +37,12 @@
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:nil forKey:@""];
-    [dict setValuesForKeysWithDictionary:@{@"id" : self.id,
-                                           @"name" : self.name,
-                                           @"description" : self.conversationDescription,
-                                           @"roles" : [self.roles json],
-                                           @"isPublic" : self.isPublic}];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.description forKey:@"conversationDescription"];
+    [dict setValue:[self.roles json] forKey:@"roles"];
+    [dict setValue:self.isPublic forKey:@"isPublic"];
+
     return dict;
 }
 

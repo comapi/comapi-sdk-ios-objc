@@ -48,8 +48,11 @@
 }
 
 - (id)json {
-    return @{@"status" : self.status,
-             @"on" : [[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp]};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.status forKey:@"status"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    
+    return dict;
 }
 
 - (NSData *)encode {

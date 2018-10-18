@@ -34,7 +34,7 @@
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValuesForKeysWithDictionary:@{@"platforms" : [self.platforms json]}];
+    [dict setValue:[self.platforms json] forKey:@"platforms"];
     
     return dict;
 }

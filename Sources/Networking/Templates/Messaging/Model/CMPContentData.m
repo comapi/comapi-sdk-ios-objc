@@ -47,9 +47,12 @@
 }
 
 - (id)json {
-    return @{@"name" : self.name,
-             @"type" : self.type,
-             @"data" : [self.data base64EncodedStringWithOptions:0]};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.type forKey:@"type"];
+    [dict setValue:[self.data base64EncodedStringWithOptions:0] forKey:@"data"];
+    
+    return dict;
 }
 
 - (NSData *)encode {

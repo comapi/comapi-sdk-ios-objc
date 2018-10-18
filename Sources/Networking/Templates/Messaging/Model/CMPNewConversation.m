@@ -10,7 +10,7 @@
 
 @implementation CMPNewConversation
 
-- (instancetype)initWithID:(NSString *)ID name:(NSString *)name description:(NSString *)descirption roles:(CMPRoles *)roles participants:(NSMutableArray<CMPConversationParticipant *> *)participants isPublic:(BOOL)isPublic {
+- (instancetype)initWithID:(NSString *)ID name:(NSString *)name description:(NSString *)descirption roles:(CMPRoles *)roles participants:(NSMutableArray<CMPConversationParticipant *> *)participants isPublic:(NSNumber *)isPublic {
     self = [super init];
     
     if (self) {
@@ -31,12 +31,15 @@
         [participants addObject:[obj json]];
     }];
     
-    return @{@"id" : self.id,
-            @"name" : self.name,
-            @"description" : self.conversationDescription,
-            @"roles" : [self.roles json],
-            @"isPublic" : [NSNumber numberWithBool:self.isPublic],
-            @"participants" : participants};
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.conversationDescription forKey:@"description"];
+    [dict setValue:[self.roles json] forKey:@"roles"];
+    [dict setValue:self.isPublic forKey:@"isPublic"];
+    [dict setValue:participants forKey:@"participants"];
+    
+    return dict;
 }
 
 - (NSData *)encode {

@@ -70,7 +70,7 @@
 }
 
 - (NSString *)getProfileID {
-    return self.sessionManager.sessionAuth.session.profileId;
+    return self.sessionManager.sessionAuth.session.profileID;
 }
 
 - (BOOL)isSessionSuccessfullyCreated {

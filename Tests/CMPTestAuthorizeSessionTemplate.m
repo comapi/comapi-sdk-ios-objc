@@ -37,10 +37,10 @@
     XCTAssertEqualObjects(template.body.authenticationID, @"test_auth_id");
     XCTAssertEqualObjects(template.body.authenticationToken, @"MOCK_AUTHENTICATION_TOKEN");
     XCTAssertEqualObjects(template.body.deviceID, [[UIDevice currentDevice] model]);
-    XCTAssertEqualObjects(template.body.platform, CMPPlatformInfo);
+    XCTAssertEqualObjects(template.body.platform, CMPSDKInfoPlatform);
     XCTAssertEqualObjects(template.body.platformVersion, [[UIDevice currentDevice] systemVersion]);
-    XCTAssertEqualObjects(template.body.sdkType, CMPSDKType);
-    XCTAssertEqualObjects(template.body.sdkVersion, CMPSDKVersion);
+    XCTAssertEqualObjects(template.body.sdkType, CMPSDKInfoType);
+    XCTAssertEqualObjects(template.body.sdkVersion, CMPSDKInfoVersion);
 }
 
 @end

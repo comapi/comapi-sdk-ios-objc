@@ -64,38 +64,3 @@
 }
 
 @end
-
-//public struct GetMessagesResult: Codable {
-//public var latestEventID: Int?
-//public var earliestEventID: Int?
-//public var messages: [Message]?
-//public var orphanedEvents: [OrphanedEvent]?
-//
-//public init() { }
-//
-//private enum CodingKeys: String, CodingKey {
-//case latestEventID = "latestEventId"
-//case earliestEventID = "earliestEventId"
-//case messages = "messages"
-//case orphanedEvents = "orphanedEvents"
-//}
-//
-//public init(fromData data: Data) {
-//self.init()
-//
-//if let jsonDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any], let json = jsonDict{
-//self.latestEventID = json["latestEventId"] as? Int
-//self.earliestEventID = json["earliestEventId"] as? Int
-//
-//var messages: [Message]?
-//
-//if let jsonMessages = json["messages"], let messagesData = try? JSONSerialization.data(withJSONObject: jsonMessages) {
-//messages = try? JSONDecoder.default().decode([Message].self, from: messagesData)
-//}
-//
-//self.messages = messages
-//self.orphanedEvents =  (json["orphanedEvents"] as! [[String:Any]]).compactMap { OrphanedEvent(fromDictionary: $0)}
-//}
-//
-//}
-//}
