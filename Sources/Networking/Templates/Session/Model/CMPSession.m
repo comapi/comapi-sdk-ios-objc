@@ -95,7 +95,7 @@
     [aCoder encodeObject:self.sdkType forKey:@"sdkType"];
     [aCoder encodeObject:self.profileID forKey:@"profileId"];
     [aCoder encodeObject:self.sourceIP forKey:@"sourceIp"];
-    [aCoder encodeBool:self.isActive forKey:@"isActive"];
+    [aCoder encodeObject:self.isActive forKey:@"isActive"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -112,6 +112,7 @@
         self.sdkType = [aDecoder decodeObjectForKey:@"sdkType"];
         self.profileID = [aDecoder decodeObjectForKey:@"profileId"];
         self.sourceIP = [aDecoder decodeObjectForKey:@"sourceIp"];
+        self.isActive = [aDecoder decodeObjectForKey:@"isActive"];
     }
     
     return self;
