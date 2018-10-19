@@ -145,11 +145,15 @@
 		897B83C621760F3F003D4206 /* CMPChatImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83C521760F3F003D4206 /* CMPChatImageMessageCell.m */; };
 		897B83C921761A64003D4206 /* NSDate+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B83C721761A64003D4206 /* NSDate+CMPUtility.h */; };
 		897B83CA21761A64003D4206 /* NSDate+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83C821761A64003D4206 /* NSDate+CMPUtility.m */; };
-		897B83CD21772A44003D4206 /* NSObject+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 897B83CB21772A44003D4206 /* NSObject+CMPUtility.h */; };
-		897B83CE21772A44003D4206 /* NSObject+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83CC21772A44003D4206 /* NSObject+CMPUtility.m */; };
 		897B83D521775452003D4206 /* CMPAddParticipantsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83D421775452003D4206 /* CMPAddParticipantsViewModel.m */; };
 		897B83D821775472003D4206 /* CMPAddParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83D721775472003D4206 /* CMPAddParticipantsViewController.m */; };
 		897B83DB2177548F003D4206 /* CMPAddParticipantsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83DA2177548F003D4206 /* CMPAddParticipantsView.m */; };
+		897B83E22179FE98003D4206 /* CMPPhotoCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83E12179FE98003D4206 /* CMPPhotoCropView.m */; };
+		897B83E62179FED3003D4206 /* CMPCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83E52179FED3003D4206 /* CMPCropView.m */; };
+		897B83EC217A09D9003D4206 /* CMPCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83EB217A09D9003D4206 /* CMPCropOverlayView.m */; };
+		897B83EF217A0A17003D4206 /* CMPGridOverlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83EE217A0A17003D4206 /* CMPGridOverlayLayer.m */; };
+		897B83F2217A10FC003D4206 /* CMPPhotoCropViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83F1217A10FC003D4206 /* CMPPhotoCropViewModel.m */; };
+		897B83F5217A2776003D4206 /* CMPPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83F4217A2776003D4206 /* CMPPhotoCropViewController.m */; };
 		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		898305FF21675B7800F155C7 /* CMPAddParticipantsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */; };
 		8983060021675B7800F155C7 /* CMPAddParticipantsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */; };
@@ -484,14 +488,24 @@
 		897B83C521760F3F003D4206 /* CMPChatImageMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPChatImageMessageCell.m; sourceTree = "<group>"; };
 		897B83C721761A64003D4206 /* NSDate+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+CMPUtility.h"; sourceTree = "<group>"; };
 		897B83C821761A64003D4206 /* NSDate+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CMPUtility.m"; sourceTree = "<group>"; };
-		897B83CB21772A44003D4206 /* NSObject+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CMPUtility.h"; sourceTree = "<group>"; };
-		897B83CC21772A44003D4206 /* NSObject+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CMPUtility.m"; sourceTree = "<group>"; };
 		897B83D321775452003D4206 /* CMPAddParticipantsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsViewModel.h; sourceTree = "<group>"; };
 		897B83D421775452003D4206 /* CMPAddParticipantsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsViewModel.m; sourceTree = "<group>"; };
 		897B83D621775472003D4206 /* CMPAddParticipantsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsViewController.h; sourceTree = "<group>"; };
 		897B83D721775472003D4206 /* CMPAddParticipantsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsViewController.m; sourceTree = "<group>"; };
 		897B83D92177548F003D4206 /* CMPAddParticipantsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsView.h; sourceTree = "<group>"; };
 		897B83DA2177548F003D4206 /* CMPAddParticipantsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsView.m; sourceTree = "<group>"; };
+		897B83E02179FE98003D4206 /* CMPPhotoCropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPhotoCropView.h; sourceTree = "<group>"; };
+		897B83E12179FE98003D4206 /* CMPPhotoCropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoCropView.m; sourceTree = "<group>"; };
+		897B83E42179FED3003D4206 /* CMPCropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPCropView.h; sourceTree = "<group>"; };
+		897B83E52179FED3003D4206 /* CMPCropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPCropView.m; sourceTree = "<group>"; };
+		897B83EA217A09D9003D4206 /* CMPCropOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPCropOverlayView.h; sourceTree = "<group>"; };
+		897B83EB217A09D9003D4206 /* CMPCropOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPCropOverlayView.m; sourceTree = "<group>"; };
+		897B83ED217A0A17003D4206 /* CMPGridOverlayLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPGridOverlayLayer.h; sourceTree = "<group>"; };
+		897B83EE217A0A17003D4206 /* CMPGridOverlayLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPGridOverlayLayer.m; sourceTree = "<group>"; };
+		897B83F0217A10FC003D4206 /* CMPPhotoCropViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPhotoCropViewModel.h; sourceTree = "<group>"; };
+		897B83F1217A10FC003D4206 /* CMPPhotoCropViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoCropViewModel.m; sourceTree = "<group>"; };
+		897B83F3217A2776003D4206 /* CMPPhotoCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPhotoCropViewController.h; sourceTree = "<group>"; };
+		897B83F4217A2776003D4206 /* CMPPhotoCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoCropViewController.m; sourceTree = "<group>"; };
 		898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsTemplate.h; sourceTree = "<group>"; };
 		898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsTemplate.m; sourceTree = "<group>"; };
 		89957A2A21357791008EE0BE /* CMPLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
@@ -1215,6 +1229,57 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		897B83DC2179FE10003D4206 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				897B83DF2179FE3E003D4206 /* ViewModel */,
+				897B83DE2179FE2A003D4206 /* ViewController */,
+				897B83DD2179FE23003D4206 /* View */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		897B83DD2179FE23003D4206 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				897B83E32179FEAE003D4206 /* Subviews */,
+				897B83E02179FE98003D4206 /* CMPPhotoCropView.h */,
+				897B83E12179FE98003D4206 /* CMPPhotoCropView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		897B83DE2179FE2A003D4206 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				897B83F3217A2776003D4206 /* CMPPhotoCropViewController.h */,
+				897B83F4217A2776003D4206 /* CMPPhotoCropViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		897B83DF2179FE3E003D4206 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				897B83F0217A10FC003D4206 /* CMPPhotoCropViewModel.h */,
+				897B83F1217A10FC003D4206 /* CMPPhotoCropViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		897B83E32179FEAE003D4206 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				897B83E42179FED3003D4206 /* CMPCropView.h */,
+				897B83E52179FED3003D4206 /* CMPCropView.m */,
+				897B83EA217A09D9003D4206 /* CMPCropOverlayView.h */,
+				897B83EB217A09D9003D4206 /* CMPCropOverlayView.m */,
+				897B83ED217A0A17003D4206 /* CMPGridOverlayLayer.h */,
+				897B83EE217A0A17003D4206 /* CMPGridOverlayLayer.m */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		89957A212135763C008EE0BE /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,6 +1339,7 @@
 		89957A66213935E0008EE0BE /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				897B83DC2179FE10003D4206 /* Photo */,
 				8922B9D9215BCE4C001FD018 /* SampleApp.entitlements */,
 				897B83CF2177541A003D4206 /* Participants */,
 				897B83A121749041003D4206 /* Chat */,
@@ -1439,8 +1505,6 @@
 				897B839E2170EFF9003D4206 /* NSURLRequest+CMPUtility.m */,
 				897B83C721761A64003D4206 /* NSDate+CMPUtility.h */,
 				897B83C821761A64003D4206 /* NSDate+CMPUtility.m */,
-				897B83CB21772A44003D4206 /* NSObject+CMPUtility.h */,
-				897B83CC21772A44003D4206 /* NSObject+CMPUtility.m */,
 				891E081B2155282B00ED18D3 /* CMPUtilities.h */,
 			);
 			path = Utilities;
@@ -1750,7 +1814,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				897B83CD21772A44003D4206 /* NSObject+CMPUtility.h in Headers */,
 				8921D2C8215520C400976FFA /* CMPComapiFoundation.h in Headers */,
 				8972C310212C2A5E00C76B19 /* CMPComapi.h in Headers */,
 				897B835F216CAC7D003D4206 /* CMPMessageStatus.h in Headers */,
@@ -2066,6 +2129,7 @@
 			files = (
 				897B83C621760F3F003D4206 /* CMPChatImageMessageCell.m in Sources */,
 				89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */,
+				897B83F2217A10FC003D4206 /* CMPPhotoCropViewModel.m in Sources */,
 				89342DB4213ECE80000D0F2D /* CMPLoginViewController.m in Sources */,
 				897B83AA2174908B003D4206 /* CMPChatViewController.m in Sources */,
 				89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */,
@@ -2077,6 +2141,8 @@
 				897B83962170D5CC003D4206 /* CMPConversationsView.m in Sources */,
 				897B83C321760F27003D4206 /* CMPChatTextMessageCell.m in Sources */,
 				89259E7621525A1B00C73A02 /* CMPProfileDetailsViewController.m in Sources */,
+				897B83EC217A09D9003D4206 /* CMPCropOverlayView.m in Sources */,
+				897B83E22179FE98003D4206 /* CMPPhotoCropView.m in Sources */,
 				897B839C2170D668003D4206 /* CMPConversationsViewModel.m in Sources */,
 				89EA5CDA214962AC00C29D08 /* CMPProfileViewController.m in Sources */,
 				89957A8C213947AE008EE0BE /* CMPGrayButtonWithWhiteText.m in Sources */,
@@ -2087,11 +2153,13 @@
 				897B83B821749490003D4206 /* CMPCreateConversationViewController.m in Sources */,
 				89957A9821396FBB008EE0BE /* CMPInsetTextField.m in Sources */,
 				897B83992170D646003D4206 /* CMPConversationsViewController.m in Sources */,
+				897B83F5217A2776003D4206 /* CMPPhotoCropViewController.m in Sources */,
 				897B83AD2174909E003D4206 /* CMPChatViewModel.m in Sources */,
 				89957A8921394743008EE0BE /* CMPBaseView.m in Sources */,
 				897B83D821775472003D4206 /* CMPAddParticipantsViewController.m in Sources */,
 				89EA5CD721495FEE00C29D08 /* CMPProfileView.m in Sources */,
 				89957A77213935E3008EE0BE /* main.m in Sources */,
+				897B83E62179FED3003D4206 /* CMPCropView.m in Sources */,
 				89342DA3213E9BE0000D0F2D /* CMPAuthenticationManager.m in Sources */,
 				89342DAB213EC05D000D0F2D /* CMPLoginView.m in Sources */,
 				89957A8F21394995008EE0BE /* CMPSeparator.m in Sources */,
@@ -2102,6 +2170,7 @@
 				897B83BB217494A5003D4206 /* CMPCreateConversationViewModel.m in Sources */,
 				897B83A721749079003D4206 /* CMPChatView.m in Sources */,
 				897B83B521749350003D4206 /* CMPCreateConversationView.m in Sources */,
+				897B83EF217A0A17003D4206 /* CMPGridOverlayLayer.m in Sources */,
 				89EA5CDD214962C900C29D08 /* CMPProfileViewModel.m in Sources */,
 				89259E7921525A7900C73A02 /* CMPProfileDetailsViewModel.m in Sources */,
 			);
@@ -2138,7 +2207,6 @@
 				897B832C2167AFD5003D4206 /* CMPMessage.m in Sources */,
 				897B830F2167866D003D4206 /* CMPMessagingService.m in Sources */,
 				89957A452136A1EB008EE0BE /* CMPRequestTemplateResult.m in Sources */,
-				897B83CE21772A44003D4206 /* NSObject+CMPUtility.m in Sources */,
 				89EA5CBE2147E6B800C29D08 /* CMPGetProfileTemplate.m in Sources */,
 				895FF504212712F90007FAC3 /* NSData+CMPUtility.m in Sources */,
 				897B8364216CBD27003D4206 /* CMPContentData.m in Sources */,

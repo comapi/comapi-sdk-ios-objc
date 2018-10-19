@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "NSObject+CMPUtility.h"
+#import <Foundation/Foundation.h>
 
 NS_SWIFT_NAME(JSONEncoding)
 @protocol CMPJSONEncoding <NSObject>
