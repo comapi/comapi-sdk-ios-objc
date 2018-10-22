@@ -19,7 +19,7 @@
 #import "CMPAPIConfiguration.h"
 
 NSString * const CMPProductionScheme = @"https";
-NSString * const CMPProductionHost = @"stage-api.comapi.com";
+NSString * const CMPProductionHost = @"api.comapi.com";
 NSUInteger const CMPProductionPort = 443;
 
 @implementation CMPAPIConfiguration

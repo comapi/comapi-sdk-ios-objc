@@ -26,7 +26,7 @@
     self = [super init];
 
     if (self) {
-        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"aa67c980-7215-4f30-b81e-245e31aa8fef" profileID:@"iOStest" issuer:@"https://api.comapi.com/defaultauth" audience:@"https://api.comapi.com" secret:@"bbf888f67ddf3ce11cc13039efbd8996c8bb1622"];
+        self.loginBundle = [[CMPLoginBundle alloc] init];
     }
     
     return self;
