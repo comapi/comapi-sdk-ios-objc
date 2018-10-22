@@ -25,31 +25,3 @@
 }
 
 @end
-
-
-//class PhotoCropViewModel: NSObject {
-//
-//    var image: UIImage
-//
-//    init(image: UIImage) {
-//        self.image = image
-//
-//        super.init()
-//    }
-//
-//    private func convertToJPEG(croppedImage: UIImage) -> Data? {
-//        if let jpeg = UIImageJPEGRepresentation(croppedImage, 0.6) {
-//            return jpeg
-//        }
-//
-//            return nil
-//            }
-//
-//    func prepare(croppedImage: UIImage, completion: ((Data) -> ())?, failure: (() -> ())?) {
-//        if let data = convertToJPEG(croppedImage: croppedImage) {
-//            completion?(data)
-//        } else {
-//            failure?()
-//        }
-//    }
-//}

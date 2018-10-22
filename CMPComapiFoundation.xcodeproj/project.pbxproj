@@ -154,6 +154,7 @@
 		897B83EF217A0A17003D4206 /* CMPGridOverlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83EE217A0A17003D4206 /* CMPGridOverlayLayer.m */; };
 		897B83F2217A10FC003D4206 /* CMPPhotoCropViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83F1217A10FC003D4206 /* CMPPhotoCropViewModel.m */; };
 		897B83F5217A2776003D4206 /* CMPPhotoCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83F4217A2776003D4206 /* CMPPhotoCropViewController.m */; };
+		897B83F9217E240B003D4206 /* CMPPhotoVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 897B83F8217E240B003D4206 /* CMPPhotoVideoManager.m */; };
 		897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		898305FF21675B7800F155C7 /* CMPAddParticipantsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */; };
 		8983060021675B7800F155C7 /* CMPAddParticipantsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */; };
@@ -506,6 +507,8 @@
 		897B83F1217A10FC003D4206 /* CMPPhotoCropViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoCropViewModel.m; sourceTree = "<group>"; };
 		897B83F3217A2776003D4206 /* CMPPhotoCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPhotoCropViewController.h; sourceTree = "<group>"; };
 		897B83F4217A2776003D4206 /* CMPPhotoCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoCropViewController.m; sourceTree = "<group>"; };
+		897B83F7217E240B003D4206 /* CMPPhotoVideoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPPhotoVideoManager.h; sourceTree = "<group>"; };
+		897B83F8217E240B003D4206 /* CMPPhotoVideoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPPhotoVideoManager.m; sourceTree = "<group>"; };
 		898305FD21675B7700F155C7 /* CMPAddParticipantsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAddParticipantsTemplate.h; sourceTree = "<group>"; };
 		898305FE21675B7700F155C7 /* CMPAddParticipantsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAddParticipantsTemplate.m; sourceTree = "<group>"; };
 		89957A2A21357791008EE0BE /* CMPLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogger.h; sourceTree = "<group>"; };
@@ -1232,6 +1235,7 @@
 		897B83DC2179FE10003D4206 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				897B83F6217E23E9003D4206 /* AudioVideo Management */,
 				897B83DF2179FE3E003D4206 /* ViewModel */,
 				897B83DE2179FE2A003D4206 /* ViewController */,
 				897B83DD2179FE23003D4206 /* View */,
@@ -1278,6 +1282,15 @@
 				897B83EE217A0A17003D4206 /* CMPGridOverlayLayer.m */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		897B83F6217E23E9003D4206 /* AudioVideo Management */ = {
+			isa = PBXGroup;
+			children = (
+				897B83F7217E240B003D4206 /* CMPPhotoVideoManager.h */,
+				897B83F8217E240B003D4206 /* CMPPhotoVideoManager.m */,
+			);
+			path = "AudioVideo Management";
 			sourceTree = "<group>";
 		};
 		89957A212135763C008EE0BE /* Log */ = {
@@ -2135,6 +2148,7 @@
 				89957A7E21393644008EE0BE /* CMPBaseViewController.m in Sources */,
 				897B83BF2176091D003D4206 /* CMPChatInputView.m in Sources */,
 				89342DAE213EC7E1000D0F2D /* CMPBaseCell.m in Sources */,
+				897B83F9217E240B003D4206 /* CMPPhotoVideoManager.m in Sources */,
 				89EA5CE4214967D800C29D08 /* CMPTitledCell.m in Sources */,
 				89957A9521396F31008EE0BE /* CMPTitledTextField.m in Sources */,
 				897B83D521775452003D4206 /* CMPAddParticipantsViewModel.m in Sources */,

@@ -7,23 +7,29 @@
 //
 
 #import "CMPComapiClient.h"
+#import "CMPPhotoCropViewController.h"
 
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPChatViewModel : NSObject <CMPEventDelegate>
+@interface CMPChatViewModel : NSObject <CMPEventDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) CMPComapiClient *client;
 @property (nonatomic, strong) CMPConversation *conversation;
 @property (nonatomic, strong) NSArray<CMPMessage *> *messages;
 
 @property (nonatomic, copy) void(^didReceiveMessage)(void);
+@property (nonatomic, copy) void(^didTakeNewPhoto)(UIImage *);
 
 - (instancetype)initWithClient:(CMPComapiClient *)client conversation:(CMPConversation *)conversation;
 
 - (void)getMessagesWithCompletion:(void(^)(NSArray<CMPMessage *> * _Nullable, NSError * _Nullable))completion;
 - (void)sendTextMessage:(NSString *)message completion:(void(^)(NSError * _Nullable))completion;
-
+- (void)uploadContent:(CMPContentData *)content completion:(void(^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion;
+- (void)sendImageWithUploadResult:(CMPContentUploadResult *)result completion:(void(^)(NSError * _Nullable))completion;
+- (void)showPhotoSourceControllerWithPresenter:(void (^)(UIViewController *))presenter alertPresenter:(void (^)(UIViewController *))alertPresenter pickerPresenter:(void (^)(UIViewController *))pickerPresenter;
+- (void)showPhotoCropControllerWithImage:(UIImage *)image presenter:(void(^)(UIViewController *))presenter;
 @end
 
 NS_ASSUME_NONNULL_END
@@ -132,55 +138,9 @@ NS_ASSUME_NONNULL_END
 //        }
 //    }
 //
-//    func showPhotoSourceActionSheetController(presenter: @escaping ((UIViewController) -> ()), alertPresenter: @escaping ((UIViewController) -> ()), pickerPresenter: @escaping ((UIViewController) -> ())) {
-//        let alert = UIAlertController(title: "Select Source", message: nil, preferredStyle: .actionSheet)
+
 //
-//        if PhotoVideoManager.shared.isSourceAvailable(source: .photoLibrary) {
-//            let libraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { [weak self] alert in
-//                guard let `self` = self else { return }
-//                PhotoVideoManager.shared.requestPhotoLibraryAccess() { success in
-//                    if success {
-//                        let vc = PhotoVideoManager.shared.imagePickerController(type: .photoLibrary, delegate: self)
-//                        pickerPresenter(vc)
-//                    } else {
-//                        PhotoVideoManager.shared.permissionAlert(withTitle: "Unable to access the Photo Library", message: "To enable access, go to Settings > Privacy > Photo Library and turn on Photo Library access for this app.", alertPresenter: { vc in
-//                            alertPresenter(vc)
-//                        })
-//                    }
-//                }
-//            })
-//            alert.addAction(libraryAction)
-//        }
-//
-//        if PhotoVideoManager.shared.isSourceAvailable(source: .camera) {
-//            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { [weak self] alert in
-//                guard let `self` = self else { return }
-//                PhotoVideoManager.shared.requestCameraAccess() { success in
-//                    if success {
-//                        let vc = PhotoVideoManager.shared.imagePickerController(type: .camera, delegate: self)
-//                        pickerPresenter(vc)
-//                    } else {
-//                        PhotoVideoManager.shared.permissionAlert(withTitle: "Unable to access the Camera", message: "To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app.", alertPresenter: { vc in
-//                            alertPresenter(vc)
-//                        })
-//                    }
-//                }
-//            })
-//            alert.addAction(cameraAction)
-//        }
-//
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//        alert.addAction(cancelAction)
-//
-//        presenter(alert)
-//    }
-//
-//    func showPhotoCropController(image: UIImage, presenter: ((UIViewController) -> ())) {
-//        let vm = PhotoCropViewModel(image: image)
-//        let vc = PhotoCropViewController(viewModel: vm)
-//        presenter(vc)
-//    }
+
 //
 //    func queryEvents(success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
 //        client.services.messaging.queryEvents(forConversationID: conversation.id) { result in
@@ -225,20 +185,6 @@ NS_ASSUME_NONNULL_END
 //    }
 //}
 //
-//extension ChatViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        picker.dismiss(animated: true) {
-//            if let image = info[UIImagePickerControllerEditedImage] as? UIImage, let resized = image.resize() {
-//                self.didTakeNewPhoto?(resized)
-//            } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage, let resized = image.resize() {
-//                self.didTakeNewPhoto?(resized)
-//            }
-//        }
-//    }
-//
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion: nil)
-//    }
-//}
+
 //
 //
