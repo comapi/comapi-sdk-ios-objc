@@ -8,6 +8,7 @@
 
 #import "CMPChatViewController.h"
 #import "CMPChatTextMessageCell.h"
+#import "CMPChatImageMessageCell.h"
 #import "CMPAddParticipantsViewController.h"
 
 @interface CMPChatViewController ()
@@ -71,57 +72,23 @@
             [weakSelf reload];
         }];
     };
+    self.chatView.didTapUploadButton = ^{
+        [weakSelf.viewModel showPhotoSourceControllerWithPresenter:^(UIViewController * _Nonnull vc) {
+            [weakSelf.navigationController presentViewController:vc animated:YES completion:nil];
+        } alertPresenter:^(UIViewController * _Nonnull vc) {
+            [weakSelf.navigationController presentViewController:vc animated:YES completion:nil];
+        } pickerPresenter:^(UIViewController * _Nonnull vc) {
+            [weakSelf.navigationController presentViewController:vc animated:YES completion:nil];
+        }];
+    };
     self.viewModel.didReceiveMessage = ^{
         [weakSelf reload];
     };
-    //
-    //        keyboardWillShow = { [weak self] notification in
-    //            self?.chatView.animateOnKeyboardChange(notification: notification, completion: nil)
-    //        }
-    //
-    //        keyboardWillHide = { [weak self] notification in
-    //            self?.chatView.animateOnKeyboardChange(notification: notification, completion: nil)
-    //        }
-    //
-    //        loadingWillPerform = { [weak self] notif in
-    //            self?.showLoader()
-    //        }
-    //
-    //        loadingWillStop = { [weak self] notif in
-    //            self?.hideLoader()
-    //        }
-    //
-    //        chatView.didTapSendButton = { [weak self] text in
-    //            self?.viewModel.sendText(message: text, success: {
-    //                self?.reload()
-    //            }, failure: { error in
-    //                self?.reload()
-    //            })
-    //        }
-    //
-    //        chatView.didTapUploadButton = { [weak self] in
-    //            self?.viewModel.showPhotoSourceActionSheetController(presenter: { (vc) in
-    //                self?.navigationController?.present(vc, animated: true, completion: nil)
-    //            }, alertPresenter: { (vc) in
-    //                self?.navigationController?.present(vc, animated: true, completion: nil)
-    //            }, pickerPresenter: { (vc) in
-    //                self?.navigationController?.present(vc, animated: true, completion: nil)
-    //            })
-    //        }
-    //
-    //        viewModel.didTakeNewPhoto = { [weak self] image in
-    //            self?.viewModel.showPhotoCropController(image: image, presenter: { (vc) in
-    //                self?.navigationController?.pushViewController(vc, animated: true)
-    //            })
-    //        }
-    //
-    //        viewModel.didReceiveMessage = { [weak self] in
-    //            self?.reload()
-    //        }
-    //
-    //        viewModel.didReadMessage = { [weak self] messageRead in
-    //
-    //        }
+    self.viewModel.didTakeNewPhoto = ^(UIImage * _Nonnull image) {
+        [weakSelf.viewModel showPhotoCropControllerWithImage:image presenter:^(UIViewController * _Nonnull vc) {
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }];
+    };
 }
 
 - (void)navigation {
@@ -164,7 +131,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CMPMessage *msg = _viewModel.messages[indexPath.row];
     if (msg.parts.firstObject.url) {
-        return [UITableViewCell new];
+        CMPChatImageMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+        
+        NSString *fromID = msg.context.from.id;
+        NSString *selfID = _viewModel.client.profileID;
+        BOOL isMine = [fromID isEqualToString:selfID];
+        [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader];
+        
+        return cell;
     } else {
         CMPChatTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
         

@@ -7,6 +7,7 @@
 //
 
 #import "CMPAppConfigurator.h"
+#import "CMPConversationsViewController.h"
 #import "CMPProfileViewController.h"
 #import "AppDelegate.h"
 

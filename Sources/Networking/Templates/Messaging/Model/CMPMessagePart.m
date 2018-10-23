@@ -62,7 +62,7 @@
     [dict setValue:self.name forKey:@"name"];
     [dict setValue:self.type forKey:@"type"];
     [dict setValue:self.data forKey:@"data"];
-    [dict setValue:self.url forKey:@"url"];
+    [dict setValue:[self.url absoluteString] forKey:@"url"];
     [dict setValue:self.size forKey:@"size"];
     
     return dict;

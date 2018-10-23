@@ -8,6 +8,7 @@
 
 #import "CMPChatView.h"
 #import "CMPChatTextMessageCell.h"
+#import "CMPChatImageMessageCell.h"
 
 @implementation CMPChatView
 
@@ -39,6 +40,7 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
     [self.tableView registerClass:CMPChatTextMessageCell.class forCellReuseIdentifier:@"textCell"];
+    [self.tableView registerClass:CMPChatImageMessageCell.class forCellReuseIdentifier:@"imageCell"];
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     
     __weak typeof(self) weakSelf = self;

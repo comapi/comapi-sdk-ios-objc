@@ -37,17 +37,24 @@
 - (void)customize {
     self.backgroundColor = UIColor.grayColor;
     
+    self.cropView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.overlayView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     self.messageLabel.font = [UIFont systemFontOfSize:14.0];
     self.messageLabel.text = @"Adjust size and position of your photo";
     self.messageLabel.textColor = [UIColor.whiteColor colorWithAlphaComponent:0.8];
     self.messageLabel.textAlignment = NSTextAlignmentCenter;
     self.messageLabel.numberOfLines = 0;
+    self.messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.topButton setTitle:@"Next" forState:0];
     [self.topButton addTarget:self action:@selector(topButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    self.topButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.bottomButton setTitle:@"Cancel" forState:0];
-    [self.bottomButton addTarget:self action:@selector(topButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomButton addTarget:self action:@selector(bottomButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    self.bottomButton.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)layout {

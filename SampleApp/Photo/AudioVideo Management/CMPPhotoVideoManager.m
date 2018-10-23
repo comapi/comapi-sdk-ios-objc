@@ -10,6 +10,15 @@
 
 @implementation CMPPhotoVideoManager
 
++ (CMPPhotoVideoManager *)shared {
+    static CMPPhotoVideoManager *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[self alloc] init];
+    });
+    return shared;
+}
+
 - (void)requestPhotoLibraryAccessWithCompletion:(void (^)(BOOL))completion {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         dispatch_async(dispatch_get_main_queue(), ^{

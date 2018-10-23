@@ -9,6 +9,8 @@
 #import "CMPChatTextMessageCell.h"
 #import "NSDate+CMPUtility.h"
 
+CGFloat const kMaxTextViewWidth = 200;
+
 @interface CMPChatTextMessageCell ()
 
 @property (nonatomic, copy, readonly) NSDictionary<NSAttributedStringKey, id> *selfAttributes;
@@ -44,9 +46,9 @@
 }
 
 - (void)configure {
-    [self customizeWithOwnership:CMPMessageOwnershipSelf];
+    //[self customizeWithOwnership:CMPMessageOwnershipSelf];
     [self layout];
-    [self constrainWithOwnership:CMPMessageOwnershipSelf];
+    //[self constrainWithOwnership:CMPMessageOwnershipSelf];
 }
 
 - (void)customizeWithOwnership:(CMPMessageOwnership)ownership {
@@ -84,7 +86,7 @@
     [self.bubbleView addSubview:self.textView];
 }
 
-- (void)constrainWithOwnership:(CMPMessageOwnership)ownership {
+- (void)constrainWithOwnership:(CMPMessageOwnership)ownership applyWidthConstraint:(BOOL)applyWidthConstraint {
     [NSLayoutConstraint deactivateConstraints:[self.contentView constraints]];
     [NSLayoutConstraint deactivateConstraints:[self.dateLabel constraints]];
     [NSLayoutConstraint deactivateConstraints:[self.bubbleView constraints]];
@@ -103,8 +105,8 @@
     
     NSLayoutConstraint *bubbleTop = [self.bubbleView.topAnchor constraintEqualToAnchor:self.dateLabel.bottomAnchor constant:4];
     NSLayoutConstraint *bubbleHeight = [self.bubbleView.heightAnchor constraintGreaterThanOrEqualToConstant:40];
-    NSLayoutConstraint *bubbleWidth = [self.bubbleView.widthAnchor constraintLessThanOrEqualToConstant:250];
     NSLayoutConstraint *bubbleBottom = [self.bubbleView.bottomAnchor constraintEqualToAnchor:self.bubbleView.superview.bottomAnchor constant:-8];
+    
     NSLayoutConstraint *bubbleSide;
     if (ownership == CMPMessageOwnershipSelf) {
         bubbleSide = [self.bubbleView.trailingAnchor constraintEqualToAnchor:self.bubbleView.superview.trailingAnchor constant:-14];
@@ -112,7 +114,11 @@
         bubbleSide = [self.bubbleView.leadingAnchor constraintEqualToAnchor:self.bubbleView.superview.leadingAnchor constant:14];
     }
     
-    [NSLayoutConstraint activateConstraints:@[bubbleTop, bubbleHeight, bubbleWidth, bubbleBottom, bubbleSide]];
+    if (applyWidthConstraint) {
+        NSLayoutConstraint *bubbleWidth = [self.bubbleView.widthAnchor constraintLessThanOrEqualToConstant:kMaxTextViewWidth];
+        [NSLayoutConstraint activateConstraints:@[bubbleTop, bubbleHeight, bubbleBottom, bubbleSide, bubbleWidth]];
+    }
+    [NSLayoutConstraint activateConstraints:@[bubbleTop, bubbleHeight, bubbleBottom, bubbleSide]];
     
     NSLayoutConstraint *textViewTop = [self.textView.topAnchor constraintEqualToAnchor:self.textView.superview.topAnchor constant:4];
     NSLayoutConstraint *textViewLeading = [self.textView.leadingAnchor constraintEqualToAnchor:self.textView.superview.leadingAnchor constant:4];
@@ -141,9 +147,13 @@
     }
     
     [self customizeWithOwnership:ownership];
-    [self constrainWithOwnership:ownership];
-    
-    [self systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    [self constrainWithOwnership:ownership applyWidthConstraint:[self shouldApplyWidthConstraintForOwnership:ownership]];
+}
+
+- (BOOL)shouldApplyWidthConstraintForOwnership:(CMPMessageOwnership)ownership {
+    CGSize size = [self.textView.attributedText.string boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                   options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:ownership == CMPMessageOwnershipSelf ? self->_selfAttributes : self->_otherAttributes context:nil].size;
+    return size.width > kMaxTextViewWidth;
 }
 
 @end

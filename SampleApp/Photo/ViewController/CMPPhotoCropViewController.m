@@ -46,19 +46,31 @@
 - (void)delegates {
     
     __weak typeof(self) weakSelf = self;
+    self.photoCropView.didTapBottomButton = ^{
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    };
     self.photoCropView.didTapTopButton = ^{
         UIImage *image = [weakSelf.photoCropView.cropView crop];
         if (image) {
             NSData * data = [weakSelf.viewModel prepareCroppedImage:image];
             if (data) {
-                CMPChatViewController *vc = (CMPChatViewController *)weakSelf.navigationController.viewControllers.lastObject;
+                CMPChatViewController *vc = (CMPChatViewController *)weakSelf.navigationController.viewControllers[weakSelf.navigationController.viewControllers.count - 2];
                 if (vc) {
                     CMPContentData *contentData = [[CMPContentData alloc] initWithData:data type:@"image/jpg" name:nil];
-                    [vc.viewModel ];
+                    [vc.viewModel uploadContent:contentData completion:^(CMPContentUploadResult * _Nullable result, NSError * _Nullable error) {
+                        if (error) {
+                            NSLog(@"%@", error.localizedDescription);
+                        }
+                        [vc.viewModel sendImageWithUploadResult:result completion:^(NSError * _Nullable error) {
+                            if (error) {
+                                NSLog(@"%@", error.localizedDescription);
+                            }
+                            [weakSelf.navigationController popViewControllerAnimated:YES];
+                        }];
+                    }];
                 }
             }
         }
-        
     };
     //if let image = self?.photoCropView.cropView.crop() {
         //                self?.viewModel.prepare(croppedImage: image, completion: { data in

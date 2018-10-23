@@ -8,6 +8,7 @@
 
 #import "CMPComapiClient.h"
 #import "CMPPhotoCropViewController.h"
+#import "CMPImageDownloader.h"
 
 #import <UIKit/UIKit.h>
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) CMPComapiClient *client;
 @property (nonatomic, strong) CMPConversation *conversation;
 @property (nonatomic, strong) NSArray<CMPMessage *> *messages;
+@property (nonatomic, strong) CMPImageDownloader *downloader;
 
 @property (nonatomic, copy) void(^didReceiveMessage)(void);
 @property (nonatomic, copy) void(^didTakeNewPhoto)(UIImage *);
@@ -30,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendImageWithUploadResult:(CMPContentUploadResult *)result completion:(void(^)(NSError * _Nullable))completion;
 - (void)showPhotoSourceControllerWithPresenter:(void (^)(UIViewController *))presenter alertPresenter:(void (^)(UIViewController *))alertPresenter pickerPresenter:(void (^)(UIViewController *))pickerPresenter;
 - (void)showPhotoCropControllerWithImage:(UIImage *)image presenter:(void(^)(UIViewController *))presenter;
+
 @end
 
 NS_ASSUME_NONNULL_END

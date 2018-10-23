@@ -10,6 +10,7 @@
 #import "CMPEventParser.h"
 #import "CMPConversationMessageEvents.h"
 #import "CMPPhotoVideoManager.h"
+#import "UIImage+CMPUtilities.h"
 
 @implementation CMPChatViewModel
 
@@ -20,6 +21,7 @@
         self.client = client;
         self.conversation = conversation;
         self.messages = @[];
+        self.downloader = [[CMPImageDownloader alloc] init];
         
         [self.client addEventDelegate:self];
     }
@@ -154,20 +156,22 @@
 #pragma mark - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    if (editedImage) {
-        if (self.didTakeNewPhoto) {
-            self.didTakeNewPhoto(editedImage);
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+        if (editedImage) {
+            if (self.didTakeNewPhoto) {
+                self.didTakeNewPhoto([editedImage resizeToScreenSize]);
+            }
+            return;
         }
-        return;
-    }
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    if (originalImage) {
-        if (self.didTakeNewPhoto) {
-            self.didTakeNewPhoto(originalImage);
+        UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+        if (originalImage) {
+            if (self.didTakeNewPhoto) {
+                self.didTakeNewPhoto([originalImage resizeToScreenSize]);
+            }
+            return;
         }
-        return;
-    }
+    }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
