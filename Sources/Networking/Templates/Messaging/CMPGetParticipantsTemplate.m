@@ -79,31 +79,3 @@
 }
 
 @end
-
-
-//var scheme: String
-//var host: String
-//var port: Int
-//var pathComponents: [String] { return ["apispaces", self.apiSpaceId, "conversations", conversationId, "participants"] }
-//let query: [String : String]? = nil
-//
-//let httpMethod: HTTPMethod = .get
-//var httpHeaders: Set<HTTPHeader>? { return [.contentType(.JSON), .authorization(token)] }
-//let httpBody: Data? = nil
-//
-//var apiSpaceId: String
-//var conversationId: String
-//var token: String
-//
-//static func result(from data: Data, urlResponse: URLResponse) -> Result<[ConversationParticipant], TemplateResultError> {
-//    switch urlResponse.httpStatusCode {
-//    case 200?:
-//        do {
-//            return try .success(JSONDecoder.default().decode([ConversationParticipant].self, from: data))
-//        } catch {
-//            return .failure(.unexpectedJSON)
-//        }
-//    case 404?: return .failure(.notFound)
-//    default:  return .failure(.unexpectedStatusCode)
-//    }
-//    }

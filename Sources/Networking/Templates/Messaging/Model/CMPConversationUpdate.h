@@ -21,33 +21,6 @@ NS_SWIFT_NAME(ConversationUpdate)
 
 - (instancetype)initWithID:(nullable NSString *)id name:(nullable NSString *)name description:(nullable NSString*)description roles:(nullable CMPRoles *)roles isPublic:(nullable NSNumber *)isPublic;
 
-//public var id: String?
-//public var name: String?
-//public var conversationDescription: String?
-//public var roles: Roles?
-//public var isPublic: Bool?
-//
-//public init(id: String? = nil,
-//            name: String? = nil,
-//            conversationDescription: String? = nil,
-//            roles: Roles? = nil,
-//            isPublic: Bool? = nil) {
-//
-//    self.id = id
-//    self.name = name
-//    self.conversationDescription = conversationDescription
-//    self.roles = roles
-//    self.isPublic = isPublic
-//}
-//
-//private enum CodingKeys: String, CodingKey {
-//case id = "id"
-//case name = "name"
-//case conversationDescription = "description"
-//case roles = "roles"
-//case isPublic = "isPublic"
-//}
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -21,25 +21,4 @@ NS_SWIFT_NAME(Roles)
 
 @end
 
-//public struct Roles: Codable, Hashable {
-//    public var owner: RoleAttributes?
-//    public var participant: RoleAttributes?
-//
-//    public init(owner: RoleAttributes?, participant: RoleAttributes?) {
-//        self.owner = owner
-//        self.participant = participant
-//    }
-//
-//    private enum CodingKeys: String, CodingKey {
-//    case owner = "owner"
-//    case participant = "participant"
-//        }
-//
-//        public var hashValue: Int { return xor(self.owner?.hashValue, self.participant?.hashValue) }
-//
-//        public static func == (lhs: Roles, rhs: Roles) -> Bool {
-//            return (lhs.owner == rhs.owner) && (lhs.participant == rhs.participant)
-//        }
-//        }
-
 NS_ASSUME_NONNULL_END

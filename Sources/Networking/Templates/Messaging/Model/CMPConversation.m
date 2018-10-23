@@ -63,15 +63,3 @@
 }
 
 @end
-
-//private enum CodingKeys: String, CodingKey {
-//case id = "id"
-//case name = "name"
-//case conversationDescription = "description"
-//case roles = "roles"
-//case isPublic = "isPublic"
-//case createdOn = "_createdOn"
-//case updatedOn = "_updatedOn"
-//case isDeleted = "_isDeleted"
-//case deletedOn = "_deletedOn"
-//    }

@@ -34,8 +34,6 @@ extern NSString * const kCMPLoadingStopNotification;
 
 - (void)dismissKeyboard;
 
-
-
 @end
 
 NS_ASSUME_NONNULL_END

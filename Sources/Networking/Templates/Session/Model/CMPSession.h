@@ -29,8 +29,6 @@ NS_SWIFT_NAME(Session)
 @property (nonatomic, nullable) NSDate *expiresOn;
 @property (nonatomic, nullable) NSNumber *isActive;
 
-- (instancetype)init NS_UNAVAILABLE;
-
 @end
 
 NS_ASSUME_NONNULL_END

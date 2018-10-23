@@ -74,34 +74,3 @@
 }
 
 @end
-
-//struct PostConversationsTemplate: RequestTemplate {
-//    var scheme: String
-//    var host: String
-//    var port: Int
-//    var pathComponents: [String] {
-//        return ["apispaces", self.apiSpaceId, "conversations"]
-//    }
-//    let query: [String : String]? = nil
-//
-//    let httpMethod: HTTPMethod = .post
-//    var httpHeaders: Set<HTTPHeader>? { return [.contentType(.JSON), .authorization(self.token)] }
-//    var httpBody: Data? { return try? JSONEncoder.default().encode(self.conversation) }
-//
-//    var apiSpaceId: String
-//    var conversation: NewConversation
-//    var token: String
-//
-//    static func result(from data: Data, urlResponse: URLResponse) -> Result<Conversation, TemplateResultError> {
-//        switch urlResponse.httpStatusCode {
-//        case 201?:
-//            do {
-//                return try .success(Conversation.from(JSONDecoder.default().decode(Conversation.JSON.self, from: data)))
-//            } catch {
-//                return .failure(.unexpectedJSON)
-//            }
-//        case 409?: return .failure(.alreadyExist)
-//        default: return .failure(.unexpectedStatusCode)
-//        }
-//    }
-//}

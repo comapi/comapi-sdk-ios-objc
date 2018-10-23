@@ -22,36 +22,7 @@ NS_SWIFT_NAME(NewConversation)
 @property (nonatomic, strong, nullable) NSNumber *isPublic;
 
 - (instancetype)initWithID:(nullable NSString *)ID name:(nullable NSString *)name description:(nullable NSString *)descirption roles:(nullable CMPRoles *)roles participants:(nullable NSArray<CMPConversationParticipant *> *)participants isPublic:(nullable NSNumber *)isPublic;
-//public var id: String?
-//public var name: String?
-//public var conversationDescription: String?
-//public var roles: Roles?
-//public var isPublic: Bool?
-//public var participants: [ConversationParticipant]?
-//
-//public init(id: String? = nil,
-//            name: String? = nil,
-//            conversationDescription: String? = nil,
-//            roles: Roles? = nil,
-//            isPublic: Bool? = nil,
-//            participants: [ConversationParticipant]? = nil) {
-//
-//    self.id = id
-//    self.name = name
-//    self.conversationDescription = conversationDescription
-//    self.roles = roles
-//    self.isPublic = isPublic
-//    self.participants = participants
-//}
-//
-//private enum CodingKeys: String, CodingKey {
-//case id = "id"
-//case name = "name"
-//case conversationDescription = "description"
-//case roles = "roles"
-//case isPublic = "isPublic"
-//case participants = "participants"
-//}
+
 @end
 
 NS_ASSUME_NONNULL_END

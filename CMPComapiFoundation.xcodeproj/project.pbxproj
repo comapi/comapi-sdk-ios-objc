@@ -1078,13 +1078,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		897B83922170D58B003D4206 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		897B83932170D590003D4206 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,7 +1131,6 @@
 				897B83912170D586003D4206 /* View */,
 				897B83902170D57A003D4206 /* ViewModel */,
 				897B83932170D590003D4206 /* ViewController */,
-				897B83922170D58B003D4206 /* Model */,
 			);
 			path = List;
 			sourceTree = "<group>";

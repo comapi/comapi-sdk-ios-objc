@@ -75,19 +75,6 @@
 }
 
 - (NSData *)encode {
-//    NSDictionary *dict = @{@"id" : self.id,
-//                           @"nonce" : self.nonce,
-//                           @"provider" : self.provider,
-//                           @"expiresOn" : [[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn],
-//                           @"isActive" : self.isActive,
-//                           @"deviceId" : self.deviceID,
-//                           @"platform" : self.platform,
-//                           @"platformVersion" : self.platformVersion,
-//                           @"sdkType" : self.sdkType,
-//                           @"sdkVersion" : self.sdkVersion,
-//                           @"profileId" : self.profileId,
-//                           @"sourceIp" : self.sourceIP};
-    
     NSError *serializationError = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {

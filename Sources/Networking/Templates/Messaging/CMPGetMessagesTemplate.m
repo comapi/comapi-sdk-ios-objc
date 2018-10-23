@@ -78,37 +78,3 @@
 }
 
 @end
-
-//struct GetMessagesTemplate: RequestTemplate {
-//    var scheme: String
-//    var host: String
-//    var port: Int
-//    var pathComponents: [String] {
-//        return ["apispaces", self.apiSpaceId, "conversations", self.conversationId, "messages"]
-//    }
-//    var query: [String : String]? {
-//        var query: [String: String] = [:]
-//        query["limit"] = String(limit)
-//        if let from = from { query["from"] = String(from) }
-//        return query
-//    }
-//
-//    let httpMethod: HTTPMethod = .get
-//    var httpHeaders: Set<HTTPHeader>? { return [.contentType(.JSON), .authorization(self.token)] }
-//    let httpBody: Data? = nil
-//
-//    var apiSpaceId: String
-//    var conversationId: String
-//    var from: Int?
-//    var limit: Int
-//    var token: String
-//
-//    static func result(from data: Data, urlResponse: URLResponse) -> Result<GetMessagesResult, TemplateResultError> {
-//        switch urlResponse.httpStatusCode {
-//        case 200?:
-//            return .success(GetMessagesResult(fromData:data))
-//        default:
-//            return .failure(.unexpectedStatusCode)
-//        }
-//    }
-//}

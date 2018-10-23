@@ -57,7 +57,7 @@
     [self resignFirstResponder];
 }
 
-// MARK: - UITextViewDelegate
+#pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView {
     [self.placeholderLabel setHidden: ![textView.text isEqualToString:@""]];

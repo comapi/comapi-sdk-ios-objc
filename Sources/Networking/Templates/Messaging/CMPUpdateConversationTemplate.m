@@ -81,34 +81,3 @@
 }
 
 @end
-
-
-//struct UpdateConversationTemplate: RequestTemplate {
-//    var scheme: String
-//    var host: String
-//    var port: Int
-//    var pathComponents: [String] { return ["apispaces", self.apiSpaceId, "conversations", conversationId] }
-//    let query: [String : String]? = nil
-//
-//    let httpMethod: HTTPMethod = .put
-//    var httpHeaders: Set<HTTPHeader>? { var headers: Set<HTTPHeader> = [.contentType(.JSON), .authorization(token)]
-//        if let ETag = ETag { headers.insert(.ifMatch(ETag))}
-//        return  headers
-//    }
-//    var httpBody: Data? { return try? JSONEncoder.default().encode(self.conversation) }
-//
-//    var apiSpaceId: String
-//    var conversationId: String
-//    var conversation: ConversationUpdate
-//    var ETag: String? = nil
-//    var token: String
-//
-//    static func result(from data: Data, urlResponse: URLResponse) -> Result<Bool, TemplateResultError> {
-//        switch urlResponse.httpStatusCode {
-//        case 200?: return .success(true)
-//        case 404?: return .failure(.notFound)
-//        case 409?: return .failure(.updateConflict)
-//        default: return .failure(.unexpectedStatusCode)
-//        }
-//    }
-//}

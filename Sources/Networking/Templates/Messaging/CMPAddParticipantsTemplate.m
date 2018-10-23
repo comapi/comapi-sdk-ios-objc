@@ -79,30 +79,3 @@
 }
 
 @end
-
-
-//struct AddParticipantsTemplate : RequestTemplate {
-//    var scheme: String
-//    var host: String
-//    var port: Int
-//    var pathComponents: [String] { return ["apispaces", apiSpaceId, "conversations", conversationId, "participants"] }
-//    let query: [String : String]? = nil
-//
-//    let httpMethod: HTTPMethod = .post
-//    var httpHeaders: Set<HTTPHeader>? { return [.contentType(.JSON), .authorization(token)] }
-//    var httpBody: Data? { return try? JSONEncoder.default().encode(participants) }
-//
-//    var apiSpaceId: String
-//    var conversationId: String
-//    var token: String
-//    var participants: [ConversationParticipant]
-//
-//    static func result(from data: Data, urlResponse: URLResponse) -> Result<Bool, TemplateResultError> {
-//        switch urlResponse.httpStatusCode {
-//        case 201?: return .success(true)
-//        case 400?: return .failure(.validationError)
-//        case 404?: return .failure(.notFound)
-//        default: return .failure(.unexpectedStatusCode)
-//        }
-//    }
-//}

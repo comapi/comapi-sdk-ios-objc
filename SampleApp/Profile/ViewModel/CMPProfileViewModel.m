@@ -7,6 +7,7 @@
 //
 
 #import "CMPProfileViewModel.h"
+
 #import <UserNotifications/UserNotifications.h>
 
 @implementation CMPProfileViewModel
