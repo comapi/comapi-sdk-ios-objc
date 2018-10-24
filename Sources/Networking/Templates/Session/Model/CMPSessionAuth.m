@@ -42,13 +42,25 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.token forKey:@"token"];
+    [dict setValue:[self.session json] forKey:@"session"];
+   
+    return dict;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
-    return [self initWithJSON:JSON];
+    return [[CMPSessionAuth alloc] initWithJSON:JSON];
+}
+
+- (NSString *)description {
+    return [[self json] description];
 }
 
 @end

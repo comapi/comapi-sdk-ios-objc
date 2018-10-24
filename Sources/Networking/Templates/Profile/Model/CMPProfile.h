@@ -17,16 +17,22 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONEncoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Profile)
-@interface CMPProfile : NSObject <CMPJSONDecoding>
+@interface CMPProfile : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *email;
-
-- (instancetype)init NS_UNAVAILABLE;
+@property (nonatomic, strong, nullable) NSString *firstName;
+@property (nonatomic, strong, nullable) NSString *lastName;
+@property (nonatomic, strong, nullable) NSString *gender;
+@property (nonatomic, strong, nullable) NSString *phoneNumber;
+@property (nonatomic, strong, nullable) NSString *phoneNumberCountryCode;
+@property (nonatomic, strong, nullable) NSURL *profilePicture;
+@property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *customProperties;
 
 @end
 

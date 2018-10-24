@@ -34,24 +34,66 @@
     self = [super init];
     
     if (self) {
-        if (JSON[@"id"] != nil && [JSON[@"id"] isKindOfClass:NSString.class]) {
-            self.id = JSON[@"id"];
-        }
-        if (JSON[@"email"] != nil && [JSON[@"email"] isKindOfClass:NSString.class]) {
-            self.email = JSON[@"email"];
-        }
+        self.customProperties = [[NSDictionary alloc] init];
+        NSDictionary<NSString *, id> *dict = JSON;
+        
+        [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if ([key isEqualToString:@"id"] && [obj isKindOfClass:NSString.class]) {
+                self.id = obj;
+            } else if ([key isEqualToString:@"email"] && [obj isKindOfClass:NSString.class]) {
+                self.email = obj;
+            } else if ([key isEqualToString:@"firstName"] && [obj isKindOfClass:NSString.class]) {
+                self.firstName = obj;
+            } else if ([key isEqualToString:@"lastName"] && [obj isKindOfClass:NSString.class]) {
+                self.lastName = obj;
+            } else if ([key isEqualToString:@"gender"] && [obj isKindOfClass:NSString.class]) {
+                self.gender = obj;
+            } else if ([key isEqualToString:@"phoneNumber"] && [obj isKindOfClass:NSString.class]) {
+                self.phoneNumber = obj;
+            } else if ([key isEqualToString:@"phoneNumberCountryCode"] && [obj isKindOfClass:NSString.class]) {
+                self.phoneNumberCountryCode = obj;
+            } else if ([key isEqualToString:@"profilePicture"] && [obj isKindOfClass:NSString.class]) {
+                self.profilePicture = [NSURL URLWithString:(NSString *)obj];
+            } else {
+                NSMutableDictionary<NSString *, id> *copy = [self.customProperties mutableCopy];
+                [copy addEntriesFromDictionary:@{key : obj}];
+                self.customProperties = [NSDictionary dictionaryWithDictionary:copy];
+            }
+        }];
     }
-    
+
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
+- (id)json {
+    __block NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.email forKey:@"email"];
+    [dict setValue:self.firstName forKey:@"firstName"];
+    [dict setValue:self.lastName forKey:@"lastName"];
+    [dict setValue:self.gender forKey:@"gender"];
+    [dict setValue:self.phoneNumber forKey:@"phoneNumber"];
+    [dict setValue:self.phoneNumberCountryCode forKey:@"phoneNumberCountryCode"];
+    [dict setValue:self.profilePicture forKey:@"profilePicture"];
+    
+    [self.customProperties enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [dict setValue:obj forKey:key];
+    }];
+    
+    return dict;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPProfile alloc] initWithJSON:json];
+}
+
+- (NSString *)description {
+    return [[self json] description];
 }
 
 @end

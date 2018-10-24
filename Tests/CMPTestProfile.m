@@ -39,7 +39,7 @@
 
 - (void)testJSONDecoding {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Profile"];
-    CMPProfile *object = [[CMPProfile alloc] decodeWithData:data];
+    CMPProfile *object = [CMPProfile decodeWithData:data];
 
     XCTAssertEqualObjects(object.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
 }

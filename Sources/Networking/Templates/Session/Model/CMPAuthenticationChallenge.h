@@ -17,18 +17,17 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONEncoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(AuthenticationChallenge)
-@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding>
+@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
 @property (nonatomic, strong) NSString *authenticationID;
 @property (nonatomic, strong) NSString *provider;
 @property (nonatomic, strong) NSString *nonce;
 @property (nonatomic, strong) NSDate *expiresOn;
-
-- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

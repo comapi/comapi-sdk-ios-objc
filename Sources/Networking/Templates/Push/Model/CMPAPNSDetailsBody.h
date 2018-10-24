@@ -26,8 +26,6 @@ NS_SWIFT_NAME(APNSDetailsBody)
 
 @property (nonatomic, strong, nullable) CMPAPNSDetails *apns;
 
-- (instancetype)init NS_UNAVAILABLE;
-
 - (instancetype)initWithAPNSDetails:(CMPAPNSDetails *)apnsDetails;
 
 @end

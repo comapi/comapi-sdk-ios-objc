@@ -55,7 +55,7 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data];
+        CMPSessionAuth *object = [CMPSessionAuth decodeWithData:data];
         return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     }
     

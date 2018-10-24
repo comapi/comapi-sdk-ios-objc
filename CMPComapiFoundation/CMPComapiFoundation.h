@@ -35,6 +35,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import <CMPComapiFoundation/CMPLog.h>
 #import <CMPComapiFoundation/CMPLogger.h>
 #import <CMPComapiFoundation/CMPLogLevel.h>
+#import <CMPComapiFoundation/CMPLogConfig.h>
 #import <CMPComapiFoundation/CMPFileDestination.h>
 #import <CMPComapiFoundation/CMPLoggingDestination.h>
 #import <CMPComapiFoundation/CMPXcodeConsoleDestination.h>
@@ -64,7 +65,6 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import <CMPComapiFoundation/CMPHTTPRequestTemplate.h>
 #import <CMPComapiFoundation/CMPRequestTemplate.h>
 #import <CMPComapiFoundation/CMPRequestTemplateResult.h>
-#import <CMPComapiFoundation/CMPStreamRequestTemplate.h>
 #import <CMPComapiFoundation/CMPAuthorizeSessionTemplate.h>
 #import <CMPComapiFoundation/CMPDeleteSessionTemplate.h>
 #import <CMPComapiFoundation/CMPStartNewSessionTemplate.h>
@@ -74,7 +74,6 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import <CMPComapiFoundation/CMPSessionAuth.h>
 #import <CMPComapiFoundation/CMPURLResult.h>
 #import <CMPComapiFoundation/CMPKeychain.h>
-#import <CMPComapiFoundation/CMPUtilities.h>
 #import <CMPComapiFoundation/NSData+CMPUtility.h>
 #import <CMPComapiFoundation/NSDateFormatter+CMPUtility.h>
 #import <CMPComapiFoundation/NSString+CMPUtility.h>

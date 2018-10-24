@@ -27,8 +27,6 @@ NS_SWIFT_NAME(APNSDetails)
 @property (nonatomic, strong, nullable) NSString *environment;
 @property (nonatomic, strong, nullable) NSString *token;
 
-- (instancetype)init NS_UNAVAILABLE;
-
 - (instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token;
 
 @end

@@ -79,4 +79,8 @@
     return json;
 }
 
+- (NSString *)description {
+    return [[self json] description];
+}
+
 @end

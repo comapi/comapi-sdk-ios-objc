@@ -40,7 +40,7 @@
 - (void)testJSONDecoding {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"SessionAuth"];
     NSError *error = nil;
-    CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data];
+    CMPSessionAuth *object = [CMPSessionAuth decodeWithData:data];
     if (error) {
         XCTFail();
     }

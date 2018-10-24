@@ -10,12 +10,12 @@ For more information about the integration please visit [the website](http://doc
 						DESC
   s.homepage         = 'https://github.com/comapi/CMPComapiFoundation'
   s.author           = { 'Comapi' => 'technicalmanagement@comapi.com' }
-  s.source           =  { :path => '/Users/dominik.kowalski/Documents/CMPComapiFoundation' }
+  s.source           =  { :path => 'Users/dominik.kowalski/Documents/CMPComapiFoundation' }
   s.social_media_url = 'https://twitter.com/comapimessaging'
 
   s.platform     = :ios, '9.0'
   s.requires_arc = true
 
-  s.source_files = 'Sources/**/*.{h,m}'
+  s.source_files = 'Sources/**/*.{h,m}', 'CMPComapiFoundation/*.h'
   s.resources = []
 end

@@ -22,9 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(JSONDecoding)
 @protocol CMPJSONDecoding <NSObject>
-@optional
++ (nullable instancetype)decodeWithData:(NSData *)data;
 - (instancetype)initWithJSON:(id)JSON;
-- (nullable instancetype)decodeWithData:(NSData *)data;
 
 @end
 

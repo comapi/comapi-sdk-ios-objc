@@ -67,6 +67,15 @@
     return self;
 }
 
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *serializationError = nil;
+    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+    if (serializationError) {
+        return nil;
+    }
+    return [[CMPSession alloc] initWithJSON:json];
+}
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.id forKey:@"id"];
@@ -93,6 +102,10 @@
     }
     
     return data;
+}
+
+- (NSString *)description {
+    return [[self json] description];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
