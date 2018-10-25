@@ -25,6 +25,14 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.eventID forKey:@"eventId"];
+    
+    return dict;
+}
+
 @end
 
 @implementation CMPProfileEventUpdate
@@ -44,13 +52,21 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPProfileEventUpdate alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    
+    return dict;
 }
 
 @end

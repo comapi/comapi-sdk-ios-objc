@@ -7,11 +7,12 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONRepresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(AuthenticationChallenge)
-@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding>
+@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong) NSString *authenticationID;
 @property (nonatomic, strong) NSString *provider;

@@ -25,13 +25,22 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPSocketEventInfo alloc] initWithJSON:json];
 }
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:self.socketID forKey:@"socketId"];
+    [dict setValue:self.accountID forKey:@"accountId"];
+    
+    return dict;
+}
+
 
 @end

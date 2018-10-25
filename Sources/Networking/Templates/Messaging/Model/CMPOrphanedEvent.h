@@ -6,12 +6,12 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPJSONEncoding.h"
+#import "CMPJSONRepresentable.h"
 #import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPOrphanedEvent : NSObject <CMPJSONEncoding, CMPJSONDecoding>
+@interface CMPOrphanedEvent : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *messageID;

@@ -10,6 +10,27 @@
 
 @implementation CMPSessionAuth
 
+- (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
+    self = [super init];
+    if (self) {
+        self.token = token;
+        self.session = session;
+    }
+    return self;
+}
+
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.token forKey:@"token"];
+    [dict setValue:[self.session json] forKey:@"session"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     if (self) {
@@ -23,22 +44,13 @@
     return self;
 }
 
-- (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
-    self = [super init];
-    if (self) {
-        self.token = token;
-        self.session = session;
-    }
-    return self;
-}
-
-- (instancetype)decodeWithData:(NSData *)data {
-    NSError *serializationError = nil;
-    NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-    if (serializationError) {
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
         return nil;
     }
-    return [self initWithJSON:JSON];
+    return [[CMPSessionAuth alloc] initWithJSON:JSON];
 }
     
 @end

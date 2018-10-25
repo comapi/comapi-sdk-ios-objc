@@ -11,6 +11,20 @@
 
 @implementation CMPAuthenticationChallenge
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.authenticationID forKey:@"authenticationId"];
+    [dict setValue:self.nonce forKey:@"nonce"];
+    [dict setValue:self.provider forKey:@"provider"];
+    [dict setValue:self.expiresOn forKey:@"expiresOn"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(NSDictionary<NSString *,id> *)json {
     CMPAuthenticationChallenge* challenge = [CMPAuthenticationChallenge new];
     
@@ -30,13 +44,13 @@
     return challenge;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
-    NSError *serializationError = nil;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-    if (serializationError) {
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPAuthenticationChallenge alloc] initWithJSON:json];
 }
 
 @end

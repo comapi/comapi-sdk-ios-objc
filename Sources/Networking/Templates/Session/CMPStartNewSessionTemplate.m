@@ -35,7 +35,7 @@
 
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        CMPAuthenticationChallenge *object = [[CMPAuthenticationChallenge alloc] decodeWithData:data];
+        CMPAuthenticationChallenge *object = [CMPAuthenticationChallenge decodeWithData:data];
         if (object) {
             return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
         } else {

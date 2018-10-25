@@ -25,6 +25,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableArray<NSDictionary<NSString *, id> *> *participants = [NSMutableArray new];
     [self.participants enumerateObjectsUsingBlock:^(CMPConversationParticipant * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

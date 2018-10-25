@@ -59,7 +59,7 @@
 
 - (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        CMPProfile *object = [[CMPProfile alloc] decodeWithData:data];
+        CMPProfile *object = [CMPProfile decodeWithData:data];
         if (object) {
             return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
         } else {

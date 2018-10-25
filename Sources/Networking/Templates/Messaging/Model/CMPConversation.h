@@ -7,7 +7,6 @@
 //
 
 #import "CMPRoles.h"
-#import "CMPJSONDecoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

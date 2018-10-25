@@ -24,6 +24,30 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.type forKey:@"type"];
+    [dict setValue:self.data forKey:@"data"];
+    [dict setValue:[self.url absoluteString] forKey:@"url"];
+    [dict setValue:self.size forKey:@"size"];
+    
+    return dict;
+}
+
+- (NSData *)encode {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -48,24 +72,15 @@
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPMessagePart alloc] initWithJSON:json];
 }
 
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.name forKey:@"name"];
-    [dict setValue:self.type forKey:@"type"];
-    [dict setValue:self.data forKey:@"data"];
-    [dict setValue:[self.url absoluteString] forKey:@"url"];
-    [dict setValue:self.size forKey:@"size"];
-    
-    return dict;
-}
+
 
 @end

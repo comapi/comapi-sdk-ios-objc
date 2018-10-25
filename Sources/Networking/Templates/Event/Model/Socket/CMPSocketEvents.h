@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPSocketEventInfo : CMPEvent <CMPJSONDecoding>
+@interface CMPSocketEventInfo : CMPEvent <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *socketID;
 @property (nonatomic, strong, nullable) NSNumber *accountID;

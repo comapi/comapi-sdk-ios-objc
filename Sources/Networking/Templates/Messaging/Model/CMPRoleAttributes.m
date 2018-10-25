@@ -22,6 +22,25 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    return @{@"canSend" : [NSNumber numberWithBool:self.canSend],
+             @"canAddParticipants" : [NSNumber numberWithBool:self.canAddParticipants],
+             @"canRemoveParticipants" : [NSNumber numberWithBool:self.canRemoveParticipants]};
+}
+
+- (NSData *)encode {
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return json;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -40,28 +59,13 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
-}
-
-- (id)json {
-    return @{@"canSend" : [NSNumber numberWithBool:self.canSend],
-             @"canAddParticipants" : [NSNumber numberWithBool:self.canAddParticipants],
-             @"canRemoveParticipants" : [NSNumber numberWithBool:self.canRemoveParticipants]};
-}
-
-- (nullable NSData *)encode {
-    NSError *error = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
-    if (error) {
-        return nil;
-    }
-    return json;
+    return [[CMPRoleAttributes alloc] initWithJSON:json];
 }
 
 @end

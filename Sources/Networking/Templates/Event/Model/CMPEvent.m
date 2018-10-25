@@ -10,6 +10,20 @@
 
 @implementation CMPEvent
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.eventID forKey:@"eventId"];
+    [dict setValue:self.apiSpaceID forKey:@"apiSpaceId"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:[self.context json] forKey:@"context"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -31,18 +45,29 @@
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPEvent alloc] initWithJSON:json];
 }
 
 @end
 
 @implementation CMPEventContext
+
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.createdBy forKey:@"createdBy"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
 
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
@@ -56,13 +81,13 @@
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPEventContext alloc] initWithJSON:json];
 }
 
 @end

@@ -21,30 +21,7 @@
     return self;
 }
 
-- (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
-    
-    if (self) {
-        NSError *error = nil;
-        if (JSON[@"owner"] && [JSON[@"owner"] isKindOfClass:NSDictionary.class]) {
-            self.owner = [[CMPRoleAttributes alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:JSON[@"owner"] options:0 error:&error]];
-        }
-        if (JSON[@"participant"] && [JSON[@"participant"] isKindOfClass:NSDictionary.class]) {
-            self.participants = [[CMPRoleAttributes alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:JSON[@"participant"] options:0 error:&error]];
-        }
-    }
-    
-    return self;
-}
-
-- (instancetype)decodeWithData:(NSData *)data {
-    NSError *error = nil;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error) {
-        return nil;
-    }
-    return [self initWithJSON:json];
-}
+#pragma mark - CMPJSONEncoding
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
@@ -54,7 +31,7 @@
     return dict;
 }
 
-- (nullable NSData *)encode {
+- (NSData *)encode {
     NSError *error = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {
@@ -62,6 +39,34 @@
     }
     return json;
 }
+
+#pragma mark - CMPJSONDecoding
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"owner"] && [JSON[@"owner"] isKindOfClass:NSDictionary.class]) {
+            self.owner = [[CMPRoleAttributes alloc] initWithJSON:JSON[@"owner"]];
+        }
+        if (JSON[@"participant"] && [JSON[@"participant"] isKindOfClass:NSDictionary.class]) {
+            self.participants = [[CMPRoleAttributes alloc] initWithJSON:JSON[@"participant"]];
+        }
+    }
+    
+    return self;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [[CMPRoles alloc] initWithJSON:json];
+}
+
+
 
 @end
 

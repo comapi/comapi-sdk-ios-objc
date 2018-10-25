@@ -20,17 +20,7 @@
     return self;
 }
 
-- (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
-    
-    if (self) {
-        if (JSON[@"platforms"] && [JSON[@"platforms"] isKindOfClass:NSDictionary.class]) {
-            self.platforms = [[CMPMessageAlertPlatforms alloc] initWithJSON:JSON[@"platforms"]];
-        }
-    }
-    
-    return self;
-}
+#pragma mark - CMPJSONEncoding
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
@@ -46,6 +36,29 @@
         return nil;
     }
     return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"platforms"] && [JSON[@"platforms"] isKindOfClass:NSDictionary.class]) {
+            self.platforms = [[CMPMessageAlertPlatforms alloc] initWithJSON:JSON[@"platforms"]];
+        }
+    }
+    
+    return self;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [[CMPMessageAlert alloc] initWithJSON:json];
 }
 
 @end

@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPGetMessagesResult : NSObject <CMPJSONDecoding>
+@interface CMPGetMessagesResult : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSNumber *latestEventID;
 @property (nonatomic, strong, nullable) NSNumber *earliestEventID;

@@ -8,6 +8,7 @@
 
 #import "CMPConversationMessageEvents.h"
 #import "NSString+CMPUtility.h"
+#import "NSDateFormatter+CMPUtility.h"
 
 #pragma mark - ConversationMessage
 
@@ -23,6 +24,13 @@
     }
     
     return self;
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:self.conversationEventID forKey:@"conversationEventId"];
+    
+    return dict;
 }
 
 @end
@@ -52,6 +60,16 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.messageID forKey:@"messageId"];
+    [dict setValue:self.conversationID forKey:@"conversationID"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    
+    return dict;
+}
+
 @end
 
 @implementation CMPConversationMessageEventDelivered
@@ -68,13 +86,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationMessageEventDelivered alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -104,6 +129,16 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.messageID forKey:@"messageId"];
+    [dict setValue:self.conversationID forKey:@"conversationID"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    
+    return dict;
+}
+
 @end
 
 @implementation CMPConversationMessageEventRead
@@ -120,13 +155,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationMessageEventRead alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -164,6 +206,21 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.messageID forKey:@"messageId"];
+    [dict setValue:self.metadata forKey:@"metadata"];
+    [dict setValue:[self.context json] forKey:@"context"];
+    [dict setValue:[self.alert json] forKey:@"alert"];
+    NSMutableArray<NSDictionary<NSString *, id> *> *messages = [NSMutableArray new];
+    [self.parts enumerateObjectsUsingBlock:^(CMPMessagePart * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [messages addObject:[obj json]];
+    }];
+    [dict setValue:messages forKey:@"messages"];
+    
+    return dict;
+}
+
 @end
 
 @implementation CMPConversationMessageEventSent
@@ -183,13 +240,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationMessageEventSent alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end

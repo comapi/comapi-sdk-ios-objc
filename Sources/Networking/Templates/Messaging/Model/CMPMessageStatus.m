@@ -23,29 +23,7 @@
     return self;
 }
 
-- (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
-    
-    if (self) {
-        if (JSON[@"status"] && [JSON[@"status"] isKindOfClass:NSString.class]) {
-            self.status = JSON[@"status"];
-        }
-        if (JSON[@"timestamp"] && [JSON[@"timestamp"] isKindOfClass:NSString.class]) {
-            self.timestamp = [(NSString *)JSON[@"timestamp"] asDate];
-        }
-    }
-    
-    return self;
-}
-
-- (instancetype)decodeWithData:(NSData *)data {
-    NSError *error = nil;
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error) {
-        return nil;
-    }
-    return [self initWithJSON:json];
-}
+#pragma mark - CMPJSONEncoding
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
@@ -62,6 +40,32 @@
         return nil;
     }
     return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"status"] && [JSON[@"status"] isKindOfClass:NSString.class]) {
+            self.status = JSON[@"status"];
+        }
+        if (JSON[@"timestamp"] && [JSON[@"timestamp"] isKindOfClass:NSString.class]) {
+            self.timestamp = [(NSString *)JSON[@"timestamp"] asDate];
+        }
+    }
+    
+    return self;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [[CMPMessageStatus alloc] initWithJSON:json];
 }
 
 @end

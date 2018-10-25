@@ -11,6 +11,38 @@
 
 @implementation CMPSession
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.nonce forKey:@"nonce"];
+    [dict setValue:self.provider forKey:@"provider"];
+    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
+    [dict setValue:self.isActive forKey:@"isActive"];
+    [dict setValue:self.platform forKey:@"platform"];
+    [dict setValue:self.platformVersion forKey:@"platformVersion"];
+    [dict setValue:self.sdkType forKey:@"sdkType"];
+    [dict setValue:self.sdkVersion forKey:@"sdkVersion"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.deviceID forKey:@"deviceId"];
+    [dict setValue:self.sourceIP forKey:@"sourceIp"];
+    
+    return dict;
+}
+
+- (NSData *)encode {
+    NSError *serializationError = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
+    if (serializationError) {
+        return nil;
+    }
+    
+    return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -56,35 +88,18 @@
     return self;
 }
 
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.id forKey:@"id"];
-    [dict setValue:self.nonce forKey:@"nonce"];
-    [dict setValue:self.provider forKey:@"provider"];
-    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
-    [dict setValue:self.isActive forKey:@"isActive"];
-    [dict setValue:self.platform forKey:@"platform"];
-    [dict setValue:self.platformVersion forKey:@"platformVersion"];
-    [dict setValue:self.sdkType forKey:@"sdkType"];
-    [dict setValue:self.sdkVersion forKey:@"sdkVersion"];
-    [dict setValue:self.profileID forKey:@"profileId"];
-    [dict setValue:self.deviceID forKey:@"deviceId"];
-    [dict setValue:self.sourceIP forKey:@"sourceIp"];
-    
-    return dict;
-}
-
-- (NSData *)encode {
-    NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
-    if (serializationError) {
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
         return nil;
     }
-    
-    return data;
+    return [[CMPSession alloc] initWithJSON:json];
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder {
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.id forKey:@"id"];
     [aCoder encodeObject:self.nonce forKey:@"nonce"];
     [aCoder encodeObject:self.provider forKey:@"provider"];
@@ -95,7 +110,7 @@
     [aCoder encodeObject:self.sdkType forKey:@"sdkType"];
     [aCoder encodeObject:self.profileID forKey:@"profileId"];
     [aCoder encodeObject:self.sourceIP forKey:@"sourceIp"];
-    [aCoder encodeBool:self.isActive forKey:@"isActive"];
+    [aCoder encodeObject:self.isActive forKey:@"isActive"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

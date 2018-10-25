@@ -55,7 +55,7 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        CMPContentUploadResult *result = [[CMPContentUploadResult alloc] decodeWithData:data];
+        CMPContentUploadResult *result = [CMPContentUploadResult decodeWithData:data];
         return [[CMPRequestTemplateResult alloc] initWithObject:result error:nil];
     } else if ([response httpStatusCode] == 404) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];

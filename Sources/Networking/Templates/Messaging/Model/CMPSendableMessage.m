@@ -22,6 +22,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableArray<NSDictionary<NSString *, id> *> *parts = [NSMutableArray new];
     [self.parts enumerateObjectsUsingBlock:^(CMPMessagePart * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -32,7 +34,7 @@
     [dict setValue:self.metadata forKey:@"metadata"];
     [dict setValue:parts forKey:@"parts"];
     [dict setValue:self.alert forKey:@"alert"];
-
+    
     return dict;
 }
 

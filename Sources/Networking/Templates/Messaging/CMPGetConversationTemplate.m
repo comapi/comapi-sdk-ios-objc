@@ -46,7 +46,7 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 200) {
-        return [[CMPRequestTemplateResult alloc] initWithObject:[[CMPConversation alloc] decodeWithData:data] error:nil];
+        return [[CMPRequestTemplateResult alloc] initWithObject:[CMPConversation decodeWithData:data] error:nil];
     } else if ([response httpStatusCode] == 404) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];

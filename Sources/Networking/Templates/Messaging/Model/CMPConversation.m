@@ -10,30 +10,7 @@
 
 @implementation CMPConversation
 
-- (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
-    
-    if (self) {
-        NSError *error = nil;
-        if (JSON[@"id"] && [JSON[@"id"] isKindOfClass:NSString.class]) {
-            self.id = JSON[@"id"];
-        }
-        if (JSON[@"name"] && [JSON[@"name"] isKindOfClass:NSString.class]) {
-            self.name = JSON[@"name"];
-        }
-        if (JSON[@"conversationDescription"] && [JSON[@"conversationDescription"] isKindOfClass:NSString.class]) {
-            self.conversationDescription = JSON[@"conversationDescription"];
-        }
-        if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
-            self.roles = [[CMPRoles alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:JSON[@"roles"] options:0 error:&error]];
-        }
-        if (JSON[@"isPublic"] && [JSON[@"isPublic"] isKindOfClass:NSNumber.class]) {
-            self.isPublic = JSON[@"isPublic"];
-        }
-    }
-    
-    return self;
-}
+#pragma mark - CMPJSONEncoding
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
@@ -46,7 +23,7 @@
     return dict;
 }
 
-- (nullable NSData *)encode {
+- (NSData *)encode {
     NSError *error = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {
@@ -55,11 +32,37 @@
     return data;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data {
+#pragma mark - CMPJSONDecoding
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"id"] && [JSON[@"id"] isKindOfClass:NSString.class]) {
+            self.id = JSON[@"id"];
+        }
+        if (JSON[@"name"] && [JSON[@"name"] isKindOfClass:NSString.class]) {
+            self.name = JSON[@"name"];
+        }
+        if (JSON[@"conversationDescription"] && [JSON[@"conversationDescription"] isKindOfClass:NSString.class]) {
+            self.conversationDescription = JSON[@"conversationDescription"];
+        }
+        if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
+            self.roles = [[CMPRoles alloc] initWithJSON:JSON[@"roles"]];
+        }
+        if (JSON[@"isPublic"] && [JSON[@"isPublic"] isKindOfClass:NSNumber.class]) {
+            self.isPublic = JSON[@"isPublic"];
+        }
+    }
+    
+    return self;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    return [self initWithJSON:json];
+    return [[CMPConversation alloc] initWithJSON:json];
 }
 
 @end

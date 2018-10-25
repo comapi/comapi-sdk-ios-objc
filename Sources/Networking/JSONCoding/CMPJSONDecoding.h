@@ -6,12 +6,11 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPJSONConstructable.h"
 
 NS_SWIFT_NAME(JSONDecoding)
-@protocol CMPJSONDecoding <NSObject>
-@optional
-- (instancetype)initWithJSON:(id)JSON;
-- (nullable instancetype)decodeWithData:(NSData *)data;
+@protocol CMPJSONDecoding <CMPJSONConstructable>
+
++ (nullable instancetype)decodeWithData:(NSData *)data;
 
 @end

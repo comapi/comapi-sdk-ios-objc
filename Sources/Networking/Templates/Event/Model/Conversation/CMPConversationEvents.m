@@ -8,6 +8,7 @@
 
 #import "CMPConversationEvents.h"
 #import "NSString+CMPUtility.h"
+#import "NSDateFormatter+CMPUtility.h"
 
 #pragma mark - Conversation
 
@@ -28,6 +29,14 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    [dict setValue:self.conversationEventID forKey:@"conversationEventId"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - Create
@@ -46,13 +55,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventCreate alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -88,6 +104,21 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.isPublic forKey:@"isPublic"];
+    [dict setValue:[self.roles json] forKey:@"roles"];
+    NSMutableArray<NSDictionary<NSString *, id> *> *participants = [NSMutableArray new];
+    [self.participants enumerateObjectsUsingBlock:^(CMPConversationParticipant * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [participants addObject:[obj json]];
+    }];
+    [dict setValue:participants forKey:@"participants"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - Update
@@ -106,13 +137,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventUpdate alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -143,6 +181,17 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.isPublic forKey:@"isPublic"];
+    [dict setValue:[self.roles json] forKey:@"roles"];
+    [dict setValue:self.eventDescription forKey:@"description"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - Delete
@@ -161,13 +210,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventDelete alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -184,6 +240,13 @@
     }
     
     return self;
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.date] forKey:@"date"];
+    
+    return dict;
 }
 
 @end
@@ -204,13 +267,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventUndelete alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -241,6 +311,17 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.isPublic forKey:@"isPublic"];
+    [dict setValue:[self.roles json] forKey:@"roles"];
+    [dict setValue:self.eventDescription forKey:@"description"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - ParticipantAdded
@@ -259,13 +340,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventParticipantAdded alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -293,6 +381,16 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.apiSpaceID forKey:@"apiSpaceId"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    [dict setValue:self.role forKey:@"role"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - ParticipantRemoved
@@ -311,13 +409,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventParticipantRemoved alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -342,6 +447,15 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.apiSpaceID forKey:@"apiSpaceId"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - ParticipantUpdated
@@ -360,13 +474,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventParticipantUpdated alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -394,6 +515,16 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.apiSpaceID forKey:@"apiSpaceId"];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    [dict setValue:self.role forKey:@"role"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - ParticipantTyping
@@ -404,15 +535,23 @@
     self = [super initWithJSON:JSON];
 
     if (self) {
-        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSDictionary.class]) {
+        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSString.class]) {
             self.accountID = JSON[@"accountId"];
         }
-        if (JSON[@"publishedOn"] && [JSON[@"publishedOn"] isKindOfClass:NSDictionary.class]) {
-            self.publishedOn = JSON[@"publishedOn"];
+        if (JSON[@"publishedOn"] && [JSON[@"publishedOn"] isKindOfClass:NSString.class]) {
+            self.publishedOn = [(NSString *)JSON[@"publishedOn"] asDate];
         }
     }
     
     return self;
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:self.accountID forKey:@"accountId"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.publishedOn] forKey:@"publishedOn"];
+    
+    return dict;
 }
 
 @end
@@ -433,13 +572,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventParticipantTyping alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -461,6 +607,14 @@
     return self;
 }
 
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    
+    return dict;
+}
+
 @end
 
 #pragma mark - ParticipantTypingOff
@@ -479,13 +633,20 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationEventParticipantTypingOff alloc] initWithJSON:json];
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [super json];
+    [dict setValue:[self.payload json] forKey:@"payload"];
+    
+    return dict;
 }
 
 @end
@@ -505,6 +666,14 @@
     }
     
     return self;
+}
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.profileID forKey:@"profileId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    
+    return dict;
 }
 
 @end

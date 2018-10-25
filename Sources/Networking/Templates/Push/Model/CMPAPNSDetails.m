@@ -10,7 +10,7 @@
 
 @implementation CMPAPNSDetails
 
--(instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token {
+- (instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token {
     self = [super init];
     
     if (self) {
@@ -22,6 +22,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.bundleID forKey:@"bundleId"];
@@ -32,9 +34,9 @@
 }
 
 - (nullable NSData *)encode {
-    NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
-    if (serializationError) {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
         return nil;
     }
     return data;

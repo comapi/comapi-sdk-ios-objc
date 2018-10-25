@@ -6,14 +6,13 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPJSONDecoding.h"
 #import "CMPSession.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(SessionAuth)
-@interface CMPSessionAuth : NSObject <CMPJSONDecoding>
+@interface CMPSessionAuth : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, nullable) NSString* token;
 @property (nonatomic, nullable) CMPSession* session;

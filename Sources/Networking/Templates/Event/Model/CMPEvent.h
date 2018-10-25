@@ -7,13 +7,13 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONRepresentable.h"
 
 @class CMPEventContext;
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-@interface CMPEvent : NSObject <CMPJSONDecoding>
+@interface CMPEvent : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *eventID;
 @property (nonatomic, strong, nullable) NSString *apiSpaceID;
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CMPEventContext : NSObject <CMPJSONDecoding>
+@interface CMPEventContext : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong) NSString *createdBy;
 

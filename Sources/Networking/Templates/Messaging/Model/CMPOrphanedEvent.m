@@ -28,6 +28,21 @@
     return self;
 }
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.messageID forKey:@"messageId"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
+    [dict setValue:self.name forKey:@"name"];
+    [dict setValue:self.createdOn forKey:@"createdOn"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -52,13 +67,13 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return json;
+    return [[CMPOrphanedEvent alloc] initWithJSON:json];
 }
 
 @end

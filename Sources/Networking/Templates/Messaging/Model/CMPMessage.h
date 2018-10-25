@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Message)
-@interface CMPMessage : NSObject <CMPJSONDecoding>
+@interface CMPMessage : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *metadata;

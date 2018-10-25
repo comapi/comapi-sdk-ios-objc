@@ -24,6 +24,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.id forKey:@"id"];
@@ -35,7 +37,7 @@
     return dict;
 }
 
-- (nullable NSData *)encode {
+- (NSData *)encode {
     NSError *error = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
     if (error) {

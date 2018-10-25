@@ -24,6 +24,28 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.status forKey:@"status"];
+    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    [dict setValue:self.messageIDs forKey:@"messageIds"];
+    
+    return dict;
+}
+
+- (NSData *)encode {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -42,31 +64,13 @@
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data { 
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
-}
-
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.status forKey:@"status"];
-    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
-    [dict setValue:self.messageIDs forKey:@"messageIds"];
-    
-    return dict;
-}
-
-- (NSData *)encode {
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
-    if (error) {
-        return nil;
-    }
-    return data;
+    return [[CMPMessageStatusUpdate alloc] initWithJSON:json];
 }
 
 @end

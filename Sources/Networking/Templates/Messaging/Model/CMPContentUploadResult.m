@@ -24,6 +24,30 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.type forKey:@"type"];
+    [dict setValue:self.size forKey:@"size"];
+    [dict setValue:self.folder forKey:@"folder"];
+    [dict setValue:[self.url absoluteString] forKey:@"url"];
+    
+    return dict;
+}
+
+- (nullable NSData *)encode {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -48,13 +72,13 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPContentUploadResult alloc] initWithJSON:json];
 }
 
 @end

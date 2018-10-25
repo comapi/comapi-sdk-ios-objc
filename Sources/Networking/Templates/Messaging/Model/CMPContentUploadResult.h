@@ -7,10 +7,11 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONEncoding.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPContentUploadResult : NSObject <CMPJSONDecoding>
+@interface CMPContentUploadResult : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *type;

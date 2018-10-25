@@ -46,7 +46,7 @@
 
 - (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
     if ([response httpStatusCode] == 201) {
-        CMPConversation *object = [[CMPConversation alloc] decodeWithData:data];
+        CMPConversation *object = [CMPConversation decodeWithData:data];
         return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
     } else if ([response httpStatusCode] == 409) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorAlreadyExists underlyingError:nil];

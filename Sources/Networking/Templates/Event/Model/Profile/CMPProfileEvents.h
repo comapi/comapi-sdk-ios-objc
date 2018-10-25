@@ -10,14 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPProfileEventUpdatePayload : NSObject <CMPJSONDecoding>
+@interface CMPProfileEventUpdatePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *eventID;
 @property (nonatomic, strong, nullable) NSString *name;
 
 @end
 
-@interface CMPProfileEventUpdate : CMPEvent <CMPJSONDecoding>
+@interface CMPProfileEventUpdate : CMPEvent <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
 @property (nonatomic, strong, nullable) CMPProfileEventUpdatePayload *payload;

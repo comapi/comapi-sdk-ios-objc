@@ -20,6 +20,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:[self.apns json] forKey:@"apns"];
@@ -28,9 +30,9 @@
 }
 
 - (nullable NSData *)encode {
-    NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
-    if (serializationError) {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
         return nil;
     }
     return data;

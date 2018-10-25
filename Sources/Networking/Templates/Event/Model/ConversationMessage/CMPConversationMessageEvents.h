@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Delivered
 
-@interface CMPConversationMessageEventDeliveredPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationMessageEventDeliveredPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Read
 
-@interface CMPConversationMessageEventReadPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationMessageEventReadPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Sent
 
-@interface CMPConversationMessageEventSentPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationMessageEventSentPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *metadata;

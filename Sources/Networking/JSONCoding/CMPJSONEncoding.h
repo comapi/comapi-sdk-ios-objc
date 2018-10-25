@@ -6,12 +6,11 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPJSONRepresentable.h"
 
 NS_SWIFT_NAME(JSONEncoding)
-@protocol CMPJSONEncoding <NSObject>
-@optional
+@protocol CMPJSONEncoding <CMPJSONRepresentable>
+
 - (nullable NSData *)encode;
-- (id)json;
 
 @end

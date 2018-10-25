@@ -46,6 +46,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.name forKey:@"name"];

@@ -24,6 +24,29 @@
     return self;
 }
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.metadata forKey:@"metadata"];
+    [dict setValue:[self.context json] forKey:@"context"];
+    NSMutableArray<NSDictionary<NSString *, id> *> *parts = [NSMutableArray new];
+    [self.parts enumerateObjectsUsingBlock:^(CMPMessagePart * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [parts addObject:[obj json]];
+    }];
+    [dict setValue:parts forKey:@"parts"];
+    NSMutableDictionary<NSString *, NSDictionary<NSString *, id> *> *statusUpdates = [NSMutableDictionary new];
+    [self.statusUpdates enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, CMPMessageStatus * _Nonnull obj, BOOL * _Nonnull stop) {
+        statusUpdates[key] = [obj json];
+    }];
+    [dict setValue:statusUpdates forKey:@"statusUpdates"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -58,13 +81,13 @@
     return self;
 }
 
-- (instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPMessage alloc] initWithJSON:json];
 }
 
 @end

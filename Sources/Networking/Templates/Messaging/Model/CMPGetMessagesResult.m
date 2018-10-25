@@ -23,6 +23,28 @@
     return self;
 }
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.latestEventID forKey:@"latestEventId"];
+    [dict setValue:self.earliestEventID forKey:@"earliestEventId"];
+    NSMutableArray<NSDictionary<NSString *, id> *> *messages = [NSMutableArray new];
+    [self.messages enumerateObjectsUsingBlock:^(CMPMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [messages addObject:[obj json]];
+    }];
+    [dict setValue:messages forKey:@"messages"];
+    NSMutableArray<NSDictionary<NSString *, id> *> *events = [NSMutableArray new];
+    [self.orphanedEvents enumerateObjectsUsingBlock:^(CMPOrphanedEvent * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [events addObject:[obj json]];
+    }];
+    [dict setValue:events forKey:@"orphanedEvents"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -54,13 +76,13 @@
     return self;
 }
 
-- (nullable instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPGetMessagesResult alloc] initWithJSON:json];
 }
 
 @end

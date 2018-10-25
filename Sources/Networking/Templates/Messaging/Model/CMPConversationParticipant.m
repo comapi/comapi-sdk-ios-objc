@@ -21,6 +21,27 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.role forKey:@"role"];
+    
+    return dict;
+}
+
+- (NSData *)encode {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -36,21 +57,13 @@
     return self;
 }
 
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.id forKey:@"id"];
-    [dict setValue:self.role forKey:@"role"];
-    
-    return dict;
-}
-
-- (nullable instancetype)decodeWithData:(NSData *)data {
++ (instancetype)decodeWithData:(NSData *)data {
     NSError *error = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         return nil;
     }
-    return [self initWithJSON:json];
+    return [[CMPConversationParticipant alloc] initWithJSON:json];
 }
 
 @end

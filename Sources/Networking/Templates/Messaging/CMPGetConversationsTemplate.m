@@ -63,7 +63,7 @@
         NSMutableArray<CMPConversation *> *conversations = [NSMutableArray new];
         
         [json enumerateObjectsUsingBlock:^(NSDictionary<NSString *, id> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [conversations addObject:[[CMPConversation alloc] decodeWithData:[NSJSONSerialization dataWithJSONObject:obj options:0 error:&parseError]]];
+            [conversations addObject:[CMPConversation decodeWithData:[NSJSONSerialization dataWithJSONObject:obj options:0 error:&parseError]]];
         }];
 
         return [[CMPRequestTemplateResult alloc] initWithObject:conversations error:nil];

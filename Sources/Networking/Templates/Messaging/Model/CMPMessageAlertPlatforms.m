@@ -21,20 +21,7 @@
     return self;
 }
 
-- (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
-    
-    if (self) {
-        if (JSON[@"apns"] && [JSON[@"apns"] isKindOfClass:NSDictionary.class]) {
-            self.apns = JSON[@"apns"];
-        }
-        if (JSON[@"fcm"] && [JSON[@"fcm"] isKindOfClass:NSDictionary.class]) {
-            self.fcm = JSON[@"fcm"];
-        }
-    }
-    
-    return self;
-}
+#pragma mark - CMPJSONEncoding
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
@@ -51,6 +38,32 @@
         return nil;
     }
     return data;
+}
+
+#pragma mark - CMPJSONDecoding
+
+- (instancetype)initWithJSON:(id)JSON {
+    self = [super init];
+    
+    if (self) {
+        if (JSON[@"apns"] && [JSON[@"apns"] isKindOfClass:NSDictionary.class]) {
+            self.apns = JSON[@"apns"];
+        }
+        if (JSON[@"fcm"] && [JSON[@"fcm"] isKindOfClass:NSDictionary.class]) {
+            self.fcm = JSON[@"fcm"];
+        }
+    }
+    
+    return self;
+}
+
++ (instancetype)decodeWithData:(NSData *)data {
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        return nil;
+    }
+    return [[CMPMessageAlertPlatforms alloc] initWithJSON:json];
 }
 
 @end

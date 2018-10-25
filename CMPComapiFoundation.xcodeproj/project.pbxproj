@@ -197,6 +197,8 @@
 		89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */; };
 		89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */; };
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
+		89BD571921822B340079E83E /* CMPJSONRepresentable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571821822B340079E83E /* CMPJSONRepresentable.h */; };
+		89BD571B218235A60079E83E /* CMPJSONConstructable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571A218235A60079E83E /* CMPJSONConstructable.h */; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
 		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
@@ -570,6 +572,8 @@
 		89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAppConfigurator.m; sourceTree = "<group>"; };
 		89957AA321398B9D008EE0BE /* CMPLoginBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginBundle.h; sourceTree = "<group>"; };
 		89957AA421398B9D008EE0BE /* CMPLoginBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginBundle.m; sourceTree = "<group>"; };
+		89BD571821822B340079E83E /* CMPJSONRepresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONRepresentable.h; sourceTree = "<group>"; };
+		89BD571A218235A60079E83E /* CMPJSONConstructable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONConstructable.h; sourceTree = "<group>"; };
 		89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CMPComapiFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE4C2122F4B400555495 /* CMPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
 		89C8DE4D2122F4B400555495 /* CMPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionManager.m; sourceTree = "<group>"; };
@@ -1345,6 +1349,8 @@
 			children = (
 				89957A5D2137E351008EE0BE /* CMPJSONDecoding.h */,
 				89957A5F2137E35F008EE0BE /* CMPJSONEncoding.h */,
+				89BD571821822B340079E83E /* CMPJSONRepresentable.h */,
+				89BD571A218235A60079E83E /* CMPJSONConstructable.h */,
 			);
 			path = JSONCoding;
 			sourceTree = "<group>";
@@ -1844,6 +1850,7 @@
 				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
 				89D2C4A22166302D006BEC4E /* CMPConversationParticipant.h in Headers */,
 				8972C305212C1DCC00C76B19 /* CMPConstants.h in Headers */,
+				89BD571B218235A60079E83E /* CMPJSONConstructable.h in Headers */,
 				89C8DE532122F7AB00555495 /* CMPSession.h in Headers */,
 				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
 				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
@@ -1862,6 +1869,7 @@
 				89D2C491216617C6006BEC4E /* CMPRoles.h in Headers */,
 				89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */,
 				89EA5CCB21490E3B00C29D08 /* CMPPatchProfileTemplate.h in Headers */,
+				89BD571921822B340079E83E /* CMPJSONRepresentable.h in Headers */,
 				89EA5CCF2149457600C29D08 /* CMPQueryProfilesTemplate.h in Headers */,
 				897B8380216F74C2003D4206 /* CMPProfileEvents.h in Headers */,
 				891E081C2155282B00ED18D3 /* CMPUtilities.h in Headers */,

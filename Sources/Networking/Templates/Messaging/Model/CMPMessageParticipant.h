@@ -7,10 +7,11 @@
 //
 
 #import "CMPJSONDecoding.h"
+#import "CMPJSONRepresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPMessageParticipant : NSObject <CMPJSONDecoding>
+@interface CMPMessageParticipant : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *name;

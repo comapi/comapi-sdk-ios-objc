@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Conversation
 
-@interface CMPConversationEvent : CMPEvent <CMPJSONDecoding>
+@interface CMPConversationEvent : CMPEvent <CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *conversationID;
 @property (nonatomic, strong, nullable) NSString *conversationEventID;
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Create
 
-@interface CMPConversationEventCreatePayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventCreatePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *name;
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Update
 
-@interface CMPConversationEventUpdatePayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventUpdatePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *name;
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Delete
 
-@interface CMPConversationEventDeletePayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventDeletePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSDate *date;
 
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Undelete
 
-@interface CMPConversationEventUndeletePayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventUndeletePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *name;
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantAdded
 
-@interface CMPConversationEventParticipantAddedPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventParticipantAddedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *apiSpaceID;
 @property (nonatomic, strong, nullable) NSString *profileID;
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantRemoved
 
-@interface CMPConversationEventParticipantRemovedPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventParticipantRemovedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantUpdated
 
-@interface CMPConversationEventParticipantUpdatedPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventParticipantUpdatedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTyping
 
-@interface CMPParticipantTypingEvent : CMPEvent <CMPJSONDecoding>
+@interface CMPParticipantTypingEvent : CMPEvent <CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *accountID;
 @property (nonatomic, strong, nullable) NSDate *publishedOn;
@@ -150,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTypingOn
 
-@interface CMPConversationEventParticipantTypingPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventParticipantTypingPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTypingOff
 
-@interface CMPConversationEventParticipantTypingOffPayload : NSObject <CMPJSONDecoding>
+@interface CMPConversationEventParticipantTypingOffPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
 @property (nonatomic, strong, nullable) NSString *conversationID;
