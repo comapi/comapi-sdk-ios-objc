@@ -77,6 +77,9 @@
     } else if ([response httpStatusCode] == 409) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUpdateConflict underlyingError:nil];
         return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
+    } else if ([response httpStatusCode] == 412) {
+        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorETagMismatch underlyingError:nil];
+        return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
     }
     
     NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];

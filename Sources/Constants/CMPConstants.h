@@ -30,6 +30,7 @@ extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorConnection
 extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorWrongCodeStatusCode NS_SWIFT_NAME(wrongStatusCode);
 extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorNotFoundStatusCode NS_SWIFT_NAME(notFound);
 extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorUpdateConflictStatusCode NS_SWIFT_NAME(updateConflict);
+extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorETagMismatchStatusCode NS_SWIFT_NAME(eTagMismatch);
 extern CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorAlreadyExistsStatusCode NS_SWIFT_NAME(alreadyExists);
 
 extern NSString * const CMPAuthenticationErrorDomain NS_SWIFT_NAME(AuthenticationErrorDomain);
@@ -53,13 +54,13 @@ extern CMPHTTPHeaderType const CMPHTTPHeaderContentType NS_SWIFT_NAME(contentTyp
 extern CMPHTTPHeaderType const CMPHTTPHeaderAuthorization NS_SWIFT_NAME(authorization);
 extern CMPHTTPHeaderType const CMPHTTPHeaderIfMatch NS_SWIFT_NAME(ifMatch);
 
-typedef NSString * CMPSDKInfo NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(SDKInfo);
+typedef NSString * CMPSDKInfo NS_TYPED_ENUM NS_SWIFT_NAME(SDKInfo);
 
 extern CMPSDKInfo const CMPSDKInfoPlatform NS_SWIFT_NAME(platform);
 extern CMPSDKInfo const CMPSDKInfoVersion NS_SWIFT_NAME(version);
 extern CMPSDKInfo const CMPSDKInfoType NS_SWIFT_NAME(type);
 
-typedef NSString * CMPQueueName NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(QueueName);
+typedef NSString * CMPQueueName NS_TYPED_ENUM NS_SWIFT_NAME(QueueName);
 
 extern CMPQueueName const CMPQueueNameConsole NS_SWIFT_NAME(console);
 extern CMPQueueName const CMPQueueNameFileDestination NS_SWIFT_NAME(file);

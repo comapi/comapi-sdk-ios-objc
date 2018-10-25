@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
     CMPRequestTemplateErrorUnexpectedStatusCode,
     CMPRequestTemplateErrorNotFound,
     CMPRequestTemplateErrorUpdateConflict,
+    CMPRequestTemplateErrorETagMismatch,
     CMPRequestTemplateErrorAlreadyExists
 } NS_SWIFT_NAME(RequestTemplateError);
 

@@ -26,6 +26,7 @@ CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorConnectionFailedS
 CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorWrongCodeStatusCode = 5554;
 CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorNotFoundStatusCode = 5555;
 CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorUpdateConflictStatusCode = 5556;
+CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorETagMismatchStatusCode = 5556;
 CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorAlreadyExistsStatusCode = 5557;
 
 NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
