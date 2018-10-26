@@ -16,18 +16,14 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPJSONDecoding.h"
-#import "CMPJSONRepresentable.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(AuthenticationChallenge)
-@interface CMPAuthenticationChallenge : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
+NS_SWIFT_NAME(CMPJSONConstructable)
+@protocol CMPJSONConstructable <NSObject>
 
-@property (nonatomic, strong) NSString *authenticationID;
-@property (nonatomic, strong) NSString *provider;
-@property (nonatomic, strong) NSString *nonce;
-@property (nonatomic, strong) NSDate *expiresOn;
+- (instancetype)initWithJSON:(id)JSON;
 
 @end
 

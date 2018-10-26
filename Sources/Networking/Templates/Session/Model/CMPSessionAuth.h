@@ -16,14 +16,13 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
 #import "CMPJSONDecoding.h"
 #import "CMPSession.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(SessionAuth)
-@interface CMPSessionAuth : NSObject <CMPJSONDecoding, CMPJSONEncoding>
+@interface CMPSessionAuth : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, nullable) NSString* token;
 @property (nonatomic, nullable) CMPSession* session;

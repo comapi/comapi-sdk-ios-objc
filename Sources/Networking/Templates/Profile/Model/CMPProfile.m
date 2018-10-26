@@ -30,6 +30,28 @@
     return self;
 }
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.email forKey:@"email"];
+    [dict setValue:self.firstName forKey:@"firstName"];
+    [dict setValue:self.lastName forKey:@"lastName"];
+    [dict setValue:self.gender forKey:@"gender"];
+    [dict setValue:self.phoneNumber forKey:@"phoneNumber"];
+    [dict setValue:self.phoneNumberCountryCode forKey:@"phoneNumberCountryCode"];
+    [dict setValue:self.profilePicture forKey:@"profilePicture"];
+    
+    [self.customProperties enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [dict setValue:obj forKey:key];
+    }];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     
@@ -65,24 +87,6 @@
     return self;
 }
 
-- (id)json {
-    __block NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.id forKey:@"id"];
-    [dict setValue:self.email forKey:@"email"];
-    [dict setValue:self.firstName forKey:@"firstName"];
-    [dict setValue:self.lastName forKey:@"lastName"];
-    [dict setValue:self.gender forKey:@"gender"];
-    [dict setValue:self.phoneNumber forKey:@"phoneNumber"];
-    [dict setValue:self.phoneNumberCountryCode forKey:@"phoneNumberCountryCode"];
-    [dict setValue:self.profilePicture forKey:@"profilePicture"];
-    
-    [self.customProperties enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        [dict setValue:obj forKey:key];
-    }];
-    
-    return dict;
-}
-
 + (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
@@ -90,10 +94,6 @@
         return nil;
     }
     return [[CMPProfile alloc] initWithJSON:json];
-}
-
-- (NSString *)description {
-    return [[self json] description];
 }
 
 @end

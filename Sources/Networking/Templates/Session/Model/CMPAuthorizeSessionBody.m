@@ -56,6 +56,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.authenticationID forKey:@"authenticationId"];
@@ -69,7 +71,7 @@
     return dict;
 }
 
-- (nullable NSData *)encode {
+- (NSData *)encode {
     NSError *serializationError = nil;
     NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
@@ -77,10 +79,6 @@
     }
     
     return json;
-}
-
-- (NSString *)description {
-    return [[self json] description];
 }
 
 @end

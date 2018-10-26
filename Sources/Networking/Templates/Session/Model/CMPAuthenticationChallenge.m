@@ -22,6 +22,20 @@
 
 @implementation CMPAuthenticationChallenge
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.authenticationID forKey:@"authenticationId"];
+    [dict setValue:self.nonce forKey:@"nonce"];
+    [dict setValue:self.provider forKey:@"provider"];
+    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithJSON:(NSDictionary<NSString *,id> *)json {
     CMPAuthenticationChallenge* challenge = [CMPAuthenticationChallenge new];
     
@@ -41,16 +55,6 @@
     return challenge;
 }
 
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.authenticationID forKey:@"authenticationId"];
-    [dict setValue:self.nonce forKey:@"nonce"];
-    [dict setValue:self.provider forKey:@"provider"];
-    [dict setValue:[[NSDateFormatter iso8061Formatter] stringFromDate:self.expiresOn] forKey:@"expiresOn"];
-
-    return dict;
-}
-
 + (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
@@ -58,10 +62,6 @@
         return nil;
     }
     return [[CMPAuthenticationChallenge alloc] initWithJSON:json];
-}
-
-- (NSString *)description {
-    return [[self json] description];
 }
 
 @end

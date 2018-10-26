@@ -33,6 +33,18 @@
     return self;
 }
 
+#pragma mark - CMPJSONRepresentable
+
+- (id)json {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.token forKey:@"token"];
+    [dict setValue:[self.session json] forKey:@"session"];
+    
+    return dict;
+}
+
+#pragma mark - CMPJSONDecoding
+
 - (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
     self = [super init];
     if (self) {
@@ -42,14 +54,6 @@
     return self;
 }
 
-- (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.token forKey:@"token"];
-    [dict setValue:[self.session json] forKey:@"session"];
-   
-    return dict;
-}
-
 + (instancetype)decodeWithData:(NSData *)data {
     NSError *serializationError = nil;
     NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
@@ -57,10 +61,6 @@
         return nil;
     }
     return [[CMPSessionAuth alloc] initWithJSON:JSON];
-}
-
-- (NSString *)description {
-    return [[self json] description];
 }
 
 @end

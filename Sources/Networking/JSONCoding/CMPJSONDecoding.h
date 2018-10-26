@@ -16,14 +16,14 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "CMPJSONConstructable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(JSONDecoding)
-@protocol CMPJSONDecoding <NSObject>
+@protocol CMPJSONDecoding <CMPJSONConstructable>
+
 + (nullable instancetype)decodeWithData:(NSData *)data;
-- (instancetype)initWithJSON:(id)JSON;
 
 @end
 

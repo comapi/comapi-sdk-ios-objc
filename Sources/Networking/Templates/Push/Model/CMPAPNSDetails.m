@@ -32,6 +32,8 @@
     return self;
 }
 
+#pragma mark - CMPJSONEncoding
+
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.bundleID forKey:@"bundleId"];
@@ -41,17 +43,13 @@
     return dict;
 }
 
-- (nullable NSData *)encode {
+- (NSData *)encode {
     NSError *serializationError = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
     if (serializationError) {
         return nil;
     }
     return data;
-}
-
-- (NSString *)description {
-    return [[self json] description];
 }
 
 @end
