@@ -40,7 +40,7 @@
     self = [super init];
     
     if (self) {
-        self.receivedRequests = [NSMutableArray new];
+        //self.receivedRequests = [NSMutableArray new];
         self.completionValues = [NSMutableArray new];
         
         CMPMockRequestResult *challenge = [[CMPMockRequestResult alloc] initWithData:[CMPResourceLoader loadJSONWithName:@"AuthenticationChallenge"] response:[NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]] error:nil];

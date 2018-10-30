@@ -231,6 +231,28 @@
 		89D2C4A32166302D006BEC4E /* CMPConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C4A12166302D006BEC4E /* CMPConversationParticipant.m */; };
 		89D2C4A62166451B006BEC4E /* CMPEventQueryTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C4A42166451B006BEC4E /* CMPEventQueryTemplate.h */; };
 		89D2C4A72166451B006BEC4E /* CMPEventQueryTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C4A52166451B006BEC4E /* CMPEventQueryTemplate.m */; };
+		89D5226F21888EDD0082B3FD /* Conversation.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5225B21888EDC0082B3FD /* Conversation.json */; };
+		89D5227021888EDD0082B3FD /* NewConversation.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5225C21888EDC0082B3FD /* NewConversation.json */; };
+		89D5227121888EDD0082B3FD /* Event.conversation.delete.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5225D21888EDC0082B3FD /* Event.conversation.delete.json */; };
+		89D5227221888EDD0082B3FD /* Event.conversationMessage.sent.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5225E21888EDC0082B3FD /* Event.conversationMessage.sent.json */; };
+		89D5227321888EDD0082B3FD /* Event.conversation.update.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5225F21888EDC0082B3FD /* Event.conversation.update.json */; };
+		89D5227421888EDD0082B3FD /* Event.conversationMessage.read.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226021888EDC0082B3FD /* Event.conversationMessage.read.json */; };
+		89D5227521888EDD0082B3FD /* Event.conversationMessage.delivered.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226121888EDC0082B3FD /* Event.conversationMessage.delivered.json */; };
+		89D5227621888EDD0082B3FD /* Event.conversation.participantRemoved.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226221888EDC0082B3FD /* Event.conversation.participantRemoved.json */; };
+		89D5227721888EDD0082B3FD /* Event.conversation.participantAdded.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226321888EDC0082B3FD /* Event.conversation.participantAdded.json */; };
+		89D5227821888EDD0082B3FD /* Event.conversation.undelete.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226421888EDC0082B3FD /* Event.conversation.undelete.json */; };
+		89D5227921888EDD0082B3FD /* ContentUploadResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226521888EDC0082B3FD /* ContentUploadResult.json */; };
+		89D5227A21888EDD0082B3FD /* Event.conversation.create.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226621888EDC0082B3FD /* Event.conversation.create.json */; };
+		89D5227B21888EDD0082B3FD /* GetAllConversationsResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226721888EDC0082B3FD /* GetAllConversationsResult.json */; };
+		89D5227C21888EDD0082B3FD /* PostConversationsResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226821888EDC0082B3FD /* PostConversationsResult.json */; };
+		89D5227D21888EDD0082B3FD /* PostMessagesResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226921888EDC0082B3FD /* PostMessagesResult.json */; };
+		89D5227E21888EDD0082B3FD /* GetMessagesResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226A21888EDC0082B3FD /* GetMessagesResult.json */; };
+		89D5227F21888EDD0082B3FD /* Event.conversation.participantUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226B21888EDD0082B3FD /* Event.conversation.participantUpdated.json */; };
+		89D5228021888EDD0082B3FD /* Message.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226C21888EDD0082B3FD /* Message.json */; };
+		89D5228121888EDD0082B3FD /* SendableMessage.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226D21888EDD0082B3FD /* SendableMessage.json */; };
+		89D5228221888EDD0082B3FD /* MessageStatusUpdate.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D5226E21888EDD0082B3FD /* MessageStatusUpdate.json */; };
+		89D522852188A41B0082B3FD /* SendMessagesResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D522842188A41B0082B3FD /* SendMessagesResult.json */; };
+		89D522872188B5550082B3FD /* Conversations.json in Resources */ = {isa = PBXBuildFile; fileRef = 89D522862188B5550082B3FD /* Conversations.json */; };
 		89D7323B21667F42002BF47B /* CMPEventParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D7323921667F41002BF47B /* CMPEventParser.h */; };
 		89D7323C21667F42002BF47B /* CMPEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D7323A21667F42002BF47B /* CMPEventParser.m */; };
 		89D7323F21668068002BF47B /* CMPGetParticipantsTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D7323D21668068002BF47B /* CMPGetParticipantsTemplate.h */; };
@@ -607,6 +629,28 @@
 		89D2C4A12166302D006BEC4E /* CMPConversationParticipant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConversationParticipant.m; sourceTree = "<group>"; };
 		89D2C4A42166451B006BEC4E /* CMPEventQueryTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPEventQueryTemplate.h; sourceTree = "<group>"; };
 		89D2C4A52166451B006BEC4E /* CMPEventQueryTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPEventQueryTemplate.m; sourceTree = "<group>"; };
+		89D5225B21888EDC0082B3FD /* Conversation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Conversation.json; sourceTree = "<group>"; };
+		89D5225C21888EDC0082B3FD /* NewConversation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NewConversation.json; sourceTree = "<group>"; };
+		89D5225D21888EDC0082B3FD /* Event.conversation.delete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.delete.json; sourceTree = "<group>"; };
+		89D5225E21888EDC0082B3FD /* Event.conversationMessage.sent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversationMessage.sent.json; sourceTree = "<group>"; };
+		89D5225F21888EDC0082B3FD /* Event.conversation.update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.update.json; sourceTree = "<group>"; };
+		89D5226021888EDC0082B3FD /* Event.conversationMessage.read.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversationMessage.read.json; sourceTree = "<group>"; };
+		89D5226121888EDC0082B3FD /* Event.conversationMessage.delivered.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversationMessage.delivered.json; sourceTree = "<group>"; };
+		89D5226221888EDC0082B3FD /* Event.conversation.participantRemoved.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.participantRemoved.json; sourceTree = "<group>"; };
+		89D5226321888EDC0082B3FD /* Event.conversation.participantAdded.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.participantAdded.json; sourceTree = "<group>"; };
+		89D5226421888EDC0082B3FD /* Event.conversation.undelete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.undelete.json; sourceTree = "<group>"; };
+		89D5226521888EDC0082B3FD /* ContentUploadResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContentUploadResult.json; sourceTree = "<group>"; };
+		89D5226621888EDC0082B3FD /* Event.conversation.create.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.create.json; sourceTree = "<group>"; };
+		89D5226721888EDC0082B3FD /* GetAllConversationsResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetAllConversationsResult.json; sourceTree = "<group>"; };
+		89D5226821888EDC0082B3FD /* PostConversationsResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostConversationsResult.json; sourceTree = "<group>"; };
+		89D5226921888EDC0082B3FD /* PostMessagesResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostMessagesResult.json; sourceTree = "<group>"; };
+		89D5226A21888EDC0082B3FD /* GetMessagesResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetMessagesResult.json; sourceTree = "<group>"; };
+		89D5226B21888EDD0082B3FD /* Event.conversation.participantUpdated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.conversation.participantUpdated.json; sourceTree = "<group>"; };
+		89D5226C21888EDD0082B3FD /* Message.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Message.json; sourceTree = "<group>"; };
+		89D5226D21888EDD0082B3FD /* SendableMessage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SendableMessage.json; sourceTree = "<group>"; };
+		89D5226E21888EDD0082B3FD /* MessageStatusUpdate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MessageStatusUpdate.json; sourceTree = "<group>"; };
+		89D522842188A41B0082B3FD /* SendMessagesResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SendMessagesResult.json; sourceTree = "<group>"; };
+		89D522862188B5550082B3FD /* Conversations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Conversations.json; sourceTree = "<group>"; };
 		89D7323921667F41002BF47B /* CMPEventParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPEventParser.h; path = Sources/Networking/Templates/Event/CMPEventParser.h; sourceTree = SOURCE_ROOT; };
 		89D7323A21667F42002BF47B /* CMPEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPEventParser.m; path = Sources/Networking/Templates/Event/CMPEventParser.m; sourceTree = SOURCE_ROOT; };
 		89D7323D21668068002BF47B /* CMPGetParticipantsTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPGetParticipantsTemplate.h; sourceTree = "<group>"; };
@@ -1673,6 +1717,42 @@
 			path = Messaging;
 			sourceTree = "<group>";
 		};
+		89D5225A21888E8C0082B3FD /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				89D5226621888EDC0082B3FD /* Event.conversation.create.json */,
+				89D5225D21888EDC0082B3FD /* Event.conversation.delete.json */,
+				89D5226321888EDC0082B3FD /* Event.conversation.participantAdded.json */,
+				89D5226221888EDC0082B3FD /* Event.conversation.participantRemoved.json */,
+				89D5226B21888EDD0082B3FD /* Event.conversation.participantUpdated.json */,
+				89D5226421888EDC0082B3FD /* Event.conversation.undelete.json */,
+				89D5225F21888EDC0082B3FD /* Event.conversation.update.json */,
+				89D5226121888EDC0082B3FD /* Event.conversationMessage.delivered.json */,
+				89D5226021888EDC0082B3FD /* Event.conversationMessage.read.json */,
+				89D5225E21888EDC0082B3FD /* Event.conversationMessage.sent.json */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		89D522832188A3B00082B3FD /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				89D5225C21888EDC0082B3FD /* NewConversation.json */,
+				89D5225B21888EDC0082B3FD /* Conversation.json */,
+				89D522862188B5550082B3FD /* Conversations.json */,
+				89D5226721888EDC0082B3FD /* GetAllConversationsResult.json */,
+				89D5226821888EDC0082B3FD /* PostConversationsResult.json */,
+				89D5226921888EDC0082B3FD /* PostMessagesResult.json */,
+				89D5226C21888EDD0082B3FD /* Message.json */,
+				89D5226E21888EDD0082B3FD /* MessageStatusUpdate.json */,
+				89D5226D21888EDD0082B3FD /* SendableMessage.json */,
+				89D522842188A41B0082B3FD /* SendMessagesResult.json */,
+				89D5226A21888EDC0082B3FD /* GetMessagesResult.json */,
+				89D5226521888EDC0082B3FD /* ContentUploadResult.json */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
 		89DCBB45213426D4001016FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1805,6 +1885,8 @@
 		89EA5D05214ACCB700C29D08 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				89D522832188A3B00082B3FD /* Messaging */,
+				89D5225A21888E8C0082B3FD /* Events */,
 				89259E7A21528D8100C73A02 /* CMPResourceLoader.h */,
 				89259E7B21528D8100C73A02 /* CMPResourceLoader.m */,
 				89EA5D09214ACCB700C29D08 /* Session.json */,
@@ -2071,14 +2153,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D5227721888EDD0082B3FD /* Event.conversation.participantAdded.json in Resources */,
+				89D5227321888EDD0082B3FD /* Event.conversation.update.json in Resources */,
 				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
+				89D5227021888EDD0082B3FD /* NewConversation.json in Resources */,
+				89D5227921888EDD0082B3FD /* ContentUploadResult.json in Resources */,
 				896244DB2153CC35007F2117 /* ProfileArray.json in Resources */,
+				89D5227D21888EDD0082B3FD /* PostMessagesResult.json in Resources */,
+				89D5227B21888EDD0082B3FD /* GetAllConversationsResult.json in Resources */,
 				89EA5D1B214ACCB700C29D08 /* AuthorizeSessionBody.json in Resources */,
 				89EA5D25214ACCB700C29D08 /* AuthenticationChallenge.json in Resources */,
 				89EA5D21214ACCB700C29D08 /* SessionAuth.json in Resources */,
+				89D5227821888EDD0082B3FD /* Event.conversation.undelete.json in Resources */,
+				89D522872188B5550082B3FD /* Conversations.json in Resources */,
+				89D522852188A41B0082B3FD /* SendMessagesResult.json in Resources */,
 				89EA5D4221511F7400C29D08 /* APNSDetailsBody.json in Resources */,
 				896244DD2153D03B007F2117 /* ProfileUpdate.json in Resources */,
+				89D5227521888EDD0082B3FD /* Event.conversationMessage.delivered.json in Resources */,
 				89EA5D38214FBBC700C29D08 /* Profile.json in Resources */,
+				89D5227C21888EDD0082B3FD /* PostConversationsResult.json in Resources */,
+				89D5227121888EDD0082B3FD /* Event.conversation.delete.json in Resources */,
+				89D5227A21888EDD0082B3FD /* Event.conversation.create.json in Resources */,
+				89D5228121888EDD0082B3FD /* SendableMessage.json in Resources */,
+				89D5227621888EDD0082B3FD /* Event.conversation.participantRemoved.json in Resources */,
+				89D5227421888EDD0082B3FD /* Event.conversationMessage.read.json in Resources */,
+				89D5227E21888EDD0082B3FD /* GetMessagesResult.json in Resources */,
+				89D5227F21888EDD0082B3FD /* Event.conversation.participantUpdated.json in Resources */,
+				89D5228221888EDD0082B3FD /* MessageStatusUpdate.json in Resources */,
+				89D5226F21888EDD0082B3FD /* Conversation.json in Resources */,
+				89D5227221888EDD0082B3FD /* Event.conversationMessage.sent.json in Resources */,
+				89D5228021888EDD0082B3FD /* Message.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

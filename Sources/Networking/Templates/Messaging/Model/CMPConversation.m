@@ -16,7 +16,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.id forKey:@"id"];
     [dict setValue:self.name forKey:@"name"];
-    [dict setValue:self.description forKey:@"conversationDescription"];
+    [dict setValue:self.conversationDescription forKey:@"description"];
     [dict setValue:[self.roles json] forKey:@"roles"];
     [dict setValue:self.isPublic forKey:@"isPublic"];
 
@@ -44,8 +44,8 @@
         if (JSON[@"name"] && [JSON[@"name"] isKindOfClass:NSString.class]) {
             self.name = JSON[@"name"];
         }
-        if (JSON[@"conversationDescription"] && [JSON[@"conversationDescription"] isKindOfClass:NSString.class]) {
-            self.conversationDescription = JSON[@"conversationDescription"];
+        if (JSON[@"description"] && [JSON[@"description"] isKindOfClass:NSString.class]) {
+            self.conversationDescription = JSON[@"description"];
         }
         if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
             self.roles = [[CMPRoles alloc] initWithJSON:JSON[@"roles"]];

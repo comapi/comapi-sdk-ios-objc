@@ -29,7 +29,7 @@
 
 - (void)testJSONDecoding {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"SessionAuth"];
-    CMPSessionAuth *object = [[CMPSessionAuth alloc] decodeWithData:data];
+    CMPSessionAuth *object = [CMPSessionAuth decodeWithData:data];
     
     XCTAssertEqualObjects(object.token, @"aae066f4-399b-4251-8776-b6244c8acbc1");
     XCTAssertEqualObjects(object.session.id, @"f7636495-e553-4abd-a247-c99d1758f5e9");

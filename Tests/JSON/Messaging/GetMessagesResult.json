@@ -1,0 +1,39 @@
+{
+	"latestEventId": 35,
+	"earliestEventId": 34,
+	"messages": [
+		{
+			"id": "c8ee2dff-fc46-4248-843f-76b6d4b621ca",
+			"metadata": {
+                 "id" : "metadata id",
+                 "color" : "red",
+                 "count" : 3,
+                 "other" : 3.553
+			},
+			"context": {
+				"from": {
+					"id": "dominik.kowalski",
+					"name": "dominik.kowalski"
+				},
+				"conversationId": "support",
+				"sentBy": "dominik.kowalski",
+				"sentOn": "2016-09-29T09:17:46.534Z"
+			},
+			"parts": [
+				{
+					"name": "PartName",
+					"type": "image/jpeg",
+					"url": "apple.com",
+					"data": "base64EncodedData",
+					"size": 12535
+				}
+			],
+			"statusUpdates": {
+				
+			}
+		}
+	],
+	"orphanedEvents": [
+		
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"id": "c8ee2dff-fc46-4248-843f-76b6d4b621ca",
+	"metadata": {
+        "id" : "coolass id",
+        "color" : "red",
+        "count" : 3,
+        "other" : 3.553
+	},
+	"context": {
+		"from": {
+			"id": "USER\\alex.stevens",
+			"name": "USER\\alex.stevens"
+		},
+		"conversationId": "support",
+		"sentBy": "USER\\alex.stevens",
+		"sentOn": "2016-09-29T09:17:46.534Z"
+	},
+	"parts": [
+		{
+			"name": "PartName",
+			"type": "image\/jpeg",
+			"url": "http://apple.com",
+			"data": "base64EncodedData",
+			"size": 12535
+		}
+	],
+	"statusUpdates": {
+		
+	}
+}
