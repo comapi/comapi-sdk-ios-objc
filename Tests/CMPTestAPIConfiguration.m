@@ -47,7 +47,7 @@
     CMPAPIConfiguration *production = [CMPAPIConfiguration production];
     
     XCTAssertEqualObjects(production.scheme, @"https");
-    XCTAssertEqualObjects(production.host, @"stage-api.comapi.com");
+    XCTAssertEqualObjects(production.host, @"api.comapi.com");
     XCTAssertEqual(production.port, 443);
 }
 
