@@ -8,7 +8,7 @@ Specify ComapiFoundation in your Podfile:
 
 ```ruby 
 use_frameworks!
-pod 'comapi-sdk-ios-objc'
+pod 'CMPComapiFoundation'
 ```
 
 
