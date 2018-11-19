@@ -22,7 +22,7 @@
 - (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
     logWithLevel(CMPLogLevelVerbose, @"WILL PERFORM REQUEST:", [request description], nil);
     
-    if ([request.HTTPMethod isEqualToString:@"POST"] && request.HTTPBodyStream != nil) {
+    if ([request.HTTPMethod isEqualToString:CMPHTTPMethodPOST] && request.HTTPBodyStream != nil) {
         NSData *data = [[NSData alloc] initWithInputStream:request.HTTPBodyStream];
         NSURLSessionTask *task = [self.session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             CMPURLResult *result = [[CMPURLResult alloc] initWithRequest:request data:data response:response error:error];

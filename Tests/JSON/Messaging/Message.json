@@ -18,7 +18,7 @@
 	"parts": [
 		{
 			"name": "PartName",
-			"type": "image\/jpeg",
+			"type": "image/jpeg",
 			"url": "http://apple.com",
 			"data": "base64EncodedData",
 			"size": 12535

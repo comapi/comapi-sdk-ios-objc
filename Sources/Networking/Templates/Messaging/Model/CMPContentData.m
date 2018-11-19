@@ -26,7 +26,7 @@
     self = [super init];
     
     if (self) {
-        self.data = [NSFileManager.defaultManager contentsAtPath:url.absoluteString];
+        self.data = [NSData dataWithContentsOfURL:url];
         self.type = type;
         self.name = name;
     }
@@ -38,7 +38,7 @@
     self = [super init];
     
     if (self) {
-        self.data = [data dataUsingEncoding:NSUTF8StringEncoding];
+        self.data = [[NSData alloc] initWithBase64EncodedString:data options:0];
         self.type = type;
         self.name = name;
     }

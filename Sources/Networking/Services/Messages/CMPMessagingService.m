@@ -41,16 +41,16 @@
 
 #pragma mark - ConversationParticipants
 
-- (void)getParticipantsWithConversationID:(nonnull NSString *)conversationID completion:(nonnull void (^)(BOOL, NSError * _Nullable))completion {
+- (void)getParticipantsWithConversationID:(NSString *)conversationID completion:(void(^)(NSArray<CMPConversationParticipant *> * _Nonnull, NSError * _Nullable))completion {
     CMPGetParticipantsTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPGetParticipantsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID token:token];
     };
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * _Nonnull result) {
         if (result.error) {
-            completion(NO, result.error);
+            completion(@[], result.error);
         } else {
-            completion(YES, nil);
+            completion(result.object, nil);
         }
     }];
 }

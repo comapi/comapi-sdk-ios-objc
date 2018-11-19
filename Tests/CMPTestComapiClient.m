@@ -13,6 +13,8 @@
 #import "CMPComapiConfig.h"
 #import "CMPComapi.h"
 #import "CMPProfile.h"
+#import "CMPConversationMessageEvents.h"
+#import "CMPConversationEvents.h"
 
 @interface CMPTestComapiClient : XCTestCase
 
@@ -300,9 +302,9 @@
         XCTAssertEqual(conversation.roles.owner.canSend, YES);
         XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
         XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canSend, YES);
-        XCTAssertEqual(conversation.roles.participants.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canRemoveParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canSend, YES);
+        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
         XCTAssertEqualObjects(conversation.isPublic, @(NO));
         
         [expectation fulfill];
@@ -339,9 +341,9 @@
         XCTAssertEqual(c1.roles.owner.canSend, YES);
         XCTAssertEqual(c1.roles.owner.canAddParticipants, YES);
         XCTAssertEqual(c1.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(c1.roles.participants.canSend, YES);
-        XCTAssertEqual(c1.roles.participants.canAddParticipants, YES);
-        XCTAssertEqual(c1.roles.participants.canRemoveParticipants, YES);
+        XCTAssertEqual(c1.roles.participant.canSend, YES);
+        XCTAssertEqual(c1.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(c1.roles.participant.canRemoveParticipants, YES);
         XCTAssertEqualObjects(c1.isPublic, @(NO));
         
         XCTAssertEqualObjects(c2.id, @"support2");
@@ -350,9 +352,9 @@
         XCTAssertEqual(c2.roles.owner.canSend, YES);
         XCTAssertEqual(c2.roles.owner.canAddParticipants, YES);
         XCTAssertEqual(c2.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(c2.roles.participants.canSend, YES);
-        XCTAssertEqual(c2.roles.participants.canAddParticipants, YES);
-        XCTAssertEqual(c2.roles.participants.canRemoveParticipants, YES);
+        XCTAssertEqual(c2.roles.participant.canSend, YES);
+        XCTAssertEqual(c2.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(c2.roles.participant.canRemoveParticipants, YES);
         XCTAssertEqualObjects(c2.isPublic, @(NO));
         
         [expectation fulfill];
@@ -382,9 +384,9 @@
         XCTAssertEqual(conversation.roles.owner.canSend, YES);
         XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
         XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canSend, YES);
-        XCTAssertEqual(conversation.roles.participants.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canRemoveParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canSend, YES);
+        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
         XCTAssertEqualObjects(conversation.isPublic, @(NO));
         
         [expectation fulfill];
@@ -417,9 +419,9 @@
         XCTAssertEqual(conversation.roles.owner.canSend, YES);
         XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
         XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canSend, YES);
-        XCTAssertEqual(conversation.roles.participants.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participants.canRemoveParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canSend, YES);
+        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
         XCTAssertEqualObjects(conversation.isPublic, @(NO));
         
         [expectation fulfill];
@@ -442,6 +444,206 @@
     
     __weak typeof(self) weakSelf = self;
     [self.client.services.messaging deleteConversationWithConversationID:conversationID eTag:nil completion:^(BOOL success, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testAddParticipantToConversation {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL] statusCode:201 httpVersion:@"HTTP/1.1" headers:@{}];
+    NSString *conversationID = @"MOCK_ID";
+
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:nil response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging addParticipantsWithConversationID:conversationID participants:@[[[CMPConversationParticipant alloc] init]] completion:^(BOOL success, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testGetParticipantWithConversation {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
+    NSString *conversationID = @"MOCK_ID";
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"ConversationParticipants"];
+    
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:data response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging getParticipantsWithConversationID:conversationID completion:^(NSArray<CMPConversationParticipant *> * result, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        XCTAssertTrue(result.count == 2);
+        
+        XCTAssertEqualObjects(result[0].id, @"1");
+        XCTAssertEqualObjects(result[0].role, @"owner");
+        XCTAssertEqualObjects(result[1].id, @"2");
+        XCTAssertEqualObjects(result[1].role, @"participant");
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testRemoveParticipantFromConversation {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL] statusCode:204 httpVersion:@"HTTP/1.1" headers:@{}];
+    NSString *conversationID = @"MOCK_ID";
+
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:nil response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging removeParticipantsWithConversationID:conversationID participants:@[] completion:^(BOOL success, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        XCTAssertTrue(success);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testQueryEventsWithConversation {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
+    NSString *conversationID = @"MOCK_ID";
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"Events"];
+    
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:data response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging queryEventsWithConversationID:conversationID limit:100 from:0 completion:^(NSArray<CMPEvent *> * _Nonnull events, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        XCTAssertTrue(events.count == 3);
+        
+        XCTAssertTrue([events[0] isKindOfClass:CMPConversationMessageEventSent.class]);
+        XCTAssertTrue([events[1] isKindOfClass:CMPConversationEventParticipantAdded.class]);
+        XCTAssertTrue([events[2] isKindOfClass:CMPConversationEventParticipantTyping.class]);
+        
+        CMPConversationMessageEventSent *sent = (CMPConversationMessageEventSent *)events[0];
+        
+        XCTAssertEqualObjects(sent.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
+        XCTAssertEqualObjects(sent.context.createdBy, @"session:sub");
+        XCTAssertEqualObjects(sent.eventID, @"6c5e4883-203c-4475-ba3d-c375172a76c9");
+        XCTAssertEqualObjects(sent.name, @"conversationMessage.sent");
+        XCTAssertEqualObjects(sent.payload.context.conversationID, @"conv_sub");
+        XCTAssertEqualObjects(sent.payload.context.from.id, @"sub");
+        XCTAssertEqualObjects(sent.payload.context.sentBy, @"session:sub");
+        XCTAssertEqualObjects(sent.payload.messageID, @"1b60daee-e5e4-4186-b7fc-cf29c5865c61");
+        XCTAssertEqualObjects(sent.payload.parts[0].data, @"Haha");
+        XCTAssertEqualObjects(sent.payload.parts[0].name, @"");
+        XCTAssertEqualObjects(sent.payload.parts[0].size, @(8));
+        XCTAssertEqualObjects(sent.payload.parts[0].type, @"text/plain");
+        XCTAssertEqualObjects(sent.payload.metadata[@"myMessageID"], @(123));
+        
+        CMPConversationEventParticipantAdded *added = (CMPConversationEventParticipantAdded *)events[1];
+        
+        XCTAssertEqualObjects(added.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
+        XCTAssertEqualObjects(added.context.createdBy, @"session:sub");
+        XCTAssertEqualObjects(added.conversationID, @"new cool convo_sub");
+        XCTAssertEqualObjects(added.eventID, @"5674af06-0b36-4864-a3c3-ced498443d7d");
+        XCTAssertEqualObjects(added.name, @"conversation.participantAdded");
+        XCTAssertEqualObjects(added.payload.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
+        XCTAssertEqualObjects(added.payload.conversationID, @"new cool convo_sub");
+        XCTAssertEqualObjects(added.payload.profileID, @"sub");
+        XCTAssertEqualObjects(added.payload.role, @"owner");
+        
+        CMPConversationEventParticipantTyping *typing = (CMPConversationEventParticipantTyping *)events[2];
+        
+        XCTAssertEqualObjects(typing.payload.profileID, @"PLATFORMUSER\\dominik.kowalski@comapi.com");
+        XCTAssertEqualObjects(typing.payload.conversationID, @"cc089950-bcd8-4344-802a-3d231ad0907c");
+        XCTAssertEqualObjects(typing.context.createdBy, @"interactive:dominik.kowalski@comapi.com");
+        XCTAssertEqualObjects(typing.eventID, @"2b3fdcbb-4ab4-4b76-a72f-572cd61a5b1a");
+        XCTAssertEqual([typing.accountID integerValue], 41590);
+        XCTAssertEqualObjects([[NSDateFormatter comapiFormatter] stringFromDate:typing.publishedOn], @"2018-11-08T15:54:38.498Z");
+        XCTAssertEqualObjects(typing.name, @"conversation.participantTyping");
+        XCTAssertEqualObjects(typing.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
+        
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testUploadContent {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"ContentUploadResult"];
+    
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:data response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging uploadContent:[[CMPContentData alloc] init] folder:@"content" completion:^(CMPContentUploadResult * _Nullable result, NSError * _Nullable error) {
+        id self = weakSelf;
+        XCTAssertNil(error);
+        
+        XCTAssertEqualObjects(result.folder, @"content");
+        XCTAssertEqualObjects(result.type, @"image/jpeg");
+        XCTAssertEqualObjects(result.url.absoluteString, @"https://inttest-content.comapi.com/apispaces/2e7dd112-24f6-422b-bcd4-0f2e91315c0b/content/dc02e4fff450a6306e045f5c26801ce31c3efaeb");
+        XCTAssertEqualObjects(result.id, @"123");
+        XCTAssertEqual(result.size.integerValue, 3801);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testUpdateStatusForMessages {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
+    NSString *conversationID = @"MOCK_ID";
+    
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:nil response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging updateStatusForMessagesWithIDs:@[@"id", @"id2"] status:@"read" conversationID:conversationID timestamp:[NSDate date] completion:^(BOOL success, NSError * _Nullable error) {
         id self = weakSelf;
         XCTAssertNil(error);
         XCTAssertTrue(success);

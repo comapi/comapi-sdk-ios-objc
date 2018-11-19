@@ -13,12 +13,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(LoggingDestination)
-@protocol CMPLoggingDestination <NSObject>
+@protocol CMPLoggingDestination
 
 @property (nonatomic, readwrite) CMPLogLevel minimumLogLevel;
 @property (nonatomic, readwrite) NSDateFormatter *dateFormatter;
 
-- (NSString *)prefixForLevel:(CMPLogLevel)logLevel;
 - (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date;
 
 @end

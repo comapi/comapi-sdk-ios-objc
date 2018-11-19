@@ -21,7 +21,7 @@
         if (JSON[@"conversationId"] && [JSON[@"conversationId"] isKindOfClass:NSString.class]) {
             self.conversationID = JSON[@"conversationId"];
         }
-        if (JSON[@"conversationEventId"] && [JSON[@"conversationEventId"] isKindOfClass:NSString.class]) {
+        if (JSON[@"conversationEventId"] && [JSON[@"conversationEventId"] isKindOfClass:NSNumber.class]) {
             self.conversationEventID = JSON[@"conversationEventId"];
         }
     }
@@ -91,7 +91,7 @@
         if (JSON[@"roles"] && [JSON[@"roles"] isKindOfClass:NSDictionary.class]) {
             self.roles = [[CMPRoles alloc] initWithJSON:JSON[@"roles"]];
         }
-        if (JSON[@"payload"] && [JSON[@"payload"] isKindOfClass:NSArray.class]) {
+        if (JSON[@"participants"] && [JSON[@"participants"] isKindOfClass:NSArray.class]) {
             NSMutableArray<CMPConversationParticipant *> *participants = [NSMutableArray new];
             NSArray<NSDictionary *> *objects = JSON[@"participants"];
             [objects enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -535,7 +535,7 @@
     self = [super initWithJSON:JSON];
 
     if (self) {
-        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSString.class]) {
+        if (JSON[@"accountId"] && [JSON[@"accountId"] isKindOfClass:NSNumber.class]) {
             self.accountID = JSON[@"accountId"];
         }
         if (JSON[@"publishedOn"] && [JSON[@"publishedOn"] isKindOfClass:NSString.class]) {

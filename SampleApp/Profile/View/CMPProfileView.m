@@ -70,6 +70,14 @@
 }
 
 - (void)constrain {
+    NSLayoutConstraint *bottomViewBottom;
+    
+    if (@available(iOS 11.0, *)) {
+        bottomViewBottom = [self.bottomView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor];
+    } else {
+        bottomViewBottom = [self.bottomView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    }
+    
     NSLayoutConstraint *tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
     NSLayoutConstraint *tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
     NSLayoutConstraint *tableLeading = [self.tableView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
@@ -77,7 +85,7 @@
     
     [NSLayoutConstraint activateConstraints:@[tableTop, tableBottom, tableLeading, tableTrailing]];
     
-    NSLayoutConstraint *bottomViewBottom = [self.bottomView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    
     NSLayoutConstraint *bottomViewLeading = [self.bottomView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
     NSLayoutConstraint *bottomViewTrailing = [self.bottomView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     

@@ -29,7 +29,7 @@ NS_SWIFT_NAME(MessagingServiceable)
 
 #pragma mark - ConversationParticipants
 
-- (void)getParticipantsWithConversationID:(NSString *)conversationID completion:(void(^)(BOOL, NSError * _Nullable))completion;
+- (void)getParticipantsWithConversationID:(NSString *)conversationID completion:(void(^)(NSArray<CMPConversationParticipant *> *, NSError * _Nullable))completion;
 - (void)addParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(BOOL, NSError * _Nullable))completion;
 - (void)removeParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(BOOL, NSError * _Nullable))completion;
 

@@ -8,6 +8,7 @@
 
 #import "CMPMessageContext.h"
 #import "NSString+CMPUtility.h"
+#import "NSDate+CMPUtility.h"
 
 @implementation CMPMessageContext
 
@@ -30,7 +31,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.conversationID forKey:@"conversationId"];
     [dict setValue:self.sentBy forKey:@"sentBy"];
-    [dict setValue:self.sentOn forKey:@"sentOn"];
+    [dict setValue:[self.sentOn ISO8061String] forKey:@"sentOn"];
     [dict setValue:[self.from json] forKey:@"from"];
     
     return dict;

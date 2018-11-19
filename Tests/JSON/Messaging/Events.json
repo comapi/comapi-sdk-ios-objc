@@ -1,0 +1,64 @@
+[
+    {
+        "apiSpaceId": "be466e4b-1340-41fc-826e-20445ab658f1",
+        "context": {
+            "createdBy": "session:sub"
+        },
+        "eventId": "6c5e4883-203c-4475-ba3d-c375172a76c9",
+        "name": "conversationMessage.sent",
+        "payload": {
+            "context": {
+                "conversationId": "conv_sub",
+                "from": {
+                    "id": "sub"
+                },
+                "sentBy": "session:sub",
+                "sentOn": "2018-11-08 15:28:30 +0000"
+            },
+            "messageId": "1b60daee-e5e4-4186-b7fc-cf29c5865c61",
+            "parts": [
+                {
+                    "data": "Haha",
+                    "name": "",
+                    "size": 8,
+                    "type": "text/plain"
+                }
+            ],
+            "metadata": {
+                "myMessageID": 123
+            }
+        }
+    },
+    {
+        "apiSpaceId": "be466e4b-1340-41fc-826e-20445ab658f1",
+        "context": {
+            "createdBy": "session:sub"
+        },
+        "conversationId": "new cool convo_sub",
+        "eventId": "5674af06-0b36-4864-a3c3-ced498443d7d",
+        "name": "conversation.participantAdded",
+        "payload": {
+            "apiSpaceId": "be466e4b-1340-41fc-826e-20445ab658f1",
+            "conversationId": "new cool convo_sub",
+            "profileId": "sub",
+            "role": "owner"
+        }
+    },
+    {
+        "eventId": "2b3fdcbb-4ab4-4b76-a72f-572cd61a5b1a",
+        "payload": {
+            "conversationId": "cc089950-bcd8-4344-802a-3d231ad0907c",
+            "profileId": "PLATFORMUSER\\dominik.kowalski@comapi.com"
+        },
+        "context": {
+            "createdBy": "interactive:dominik.kowalski@comapi.com",
+            "createdOn": "2018-11-08T15:54:38.498Z"
+        },
+        "accountId": 41590,
+        "apiSpaceId": "be466e4b-1340-41fc-826e-20445ab658f1",
+        "name": "conversation.participantTyping",
+        "publishedOn": "2018-11-08T15:54:38.498Z"
+    }
+]
+
+

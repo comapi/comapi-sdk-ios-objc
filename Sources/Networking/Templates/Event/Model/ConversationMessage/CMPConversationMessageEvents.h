@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPConversationMessageEvent : CMPEvent
 
-@property (nonatomic, strong, nullable) NSString *conversationEventID;
+@property (nonatomic, strong, nullable) NSNumber *conversationEventID;
 
 @end
 

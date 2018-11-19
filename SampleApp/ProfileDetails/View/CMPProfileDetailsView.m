@@ -95,9 +95,17 @@
 }
 
 - (void)constrainWithState:(CMPProfileState)state {
-    NSLayoutConstraint *containerTop = [self.container.topAnchor constraintEqualToAnchor:self.topAnchor constant:100];
+    NSLayoutConstraint *containerTop;
+    NSLayoutConstraint *containerBottom;
+    if (@available(iOS 11.0, *)) {
+        containerTop = [self.container.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor constant:100];
+        containerBottom = [self.container.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor constant:-100];
+    } else {
+        containerTop = [self.container.topAnchor constraintEqualToAnchor:self.topAnchor constant:100];
+        containerBottom = [self.container.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-100];
+    }
+    
     NSLayoutConstraint *containerLeft = [self.container.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16];
-    NSLayoutConstraint *containerBottom = [self.container.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-100];
     NSLayoutConstraint *containerRight = [self.container.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-16];
     
     [NSLayoutConstraint activateConstraints:@[containerTop, containerLeft, containerBottom, containerRight]];

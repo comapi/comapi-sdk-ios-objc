@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CMPConversationEvent : CMPEvent <CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *conversationID;
-@property (nonatomic, strong, nullable) NSString *conversationEventID;
+@property (nonatomic, strong, nullable) NSNumber *conversationEventID;
 
 @end
 
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPParticipantTypingEvent : CMPEvent <CMPJSONRepresentable>
 
-@property (nonatomic, strong, nullable) NSString *accountID;
+@property (nonatomic, strong, nullable) NSNumber *accountID;
 @property (nonatomic, strong, nullable) NSDate *publishedOn;
 
 @end

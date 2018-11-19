@@ -61,6 +61,9 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...) {
         self.queue = dispatch_queue_create([CMPQueueNameConsole UTF8String], DISPATCH_QUEUE_SERIAL);
         self.dateFormatter = [NSDateFormatter iso8061Formatter];
         self.loggingDestinations = [NSMutableArray new];
+        
+        [self.loggingDestinations addObject:[CMPLog fileDestination]];
+        [self.loggingDestinations addObject:[CMPLog consoleDestination]];
     }
     
     return self;

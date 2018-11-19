@@ -18,7 +18,7 @@
     self = [super initWithJSON:JSON];
     
     if (self) {
-        if (JSON[@"conversationEventId"] && [JSON[@"conversationEventId"] isKindOfClass:NSString.class]) {
+        if (JSON[@"conversationEventId"] && [JSON[@"conversationEventId"] isKindOfClass:NSNumber.class]) {
             self.conversationEventID = JSON[@"conversationEventId"];
         }
     }
@@ -63,7 +63,7 @@
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.messageID forKey:@"messageId"];
-    [dict setValue:self.conversationID forKey:@"conversationID"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
     [dict setValue:self.profileID forKey:@"profileId"];
     [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
     
@@ -132,7 +132,7 @@
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.messageID forKey:@"messageId"];
-    [dict setValue:self.conversationID forKey:@"conversationID"];
+    [dict setValue:self.conversationID forKey:@"conversationId"];
     [dict setValue:self.profileID forKey:@"profileId"];
     [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
     
@@ -190,7 +190,7 @@
         if (JSON[@"context"] && [JSON[@"context"] isKindOfClass:NSDictionary.class]) {
             self.context = [[CMPMessageContext alloc] initWithJSON:JSON[@"context"]];
         }
-        if (JSON[@"alert"] && [JSON[@"alert"] isKindOfClass:NSString.class]) {
+        if (JSON[@"alert"] && [JSON[@"alert"] isKindOfClass:NSDictionary.class]) {
             self.alert = [[CMPMessageAlert alloc] initWithJSON:JSON[@"alert"]];
         }
         if (JSON[@"parts"] && [JSON[@"parts"] isKindOfClass:NSArray.class]) {
@@ -216,7 +216,7 @@
     [self.parts enumerateObjectsUsingBlock:^(CMPMessagePart * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [messages addObject:[obj json]];
     }];
-    [dict setValue:messages forKey:@"messages"];
+    [dict setValue:messages forKey:@"parts"];
     
     return dict;
 }

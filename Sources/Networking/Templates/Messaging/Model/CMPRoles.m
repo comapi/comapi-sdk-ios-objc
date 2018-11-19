@@ -15,7 +15,7 @@
     
     if (self) {
         self.owner = ownerAttributes;
-        self.participants = participantAttributes;
+        self.participant = participantAttributes;
     }
     
     return self;
@@ -26,7 +26,7 @@
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:[self.owner json] forKey:@"owner"];
-    [dict setValue:[self.participants json] forKey:@"participant"];
+    [dict setValue:[self.participant json] forKey:@"participant"];
     
     return dict;
 }
@@ -50,7 +50,7 @@
             self.owner = [[CMPRoleAttributes alloc] initWithJSON:JSON[@"owner"]];
         }
         if (JSON[@"participant"] && [JSON[@"participant"] isKindOfClass:NSDictionary.class]) {
-            self.participants = [[CMPRoleAttributes alloc] initWithJSON:JSON[@"participant"]];
+            self.participant = [[CMPRoleAttributes alloc] initWithJSON:JSON[@"participant"]];
         }
     }
     

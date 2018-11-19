@@ -69,15 +69,23 @@
 }
 
 - (void)constrain {
+    NSLayoutConstraint *tableTop;
+    
+    if (@available(iOS 11.0, *)) {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor];
+        self.animatableConstraint = [self.inputMessageView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor];
+    } else {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
+        self.animatableConstraint = [self.inputMessageView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    }
+    
     NSLayoutConstraint *inputTrailing = [self.inputMessageView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     NSLayoutConstraint *inputLeading = [self.inputMessageView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
-    self.animatableConstraint = [self.inputMessageView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
     
     [NSLayoutConstraint activateConstraints:@[inputTrailing, inputLeading, self.animatableConstraint]];
     
     NSLayoutConstraint *tableTrailing = [self.tableView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     NSLayoutConstraint *tableLeading = [self.tableView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
-    NSLayoutConstraint *tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
     NSLayoutConstraint *tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.inputMessageView.topAnchor];
     
     [NSLayoutConstraint activateConstraints:@[tableTrailing, tableLeading, tableTop, tableBottom]];

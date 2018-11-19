@@ -51,8 +51,20 @@
 }
 
 - (void)constrain {
-    NSLayoutConstraint *tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
-    NSLayoutConstraint *tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    NSLayoutConstraint *tableTop;
+    NSLayoutConstraint *tableBottom;
+    NSLayoutConstraint *loginBottom;
+    
+    if (@available(iOS 11.0, *)) {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor];
+        tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor];
+        loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor constant:-16];
+    } else {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
+        tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+        loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-16];
+    }
+
     NSLayoutConstraint *tableLeading = [self.tableView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
     NSLayoutConstraint *tableTrailing = [self.tableView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     
@@ -60,7 +72,7 @@
     
     NSLayoutConstraint *loginLeading = [self.loginButton.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16];
     NSLayoutConstraint *loginTrailing = [self.loginButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-16];
-    NSLayoutConstraint *loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-16];
+    
     NSLayoutConstraint *loginHeight = [self.loginButton.heightAnchor constraintEqualToConstant:44];
     
     [NSLayoutConstraint activateConstraints:@[loginLeading, loginTrailing, loginBottom, loginHeight]];

@@ -15,7 +15,7 @@ NS_SWIFT_NAME(Roles)
 @interface CMPRoles : NSObject <CMPJSONEncoding, CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPRoleAttributes *owner;
-@property (nonatomic, strong, nullable) CMPRoleAttributes *participants;
+@property (nonatomic, strong, nullable) CMPRoleAttributes *participant;
 
 - (instancetype)initWithOwnerAttributes:(CMPRoleAttributes *)ownerAttributes participantAttributes:(CMPRoleAttributes *)participantAttributes;
 
