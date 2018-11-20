@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(GetParticipantsTemplate)
 @interface CMPGetParticipantsTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
 @property (nonatomic, strong) NSString *token;

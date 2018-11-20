@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView *contentImageView;
 @property (nonatomic, strong) UIActivityIndicatorView *loader;
 
-- (void)configureWithMessage:(CMPMessage *)message ownership:(CMPMessageOwnership)ownership downloader:(CMPImageDownloader *)downloader;
+- (void)configureWithMessage:(CMPMessage *)message ownership:(CMPMessageOwnership)ownership downloader:(CMPImageDownloader *)downloader animate:(BOOL)animate;
 
 @end
 

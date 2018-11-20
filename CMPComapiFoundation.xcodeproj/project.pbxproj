@@ -44,7 +44,7 @@
 		896F8346219F18A100C5A635 /* mock_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 896F8345219F18A100C5A635 /* mock_image.png */; };
 		896F8348219F1D5D00C5A635 /* Event.socket.info.json in Resources */ = {isa = PBXBuildFile; fileRef = 896F8347219F1D5D00C5A635 /* Event.socket.info.json */; };
 		896F834A219F217500C5A635 /* CMPTestMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F8349219F217500C5A635 /* CMPTestMessages.m */; };
-		896F834C21A3170900C5A635 /* CMPTestTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F834B21A3170900C5A635 /* CMPTestTemplates.m */; };
+		896F834E21A32C7100C5A635 /* MessageAlert.json in Resources */ = {isa = PBXBuildFile; fileRef = 896F834D21A32C7100C5A635 /* MessageAlert.json */; };
 		8971CC1B219D980C008CC033 /* CMPTestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8971CC1A219D980C008CC033 /* CMPTestLogger.m */; };
 		8972C2F0212AD90300C76B19 /* CMPRequestTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */; };
 		8972C2F4212AE5F900C76B19 /* CMPHTTPHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */; };
@@ -208,6 +208,10 @@
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
 		89BD571921822B340079E83E /* CMPJSONRepresentable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571821822B340079E83E /* CMPJSONRepresentable.h */; };
 		89BD571B218235A60079E83E /* CMPJSONConstructable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571A218235A60079E83E /* CMPJSONConstructable.h */; };
+		89C6BBC221A3309300146DBB /* Event.profile.update.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C6BBC121A3309300146DBB /* Event.profile.update.json */; };
+		89C6BBC421A361B200146DBB /* CMPTestConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6BBC321A361B200146DBB /* CMPTestConversation.m */; };
+		89C6BBC621A42C0C00146DBB /* CMPTestEventQueryTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6BBC521A42C0C00146DBB /* CMPTestEventQueryTemplate.m */; };
+		89C6BBC821A42C4600146DBB /* CMPTestGetParticipantsTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6BBC721A42C4600146DBB /* CMPTestGetParticipantsTemplate.m */; };
 		89C8DE4E2122F4B400555495 /* CMPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE4C2122F4B400555495 /* CMPSessionManager.h */; };
 		89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE4D2122F4B400555495 /* CMPSessionManager.m */; };
 		89C8DE532122F7AB00555495 /* CMPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE512122F7AB00555495 /* CMPSession.h */; };
@@ -414,7 +418,7 @@
 		896F8345219F18A100C5A635 /* mock_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mock_image.png; sourceTree = "<group>"; };
 		896F8347219F1D5D00C5A635 /* Event.socket.info.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.socket.info.json; sourceTree = "<group>"; };
 		896F8349219F217500C5A635 /* CMPTestMessages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestMessages.m; sourceTree = "<group>"; };
-		896F834B21A3170900C5A635 /* CMPTestTemplates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestTemplates.m; sourceTree = "<group>"; };
+		896F834D21A32C7100C5A635 /* MessageAlert.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MessageAlert.json; sourceTree = "<group>"; };
 		8971CC1A219D980C008CC033 /* CMPTestLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestLogger.m; sourceTree = "<group>"; };
 		8972C2EF212AD90300C76B19 /* CMPRequestTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRequestTemplate.m; sourceTree = "<group>"; };
 		8972C2F2212AE5F900C76B19 /* CMPHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPHTTPHeader.h; sourceTree = "<group>"; };
@@ -617,6 +621,10 @@
 		89957AA421398B9D008EE0BE /* CMPLoginBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginBundle.m; sourceTree = "<group>"; };
 		89BD571821822B340079E83E /* CMPJSONRepresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONRepresentable.h; sourceTree = "<group>"; };
 		89BD571A218235A60079E83E /* CMPJSONConstructable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPJSONConstructable.h; sourceTree = "<group>"; };
+		89C6BBC121A3309300146DBB /* Event.profile.update.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Event.profile.update.json; sourceTree = "<group>"; };
+		89C6BBC321A361B200146DBB /* CMPTestConversation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestConversation.m; sourceTree = "<group>"; };
+		89C6BBC521A42C0C00146DBB /* CMPTestEventQueryTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestEventQueryTemplate.m; sourceTree = "<group>"; };
+		89C6BBC721A42C4600146DBB /* CMPTestGetParticipantsTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestGetParticipantsTemplate.m; sourceTree = "<group>"; };
 		89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CMPComapiFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8DE4C2122F4B400555495 /* CMPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionManager.h; sourceTree = "<group>"; };
 		89C8DE4D2122F4B400555495 /* CMPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSessionManager.m; sourceTree = "<group>"; };
@@ -1756,6 +1764,7 @@
 				89D5226021888EDC0082B3FD /* Event.conversationMessage.read.json */,
 				89D5225E21888EDC0082B3FD /* Event.conversationMessage.sent.json */,
 				896F8347219F1D5D00C5A635 /* Event.socket.info.json */,
+				89C6BBC121A3309300146DBB /* Event.profile.update.json */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1772,6 +1781,7 @@
 				89D5226821888EDC0082B3FD /* PostConversationsResult.json */,
 				89D5226921888EDC0082B3FD /* PostMessagesResult.json */,
 				89D5226C21888EDD0082B3FD /* Message.json */,
+				896F834D21A32C7100C5A635 /* MessageAlert.json */,
 				89D5226E21888EDD0082B3FD /* MessageStatusUpdate.json */,
 				89D5226D21888EDD0082B3FD /* SendableMessage.json */,
 				89D522842188A41B0082B3FD /* SendMessagesResult.json */,
@@ -1889,6 +1899,7 @@
 				89EA5D2A214ACFB300C29D08 /* CMPTestMocks.m */,
 				89EA5D33214FB30B00C29D08 /* CMPTestAuthenticationChallenge.m */,
 				89EA5D35214FBB8D00C29D08 /* CMPTestProfile.m */,
+				89C6BBC321A361B200146DBB /* CMPTestConversation.m */,
 				896F8342219F17CE00C5A635 /* CMPTestContentData.m */,
 				896F8349219F217500C5A635 /* CMPTestMessages.m */,
 				89EA5D39214FBF3200C29D08 /* CMPTestSession.m */,
@@ -1907,11 +1918,12 @@
 				89EA5D5721516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m */,
 				89EA5D5921516A9300C29D08 /* CMPTestAuthorizeSessionTemplate.m */,
 				89EA5D5B21516C0800C29D08 /* CMPTestDeleteSessionTemplate.m */,
+				89C6BBC521A42C0C00146DBB /* CMPTestEventQueryTemplate.m */,
+				89C6BBC721A42C4600146DBB /* CMPTestGetParticipantsTemplate.m */,
 				89EA5D5D21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m */,
 				896244DE2153DE12007F2117 /* CMPTestErrors.m */,
 				8971CC1A219D980C008CC033 /* CMPTestLogger.m */,
 				896F833A219DC36B00C5A635 /* CMPTestEvents.m */,
-				896F834B21A3170900C5A635 /* CMPTestTemplates.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2190,6 +2202,7 @@
 			files = (
 				89D5227721888EDD0082B3FD /* Event.conversation.participantAdded.json in Resources */,
 				89D5227321888EDD0082B3FD /* Event.conversation.update.json in Resources */,
+				89C6BBC221A3309300146DBB /* Event.profile.update.json in Resources */,
 				89EA5D1A214ACCB700C29D08 /* Session.json in Resources */,
 				896F8348219F1D5D00C5A635 /* Event.socket.info.json in Resources */,
 				89D5227021888EDD0082B3FD /* NewConversation.json in Resources */,
@@ -2217,6 +2230,7 @@
 				89D528942189F68D0082B3FD /* ConversationParticipant.json in Resources */,
 				89D5227621888EDD0082B3FD /* Event.conversation.participantRemoved.json in Resources */,
 				89D5227421888EDD0082B3FD /* Event.conversationMessage.read.json in Resources */,
+				896F834E21A32C7100C5A635 /* MessageAlert.json in Resources */,
 				89D5227E21888EDD0082B3FD /* GetMessagesResult.json in Resources */,
 				89D5227F21888EDD0082B3FD /* Event.conversation.participantUpdated.json in Resources */,
 				89D5228221888EDD0082B3FD /* MessageStatusUpdate.json in Resources */,
@@ -2460,6 +2474,7 @@
 				89EA5D3A214FBF3200C29D08 /* CMPTestSession.m in Sources */,
 				89EA5D36214FBB8D00C29D08 /* CMPTestProfile.m in Sources */,
 				896F833B219DC36B00C5A635 /* CMPTestEvents.m in Sources */,
+				89C6BBC421A361B200146DBB /* CMPTestConversation.m in Sources */,
 				89259E7C21528D8100C73A02 /* CMPResourceLoader.m in Sources */,
 				89EA5D562151685C00C29D08 /* CMPTestQueryProfilesTemplate.m in Sources */,
 				89EA5D3C214FC63100C29D08 /* CMPTestAuthorizeSessionBody.m in Sources */,
@@ -2471,10 +2486,11 @@
 				89EA5D502151610000C29D08 /* CMPTestGetProfileTemplate.m in Sources */,
 				89EA5D5E21516CA600C29D08 /* CMPTestSetAPNSDetailsTemplate.m in Sources */,
 				89EA5D4E2151400900C29D08 /* CMPTestComapiClient.m in Sources */,
+				89C6BBC821A42C4600146DBB /* CMPTestGetParticipantsTemplate.m in Sources */,
 				89EA5D442151279700C29D08 /* CMPTestKeychain.m in Sources */,
 				8971CC1B219D980C008CC033 /* CMPTestLogger.m in Sources */,
 				89EA5D5821516A0B00C29D08 /* CMPTestStartNewSessionTemplate.m in Sources */,
-				896F834C21A3170900C5A635 /* CMPTestTemplates.m in Sources */,
+				89C6BBC621A42C0C00146DBB /* CMPTestEventQueryTemplate.m in Sources */,
 				896F834A219F217500C5A635 /* CMPTestMessages.m in Sources */,
 				89EA5D522151676B00C29D08 /* CMPTestUpdateProfileTemplate.m in Sources */,
 				89259E8321528E1500C73A02 /* CMPMockAuthenticationDelegate.m in Sources */,

@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(ContentUploadResult)
 @interface CMPContentUploadResult : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSString *id;

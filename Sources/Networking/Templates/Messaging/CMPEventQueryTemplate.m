@@ -30,7 +30,8 @@
 
 - (nullable NSDictionary<NSString *,NSString *> *)query {
     NSMutableDictionary<NSString *, NSString *> *query = [NSMutableDictionary new];
-    if (self.from) {
+    query[@"limit"] = [NSString stringWithFormat:@"%lu", (unsigned long)self.limit];
+    if (self.from > 0) {
         query[@"from"] = [NSString stringWithFormat:@"%lu", (unsigned long)self.from];
     }
     return query;

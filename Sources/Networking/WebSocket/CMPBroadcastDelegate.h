@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(BroadcastDelegate)
 @interface CMPBroadcastDelegate<__covariant Delegate> : NSObject
 
 - (void)addDelegate:(Delegate)delegate;

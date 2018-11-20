@@ -1,16 +1,15 @@
 //
-//  CMPTestTemplates.m
+//  CMPTestEventQueryTemplate.m
 //  CMPComapiFoundation_tests
 //
-//  Created by Dominik Kowalski on 19/11/2018.
+//  Created by Dominik Kowalski on 20/11/2018.
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
 #import "CMPEventQueryTemplate.h"
 
-@interface CMPTestTemplates : XCTestCase {
+@interface CMPTestEventQueryTemplate : XCTestCase {
     NSString *scheme;
     NSString *host;
     NSInteger port;
@@ -20,7 +19,7 @@
 
 @end
 
-@implementation CMPTestTemplates
+@implementation CMPTestEventQueryTemplate
 
 - (void)setUp {
     scheme = @"https://";
@@ -39,11 +38,15 @@
     
     XCTAssertEqualObjects(t.scheme, @"https://");
     XCTAssertEqualObjects(t.host, @"mock_host.com");
-    XCTAssertEqual(t.port, 8080);
     XCTAssertEqualObjects(t.apiSpaceID, @"8888-8888-8888-8888");
     XCTAssertEqualObjects(t.token, @"mock_token");
     XCTAssertEqualObjects(t.httpMethod, @"GET");
     XCTAssertEqualObjects(t.httpBody, nil);
+    NSArray *components = @[@"apispaces", @"8888-8888-8888-8888", @"conversations", @"mock_conv_id", @"events"];
+    XCTAssertTrue([t.pathComponents isEqualToArray:components]);
+    XCTAssertEqual(t.port, 8080);
+    XCTAssertEqual([t.query[@"limit"] integerValue], 100);
+    XCTAssertNil(t.query[@"from"]);
     
     NSArray<CMPHTTPHeader *> *headers = [t.httpHeaders allObjects];
     
@@ -58,50 +61,6 @@
             XCTFail();
         }
     }];
-}
-
-- (void)testGetParticipantsTemplate {
-    
-}
-
-- (void)testAddParticipantsTemplate {
-    
-}
-
-- (void)testRemoveParticipantsTemplate {
-    
-}
-
-- (void)testGetConversationTemplate {
-    
-}
-
-- (void)testAddConversationTemplate {
-    
-}
-
-- (void)testUpdateConversationTemplate {
-    
-}
-
-- (void)testDeleteConversationTemplate {
-    
-}
-
-- (void)testGetMessagesTemplate {
-    
-}
-
-- (void)testSendMessagesTemplate {
-    
-}
-
-- (void)testContentUploadTemplate {
-    
-}
-
-- (void)testSendStatusUpdateTemplate {
-    
 }
 
 @end

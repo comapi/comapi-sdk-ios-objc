@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Conversation
 
+NS_SWIFT_NAME(ConversationEvent)
 @interface CMPConversationEvent : CMPEvent <CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *conversationID;
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Create
 
+NS_SWIFT_NAME(ConversationEventCreatePayload)
 @interface CMPConversationEventCreatePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
@@ -33,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventCreate)
 @interface CMPConversationEventCreate : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventCreatePayload *payload;
@@ -41,6 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Update
 
+NS_SWIFT_NAME(ConversationEventCreatePayload)
 @interface CMPConversationEventUpdatePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
@@ -51,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventUpdate)
 @interface CMPConversationEventUpdate : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventUpdatePayload *payload;
@@ -59,12 +64,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Delete
 
+NS_SWIFT_NAME(ConversationEventDeletePayload)
 @interface CMPConversationEventDeletePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSDate *date;
 
 @end
 
+NS_SWIFT_NAME(ConversationEventDelete)
 @interface CMPConversationEventDelete : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventDeletePayload *payload;
@@ -73,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Undelete
 
+NS_SWIFT_NAME(ConversationEventUndeletePayload)
 @interface CMPConversationEventUndeletePayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *id;
@@ -83,6 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventUndelete)
 @interface CMPConversationEventUndelete : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventUndeletePayload *payload;
@@ -91,6 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantAdded
 
+NS_SWIFT_NAME(ConversationEventParticipantAddedPayload)
 @interface CMPConversationEventParticipantAddedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *apiSpaceID;
@@ -100,6 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventParticipantAdded)
 @interface CMPConversationEventParticipantAdded : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventParticipantAddedPayload *payload;
@@ -108,6 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantRemoved
 
+NS_SWIFT_NAME(ConversationEventParticipantRemovedPayload)
 @interface CMPConversationEventParticipantRemovedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
@@ -116,6 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventParticipantRemoved)
 @interface CMPConversationEventParticipantRemoved : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventParticipantRemovedPayload *payload;
@@ -124,6 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantUpdated
 
+NS_SWIFT_NAME(ConversationEventParticipantUpdatedPayload)
 @interface CMPConversationEventParticipantUpdatedPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
@@ -133,6 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventParticipantUpdated)
 @interface CMPConversationEventParticipantUpdated : CMPConversationEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventParticipantUpdatedPayload *payload;
@@ -141,6 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTyping
 
+NS_SWIFT_NAME(ParticipantTypingEvent)
 @interface CMPParticipantTypingEvent : CMPEvent <CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSNumber *accountID;
@@ -150,6 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTypingOn
 
+NS_SWIFT_NAME(ConversationEventParticipantTypingPayload)
 @interface CMPConversationEventParticipantTypingPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
@@ -157,6 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventParticipantTyping)
 @interface CMPConversationEventParticipantTyping : CMPParticipantTypingEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventParticipantTypingPayload *payload;
@@ -165,6 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ParticipantTypingOff
 
+NS_SWIFT_NAME(ConversationEventParticipantTypingOffPayload)
 @interface CMPConversationEventParticipantTypingOffPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *profileID;
@@ -172,6 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationEventParticipantTypingOff)
 @interface CMPConversationEventParticipantTypingOff : CMPParticipantTypingEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationEventParticipantTypingOffPayload *payload;

@@ -54,6 +54,20 @@
     }];
 }
 
+- (void)getProfileWithCompletion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
+    if (!self.client) {
+        completion(nil, nil);
+    }
+
+    [self.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
+        if (error) {
+            completion(nil, error);
+        } else {
+            completion(profile, nil);
+        }
+    }];
+}
+
 - (void)clientWith:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void (^)(NSString * _Nullable))continueWithToken {
     NSString *token = [CMPAuthenticationManager generateTokenForNonce:challenge.nonce profileID:self.loginBundle.profileID issuer:self.loginBundle.issuer audience:self.loginBundle.audience secret:self.loginBundle.secret];
     

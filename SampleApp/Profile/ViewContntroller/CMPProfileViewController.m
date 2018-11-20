@@ -117,10 +117,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.viewModel.profiles[indexPath.row].id == self.viewModel.client.profileID) {
-        CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
-        CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+        CMPProfileDetailsViewModel *pvm = [[CMPProfileDetailsViewModel alloc] initWithClient:_viewModel.client profile:_viewModel.profiles[indexPath.row]];
+        CMPProfileDetailsViewController *pvc = [[CMPProfileDetailsViewController alloc] initWithViewModel:pvm state:CMPProfileStateSelf];
+//        CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
+//        CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
         
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:pvc animated:YES];
     }
 }
 

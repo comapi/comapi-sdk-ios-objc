@@ -66,11 +66,13 @@
         }
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
-            CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
-            CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
-            
-            UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-            [nav pushViewController:vc animated:YES];
+            [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
+                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:profile];
+                    CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+                    
+                    UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+                    [nav pushViewController:vc animated:YES];
+            }];
         } failure:^(NSError * _Nullable error) {
             [NSException raise:@"session start error" format:@"%@", error.localizedDescription];
         }];

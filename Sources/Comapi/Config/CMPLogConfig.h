@@ -10,15 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ @brief Defines the verbosity of logs displayed to the implementer and saved to disk.
+ */
 NS_SWIFT_NAME(LogConfig)
 @interface CMPLogConfig : NSObject
 
 @property (class, nonatomic, readwrite) CMPLogLevel logLevel;
 
 - (instancetype)init NS_UNAVAILABLE;
-
-+ (CMPLogLevel)logLevel;
-+ (void)setLogLevel:(CMPLogLevel)logLevel;
 
 @end
 

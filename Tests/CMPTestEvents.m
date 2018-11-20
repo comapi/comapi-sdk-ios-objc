@@ -386,4 +386,25 @@
     XCTAssertEqualObjects(json[@"context"][@"createdBy"], @"sub");
 }
 
+- (void)testProfileUpdate {
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.profile.update"];
+    
+    CMPProfileEventUpdate *event = [CMPProfileEventUpdate decodeWithData:data];
+    
+    XCTAssertEqualObjects(event.profileID, @"sub");
+    XCTAssertEqualObjects(event.eventID, @"9ee00e10-8921-4876-b9d5-936112168ca2");
+    XCTAssertEqualObjects(event.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
+    XCTAssertEqualObjects(event.name, @"profile.update");
+    XCTAssertEqualObjects(event.context.createdBy, @"session:sub");
+    XCTAssertNotNil(event.payload);
+    
+    NSDictionary *json = [event json];
+    
+    XCTAssertEqualObjects(json[@"profileId"], @"sub");
+    XCTAssertEqualObjects(json[@"eventId"], @"9ee00e10-8921-4876-b9d5-936112168ca2");
+    XCTAssertEqualObjects(json[@"apiSpaceId"], @"be466e4b-1340-41fc-826e-20445ab658f1");
+    XCTAssertEqualObjects(json[@"name"], @"profile.update");
+    XCTAssertEqualObjects(json[@"context"][@"createdBy"], @"session:sub");
+}
+
 @end

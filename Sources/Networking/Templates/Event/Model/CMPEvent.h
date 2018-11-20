@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(Event)
 @interface CMPEvent : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *eventID;
@@ -22,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(EventContext)
 @interface CMPEventContext : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong) NSString *createdBy;

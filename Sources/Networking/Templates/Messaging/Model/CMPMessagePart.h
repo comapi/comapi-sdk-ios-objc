@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(MessagePart)
 @interface CMPMessagePart : NSObject <CMPJSONEncoding, CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSString *name;

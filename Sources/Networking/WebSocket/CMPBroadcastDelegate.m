@@ -7,6 +7,7 @@
 //
 
 #import "CMPBroadcastDelegate.h"
+#import "CMPLogger.h"
 
 @interface CMPBroadcastDelegate<__covariant Delegate> ()
 
@@ -31,7 +32,11 @@
 }
 
 - (void)removeDelegate:(id)delegate {
-    [self.delegates removeObject:delegate];
+    if ([self.delegates containsObject:delegate]) {
+        [self.delegates removeObject:delegate];
+    } else {
+        logWithLevel(CMPLogLevelWarning, @"Delegate not found, returning...", nil);
+    }
 }
 
 - (void)invokeDelegatesWithBlock:(void (^)(id delegate))block {

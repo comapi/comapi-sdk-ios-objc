@@ -16,6 +16,8 @@
 @property (nonatomic, strong) CMPComapiClient *client;
 
 - (void)configureWithCompletion:(void(^)(NSError * _Nullable))completion;
+- (void)getProfileWithCompletion:(void(^)(CMPProfile * _Nullable, NSError * _Nullable))completion;
+
 @end
 
 

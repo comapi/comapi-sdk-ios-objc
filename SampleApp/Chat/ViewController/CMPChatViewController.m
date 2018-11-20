@@ -135,8 +135,17 @@
         
         NSString *fromID = msg.context.from.id;
         NSString *selfID = _viewModel.client.profileID;
+        
         BOOL isMine = [fromID isEqualToString:selfID];
-        [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader];
+        CGRect intersection = CGRectIntersection(self.chatView.tableView.bounds, cell.bounds);
+        CGRect cellBounds = cell.bounds;
+//        if (!CGRectEqualToRect(, )) {
+//            [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader animate:YES];
+//            //view is partially out of bounds
+//        } else {
+            [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader animate:NO];
+      //  }
+        
         
         return cell;
     } else {

@@ -7,6 +7,7 @@
 //
 
 #import "CMPLoginViewController.h"
+#import "CMPConversationsViewController.h"
 
 @interface CMPLoginViewController ()
 
@@ -65,11 +66,13 @@
                 [alert addAction:action];
                 [weakSelf.navigationController presentViewController:alert animated:YES completion:nil];
             } else {
-                CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:self.viewModel.client];
-                CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
-                
-                UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
-                [nav pushViewController:vc animated:true];
+                [weakSelf.viewModel getProfileWithCompletion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
+                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.viewModel.client profile:profile];
+                    CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+                    
+                    UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+                    [nav pushViewController:vc animated:YES];
+                }];
             }
         }];
     };

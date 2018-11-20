@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(SendableMessage)
 @interface CMPSendableMessage : NSObject <CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *metadata;

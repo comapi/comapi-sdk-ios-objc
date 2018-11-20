@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(MessageStatusUpdate)
 @interface CMPMessageStatusUpdate : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
 @property (nonatomic, strong, nullable) NSArray<NSString *> *messageIDs;

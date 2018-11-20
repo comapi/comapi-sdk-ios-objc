@@ -133,7 +133,7 @@ CGFloat const kMaxImageViewSize = 250;
     [NSLayoutConstraint activateConstraints:@[loaderCenterX, loaderCenterY]];
 }
 
-- (void)configureWithMessage:(CMPMessage *)message ownership:(CMPMessageOwnership)ownership downloader:(CMPImageDownloader *)downloader {
+- (void)configureWithMessage:(CMPMessage *)message ownership:(CMPMessageOwnership)ownership downloader:(CMPImageDownloader *)downloader animate:(BOOL)animate {
     NSArray<CMPMessagePart *> *parts = message.parts;
     NSString *sentOn = [message.context.sentOn ISO8061String];
     CMPMessageParticipant *participant = message.context.from;
@@ -157,9 +157,11 @@ CGFloat const kMaxImageViewSize = 250;
                         weakSelf.contentImageView.image = image;
                         [weakSelf.loader stopAnimating];
                         self.bubbleWidth.constant = 200;
-                        [UIView animateWithDuration:0.3 animations:^{
-                            [weakSelf.bubbleView layoutIfNeeded];
-                        }];
+                        if (animate) {
+                            [UIView animateWithDuration:0.3 animations:^{
+                                [weakSelf.bubbleView layoutIfNeeded];
+                            }];
+                        }
                     }
                 }];
             }

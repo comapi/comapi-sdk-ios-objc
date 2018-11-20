@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - ConversationMessage
 
+NS_SWIFT_NAME(ConversationMessageEvent)
 @interface CMPConversationMessageEvent : CMPEvent
 
 @property (nonatomic, strong, nullable) NSNumber *conversationEventID;
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Delivered
 
+NS_SWIFT_NAME(ConversationMessageEventDeliveredPayload)
 @interface CMPConversationMessageEventDeliveredPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
@@ -32,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationMessageEventDelivered)
 @interface CMPConversationMessageEventDelivered : CMPConversationMessageEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationMessageEventDeliveredPayload *payload;
@@ -40,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Read
 
+NS_SWIFT_NAME(ConversationMessageEventReadPayload)
 @interface CMPConversationMessageEventReadPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
@@ -49,6 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationMessageEventRead)
 @interface CMPConversationMessageEventRead : CMPConversationMessageEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) CMPConversationMessageEventReadPayload *payload;
@@ -57,6 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Sent
 
+NS_SWIFT_NAME(ConversationMessageEventSentPayload)
 @interface CMPConversationMessageEventSentPayload : NSObject <CMPJSONRepresentable, CMPJSONConstructable>
 
 @property (nonatomic, strong, nullable) NSString *messageID;
@@ -67,6 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+NS_SWIFT_NAME(ConversationMessageEventSent)
 @interface CMPConversationMessageEventSent : CMPConversationMessageEvent <CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSDate *publishedOn;

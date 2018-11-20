@@ -30,6 +30,7 @@
     [super tearDown];
 }
 
+
 - (void)testJSONRepresentable {
     NSDictionary *dict = [_object json];
     XCTAssertEqualObjects(dict[@"id"], @"90419e09-1f5b-4fc2-97c8-b878793c53f0");

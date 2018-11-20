@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(MessageAlertPlatforms)
 @interface CMPMessageAlertPlatforms : NSObject <CMPJSONEncoding, CMPJSONDecoding>
 
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *apns;

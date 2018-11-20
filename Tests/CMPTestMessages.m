@@ -8,8 +8,10 @@
 
 #import <XCTest/XCTest.h>
 #import "CMPMessage.h"
+#import "CMPMessageAlert.h"
 #import "CMPResourceLoader.h"
 #import "NSDate+CMPUtility.h"
+#import "CMPGetMessagesResult.h"
 
 @interface CMPTestMessages : XCTestCase
 
@@ -65,6 +67,27 @@
     XCTAssertEqualObjects(json[@"parts"][0][@"data"], @"base64EncodedData");
     XCTAssertEqual([(NSNumber *)json[@"parts"][0][@"size"] integerValue], 12535);
     XCTAssertEqual([(NSArray *)json[@"statusUpdates"] count], 0);
+    
+    CMPMessageParticipant *participant = [[CMPMessageParticipant alloc] initWithID:@"participantID" name:@"name"];
+    CMPMessageContext *context = [[CMPMessageContext alloc] initWithConversationID:@"conversationId" from:participant sentBy:@"sender" sentOn:[NSDate date]];
+    CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"partName" type:@"partType" url:[NSURL URLWithString:@"partURL"] data:@"partData" size:@(123)];
+    CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:@"status" timestamp:[NSDate date]];
+    msg = [[CMPMessage alloc] initWithID:@"id" metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
+    
+    XCTAssertEqualObjects(msg.id, @"id");
+    XCTAssertEqualObjects(msg.context.from.id, @"participantID");
+    XCTAssertEqualObjects(msg.context.from.name, @"name");
+    XCTAssertEqualObjects(msg.context.conversationID, @"conversationId");
+    XCTAssertEqualObjects(msg.context.sentBy, @"sender");
+    //XCTAssertEqualObjects([msg.context.sentOn ISO8061String], @"2016-09-29T09:17:46.534Z");
+    XCTAssertEqualObjects(msg.parts[0].name, @"partName");
+    XCTAssertEqualObjects(msg.parts[0].type, @"partType");
+    XCTAssertEqualObjects(msg.parts[0].url.absoluteString, @"partURL");
+    XCTAssertEqualObjects(msg.parts[0].data, @"partData");
+    XCTAssertEqual(msg.parts[0].size.integerValue, 123);
+    XCTAssertEqual(msg.statusUpdates.count, 1);
+    XCTAssertEqualObjects(msg.statusUpdates[@"update1"].status, @"status");
+    //XCTAssertEqualObjects(msg.statusUpdates[@"update1"].timestamp, @"status");
 }
 
 - (void)testMessageStatusUpdate {
@@ -79,6 +102,77 @@
     
     XCTAssertEqualObjects(json[@"status"], @"delivered");
     XCTAssertEqualObjects(json[@"timestamp"], @"2016-06-22T10:45:49.718Z");
+}
+
+- (void)testMessageAlertPlatforms {
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"MessageAlert"];
+    
+    CMPMessageAlert *alert = [CMPMessageAlert decodeWithData:data];
+    
+    XCTAssertEqualObjects(alert.platforms.apns[@"key1"], @"val1");
+    XCTAssertEqualObjects(alert.platforms.fcm[@"key2"], @"val2");
+    
+    NSDictionary *json = [alert json];
+    
+    XCTAssertEqualObjects(json[@"platforms"][@"apns"][@"key1"], @"val1");
+    XCTAssertEqualObjects(json[@"platforms"][@"fcm"][@"key2"], @"val2");
+    
+    CMPMessageAlertPlatforms *platform = [[CMPMessageAlertPlatforms alloc] initWithApns:@{@"apnsKey" : @"apnsVal"} fcm:@{@"fcmKey" : @"fcmVal"}];
+    alert = [[CMPMessageAlert alloc] initWithPlatforms:platform];
+    
+    XCTAssertEqualObjects(alert.platforms.apns[@"apnsKey"], @"apnsVal");
+    XCTAssertEqualObjects(alert.platforms.fcm[@"fcmKey"], @"fcmVal");
+}
+
+- (void)testGetMessagesResult {
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"GetMessagesResult"];
+    
+    CMPGetMessagesResult *result = [CMPGetMessagesResult decodeWithData:data];
+    
+    XCTAssertEqual([result.latestEventID integerValue], 35);
+    XCTAssertEqual([result.earliestEventID integerValue], 34);
+    XCTAssertEqualObjects(result.messages[0].id, @"c8ee2dff-fc46-4248-843f-76b6d4b621ca");
+    XCTAssertEqualObjects(result.messages[0].metadata[@"id"], @"metadata id");
+    XCTAssertEqualObjects(result.messages[0].metadata[@"color"], @"red");
+    XCTAssertEqual([result.messages[0].metadata[@"count"] integerValue], 3);
+    XCTAssertEqual([result.messages[0].metadata[@"other"] doubleValue], 3.553);
+    XCTAssertEqualObjects(result.messages[0].context.from.id, @"dominik.kowalski");
+    XCTAssertEqualObjects(result.messages[0].context.from.name, @"dominik.kowalski");
+    XCTAssertEqualObjects(result.messages[0].context.conversationID, @"support");
+    XCTAssertEqualObjects(result.messages[0].context.sentBy, @"dominik.kowalski");
+    XCTAssertEqualObjects([result.messages[0].context.sentOn ISO8061String], @"2016-09-29T09:17:46.534Z");
+    XCTAssertEqualObjects(result.messages[0].parts[0].name, @"PartName");
+    XCTAssertEqualObjects(result.messages[0].parts[0].type, @"image/jpeg");
+    XCTAssertEqualObjects(result.messages[0].parts[0].url.absoluteString, @"apple.com");
+    XCTAssertEqualObjects(result.messages[0].parts[0].data, @"base64EncodedData");
+    XCTAssertEqual([result.messages[0].parts[0].size integerValue], 12535);
+    
+    NSDictionary *json = [result json];
+    
+    XCTAssertEqual([json[@"latestEventId"] integerValue], 35);
+    XCTAssertEqual([json[@"earliestEventId"] integerValue], 34);
+    XCTAssertEqualObjects(json[@"messages"][0][@"id"], @"c8ee2dff-fc46-4248-843f-76b6d4b621ca");
+    XCTAssertEqualObjects(json[@"messages"][0][@"metadata"][@"id"], @"metadata id");
+    XCTAssertEqualObjects(json[@"messages"][0][@"metadata"][@"color"], @"red");
+    XCTAssertEqual([json[@"messages"][0][@"metadata"][@"count"] integerValue], 3);
+    XCTAssertEqual([json[@"messages"][0][@"metadata"][@"other"] doubleValue], 3.553);
+    XCTAssertEqualObjects(json[@"messages"][0][@"context"][@"from"][@"id"], @"dominik.kowalski");
+    XCTAssertEqualObjects(json[@"messages"][0][@"context"][@"from"][@"name"], @"dominik.kowalski");
+    XCTAssertEqualObjects(json[@"messages"][0][@"context"][@"conversationId"], @"support");
+    XCTAssertEqualObjects(json[@"messages"][0][@"context"][@"sentBy"], @"dominik.kowalski");
+    XCTAssertEqualObjects(json[@"messages"][0][@"context"][@"sentOn"], @"2016-09-29T09:17:46.534Z");
+    XCTAssertEqualObjects(json[@"messages"][0][@"parts"][0][@"name"], @"PartName");
+    XCTAssertEqualObjects(json[@"messages"][0][@"parts"][0][@"type"], @"image/jpeg");
+    XCTAssertEqualObjects(json[@"messages"][0][@"parts"][0][@"url"], @"apple.com");
+    XCTAssertEqualObjects(json[@"messages"][0][@"parts"][0][@"data"], @"base64EncodedData");
+    XCTAssertEqual([json[@"messages"][0][@"parts"][0][@"size"] integerValue], 12535);
+    
+    result = [[CMPGetMessagesResult alloc] initWithLatestEventID:@(1) earliestEventID:@(1) messages:@[] orphanedEvents:@[]];
+    
+    XCTAssertEqual([result.latestEventID integerValue], 1);
+    XCTAssertEqual([result.earliestEventID integerValue], 1);
+    XCTAssertEqual([result.messages count], 0);
+    XCTAssertEqual([result.orphanedEvents count], 0);
 }
 
 @end
