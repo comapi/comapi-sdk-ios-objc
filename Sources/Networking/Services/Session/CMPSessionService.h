@@ -15,7 +15,7 @@ NS_SWIFT_NAME(SessionServiceable)
 @protocol CMPSessionServiceable <NSObject>
 
 - (void)startSessionWithCompletion:(void(^)(void))completion failure:(void(^)(NSError * _Nullable))failure NS_SWIFT_NAME(startSession(completion:failure:));
-- (void)endSessionWithCompletion:(void (^)(BOOL, NSError * _Nullable))completion
+- (void)endSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion
     NS_SWIFT_NAME(endSession(completion:));
 - (void)startAuthenticationWithChallengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler NS_SWIFT_NAME(startAuthentication(challengeHandler:));
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler

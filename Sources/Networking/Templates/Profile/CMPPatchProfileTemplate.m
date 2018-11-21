@@ -57,32 +57,34 @@
     return nil;
 }
 
-- (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
-    if ([response httpStatusCode] == 200) {
-        CMPProfile *object = [CMPProfile decodeWithData:data];
-        if (object) {
-            return [[CMPRequestTemplateResult alloc] initWithObject:object error:nil];
-        } else {
-            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:nil];
-            return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
+- (CMPResult<id> *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response {
+    NSInteger code = [response httpStatusCode];
+    NSString *eTag = [[response httpURLResponse] allHeaderFields][@"ETag"];
+    switch (code) {
+        case 200: {
+            CMPProfile *object = [CMPProfile decodeWithData:data];
+            return [[CMPResult alloc] initWithObject:object error:nil eTag:eTag code:code];
         }
-    } else if ([response httpStatusCode] == 404) {
-        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
-        return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
-    } else if ([response httpStatusCode] == 409) {
-        NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUpdateConflict underlyingError:nil];
-        return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
+        case 404: {
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorNotFound underlyingError:nil];
+            return [[CMPResult alloc] initWithObject:nil error:error eTag:eTag code:code];
+        }
+        case 409: {
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUpdateConflict underlyingError:nil];
+            return [[CMPResult alloc] initWithObject:nil error:error eTag:eTag code:code];
+        }
+        default: {
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
+            return [[CMPResult alloc] initWithObject:nil error:error eTag:eTag code:code];
+        }
     }
-    
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
-    return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
-- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void (^)(CMPRequestTemplateResult *))result {
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void (^)(CMPResult<id> *))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+        result([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);
         return;
     }
     

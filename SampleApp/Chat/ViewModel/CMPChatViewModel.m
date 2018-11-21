@@ -30,12 +30,13 @@
 }
 
 - (void)getMessagesWithCompletion:(void (^)(NSArray<CMPMessage *> * _Nullable, NSError * _Nullable))completion {
-    [self.client.services.messaging getMessagesWithConversationID:self.conversation.id limit:100 from:0 completion:^(CMPGetMessagesResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            completion(nil, error);
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging getMessagesWithConversationID:self.conversation.id limit:100 from:0 completion:^(CMPResult<CMPGetMessagesResult *> *result) {
+        if (result.error) {
+            completion(nil, result.error);
         } else {
-            self.messages = result.messages ? result.messages : @[];
-            completion(result.messages, nil);
+            weakSelf.messages = result.object.messages ? result.object.messages : @[];
+            completion(weakSelf.messages, nil);
         }
     }];
 }
@@ -44,9 +45,9 @@
     NSDictionary<NSString *, id> *metadata = @{@"myMessageID" : @"123"};
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"" type:@"text/plain" url:nil data:message size:[NSNumber numberWithUnsignedLong:sizeof(message.UTF8String)]];
     CMPSendableMessage *sendableMessage = [[CMPSendableMessage alloc] initWithMetadata:metadata parts:@[part] alert:nil];
-    [self.client.services.messaging sendMessage:sendableMessage toConversationWithID:self.conversation.id completion:^(CMPSendMessagesResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            completion(error);
+    [self.client.services.messaging sendMessage:sendableMessage toConversationWithID:self.conversation.id completion:^(CMPResult<CMPSendMessagesResult *> *result) {
+        if (result.error) {
+            completion(result.error);
         } else {
             completion(nil);
         }
@@ -54,11 +55,11 @@
 }
 
 - (void)uploadContent:(CMPContentData *)content completion:(void (^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion {
-    [self.client.services.messaging uploadContent:content folder:nil completion:^(CMPContentUploadResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            completion(nil, error);
+    [self.client.services.messaging uploadContent:content folder:nil completion:^(CMPResult<CMPContentUploadResult *> *result) {
+        if (result.error) {
+            completion(nil, result.error);
         } else {
-            completion(result, nil);
+            completion(result.object, nil);
         }
     }];
 }
@@ -68,9 +69,9 @@
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"image" type:result.type url:result.url data:nil size:nil];
     CMPSendableMessage *message = [[CMPSendableMessage alloc] initWithMetadata:metadata parts:@[part] alert:nil];
     
-    [self.client.services.messaging sendMessage:message toConversationWithID:self.conversation.id completion:^(CMPSendMessagesResult * _Nullable result, NSError * _Nullable error) {
-        if (error) {
-            completion(error);
+    [self.client.services.messaging sendMessage:message toConversationWithID:self.conversation.id completion:^(CMPResult<CMPSendMessagesResult *> *result) {
+        if (result.error) {
+            completion(result.error);
         } else {
             completion(nil);
         }

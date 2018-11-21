@@ -25,37 +25,37 @@ NS_SWIFT_NAME(MessagingServiceable)
 
 #pragma mark - Events
 
-- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(NSArray<CMPEvent *> *, NSError * _Nullable))completion;
+- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(CMPResult<NSArray<CMPEvent *> *> *))completion;
 
 #pragma mark - ConversationParticipants
 
-- (void)getParticipantsWithConversationID:(NSString *)conversationID completion:(void(^)(NSArray<CMPConversationParticipant *> *, NSError * _Nullable))completion;
-- (void)addParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(BOOL, NSError * _Nullable))completion;
-- (void)removeParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(BOOL, NSError * _Nullable))completion;
+- (void)getParticipantsWithConversationID:(NSString *)conversationID completion:(void(^)(CMPResult<NSArray<CMPConversationParticipant *> *> *))completion;
+- (void)addParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(CMPResult<NSNumber *> *))completion;
+- (void)removeParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(CMPResult<NSNumber *> *))completion;
 
 #pragma mark - Conversation
 
-- (void)getConversationWithConversationID:(NSString *)conversationID completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
-- (void)getConversationsWithScope:(nullable NSString *)scope profileID:(NSString *)profileID completion:(void(^)(NSArray<CMPConversation *> * _Nullable, NSError * _Nullable))completion;
-- (void)addConversationWithConversation:(CMPNewConversation *)conversation completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
-- (void)updateConversationWithConversationID:(NSString *)conversationID conversation:(CMPConversationUpdate *)conversation eTag:(nullable NSString *)eTag completion:(void(^)(CMPConversation * _Nullable, NSError * _Nullable))completion;
-- (void)deleteConversationWithConversationID:(NSString *)conversationID eTag:(nullable NSString *)eTag completion:(void(^)(BOOL, NSError * _Nullable))completion;
+- (void)getConversationWithConversationID:(NSString *)conversationID completion:(void(^)(CMPResult<CMPConversation *> *))completion;
+- (void)getConversationsWithScope:(nullable NSString *)scope profileID:(NSString *)profileID completion:(void(^)(CMPResult<NSArray<CMPConversation *> *> * _Nullable))completion;
+- (void)addConversationWithConversation:(CMPNewConversation *)conversation completion:(void(^)(CMPResult<CMPConversation *> *))completion;
+- (void)updateConversationWithConversationID:(NSString *)conversationID conversation:(CMPConversationUpdate *)conversation eTag:(nullable NSString *)eTag completion:(void(^)(CMPResult<CMPConversation *> *))completion;
+- (void)deleteConversationWithConversationID:(NSString *)conversationID eTag:(nullable NSString *)eTag completion:(void(^)(CMPResult<NSNumber *> *))completion;
 
 
 #pragma mark - Messages
 
-- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(CMPGetMessagesResult * _Nullable, NSError * _Nullable))completion;
-- (void)sendMessage:(CMPSendableMessage *)message toConversationWithID:(NSString *)conversationID completion:(void(^)(CMPSendMessagesResult * _Nullable, NSError * _Nullable))completion;
+- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void(^)(CMPResult<CMPGetMessagesResult *> *))completion;
+- (void)sendMessage:(CMPSendableMessage *)message toConversationWithID:(NSString *)conversationID completion:(void(^)(CMPResult<CMPSendMessagesResult *> *))completion;
 
 #pragma mark - Status
 
-- (void)updateStatusForMessagesWithIDs:(NSArray<NSString *> *)messageIDs status:(NSString *)status conversationID:(NSString *)conversationID timestamp:(NSDate *)timestamp completion:(void (^)(BOOL, NSError * _Nullable))completion;
+- (void)updateStatusForMessagesWithIDs:(NSArray<NSString *> *)messageIDs status:(NSString *)status conversationID:(NSString *)conversationID timestamp:(NSDate *)timestamp completion:(void (^)(CMPResult<NSNumber *> *))completion;
 
 #pragma mark - Content
 
-- (void)uploadContent:(CMPContentData *)content folder:(nullable NSString *)folder completion:(void(^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion;
-- (void)uploadUrl:(NSURL *)url filename:(NSString *)filename type:(NSString *)type folder:(nullable NSString *)folder completion:(void(^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion;
-- (void)uploadData:(NSData *)data filename:(NSString *)filename type:(NSString *)type folder:(nullable NSString *)folder completion:(void(^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion;
+- (void)uploadContent:(CMPContentData *)content folder:(nullable NSString *)folder completion:(void(^)(CMPResult<CMPContentUploadResult *> *))completion;
+- (void)uploadUrl:(NSURL *)url filename:(NSString *)filename type:(NSString *)type folder:(nullable NSString *)folder completion:(void(^)(CMPResult<CMPContentUploadResult *> *))completion;
+- (void)uploadData:(NSData *)data filename:(NSString *)filename type:(NSString *)type folder:(nullable NSString *)folder completion:(void(^)(CMPResult<CMPContentUploadResult *> *))completion;
 
 
 @end

@@ -36,23 +36,24 @@
 - (void)getProfilesWithCompletion:(void (^)(NSArray<CMPProfile *> * _Nullable, NSError * _Nullable))completion {
     NSString *profileID = self.client.profileID;
     if (profileID) {
-        [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(NSArray<CMPProfile *> * _Nullable profiles, NSError * _Nullable error) {
-            if (error) {
-                completion(nil, error);
+        __weak typeof(self) weakSelf = self;
+        [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(CMPResult<NSArray<CMPProfile *> *> * result) {
+            if (result.error) {
+                completion(nil, result.error);
             } else {
-                self.profiles = profiles;
-                completion(profiles, nil);
+                weakSelf.profiles = result.object;
+                completion(weakSelf.profiles, nil);
             }
         }];
     }
 }
 
 - (void)getConversationWithID:(NSString *)ID completion:(void (^)(CMPConversation * _Nullable, NSError * _Nullable))completion {
-    [self.client.services.messaging getConversationWithConversationID:ID completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {
-        if (error) {
-            completion(nil, error);
+    [self.client.services.messaging getConversationWithConversationID:ID completion:^(CMPResult<CMPConversation *> *result) {
+        if (result.error) {
+            completion(nil, result.error);
         } else {
-            completion(conversation, nil);
+            completion(result.object, nil);
         }
     }];
 }
@@ -73,11 +74,11 @@
                 weakSelf.conversation.roles = roles;
                 weakSelf.conversation.id = id;
                 
-                [weakSelf.client.services.messaging addConversationWithConversation:weakSelf.conversation completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {
-                    if (error) {
-                        completion(NO, nil, error);
+                [weakSelf.client.services.messaging addConversationWithConversation:weakSelf.conversation completion:^(CMPResult<CMPConversation *> *result) {
+                    if (result.error) {
+                        completion(NO, nil, result.error);
                     } else {
-                        completion(NO, conversation, nil);
+                        completion(NO, result.object, nil);
                     }
                 }];
             }

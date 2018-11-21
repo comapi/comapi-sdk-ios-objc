@@ -22,11 +22,11 @@
 }
 
 - (void)getConversationsWithCompletion:(void (^)(NSError * _Nullable))completion {
-    [self.client.services.messaging getConversationsWithScope:nil profileID:self.profile.id completion:^(NSArray<CMPConversation *> * _Nullable conversations, NSError * _Nullable error) {
-        if (error) {
-            completion(error);
+    [self.client.services.messaging getConversationsWithScope:nil profileID:self.profile.id completion:^(CMPResult<NSArray<CMPConversation *> *> * result) {
+        if (result.error) {
+            completion(result.error);
         } else {
-            self.conversations = [NSMutableArray arrayWithArray:conversations];
+            self.conversations = [NSMutableArray arrayWithArray:result.object];
             completion(nil);
         }
     }];

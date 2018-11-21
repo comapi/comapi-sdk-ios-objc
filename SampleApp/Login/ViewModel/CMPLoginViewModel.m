@@ -59,11 +59,11 @@
         completion(nil, nil);
     }
 
-    [self.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
-        if (error) {
-            completion(nil, error);
+    [self.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
+        if (result.error) {
+            completion(nil, result.error);
         } else {
-            completion(profile, nil);
+            completion(result.object, nil);
         }
     }];
 }

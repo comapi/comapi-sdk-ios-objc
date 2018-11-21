@@ -66,8 +66,8 @@
         }
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
-            [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
-                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:profile];
+            [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
+                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:result.object];
                     CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
                     
                     UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
@@ -86,7 +86,7 @@
     
     logWithLevel(CMPLogLevelWarning, @"restarting...", nil);
     
-    [self.client.services.session endSessionWithCompletion:^(BOOL success, NSError * error) {
+    [self.client.services.session endSessionWithCompletion:^(CMPResult<NSNumber *> *result) {
         UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
         [nav popToRootViewControllerAnimated:YES];
     }];

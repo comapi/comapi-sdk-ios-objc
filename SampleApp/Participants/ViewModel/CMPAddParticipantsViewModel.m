@@ -31,9 +31,9 @@
 }
 
 - (void)getProfileForID:(NSString *)ID completion:(void (^)(BOOL, NSError * _Nullable))completion {
-    [self.client.services.profile getProfileWithProfileID:ID completion:^(CMPProfile * _Nullable profile, NSError * _Nullable error) {
-        if (error) {
-            completion(NO, error);
+    [self.client.services.profile getProfileWithProfileID:ID completion:^(CMPResult<CMPProfile *> * result) {
+        if (result.error) {
+            completion(NO, result.error);
         } else {
             completion(YES, nil);
         }
@@ -52,11 +52,11 @@
         if (error) {
             completion(success, error);
         } else {
-            [weakSelf.client.services.messaging addParticipantsWithConversationID:self.conversationID participants:@[self.participant] completion:^(BOOL success, NSError * _Nullable error) {
-                if (error) {
-                    completion(success, error);
+            [weakSelf.client.services.messaging addParticipantsWithConversationID:self.conversationID participants:@[self.participant] completion:^(CMPResult<NSNumber *> *result) {
+                if (result.error) {
+                    completion([result.object boolValue], error);
                 } else {
-                    completion(success, nil);
+                    completion([result.object boolValue], nil);
                 }
             }];
         }

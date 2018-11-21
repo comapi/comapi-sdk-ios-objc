@@ -51,21 +51,26 @@
     return @[@"apispaces", self.apiSpaceID, @"conversations", self.conversationID, @"events"];
 }
 
-- (nonnull CMPRequestTemplateResult *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
-    if ([response httpStatusCode] == 200) {
-        NSArray<CMPEvent *> *events = [CMPEventParser parseEventsForData:data];
-        return [[CMPRequestTemplateResult alloc] initWithObject:events error:nil];
+- (nonnull CMPResult<id> *)resultFromData:(nonnull NSData *)data urlResponse:(nonnull NSURLResponse *)response {
+    NSInteger code = [response httpStatusCode];
+    NSString *eTag = [[response httpURLResponse] allHeaderFields][@"ETag"];
+    switch (code) {
+        case 200: {
+            NSArray<CMPEvent *> *events = [CMPEventParser parseEventsForData:data];
+            return [[CMPResult alloc] initWithObject:events error:nil eTag:eTag code:code];
+        }
+        default: {
+            NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
+            return [[CMPResult alloc] initWithObject:nil error:error eTag:eTag code:code];
+        }
     }
-
-    NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorUnexpectedStatusCode underlyingError:nil];
-    return [[CMPRequestTemplateResult alloc] initWithObject:nil error:error];
 }
 
-- (void)performWithRequestPerformer:(nonnull id<CMPRequestPerforming>)performer result:(nonnull void (^)(CMPRequestTemplateResult * _Nonnull))result {
+- (void)performWithRequestPerformer:(nonnull id<CMPRequestPerforming>)performer result:(nonnull void (^)(CMPResult<id> * _Nonnull))result {
     NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
     if (!request) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-        result([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+        result([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);
         return;
     }
     

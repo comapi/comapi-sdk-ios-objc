@@ -6,7 +6,7 @@
 //  Copyright © 2018 Comapi. All rights reserved.
 //
 
-#import "CMPRequestTemplateResult.h"
+#import "CMPResult.h"
 #import "CMPUtilities.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,8 +21,8 @@ NS_SWIFT_NAME(HTTPRequestTemplate)
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders;
 - (nullable NSData *)httpBody;
 
-- (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
-- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPRequestTemplateResult *))result;
+- (CMPResult<id> *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPResult<id> *))result;
 
 @optional
 - (nullable NSInputStream *)httpBodyStream;

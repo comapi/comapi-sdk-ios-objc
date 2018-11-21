@@ -94,9 +94,8 @@
         return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];
     };
     
-    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
-        BOOL success = [(NSNumber *)result.object boolValue];
-        completion(success, result.error);
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
+        completion([result.object boolValue], result.error);
     }];
 }
 
