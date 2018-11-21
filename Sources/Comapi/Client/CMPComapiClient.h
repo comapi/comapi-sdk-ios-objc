@@ -41,7 +41,7 @@ NS_SWIFT_NAME(EventDelegate)
 /**
  @brief Tells the client an event was recieved as a result of some kind of Comapi action.
  @param client The client that the event was sent to.
- @param event The receieved event.
+ @param event The recieved event.
  */
 - (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event;
 

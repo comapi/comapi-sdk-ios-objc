@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- @brief CMPComapiConfig object used for initializing an instance of CMPComapiClient.
+ @brief Used for configuring and initializing an instance of CMPComapiClient.
  */
 NS_SWIFT_NAME(ComapiConfig)
 @interface CMPComapiConfig : NSObject

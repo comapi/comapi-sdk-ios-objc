@@ -20,7 +20,9 @@ NS_SWIFT_NAME(Comapi)
 /**
  @discussion Singleton client instance.
  @warning Only available if you call:
- @code + (nullable CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config; @endcode
+ @code
+ + (nullable CMPComapiClient *)initialiseSharedInstanceWithConfig:(CMPComapiConfig *)config;
+ @endcode
  */
 @property (class, nonatomic, strong, readonly, nullable) CMPComapiClient *shared;
 
@@ -34,7 +36,10 @@ NS_SWIFT_NAME(Comapi)
 + (nullable CMPComapiClient *)initialiseWithConfig:(CMPComapiConfig *)config;
 
 /**
- @discussion Creates an instance of CMPComapiClient with given configuration that can be accessed via: @code [CMPComapi shared]; @endcode
+ @discussion Creates an instance of CMPComapiClient with given configuration that can be accessed via:
+ @code
+ [CMPComapi shared];
+ @endcode
  @param config CMPComapiConfig object created with specified configuration elements.
  @return CMPComapiClient object or nil if error occurs.
  */
