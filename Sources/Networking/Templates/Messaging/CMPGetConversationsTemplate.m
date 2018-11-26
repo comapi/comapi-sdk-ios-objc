@@ -9,9 +9,15 @@
 #import "CMPGetConversationsTemplate.h"
 #import "CMPConversation.h"
 
+@interface CMPGetConversationsTemplate ()
+
+- (NSString *)stringForConversationScope:(CMPConversationScope)scope;
+
+@end
+
 @implementation CMPGetConversationsTemplate
 
-- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID scope:(NSString *)scope token:(NSString *)token {
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID scope:(CMPConversationScope)scope token:(NSString *)token {
     self = [super initWithScheme:scheme host:host port:port apiSpaceID:apiSpaceID];
     
     if (self) {
@@ -21,6 +27,15 @@
     }
     
     return self;
+}
+
+- (NSString *)stringForConversationScope:(CMPConversationScope)scope {
+    switch (scope) {
+        case CMPConversationScopePublic:
+            return @"public";
+        case CMPConversationScopeParticipant:
+            return @"participant";
+    }
 }
 
 - (nullable NSData *)httpBody { 
@@ -43,8 +58,8 @@
 
 - (nullable NSDictionary<NSString *,NSString *> *)query {
     NSMutableDictionary<NSString *, NSString *> *query = [NSMutableDictionary new];
-    if (self.conversationScope) {
-        query[@"scope"] = self.conversationScope;
+    if (self.conversationScope != CMPConversationScopeParticipant) {
+        query[@"scope"] = [self stringForConversationScope:self.conversationScope];
     }
     if (self.profileID) {
         query[@"profileId"] = self.profileID;

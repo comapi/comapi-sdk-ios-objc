@@ -138,7 +138,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (void)handleAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge {
     __weak CMPSessionManager *weakSelf = self;
-    [self.authenticationDelegate clientWith:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
+    [self.authenticationDelegate client:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
         if (token) {
             NSString *authenticationID = challenge.authenticationID != nil ? challenge.authenticationID : @"";
             [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID challengeHandler:self];

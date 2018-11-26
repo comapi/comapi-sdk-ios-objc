@@ -12,7 +12,7 @@
 
 @implementation CMPMessageStatusUpdate
 
-- (instancetype)initWithStatus:(NSString *)status timestamp:(NSDate *)timestamp messageIDs:(NSArray<NSString *> *)messageIDs {
+- (instancetype)initWithStatus:(CMPMessageDeliveryStatus)status timestamp:(NSDate *)timestamp messageIDs:(NSArray<NSString *> *)messageIDs {
     self = [super init];
     
     if (self) {
@@ -28,7 +28,7 @@
 
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:self.status forKey:@"status"];
+    [dict setValue:[CMPMessageDeliveryStatusParser parseStatus:self.status] forKey:@"status"];
     [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
     [dict setValue:self.messageIDs forKey:@"messageIds"];
     
@@ -51,7 +51,7 @@
     
     if (self) {
         if (JSON[@"status"] && [JSON[@"status"] isKindOfClass:NSString.class]) {
-            self.status = JSON[@"status"];
+            self.status = [JSON[@"status"] isEqualToString:@"read"] ? CMPMessageDeliveryStatusRead : CMPMessageDeliveryStatusDelivered;
         }
         if (JSON[@"timestamp"] && [JSON[@"timestamp"] isKindOfClass:NSString.class]) {
             self.timestamp = [(NSString *)JSON[@"timestamp"] asDate];

@@ -25,7 +25,7 @@
 
 #pragma mark - Events
 
-- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void (^)(CMPResult<NSArray<CMPEvent *> *> *))completion {
+- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSInteger)limit from:(NSInteger)from completion:(void (^)(CMPResult<NSArray<CMPEvent *> *> *))completion {
     CMPEventQueryTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPEventQueryTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID from:from limit:limit token:token];
     };
@@ -33,6 +33,18 @@
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSArray<CMPEvent *> *> * result) {
         completion(result);
     }];
+}
+
+- (void)queryEventsWithConversationID:(NSString *)conversationID completion:(void (^)(CMPResult<NSArray<CMPEvent *> *> * _Nonnull))completion {
+    [self queryEventsWithConversationID:conversationID limit:100 from:0 completion:completion];
+}
+
+- (void)queryEventsWithConversationID:(NSString *)conversationID limit:(NSInteger)limit completion:(void (^)(CMPResult<NSArray<CMPEvent *> *> * _Nonnull))completion {
+    [self queryEventsWithConversationID:conversationID limit:limit from:0 completion:completion];
+}
+
+- (void)queryEventsWithConversationID:(NSString *)conversationID from:(NSInteger)from completion:(void (^)(CMPResult<NSArray<CMPEvent *> *> * _Nonnull))completion {
+    [self queryEventsWithConversationID:conversationID limit:100 from:from completion:completion];
 }
 
 #pragma mark - ConversationParticipants
@@ -102,9 +114,9 @@
 }
 
 
-- (void)getConversationsWithScope:(nullable NSString *)scope profileID:(NSString *)profileID completion:(void(^)(CMPResult<NSArray<CMPConversation *> *> *))completion {
+- (void)getConversationsWithProfileID:(NSString *)profileID isPublic:(BOOL)isPublic completion:(void(^)(CMPResult<NSArray<CMPConversation *> *> *))completion {
     CMPGetConversationsTemplate *(^builder)(NSString *) = ^(NSString *token) {
-        return [[CMPGetConversationsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID scope:scope token:token];
+        return [[CMPGetConversationsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID profileID:profileID scope:isPublic ? CMPConversationScopePublic : CMPConversationScopeParticipant token:token];
     };
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSArray<CMPConversation *> *> * result) {
@@ -125,7 +137,7 @@
 
 #pragma mark - Messages
 
-- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSUInteger)limit from:(NSUInteger)from completion:(void (^)(CMPResult<CMPGetMessagesResult *> *))completion {
+- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSInteger)limit from:(NSInteger)from completion:(void (^)(CMPResult<CMPGetMessagesResult *> *))completion {
     CMPGetMessagesTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPGetMessagesTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID from:from limit:limit token:token];
     };
@@ -135,6 +147,18 @@
         result.object.messages = [result.object.messages sortedArrayUsingDescriptors:@[sortDescriptor]];
         completion(result);
     }];
+}
+
+- (void)getMessagesWithConversationID:(NSString *)conversationID completion:(void (^)(CMPResult<CMPGetMessagesResult *> * _Nonnull))completion {
+    [self getMessagesWithConversationID:conversationID limit:100 from:0 completion:completion];
+}
+
+- (void)getMessagesWithConversationID:(NSString *)conversationID limit:(NSInteger)limit completion:(void (^)(CMPResult<CMPGetMessagesResult *> * _Nonnull))completion {
+    [self getMessagesWithConversationID:conversationID limit:limit from:0 completion:completion];
+}
+
+- (void)getMessagesWithConversationID:(NSString *)conversationID from:(NSInteger)from completion:(void (^)(CMPResult<CMPGetMessagesResult *> * _Nonnull))completion {
+    [self getMessagesWithConversationID:conversationID limit:100 from:from completion:completion];
 }
 
 - (void)sendMessage:(CMPSendableMessage *)message toConversationWithID:(NSString *)conversationID completion:(void (^)(CMPResult<CMPSendMessagesResult * > *))completion {
@@ -149,7 +173,7 @@
 
 #pragma mark - Status
 
-- (void)updateStatusForMessagesWithIDs:(NSArray<NSString *> *)messageIDs status:(NSString *)status conversationID:(NSString *)conversationID timestamp:(NSDate *)timestamp completion:(void (^)(CMPResult<NSNumber *> *))completion {
+- (void)updateStatusForMessagesWithIDs:(NSArray<NSString *> *)messageIDs status:(CMPMessageDeliveryStatus)status conversationID:(NSString *)conversationID timestamp:(NSDate *)timestamp completion:(void (^)(CMPResult<NSNumber *> *))completion {
     CMPSendStatusUpdateTemplate *(^builder)(NSString *) = ^(NSString *token) {
         CMPMessageStatusUpdate *statusUpdate = [[CMPMessageStatusUpdate alloc] initWithStatus:status timestamp:timestamp messageIDs:messageIDs];
         return [[CMPSendStatusUpdateTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID token:token statusUpdates:@[statusUpdate]];

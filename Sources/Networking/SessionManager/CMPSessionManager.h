@@ -17,8 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(SessionManager)
 @interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
 
-//@property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
-
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager;

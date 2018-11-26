@@ -25,6 +25,9 @@
 		89342DAE213EC7E1000D0F2D /* CMPBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DAD213EC7E1000D0F2D /* CMPBaseCell.m */; };
 		89342DB1213EC84F000D0F2D /* CMPTitledInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */; };
 		89342DB4213ECE80000D0F2D /* CMPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89342DB3213ECE80000D0F2D /* CMPLoginViewController.m */; };
+		8940958A21AC1C55007F6490 /* CMPConversationScope.h in Headers */ = {isa = PBXBuildFile; fileRef = 8940958921AC1C55007F6490 /* CMPConversationScope.h */; };
+		8940958C21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 8940958B21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h */; };
+		8940958E21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8940958D21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m */; };
 		895C54CE21400C46004ED53B /* CMPLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C54CD21400C46004ED53B /* CMPLoginViewModel.m */; };
 		895FF4F12126BFF00007FAC3 /* CMPRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */; };
 		895FF4F22126BFF00007FAC3 /* CMPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 895FF4F02126BFF00007FAC3 /* CMPRequestManager.m */; };
@@ -206,6 +209,8 @@
 		89957A9C213971BA008EE0BE /* UIToolbar+CMPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9B213971BA008EE0BE /* UIToolbar+CMPUtilities.m */; };
 		89957AA021398AC1008EE0BE /* CMPAppConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957A9F21398AC1008EE0BE /* CMPAppConfigurator.m */; };
 		89957AA521398B9D008EE0BE /* CMPLoginBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89957AA421398B9D008EE0BE /* CMPLoginBundle.m */; };
+		89B38AAB21AC0492006B7A4B /* CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; };
+		89B38AAC21AC0492006B7A4B /* CMPComapiFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89BD571921822B340079E83E /* CMPJSONRepresentable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571821822B340079E83E /* CMPJSONRepresentable.h */; };
 		89BD571B218235A60079E83E /* CMPJSONConstructable.h in Headers */ = {isa = PBXBuildFile; fileRef = 89BD571A218235A60079E83E /* CMPJSONConstructable.h */; };
 		89C6BBC221A3309300146DBB /* Event.profile.update.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C6BBC121A3309300146DBB /* Event.profile.update.json */; };
@@ -277,6 +282,11 @@
 		89DCBB4921342787001016FF /* CMPAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */; };
 		89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */; };
 		89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */; };
+		89E459D621ABFDDA002C26AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E459D521ABFDDA002C26AE /* AppDelegate.swift */; };
+		89E459D821ABFDDA002C26AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E459D721ABFDDA002C26AE /* ViewController.swift */; };
+		89E459DB21ABFDDA002C26AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E459D921ABFDDA002C26AE /* Main.storyboard */; };
+		89E459DD21ABFDDD002C26AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89E459DC21ABFDDD002C26AE /* Assets.xcassets */; };
+		89E459E021ABFDDD002C26AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E459DE21ABFDDD002C26AE /* LaunchScreen.storyboard */; };
 		89EA5CB92147E00000C29D08 /* CMPQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CB72147E00000C29D08 /* CMPQueryBuilder.h */; };
 		89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */; };
 		89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */; };
@@ -333,6 +343,13 @@
 			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
 			remoteInfo = CMPComapiFoundation;
 		};
+		89B38AAD21AC0492006B7A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89C8DE3D2122DF3C00555495;
+			remoteInfo = CMPComapiFoundation;
+		};
 		89EA5CFE214ACC6D00C29D08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 89C8DE352122DF3C00555495 /* Project object */;
@@ -357,6 +374,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				897E7C83215A6AE700DB7389 /* CMPComapiFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89B38AAF21AC0492006B7A4B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				89B38AAC21AC0492006B7A4B /* CMPComapiFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +425,9 @@
 		89342DB0213EC84F000D0F2D /* CMPTitledInputCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTitledInputCell.m; sourceTree = "<group>"; };
 		89342DB2213ECE80000D0F2D /* CMPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginViewController.h; sourceTree = "<group>"; };
 		89342DB3213ECE80000D0F2D /* CMPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginViewController.m; sourceTree = "<group>"; };
+		8940958921AC1C55007F6490 /* CMPConversationScope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConversationScope.h; sourceTree = "<group>"; };
+		8940958B21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPMessageDeliveryStatus.h; sourceTree = "<group>"; };
+		8940958D21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPMessageDeliveryStatus.m; sourceTree = "<group>"; };
 		895C54CC21400C46004ED53B /* CMPLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLoginViewModel.h; sourceTree = "<group>"; };
 		895C54CD21400C46004ED53B /* CMPLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLoginViewModel.m; sourceTree = "<group>"; };
 		895FF4EF2126BFF00007FAC3 /* CMPRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRequestManager.h; sourceTree = "<group>"; };
@@ -691,6 +722,15 @@
 		89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAuthorizeSessionBody.m; sourceTree = "<group>"; };
 		89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDeleteSessionTemplate.h; sourceTree = "<group>"; };
 		89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDeleteSessionTemplate.m; sourceTree = "<group>"; };
+		89E459D321ABFDDA002C26AE /* SampleAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89E459D521ABFDDA002C26AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89E459D721ABFDDA002C26AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89E459DA21ABFDDA002C26AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89E459DC21ABFDDD002C26AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89E459DF21ABFDDD002C26AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89E459E121ABFDDD002C26AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89E459E521ABFE09002C26AE /* SampleAppSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleAppSwift.entitlements; sourceTree = "<group>"; };
+		89E459E621ABFE89002C26AE /* SampleAppSwift-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleAppSwift-BridgingHeader.h"; sourceTree = "<group>"; };
 		89EA5CB72147E00000C29D08 /* CMPQueryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
 		89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPQueryBuilder.m; sourceTree = "<group>"; };
 		89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
@@ -763,6 +803,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E47F8A9683A46F4FDABEE2 /* Pods_CMPComapiFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89E459D021ABFDDA002C26AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89B38AAB21AC0492006B7A4B /* CMPComapiFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1595,7 @@
 				89EA5D04214ACCB700C29D08 /* Tests */,
 				89C8DE492122F47000555495 /* Sources */,
 				89957A66213935E0008EE0BE /* SampleApp */,
+				89E459D421ABFDDA002C26AE /* SampleAppSwift */,
 				89C8DE3F2122DF3C00555495 /* Products */,
 				2A59226F3E3E71A0D5592856 /* Pods */,
 				0E7B2FCA56376FE3626DC553 /* Frameworks */,
@@ -1559,6 +1608,7 @@
 				89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */,
 				89957A65213935E0008EE0BE /* SampleApp.app */,
 				89EA5CF8214ACC6D00C29D08 /* CMPComapiFoundation_tests.xctest */,
+				89E459D321ABFDDA002C26AE /* SampleAppSwift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1656,6 +1706,9 @@
 			children = (
 				89D2C48A21651F9B006BEC4E /* CMPConversation.h */,
 				89D2C48B21651F9B006BEC4E /* CMPConversation.m */,
+				8940958921AC1C55007F6490 /* CMPConversationScope.h */,
+				8940958B21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h */,
+				8940958D21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m */,
 				89D2C48F216617C6006BEC4E /* CMPRoles.h */,
 				89D2C490216617C6006BEC4E /* CMPRoles.m */,
 				89D2C49321661842006BEC4E /* CMPRoleAttributes.h */,
@@ -1805,6 +1858,21 @@
 				89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		89E459D421ABFDDA002C26AE /* SampleAppSwift */ = {
+			isa = PBXGroup;
+			children = (
+				89E459E521ABFE09002C26AE /* SampleAppSwift.entitlements */,
+				89E459D521ABFDDA002C26AE /* AppDelegate.swift */,
+				89E459D721ABFDDA002C26AE /* ViewController.swift */,
+				89E459D921ABFDDA002C26AE /* Main.storyboard */,
+				89E459DC21ABFDDD002C26AE /* Assets.xcassets */,
+				89E459DE21ABFDDD002C26AE /* LaunchScreen.storyboard */,
+				89E459E121ABFDDD002C26AE /* Info.plist */,
+				89E459E621ABFE89002C26AE /* SampleAppSwift-BridgingHeader.h */,
+			);
+			path = SampleAppSwift;
 			sourceTree = "<group>";
 		};
 		89EA5CB12141313C00C29D08 /* Profile */ = {
@@ -1975,6 +2043,7 @@
 				897B833F216B646A003D4206 /* CMPMessageAlertPlatforms.h in Headers */,
 				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
 				89D2C49521661842006BEC4E /* CMPRoleAttributes.h in Headers */,
+				8940958C21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h in Headers */,
 				89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */,
 				89EA5CC32147EA0000C29D08 /* CMPProfile.h in Headers */,
 				89D2C4A22166302D006BEC4E /* CMPConversationParticipant.h in Headers */,
@@ -2037,6 +2106,7 @@
 				89C8DE5C2122FCEC00555495 /* NSString+CMPUtility.h in Headers */,
 				895FF503212712F90007FAC3 /* NSData+CMPUtility.h in Headers */,
 				89957A512137DBDB008EE0BE /* CMPSetAPNSDetailsTemplate.h in Headers */,
+				8940958A21AC1C55007F6490 /* CMPConversationScope.h in Headers */,
 				8972C341212ED54B00C76B19 /* CMPStartNewSessionTemplate.h in Headers */,
 				897B8367216CC15B003D4206 /* CMPContentUploadTemplate.h in Headers */,
 				89D7323F21668068002BF47B /* CMPGetParticipantsTemplate.h in Headers */,
@@ -2110,6 +2180,25 @@
 			productReference = 89C8DE3E2122DF3C00555495 /* CMPComapiFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		89E459D221ABFDDA002C26AE /* SampleAppSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89E459E221ABFDDD002C26AE /* Build configuration list for PBXNativeTarget "SampleAppSwift" */;
+			buildPhases = (
+				89E459CF21ABFDDA002C26AE /* Sources */,
+				89E459D021ABFDDA002C26AE /* Frameworks */,
+				89E459D121ABFDDA002C26AE /* Resources */,
+				89B38AAF21AC0492006B7A4B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89B38AAE21AC0492006B7A4B /* PBXTargetDependency */,
+			);
+			name = SampleAppSwift;
+			productName = SampleAppSwift;
+			productReference = 89E459D321ABFDDA002C26AE /* SampleAppSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
 		89EA5CF7214ACC6D00C29D08 /* CMPComapiFoundation_tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89EA5D00214ACC6D00C29D08 /* Build configuration list for PBXNativeTarget "CMPComapiFoundation_tests" */;
@@ -2135,6 +2224,7 @@
 		89C8DE352122DF3C00555495 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Comapi;
 				TargetAttributes = {
@@ -2152,6 +2242,14 @@
 					89C8DE3D2122DF3C00555495 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+					};
+					89E459D221ABFDDA002C26AE = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					89EA5CF7214ACC6D00C29D08 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -2173,8 +2271,9 @@
 			projectRoot = "";
 			targets = (
 				89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */,
-				89957A64213935E0008EE0BE /* SampleApp */,
 				89EA5CF7214ACC6D00C29D08 /* CMPComapiFoundation_tests */,
+				89957A64213935E0008EE0BE /* SampleApp */,
+				89E459D221ABFDDA002C26AE /* SampleAppSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -2193,6 +2292,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89E459D121ABFDDA002C26AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E459E021ABFDDD002C26AE /* LaunchScreen.storyboard in Resources */,
+				89E459DD21ABFDDD002C26AE /* Assets.xcassets in Resources */,
+				89E459DB21ABFDDA002C26AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2400,6 +2509,7 @@
 				8972C30C212C2A1900C76B19 /* CMPComapiClient.m in Sources */,
 				89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */,
 				8972C302212C168800C76B19 /* CMPErrors.m in Sources */,
+				8940958E21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m in Sources */,
 				8972C306212C1DCC00C76B19 /* CMPConstants.m in Sources */,
 				89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */,
 				89957A5B2137DFD8008EE0BE /* CMPAPNSDetailsBody.m in Sources */,
@@ -2456,6 +2566,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89E459CF21ABFDDA002C26AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89E459D821ABFDDA002C26AE /* ViewController.swift in Sources */,
+				89E459D621ABFDDA002C26AE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89EA5CF4214ACC6D00C29D08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2505,6 +2624,11 @@
 			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
 			targetProxy = 897E7C84215A6AE700DB7389 /* PBXContainerItemProxy */;
 		};
+		89B38AAE21AC0492006B7A4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
+			targetProxy = 89B38AAD21AC0492006B7A4B /* PBXContainerItemProxy */;
+		};
 		89EA5CFF214ACC6D00C29D08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 89C8DE3D2122DF3C00555495 /* CMPComapiFoundation */;
@@ -2522,6 +2646,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				89957A73213935E3008EE0BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		89E459D921ABFDDA002C26AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89E459DA21ABFDDA002C26AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89E459DE21ABFDDD002C26AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89E459DF21ABFDDD002C26AE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2697,7 +2837,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 927YWC6SVK;
+				DEVELOPMENT_TEAM = JE27K8BAX2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2728,7 +2868,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 927YWC6SVK;
+				DEVELOPMENT_TEAM = JE27K8BAX2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2747,6 +2887,61 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		89E459E321ABFDDD002C26AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleAppSwift/SampleAppSwift.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE27K8BAX2;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = SampleAppSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleAppSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleAppSwift/SampleAppSwift-BridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		89E459E421ABFDDD002C26AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleAppSwift/SampleAppSwift.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JE27K8BAX2;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = SampleAppSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comapi.SampleAppSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SampleAppSwift/SampleAppSwift-BridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -2816,6 +3011,15 @@
 			buildConfigurations = (
 				89C8DE472122DF3C00555495 /* Debug */,
 				89C8DE482122DF3C00555495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89E459E221ABFDDD002C26AE /* Build configuration list for PBXNativeTarget "SampleAppSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89E459E321ABFDDD002C26AE /* Debug */,
+				89E459E421ABFDDD002C26AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

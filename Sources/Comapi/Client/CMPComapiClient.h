@@ -11,6 +11,8 @@
 #import "CMPRequestManager.h"
 #import "CMPServices.h"
 
+@class CMPComapiClient;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**

@@ -137,16 +137,8 @@
         NSString *selfID = _viewModel.client.profileID;
         
         BOOL isMine = [fromID isEqualToString:selfID];
-        CGRect intersection = CGRectIntersection(self.chatView.tableView.bounds, cell.bounds);
-        CGRect cellBounds = cell.bounds;
-//        if (!CGRectEqualToRect(, )) {
-//            [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader animate:YES];
-//            //view is partially out of bounds
-//        } else {
-            [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther  downloader:_viewModel.downloader animate:NO];
-      //  }
-        
-        
+        [cell configureWithMessage:msg ownership:isMine ? CMPMessageOwnershipSelf : CMPMessageOwnershipOther downloader:_viewModel.downloader animate:NO];
+
         return cell;
     } else {
         CMPChatTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];

@@ -8,16 +8,17 @@
 
 #import "CMPJSONEncoding.h"
 #import "CMPJSONDecoding.h"
+#import "CMPMessageDeliveryStatus.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(MessageStatus)
 @interface CMPMessageStatus : NSObject <CMPJSONDecoding, CMPJSONEncoding>
 
-@property (nonatomic, strong, nullable) NSString *status;
+@property (nonatomic) CMPMessageDeliveryStatus status;
 @property (nonatomic, strong, nullable) NSDate *timestamp;
 
-- (instancetype)initWithStatus:(nullable NSString *)status timestamp:(nullable NSDate *)timestamp;
+- (instancetype)initWithStatus:(CMPMessageDeliveryStatus)status timestamp:(nullable NSDate *)timestamp;
 
 @end
 

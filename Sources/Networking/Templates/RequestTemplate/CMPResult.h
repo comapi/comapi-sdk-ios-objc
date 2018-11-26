@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Result)
-@interface CMPResult<T> : NSObject
+@interface CMPResult<__covariant T> : NSObject
 
 @property (nonatomic, nullable) T object;
 @property (nonatomic, nullable) NSError *error;

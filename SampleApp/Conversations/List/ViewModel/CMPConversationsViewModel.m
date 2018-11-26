@@ -22,7 +22,7 @@
 }
 
 - (void)getConversationsWithCompletion:(void (^)(NSError * _Nullable))completion {
-    [self.client.services.messaging getConversationsWithScope:nil profileID:self.profile.id completion:^(CMPResult<NSArray<CMPConversation *> *> * result) {
+    [self.client.services.messaging getConversationsWithProfileID:self.profile.id isPublic:YES completion:^(CMPResult<NSArray<CMPConversation *> *> * result) {
         if (result.error) {
             completion(result.error);
         } else {

@@ -7,7 +7,6 @@
 //
 
 #import "CMPAPIConfiguration.h"
-#import "CMPComapiConfig.h"
 #import "CMPAuthenticationDelegate.h"
 #import "CMPLogger.h"
 
