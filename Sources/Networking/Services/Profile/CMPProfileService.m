@@ -21,13 +21,6 @@
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<CMPProfile *> * result) {
         completion(result);
-//        if (result.error) {
-//            completion(nil, result.error);
-//        } else if (result.object) {
-//            completion((CMPProfile *)result.object, nil);
-//        } else {
-//            completion(nil, [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{}]);
-//        }
     }];
 }
 
@@ -38,13 +31,6 @@
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<CMPProfile *> * result) {
         completion(result);
-//        if (result.error) {
-//            completion(nil, result.error);
-//        } else if (result.object) {
-//            completion((CMPProfile *)result.object, nil);
-//        } else {
-//            completion(nil, [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{}]);
-//        }
     }];
 }
 
@@ -55,13 +41,6 @@
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<CMPProfile *> * result) {
         completion(result);
-//        if (result.error) {
-//            completion(nil, result.error);
-//        } else if (result.object) {
-//            completion((CMPProfile *)result.object, nil);
-//        } else {
-//            completion(nil, [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{}]);
-//        }
     }];
 }
 
@@ -73,13 +52,6 @@
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSArray<CMPProfile *> *> * result) {
         completion(result);
-//        if (result.error) {
-//            completion(nil, result.error);
-//        } else if (result.object) {
-//            completion((NSArray<CMPProfile *> *)result.object, nil);
-//        } else {
-//            completion(nil, [[NSError alloc] initWithDomain:CMPRequestTemplateErrorDomain code:CMPRequestTemplateErrorResponseParsingFailedStatusCode userInfo:@{}]);
-//        }
     }];
 }
 

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(ContentUploadTemplate)
-@interface CMPContentUploadTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
+@interface CMPContentUploadTemplate : CMPRequestTemplate <CMPHTTPStreamableRequestTemplate>
 
 @property (nonatomic, strong) CMPContentData *content;
 @property (nonatomic, strong) NSString *token;

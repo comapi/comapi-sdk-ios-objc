@@ -205,6 +205,9 @@ NS_SWIFT_NAME(MessagingServiceable)
 
 @end
 
+/**
+ @brief Messaging related Comapi services.
+ */
 NS_SWIFT_NAME(MessagingService)
 @interface CMPMessagingService : CMPBaseService <CMPMessagingServiceable>
 

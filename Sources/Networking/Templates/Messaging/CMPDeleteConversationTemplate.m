@@ -53,7 +53,7 @@
     NSInteger code = [response httpStatusCode];
     NSString *eTag = [[response httpURLResponse] allHeaderFields][@"ETag"];
     switch (code) {
-        case 200: {
+        case 204: {
             NSNumber *object = [NSNumber numberWithBool:YES];
             return [[CMPResult alloc] initWithObject:object error:nil eTag:eTag code:code];
         }

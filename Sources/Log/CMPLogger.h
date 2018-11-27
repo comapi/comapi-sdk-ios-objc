@@ -29,7 +29,7 @@ NS_SWIFT_NAME(Logging)
 NS_SWIFT_NAME(Logger)
 @interface CMPLogger : NSObject <CMPLogging>
 
-+ (instancetype)shared;
+@property (class, nonatomic, strong, readonly) CMPLogger *shared;
 
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
 - (void)resetDestinations;

@@ -94,7 +94,7 @@ NSUInteger const CMPPingTimerInterval = 240;
         [self.eventListener invokeDelegatesWithBlock:^(id<CMPEventDelegate> _Nonnull delegate) {
             [delegate client:self.client didReceiveEvent:event];
         }];
-        logWithLevel(CMPLogLevelVerbose, @"Socket: received event:", event.name, event.json, nil);
+        logWithLevel(CMPLogLevelVerbose, @"Socket: received event:", event.name != nil ? event.name : @"unknown event name", event.json != nil ? event.json : @"unknown event data", nil);
     } else {
         logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Socket: unexpected message type - %@", [message class]], message, nil);
     }

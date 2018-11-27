@@ -51,6 +51,9 @@ NS_SWIFT_NAME(ProfileServiceable)
 
 @end
 
+/**
+ @brief Profile related Comapi services.
+ */
 NS_SWIFT_NAME(ProfileService)
 @interface CMPProfileService : CMPBaseService <CMPProfileServiceable>
 

@@ -22,6 +22,7 @@ NS_SWIFT_NAME(RequestTemplate)
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID;
+- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template;
 - (NSURLRequest *)requestFromHTTPRequestTemplate:(id<CMPHTTPRequestTemplate>)template;
 
 @end

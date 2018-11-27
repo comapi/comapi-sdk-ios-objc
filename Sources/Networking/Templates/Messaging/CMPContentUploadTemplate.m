@@ -9,6 +9,12 @@
 #import "CMPContentUploadTemplate.h"
 #import "CMPContentUploadResult.h"
 
+@interface CMPContentUploadTemplate ()
+
+- (NSURLRequest *)requestFromHTTPStreamableRequestTemplate:(id<CMPHTTPStreamableRequestTemplate>)template;
+
+@end
+
 @implementation CMPContentUploadTemplate
 
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID content:(CMPContentData *)content folder:(NSString *)folder token:(NSString *)token {
@@ -21,6 +27,23 @@
     }
     
     return self;
+}
+
+- (NSURLRequest *)requestFromHTTPStreamableRequestTemplate:(id<CMPHTTPStreamableRequestTemplate>)template {
+    NSURLComponents *components = [self componentsFromURLTemplate:template];
+    if (components.URL != nil) {
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:components.URL];
+        request.HTTPMethod = template.httpMethod;
+        request.HTTPBodyStream = template.httpBodyStream;
+        
+        [template.httpHeaders enumerateObjectsUsingBlock:^(CMPHTTPHeader * _Nonnull obj, BOOL * _Nonnull stop) {
+            [request setValue:obj.value forHTTPHeaderField:obj.field];
+        }];
+        
+        return request;
+    }
+    
+    return nil;
 }
 
 - (nullable NSInputStream *)httpBodyStream {
@@ -73,7 +96,7 @@
 }
 
 - (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void (^)(CMPResult<id> *))result {
-    NSURLRequest *request = [self requestFromHTTPRequestTemplate:self];
+    NSURLRequest *request = [self requestFromHTTPStreamableRequestTemplate:self];
     if (!request) {
         NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
         result([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);

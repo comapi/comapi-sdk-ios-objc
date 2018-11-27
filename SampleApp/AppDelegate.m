@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-
 NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegistrationStatusChangedNotification";
 
 @interface AppDelegate ()

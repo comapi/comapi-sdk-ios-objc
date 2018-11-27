@@ -69,13 +69,13 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...) {
     return self;
 }
 
-+ (instancetype)shared {
++ (CMPLogger *)shared {
     static CMPLogger *instance = nil;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         instance = [[CMPLogger alloc] init];
     });
-    
+
     return instance;
 }
 

@@ -47,6 +47,9 @@ NS_SWIFT_NAME(SessionServiceable)
 
 @end
 
+/**
+ @brief Session related Comapi services.
+ */
 NS_SWIFT_NAME(SessionService)
 @interface CMPSessionService : CMPBaseService <CMPSessionServiceable>
 
