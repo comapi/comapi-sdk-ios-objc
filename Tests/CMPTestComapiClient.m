@@ -1,9 +1,19 @@
 //
-//  CMPTestComapiClient.m
-//  CMPComapiFoundation_tests
+// The MIT License (MIT)
+// Copyright (c) 2017 Comapi (trading name of Dynmark International Limited)
 //
-//  Created by Dominik Kowalski on 18/09/2018.
-//  Copyright © 2018 Comapi. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+// to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+// Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import <XCTest/XCTest.h>
@@ -22,6 +32,13 @@
 @property (nonatomic, strong) CMPMockRequestPerformer *requestPerformer;
 @property (nonatomic, strong) CMPAPIConfiguration *config;
 @property (nonatomic, strong) CMPComapiClient *client;
+
+@end
+
+@interface CMPComapiClient ()
+
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration;
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration requestPerformer:(id<CMPRequestPerforming>)requestPerformer;
 
 @end
 
@@ -95,10 +112,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.session endSessionWithCompletion:^(BOOL result, NSError * error) {
+    [self.client.services.session endSessionWithCompletion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(result);
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
         [expectation fulfill];
     }];
     
@@ -117,10 +134,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile getProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile getProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" completion:^(CMPResult<CMPProfile *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertNotNil(profile);
+        XCTAssertNil(result.error);
+        XCTAssertNotNil(result.object);
         [expectation fulfill];
     }];
     
@@ -140,10 +157,12 @@
     CMPQueryElements *equalTo = [[CMPQueryElements alloc] initWithKey:@"id" element:CMPQueryElementEqual value:@"90419e09-1f5b-4fc2-97c8-b878793c53f0"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile queryProfilesWithQueryElements:@[equalTo] completion:^(NSArray<CMPProfile *> * profiles, NSError * error) {
+    [self.client.services.profile queryProfilesWithQueryElements:@[equalTo] completion:^(CMPResult<NSArray<CMPProfile *> *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertNotNil(profiles);
+        XCTAssertNil(result.error);
+        XCTAssertNotNil(result.object);
+        
+        NSArray<CMPProfile *> *profiles = result.object;
         XCTAssertTrue(profiles.count == 1);
         CMPProfile *profile = profiles[0];
         XCTAssertEqualObjects(profile.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
@@ -165,11 +184,11 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
 
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile updateProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile updateProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPResult<CMPProfile *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertNotNil(profile);
-        XCTAssertEqualObjects(profile.email, @"test2@mail.com");
+        XCTAssertNil(result.error);
+        XCTAssertNotNil(result.object);
+        XCTAssertEqualObjects(result.object.email, @"test2@mail.com");
         [expectation fulfill];
     }];
 
@@ -188,11 +207,11 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile patchProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPProfile * profile, NSError * error) {
+    [self.client.services.profile patchProfileWithProfileID:@"90419e09-1f5b-4fc2-97c8-b878793c53f0" attributes:@{@"email" : @"test2@mail.com"} eTag:nil completion:^(CMPResult<CMPProfile *> * result) {
             id self = weakSelf;
-            XCTAssertNil(error);
-            XCTAssertNotNil(profile);
-            XCTAssertEqualObjects(profile.email, @"test2@mail.com");
+            XCTAssertNil(result.error);
+            XCTAssertNotNil(result.object);
+            XCTAssertEqualObjects(result.object.email, @"test2@mail.com");
             [expectation fulfill];
     }];
 
@@ -213,13 +232,13 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging sendMessage:message toConversationWithID:conversationID completion:^(CMPSendMessagesResult * _Nullable result, NSError * _Nullable error) {
+    [self.client.services.messaging sendMessage:message toConversationWithID:conversationID completion:^(CMPResult<CMPSendMessagesResult *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertNotNil(result.id);
-        XCTAssertNotNil(result.eventID);
-        XCTAssertEqualObjects(result.id, @"MOCK_ID");
-        XCTAssertEqualObjects(result.eventID, @(1234));
+        XCTAssertNil(result.error);
+        XCTAssertNotNil(result.object.id);
+        XCTAssertNotNil(result.object.eventID);
+        XCTAssertEqualObjects(result.object.id, @"MOCK_ID");
+        XCTAssertEqualObjects(result.object.eventID, @(1234));
         [expectation fulfill];
     }];
     
@@ -240,15 +259,15 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging getMessagesWithConversationID:conversationID limit:100 from:0 completion:^(CMPGetMessagesResult * _Nullable result, NSError * _Nullable error) {
+    [self.client.services.messaging getMessagesWithConversationID:conversationID limit:100 from:0 completion:^(CMPResult<CMPGetMessagesResult *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertEqualObjects(result.latestEventID, @(35));
-        XCTAssertEqualObjects(result.earliestEventID, @(34));
-        XCTAssertEqual(result.orphanedEvents.count, 0);
-        XCTAssertEqual(result.messages.count, 1);
+        XCTAssertNil(result.error);
+        XCTAssertEqualObjects(result.object.latestEventID, @(35));
+        XCTAssertEqualObjects(result.object.earliestEventID, @(34));
+        XCTAssertEqual(result.object.orphanedEvents.count, 0);
+        XCTAssertEqual(result.object.messages.count, 1);
         
-        CMPMessage *message = result.messages[0];
+        CMPMessage *message = result.object.messages[0];
         
         XCTAssertEqualObjects(message.id, @"c8ee2dff-fc46-4248-843f-76b6d4b621ca");
         XCTAssertEqualObjects(message.metadata[@"id"], @"metadata id");
@@ -293,19 +312,19 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging getConversationWithConversationID:conversationID completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {
+    [self.client.services.messaging getConversationWithConversationID:conversationID completion:^(CMPResult<CMPConversation *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertEqualObjects(conversation.id, @"support");
-        XCTAssertEqualObjects(conversation.name, @"Support");
-        XCTAssertEqualObjects(conversation.conversationDescription, @"The Support Channel");
-        XCTAssertEqual(conversation.roles.owner.canSend, YES);
-        XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canSend, YES);
-        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
-        XCTAssertEqualObjects(conversation.isPublic, @(NO));
+        XCTAssertNil(result.error);
+        XCTAssertEqualObjects(result.object.id, @"support");
+        XCTAssertEqualObjects(result.object.name, @"Support");
+        XCTAssertEqualObjects(result.object.conversationDescription, @"The Support Channel");
+        XCTAssertEqual(result.object.roles.owner.canSend, YES);
+        XCTAssertEqual(result.object.roles.owner.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.owner.canRemoveParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canSend, YES);
+        XCTAssertEqual(result.object.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canRemoveParticipants, YES);
+        XCTAssertEqualObjects(result.object.isPublic, @(NO));
         
         [expectation fulfill];
     }];
@@ -327,13 +346,12 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging getConversationsWithScope:@"public" profileID:profileID completion:^(NSArray<CMPConversation *> * _Nullable conversations, NSError * _Nullable error) {
-        
+    [self.client.services.messaging getConversationsWithProfileID:profileID isPublic:YES completion:^(CMPResult<NSArray<CMPConversation *> *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
+        XCTAssertNil(result.error);
         
-        CMPConversation *c1 = conversations[0];
-        CMPConversation *c2 = conversations[1];
+        CMPConversation *c1 = result.object[0];
+        CMPConversation *c2 = result.object[1];
         
         XCTAssertEqualObjects(c1.id, @"support1");
         XCTAssertEqualObjects(c1.name, @"Support1");
@@ -375,19 +393,19 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging addConversationWithConversation:[[CMPNewConversation alloc] init] completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {
+    [self.client.services.messaging addConversationWithConversation:[[CMPNewConversation alloc] init] completion:^(CMPResult<CMPConversation *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertEqualObjects(conversation.id, @"support");
-        XCTAssertEqualObjects(conversation.name, @"Support");
-        XCTAssertEqualObjects(conversation.conversationDescription, @"The Support Channel");
-        XCTAssertEqual(conversation.roles.owner.canSend, YES);
-        XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canSend, YES);
-        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
-        XCTAssertEqualObjects(conversation.isPublic, @(NO));
+        XCTAssertNil(result.error);
+        XCTAssertEqualObjects(result.object.id, @"support");
+        XCTAssertEqualObjects(result.object.name, @"Support");
+        XCTAssertEqualObjects(result.object.conversationDescription, @"The Support Channel");
+        XCTAssertEqual(result.object.roles.owner.canSend, YES);
+        XCTAssertEqual(result.object.roles.owner.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.owner.canRemoveParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canSend, YES);
+        XCTAssertEqual(result.object.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canRemoveParticipants, YES);
+        XCTAssertEqualObjects(result.object.isPublic, @(NO));
         
         [expectation fulfill];
     }];
@@ -410,19 +428,19 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging updateConversationWithConversationID:conversationID conversation:[[CMPConversationUpdate alloc] init] eTag:nil completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {
+    [self.client.services.messaging updateConversationWithConversationID:conversationID conversation:[[CMPConversationUpdate alloc] init] eTag:nil completion:^(CMPResult<CMPConversation *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertEqualObjects(conversation.id, @"support");
-        XCTAssertEqualObjects(conversation.name, @"Support");
-        XCTAssertEqualObjects(conversation.conversationDescription, @"The Support Channel");
-        XCTAssertEqual(conversation.roles.owner.canSend, YES);
-        XCTAssertEqual(conversation.roles.owner.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.owner.canRemoveParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canSend, YES);
-        XCTAssertEqual(conversation.roles.participant.canAddParticipants, YES);
-        XCTAssertEqual(conversation.roles.participant.canRemoveParticipants, YES);
-        XCTAssertEqualObjects(conversation.isPublic, @(NO));
+        XCTAssertNil(result.error);
+        XCTAssertEqualObjects(result.object.id, @"support");
+        XCTAssertEqualObjects(result.object.name, @"Support");
+        XCTAssertEqualObjects(result.object.conversationDescription, @"The Support Channel");
+        XCTAssertEqual(result.object.roles.owner.canSend, YES);
+        XCTAssertEqual(result.object.roles.owner.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.owner.canRemoveParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canSend, YES);
+        XCTAssertEqual(result.object.roles.participant.canAddParticipants, YES);
+        XCTAssertEqual(result.object.roles.participant.canRemoveParticipants, YES);
+        XCTAssertEqualObjects(result.object.isPublic, @(NO));
         
         [expectation fulfill];
     }];
@@ -434,7 +452,7 @@
     self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
     
-    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL]];
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL] statusCode:204 httpVersion:@"HTTP/1.1" headers:@{}];
     NSString *conversationID = @"MOCK_ID";
     
     CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:nil response:response error:nil];
@@ -443,10 +461,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging deleteConversationWithConversationID:conversationID eTag:nil completion:^(BOOL success, NSError * _Nullable error) {
+    [self.client.services.messaging deleteConversationWithConversationID:conversationID eTag:nil completion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(success);
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
         
         [expectation fulfill];
     }];
@@ -467,10 +485,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging addParticipantsWithConversationID:conversationID participants:@[[[CMPConversationParticipant alloc] init]] completion:^(BOOL success, NSError * _Nullable error) {
+    [self.client.services.messaging addParticipantsWithConversationID:conversationID participants:@[[[CMPConversationParticipant alloc] init]] completion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(success);
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
         
         [expectation fulfill];
     }];
@@ -492,15 +510,15 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging getParticipantsWithConversationID:conversationID completion:^(NSArray<CMPConversationParticipant *> * result, NSError * _Nullable error) {
+    [self.client.services.messaging getParticipantsWithConversationID:conversationID completion:^(CMPResult<NSArray<CMPConversationParticipant *> *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(result.count == 2);
+        XCTAssertNil(result.error);
+        XCTAssertTrue(result.object.count == 2);
         
-        XCTAssertEqualObjects(result[0].id, @"1");
-        XCTAssertEqualObjects(result[0].role, @"owner");
-        XCTAssertEqualObjects(result[1].id, @"2");
-        XCTAssertEqualObjects(result[1].role, @"participant");
+        XCTAssertEqualObjects(result.object[0].id, @"1");
+        XCTAssertEqual(result.object[0].role, CMPRoleOwner);
+        XCTAssertEqualObjects(result.object[1].id, @"2");
+        XCTAssertEqual(result.object[1].role, CMPRoleParticipant);
         
         [expectation fulfill];
     }];
@@ -521,10 +539,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging removeParticipantsWithConversationID:conversationID participants:@[] completion:^(BOOL success, NSError * _Nullable error) {
+    [self.client.services.messaging removeParticipantsWithConversationID:conversationID participants:@[] completion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(success);
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
         
         [expectation fulfill];
     }];
@@ -546,16 +564,16 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging queryEventsWithConversationID:conversationID limit:100 from:0 completion:^(NSArray<CMPEvent *> * _Nonnull events, NSError * _Nullable error) {
+    [self.client.services.messaging queryEventsWithConversationID:conversationID limit:100 from:0 completion:^(CMPResult<NSArray<CMPEvent *> *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(events.count == 3);
+        XCTAssertNil(result.error);
+        XCTAssertTrue(result.object.count == 3);
         
-        XCTAssertTrue([events[0] isKindOfClass:CMPConversationMessageEventSent.class]);
-        XCTAssertTrue([events[1] isKindOfClass:CMPConversationEventParticipantAdded.class]);
-        XCTAssertTrue([events[2] isKindOfClass:CMPConversationEventParticipantTyping.class]);
+        XCTAssertTrue([result.object[0] isKindOfClass:CMPConversationMessageEventSent.class]);
+        XCTAssertTrue([result.object[1] isKindOfClass:CMPConversationEventParticipantAdded.class]);
+        XCTAssertTrue([result.object[2] isKindOfClass:CMPConversationEventParticipantTyping.class]);
         
-        CMPConversationMessageEventSent *sent = (CMPConversationMessageEventSent *)events[0];
+        CMPConversationMessageEventSent *sent = (CMPConversationMessageEventSent *)result.object[0];
         
         XCTAssertEqualObjects(sent.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
         XCTAssertEqualObjects(sent.context.createdBy, @"session:sub");
@@ -571,7 +589,7 @@
         XCTAssertEqualObjects(sent.payload.parts[0].type, @"text/plain");
         XCTAssertEqualObjects(sent.payload.metadata[@"myMessageID"], @(123));
         
-        CMPConversationEventParticipantAdded *added = (CMPConversationEventParticipantAdded *)events[1];
+        CMPConversationEventParticipantAdded *added = (CMPConversationEventParticipantAdded *)result.object[1];
         
         XCTAssertEqualObjects(added.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
         XCTAssertEqualObjects(added.context.createdBy, @"session:sub");
@@ -581,9 +599,9 @@
         XCTAssertEqualObjects(added.payload.apiSpaceID, @"be466e4b-1340-41fc-826e-20445ab658f1");
         XCTAssertEqualObjects(added.payload.conversationID, @"new cool convo_sub");
         XCTAssertEqualObjects(added.payload.profileID, @"sub");
-        XCTAssertEqualObjects(added.payload.role, @"owner");
+        XCTAssertEqual(added.payload.role, CMPRoleOwner);
         
-        CMPConversationEventParticipantTyping *typing = (CMPConversationEventParticipantTyping *)events[2];
+        CMPConversationEventParticipantTyping *typing = (CMPConversationEventParticipantTyping *)result.object[2];
         
         XCTAssertEqualObjects(typing.payload.profileID, @"PLATFORMUSER\\dominik.kowalski@comapi.com");
         XCTAssertEqualObjects(typing.payload.conversationID, @"cc089950-bcd8-4344-802a-3d231ad0907c");
@@ -614,15 +632,15 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging uploadContent:[[CMPContentData alloc] init] folder:@"content" completion:^(CMPContentUploadResult * _Nullable result, NSError * _Nullable error) {
+    [self.client.services.messaging uploadContent:[[CMPContentData alloc] init] folder:@"content" completion:^(CMPResult<CMPContentUploadResult *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
+        XCTAssertNil(result.error);
         
-        XCTAssertEqualObjects(result.folder, @"content");
-        XCTAssertEqualObjects(result.type, @"image/jpeg");
-        XCTAssertEqualObjects(result.url.absoluteString, @"https://inttest-content.comapi.com/apispaces/2e7dd112-24f6-422b-bcd4-0f2e91315c0b/content/dc02e4fff450a6306e045f5c26801ce31c3efaeb");
-        XCTAssertEqualObjects(result.id, @"123");
-        XCTAssertEqual(result.size.integerValue, 3801);
+        XCTAssertEqualObjects(result.object.folder, @"content");
+        XCTAssertEqualObjects(result.object.type, @"image/jpeg");
+        XCTAssertEqualObjects(result.object.url.absoluteString, @"https://inttest-content.comapi.com/apispaces/2e7dd112-24f6-422b-bcd4-0f2e91315c0b/content/dc02e4fff450a6306e045f5c26801ce31c3efaeb");
+        XCTAssertEqualObjects(result.object.id, @"123");
+        XCTAssertEqual(result.object.size.integerValue, 3801);
         
         [expectation fulfill];
     }];
@@ -643,10 +661,10 @@
     XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
     
     __weak typeof(self) weakSelf = self;
-    [self.client.services.messaging updateStatusForMessagesWithIDs:@[@"id", @"id2"] status:@"read" conversationID:conversationID timestamp:[NSDate date] completion:^(BOOL success, NSError * _Nullable error) {
+    [self.client.services.messaging updateStatusForMessagesWithIDs:@[@"id", @"id2"] status:CMPMessageDeliveryStatusDelivered conversationID:conversationID timestamp:[NSDate date] completion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
-        XCTAssertNil(error);
-        XCTAssertTrue(success);
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
         
         [expectation fulfill];
     }];

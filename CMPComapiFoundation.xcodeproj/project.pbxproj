@@ -251,6 +251,26 @@
 		89C8DE5D2122FCEC00555495 /* NSString+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */; };
 		89C8DE602122FDC100555495 /* NSDateFormatter+CMPUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */; };
 		89C8DE612122FDC100555495 /* NSDateFormatter+CMPUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */; };
+		89CAE71221AE97C400391B01 /* AddParticipantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70121AE97C400391B01 /* AddParticipantViewModel.swift */; };
+		89CAE71321AE97C400391B01 /* AddParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70321AE97C400391B01 /* AddParticipantView.swift */; };
+		89CAE71421AE97C400391B01 /* AddParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70521AE97C400391B01 /* AddParticipantViewController.swift */; };
+		89CAE71521AE97C400391B01 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70821AE97C400391B01 /* ChatViewModel.swift */; };
+		89CAE71621AE97C400391B01 /* ChatImageMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70B21AE97C400391B01 /* ChatImageMessageCell.swift */; };
+		89CAE71721AE97C400391B01 /* ChatTextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70C21AE97C400391B01 /* ChatTextMessageCell.swift */; };
+		89CAE71821AE97C400391B01 /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70D21AE97C400391B01 /* ChatInputView.swift */; };
+		89CAE71921AE97C400391B01 /* MessageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE70E21AE97C400391B01 /* MessageStatusView.swift */; };
+		89CAE71A21AE97C400391B01 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE71021AE97C400391B01 /* ChatViewController.swift */; };
+		89CAE71B21AE97C400391B01 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE71121AE97C400391B01 /* ChatView.swift */; };
+		89CAE72821AE99C200391B01 /* PhotoVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE71D21AE99C200391B01 /* PhotoVideoManager.swift */; };
+		89CAE72921AE99C200391B01 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE71E21AE99C200391B01 /* ImageDownloader.swift */; };
+		89CAE72A21AE99C200391B01 /* PhotoCropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72121AE99C200391B01 /* PhotoCropViewModel.swift */; };
+		89CAE72B21AE99C200391B01 /* PhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72321AE99C200391B01 /* PhotoCropView.swift */; };
+		89CAE72C21AE99C200391B01 /* PhotoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72421AE99C200391B01 /* PhotoCropViewController.swift */; };
+		89CAE72D21AE99C200391B01 /* PhotoCropGridLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72521AE99C200391B01 /* PhotoCropGridLayer.swift */; };
+		89CAE72E21AE99C200391B01 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72621AE99C200391B01 /* CropView.swift */; };
+		89CAE72F21AE99C200391B01 /* PhotoCropOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE72721AE99C200391B01 /* PhotoCropOverlayView.swift */; };
+		89CAE73221AEAD2D00391B01 /* CMPRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 89CAE73021AEAD2D00391B01 /* CMPRole.h */; };
+		89CAE73321AEAD2D00391B01 /* CMPRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CAE73121AEAD2D00391B01 /* CMPRole.m */; };
 		89D2C450215E558D006BEC4E /* CMPLogConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C44E215E558D006BEC4E /* CMPLogConfig.h */; };
 		89D2C451215E558D006BEC4E /* CMPLogConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C44F215E558D006BEC4E /* CMPLogConfig.m */; };
 		89D2C45521637C2A006BEC4E /* CMPSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D2C45321637C2A006BEC4E /* CMPSocketManager.h */; };
@@ -686,6 +706,26 @@
 		89C8DE5B2122FCEC00555495 /* NSString+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CMPUtility.m"; sourceTree = "<group>"; };
 		89C8DE5E2122FDC100555495 /* NSDateFormatter+CMPUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+CMPUtility.h"; sourceTree = "<group>"; };
 		89C8DE5F2122FDC100555495 /* NSDateFormatter+CMPUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+CMPUtility.m"; sourceTree = "<group>"; };
+		89CAE70121AE97C400391B01 /* AddParticipantViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantViewModel.swift; sourceTree = "<group>"; };
+		89CAE70321AE97C400391B01 /* AddParticipantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantView.swift; sourceTree = "<group>"; };
+		89CAE70521AE97C400391B01 /* AddParticipantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParticipantViewController.swift; sourceTree = "<group>"; };
+		89CAE70821AE97C400391B01 /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		89CAE70B21AE97C400391B01 /* ChatImageMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatImageMessageCell.swift; sourceTree = "<group>"; };
+		89CAE70C21AE97C400391B01 /* ChatTextMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTextMessageCell.swift; sourceTree = "<group>"; };
+		89CAE70D21AE97C400391B01 /* ChatInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
+		89CAE70E21AE97C400391B01 /* MessageStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageStatusView.swift; sourceTree = "<group>"; };
+		89CAE71021AE97C400391B01 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		89CAE71121AE97C400391B01 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		89CAE71D21AE99C200391B01 /* PhotoVideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVideoManager.swift; sourceTree = "<group>"; };
+		89CAE71E21AE99C200391B01 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		89CAE72121AE99C200391B01 /* PhotoCropViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropViewModel.swift; sourceTree = "<group>"; };
+		89CAE72321AE99C200391B01 /* PhotoCropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropView.swift; sourceTree = "<group>"; };
+		89CAE72421AE99C200391B01 /* PhotoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropViewController.swift; sourceTree = "<group>"; };
+		89CAE72521AE99C200391B01 /* PhotoCropGridLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropGridLayer.swift; sourceTree = "<group>"; };
+		89CAE72621AE99C200391B01 /* CropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
+		89CAE72721AE99C200391B01 /* PhotoCropOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCropOverlayView.swift; sourceTree = "<group>"; };
+		89CAE73021AEAD2D00391B01 /* CMPRole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPRole.h; sourceTree = "<group>"; };
+		89CAE73121AEAD2D00391B01 /* CMPRole.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPRole.m; sourceTree = "<group>"; };
 		89D2C44E215E558D006BEC4E /* CMPLogConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPLogConfig.h; sourceTree = "<group>"; };
 		89D2C44F215E558D006BEC4E /* CMPLogConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPLogConfig.m; sourceTree = "<group>"; };
 		89D2C45321637C2A006BEC4E /* CMPSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSocketManager.h; sourceTree = "<group>"; };
@@ -1898,6 +1938,133 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		89CAE6FE21AE97A100391B01 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE6FF21AE97C400391B01 /* AddParticipant */,
+				89CAE70621AE97C400391B01 /* List */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		89CAE6FF21AE97C400391B01 /* AddParticipant */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70021AE97C400391B01 /* ViewModel */,
+				89CAE70221AE97C400391B01 /* View */,
+				89CAE70421AE97C400391B01 /* ViewController */,
+			);
+			path = AddParticipant;
+			sourceTree = "<group>";
+		};
+		89CAE70021AE97C400391B01 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70121AE97C400391B01 /* AddParticipantViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89CAE70221AE97C400391B01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70321AE97C400391B01 /* AddParticipantView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89CAE70421AE97C400391B01 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70521AE97C400391B01 /* AddParticipantViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		89CAE70621AE97C400391B01 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70721AE97C400391B01 /* ViewModel */,
+				89CAE70921AE97C400391B01 /* Subviews */,
+				89CAE70F21AE97C400391B01 /* View */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		89CAE70721AE97C400391B01 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70821AE97C400391B01 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89CAE70921AE97C400391B01 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70A21AE97C400391B01 /* Cells */,
+				89CAE70D21AE97C400391B01 /* ChatInputView.swift */,
+				89CAE70E21AE97C400391B01 /* MessageStatusView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		89CAE70A21AE97C400391B01 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE70B21AE97C400391B01 /* ChatImageMessageCell.swift */,
+				89CAE70C21AE97C400391B01 /* ChatTextMessageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		89CAE70F21AE97C400391B01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE71021AE97C400391B01 /* ChatViewController.swift */,
+				89CAE71121AE97C400391B01 /* ChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89CAE71C21AE99C200391B01 /* PhotoVideoManager */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE71D21AE99C200391B01 /* PhotoVideoManager.swift */,
+				89CAE71E21AE99C200391B01 /* ImageDownloader.swift */,
+			);
+			path = PhotoVideoManager;
+			sourceTree = "<group>";
+		};
+		89CAE71F21AE99C200391B01 /* Photo Crop */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE72021AE99C200391B01 /* ViewModel */,
+				89CAE72221AE99C200391B01 /* View */,
+			);
+			path = "Photo Crop";
+			sourceTree = "<group>";
+		};
+		89CAE72021AE99C200391B01 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE72121AE99C200391B01 /* PhotoCropViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89CAE72221AE99C200391B01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89CAE72321AE99C200391B01 /* PhotoCropView.swift */,
+				89CAE72421AE99C200391B01 /* PhotoCropViewController.swift */,
+				89CAE72521AE99C200391B01 /* PhotoCropGridLayer.swift */,
+				89CAE72621AE99C200391B01 /* CropView.swift */,
+				89CAE72721AE99C200391B01 /* PhotoCropOverlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		89D2C45221637545006BEC4E /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1949,6 +2116,8 @@
 				8940958921AC1C55007F6490 /* CMPConversationScope.h */,
 				8940958B21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h */,
 				8940958D21AC4FE4007F6490 /* CMPMessageDeliveryStatus.m */,
+				89CAE73021AEAD2D00391B01 /* CMPRole.h */,
+				89CAE73121AEAD2D00391B01 /* CMPRole.m */,
 				89D2C48F216617C6006BEC4E /* CMPRoles.h */,
 				89D2C490216617C6006BEC4E /* CMPRoles.m */,
 				89D2C49321661842006BEC4E /* CMPRoleAttributes.h */,
@@ -2103,6 +2272,9 @@
 		89E459D421ABFDDA002C26AE /* SampleAppSwift */ = {
 			isa = PBXGroup;
 			children = (
+				89CAE71F21AE99C200391B01 /* Photo Crop */,
+				89CAE71C21AE99C200391B01 /* PhotoVideoManager */,
+				89CAE6FE21AE97A100391B01 /* Chat */,
 				894095E421AD81BC007F6490 /* Authentication */,
 				894095C621AD7C37007F6490 /* Conversation */,
 				894095A521AD7406007F6490 /* Base */,
@@ -2302,6 +2474,7 @@
 				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
 				8972C33B212EC5A900C76B19 /* CMPProfileService.h in Headers */,
 				897B838D2170AE7C003D4206 /* CMPBroadcastDelegate.h in Headers */,
+				89CAE73221AEAD2D00391B01 /* CMPRole.h in Headers */,
 				897B830E2167866D003D4206 /* CMPMessagingService.h in Headers */,
 				8972C327212D76D300C76B19 /* CMPServices.h in Headers */,
 				898305FF21675B7800F155C7 /* CMPAddParticipantsTemplate.h in Headers */,
@@ -2834,6 +3007,7 @@
 				89EA5CC42147EA0000C29D08 /* CMPProfile.m in Sources */,
 				89C8DE4F2122F4B400555495 /* CMPSessionManager.m in Sources */,
 				897B8334216B5197003D4206 /* CMPMessagePart.m in Sources */,
+				89CAE73321AEAD2D00391B01 /* CMPRole.m in Sources */,
 				89C8DE582122F95000555495 /* CMPSessionAuth.m in Sources */,
 				897B8344216B7714003D4206 /* CMPMessageAlert.m in Sources */,
 				89EA5CCC21490E3B00C29D08 /* CMPPatchProfileTemplate.m in Sources */,
@@ -2858,35 +3032,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CAE72F21AE99C200391B01 /* PhotoCropOverlayView.swift in Sources */,
 				894095C521AD7B3C007F6490 /* LoginViewController.swift in Sources */,
 				894095B521AD7406007F6490 /* UIToolbar+Extension.swift in Sources */,
 				894095DF21AD7D56007F6490 /* ConversationViewController.swift in Sources */,
 				894095E621AD81D5007F6490 /* AuthenticationManager.swift in Sources */,
+				89CAE72D21AE99C200391B01 /* PhotoCropGridLayer.swift in Sources */,
 				894095C121AD75E8007F6490 /* TitledInputCell.swift in Sources */,
 				894095B121AD7406007F6490 /* Int+Extension.swift in Sources */,
+				89CAE71721AE97C400391B01 /* ChatTextMessageCell.swift in Sources */,
+				89CAE71521AE97C400391B01 /* ChatViewModel.swift in Sources */,
 				894095E021AD7D56007F6490 /* CreateConversationViewModel.swift in Sources */,
 				894095B421AD7406007F6490 /* NotificationCenter+Extension.swift in Sources */,
 				894095BA21AD7406007F6490 /* TitledTextField.swift in Sources */,
+				89CAE72B21AE99C200391B01 /* PhotoCropView.swift in Sources */,
+				89CAE71621AE97C400391B01 /* ChatImageMessageCell.swift in Sources */,
+				89CAE71B21AE97C400391B01 /* ChatView.swift in Sources */,
+				89CAE72821AE99C200391B01 /* PhotoVideoManager.swift in Sources */,
+				89CAE71921AE97C400391B01 /* MessageStatusView.swift in Sources */,
 				894095B821AD7406007F6490 /* SeparatorCell.swift in Sources */,
+				89CAE72921AE99C200391B01 /* ImageDownloader.swift in Sources */,
+				89CAE71221AE97C400391B01 /* AddParticipantViewModel.swift in Sources */,
 				8940959D21AD73BC007F6490 /* LoginViewModel.swift in Sources */,
 				8940959B21AD5FF0007F6490 /* LoginBundle.swift in Sources */,
 				894095B721AD7406007F6490 /* BaseTableViewCell.swift in Sources */,
+				89CAE72E21AE99C200391B01 /* CropView.swift in Sources */,
 				894095BD21AD7406007F6490 /* Separator.swift in Sources */,
 				894095BB21AD7406007F6490 /* GrayButtonWithWhiteText.swift in Sources */,
 				894095E321AD7D56007F6490 /* CreateConversationViewController.swift in Sources */,
 				894095B621AD7406007F6490 /* BaseViewController.swift in Sources */,
+				89CAE71A21AE97C400391B01 /* ChatViewController.swift in Sources */,
 				894095B321AD7406007F6490 /* UIImage+Extensions.swift in Sources */,
 				894095BC21AD7406007F6490 /* InsetTextField.swift in Sources */,
+				89CAE72C21AE99C200391B01 /* PhotoCropViewController.swift in Sources */,
 				894095E221AD7D56007F6490 /* CreateConversationView.swift in Sources */,
+				89CAE72A21AE99C200391B01 /* PhotoCropViewModel.swift in Sources */,
 				8940959321AD5F44007F6490 /* AppConfigurator.swift in Sources */,
+				89CAE71321AE97C400391B01 /* AddParticipantView.swift in Sources */,
 				89E459D621ABFDDA002C26AE /* AppDelegate.swift in Sources */,
 				894095DC21AD7D56007F6490 /* ConversationViewModel.swift in Sources */,
 				894095BE21AD7406007F6490 /* BaseView.swift in Sources */,
 				894095E121AD7D56007F6490 /* TitleInputCell.swift in Sources */,
 				894095DD21AD7D56007F6490 /* ConversationCell.swift in Sources */,
+				89CAE71821AE97C400391B01 /* ChatInputView.swift in Sources */,
 				894095B921AD7406007F6490 /* PlaceholderTextView.swift in Sources */,
 				894095C321AD77BE007F6490 /* LoginView.swift in Sources */,
 				894095B221AD7406007F6490 /* Date+Extension.swift in Sources */,
+				89CAE71421AE97C400391B01 /* AddParticipantViewController.swift in Sources */,
 				894095DE21AD7D56007F6490 /* ConversationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

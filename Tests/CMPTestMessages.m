@@ -1,9 +1,19 @@
 //
-//  CMPTestMessages.m
-//  CMPComapiFoundation_tests
+// The MIT License (MIT)
+// Copyright (c) 2017 Comapi (trading name of Dynmark International Limited)
 //
-//  Created by Dominik Kowalski on 16/11/2018.
-//  Copyright © 2018 Comapi. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+// to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+// Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import <XCTest/XCTest.h>
@@ -71,7 +81,7 @@
     CMPMessageParticipant *participant = [[CMPMessageParticipant alloc] initWithID:@"participantID" name:@"name"];
     CMPMessageContext *context = [[CMPMessageContext alloc] initWithConversationID:@"conversationId" from:participant sentBy:@"sender" sentOn:[NSDate date]];
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"partName" type:@"partType" url:[NSURL URLWithString:@"partURL"] data:@"partData" size:@(123)];
-    CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:@"status" timestamp:[NSDate date]];
+    CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusRead timestamp:[NSDate date]];
     msg = [[CMPMessage alloc] initWithID:@"id" metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
     
     XCTAssertEqualObjects(msg.id, @"id");
@@ -86,7 +96,7 @@
     XCTAssertEqualObjects(msg.parts[0].data, @"partData");
     XCTAssertEqual(msg.parts[0].size.integerValue, 123);
     XCTAssertEqual(msg.statusUpdates.count, 1);
-    XCTAssertEqualObjects(msg.statusUpdates[@"update1"].status, @"status");
+    XCTAssertEqual(msg.statusUpdates[@"update1"].status, CMPMessageDeliveryStatusRead);
     //XCTAssertEqualObjects(msg.statusUpdates[@"update1"].timestamp, @"status");
 }
 
@@ -95,7 +105,7 @@
     
     CMPMessageStatus *status = [CMPMessageStatus decodeWithData:data];
     
-    XCTAssertEqualObjects(status.status, @"delivered");
+    XCTAssertEqual(status.status, CMPMessageDeliveryStatusDelivered);
     XCTAssertEqualObjects([status.timestamp ISO8061String], @"2016-06-22T10:45:49.718Z");
     
     NSDictionary *json = [status json];

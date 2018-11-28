@@ -1,8 +1,19 @@
 //
-//  CMPEventParser.m
-//  CMPComapiFoundation
+// The MIT License (MIT)
+// Copyright (c) 2017 Comapi (trading name of Dynmark International Limited)
 //
-//  Created by Dominik Kowalski on 04/10/2018.
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+// to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+// Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import "CMPEventParser.h"
@@ -12,27 +23,10 @@
 #import "CMPSocketEvents.h"
 #import "CMPLogger.h"
 
-typedef NS_ENUM(NSUInteger, CMPEventType) {
-    CMPEventTypeConversationCreate,
-    CMPEventTypeConversationUpdate,
-    CMPEventTypeConversationDelete,
-    CMPEventTypeConversationUndelete,
-    CMPEventTypeConversationParticipantAdded,
-    CMPEventTypeConversationParticipantRemoved,
-    CMPEventTypeConversationParticipantUpdated,
-    CMPEventTypeConversationParticipantTyping,
-    CMPEventTypeConversationParticipantTypingOff,
-    CMPEventTypeSocketInfo,
-    CMPEventTypeProfileUpdate,
-    CMPEventTypeConversationMessageDelivered,
-    CMPEventTypeConversationMessageSent,
-    CMPEventTypeConversationMessageRead,
-    CMPEventTypeNone
-};
-
 @interface CMPEventParser ()
 
 + (CMPEventType)eventTypeForName:(NSString *)name;
++ (CMPEvent *)parseEventForJSON:(NSDictionary<NSString *, id> *)json;
 
 @end
 
@@ -88,6 +82,84 @@ typedef NS_ENUM(NSUInteger, CMPEventType) {
     return CMPEventTypeNone;
 }
 
++ (CMPEvent *)parseEventForJSON:(NSDictionary<NSString *, id> *)json {
+    CMPEvent *e;
+    switch ([CMPEventParser eventTypeForName:json[@"name"]]) {
+        case CMPEventTypeConversationCreate: {
+            e = [[CMPConversationEventCreate alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationCreate;
+            return e;
+        }
+        case CMPEventTypeConversationUpdate: {
+            e = [[CMPConversationEventUpdate alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationUpdate;
+            return e;
+        }
+        case CMPEventTypeConversationDelete: {
+            e = [[CMPConversationEventDelete alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationDelete;
+            return e;
+        }
+        case CMPEventTypeConversationUndelete: {
+            e = [[CMPConversationEventUndelete alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationUndelete;
+            return e;
+        }
+        case CMPEventTypeConversationParticipantAdded: {
+            e = [[CMPConversationEventParticipantAdded alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationParticipantAdded;
+            return e;
+        }
+        case CMPEventTypeConversationParticipantRemoved: {
+            e = [[CMPConversationEventParticipantRemoved alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationParticipantRemoved;
+            return e;
+        }
+        case CMPEventTypeConversationParticipantUpdated: {
+            e = [[CMPConversationEventParticipantUpdated alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationParticipantUpdated;
+            return e;
+        }
+        case CMPEventTypeConversationParticipantTyping: {
+            e = [[CMPConversationEventParticipantTyping alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationParticipantTyping;
+            return e;
+        }
+        case CMPEventTypeConversationParticipantTypingOff: {
+            e = [[CMPConversationEventParticipantTypingOff alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationParticipantTypingOff;
+            return e;
+        }
+        case CMPEventTypeSocketInfo: {
+            e = [[CMPSocketEventInfo alloc] initWithJSON:json];
+            e.type = CMPEventTypeSocketInfo;
+            return e;
+        }
+        case CMPEventTypeProfileUpdate: {
+            e = [[CMPProfileEventUpdate alloc] initWithJSON:json];
+            e.type = CMPEventTypeProfileUpdate;
+            return e;
+        }
+        case CMPEventTypeConversationMessageDelivered: {
+            e = [[CMPConversationMessageEventDelivered alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationMessageDelivered;
+            return e;
+        }
+        case CMPEventTypeConversationMessageSent: {
+            e = [[CMPConversationMessageEventSent alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationMessageSent;
+            return e;
+        }
+        case CMPEventTypeConversationMessageRead: {
+            e = [[CMPConversationMessageEventRead alloc] initWithJSON:json];
+            e.type = CMPEventTypeConversationMessageRead;
+            return e;
+        }
+        case CMPEventTypeNone:
+            return nil;
+    }
+}
+
 + (CMPEvent *)parseEventForData:(NSData *)data {
     NSError *error = nil;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -96,38 +168,8 @@ typedef NS_ENUM(NSUInteger, CMPEventType) {
         return nil;
     }
     if ([json isKindOfClass:NSDictionary.class]) {
-        switch ([CMPEventParser eventTypeForName:json[@"name"]]) {
-            case CMPEventTypeConversationCreate:
-                return [[CMPConversationEventCreate alloc] initWithJSON:json];
-            case CMPEventTypeConversationUpdate:
-                return [[CMPConversationEventUpdate alloc] initWithJSON:json];
-            case CMPEventTypeConversationDelete:
-                return [[CMPConversationEventDelete alloc] initWithJSON:json];
-            case CMPEventTypeConversationUndelete:
-                return [[CMPConversationEventUndelete alloc] initWithJSON:json];
-            case CMPEventTypeConversationParticipantAdded:
-                return [[CMPConversationEventParticipantAdded alloc] initWithJSON:json];
-            case CMPEventTypeConversationParticipantRemoved:
-                return [[CMPConversationEventParticipantRemoved alloc] initWithJSON:json];
-            case CMPEventTypeConversationParticipantUpdated:
-                return [[CMPConversationEventParticipantUpdated alloc] initWithJSON:json];
-            case CMPEventTypeConversationParticipantTyping:
-                return [[CMPConversationEventParticipantTyping alloc] initWithJSON:json];
-            case CMPEventTypeConversationParticipantTypingOff:
-                return [[CMPConversationEventParticipantTypingOff alloc] initWithJSON:json];
-            case CMPEventTypeSocketInfo:
-                return [[CMPSocketEventInfo alloc] initWithJSON:json];
-            case CMPEventTypeProfileUpdate:
-                return [[CMPProfileEventUpdate alloc] initWithJSON:json];
-            case CMPEventTypeConversationMessageDelivered:
-                return [[CMPConversationMessageEventDelivered alloc] initWithJSON:json];
-            case CMPEventTypeConversationMessageSent:
-                return [[CMPConversationMessageEventSent alloc] initWithJSON:json];
-            case CMPEventTypeConversationMessageRead:
-                return [[CMPConversationMessageEventRead alloc] initWithJSON:json];
-            case CMPEventTypeNone:
-                return nil;
-        }
+        CMPEvent *e = [CMPEventParser parseEventForJSON:json];
+        return e;
     }
     
     logWithLevel(CMPLogLevelError, @"Event: expected type: \nNSDictionary\n, got:", [json class]);
@@ -144,52 +186,10 @@ typedef NS_ENUM(NSUInteger, CMPEventType) {
     NSMutableArray<CMPEvent *> *parsedEvents = [NSMutableArray new];
     if ([json isKindOfClass:NSArray.class]) {
         NSArray<NSDictionary<NSString *, id> *> *events = json;
-        [events enumerateObjectsUsingBlock:^(NSDictionary<NSString *,id> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            switch ([CMPEventParser eventTypeForName:obj[@"name"]]) {
-                case CMPEventTypeConversationCreate:
-                    [parsedEvents addObject:[[CMPConversationEventCreate alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationUpdate:
-                    [parsedEvents addObject:[[CMPConversationEventUpdate alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationDelete:
-                    [parsedEvents addObject:[[CMPConversationEventDelete alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationUndelete:
-                    [parsedEvents addObject:[[CMPConversationEventUndelete alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationParticipantAdded:
-                    [parsedEvents addObject:[[CMPConversationEventParticipantAdded alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationParticipantRemoved:
-                    [parsedEvents addObject:[[CMPConversationEventParticipantRemoved alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationParticipantUpdated:
-                    [parsedEvents addObject:[[CMPConversationEventParticipantUpdated alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationParticipantTyping:
-                    [parsedEvents addObject:[[CMPConversationEventParticipantTyping alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationParticipantTypingOff:
-                    [parsedEvents addObject:[[CMPConversationEventParticipantTypingOff alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeSocketInfo:
-                    [parsedEvents addObject:[[CMPSocketEventInfo alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeProfileUpdate:
-                    [parsedEvents addObject:[[CMPProfileEventUpdate alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationMessageDelivered:
-                    [parsedEvents addObject:[[CMPConversationMessageEventDelivered alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationMessageSent:
-                    [parsedEvents addObject:[[CMPConversationMessageEventSent alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeConversationMessageRead:
-                    [parsedEvents addObject:[[CMPConversationMessageEventRead alloc] initWithJSON:obj]];
-                    break;
-                case CMPEventTypeNone:
-                    break;
+        [events enumerateObjectsUsingBlock:^(NSDictionary<NSString *,id> * _Nonnull json, NSUInteger idx, BOOL * _Nonnull stop) {
+            CMPEvent *e = [CMPEventParser parseEventForJSON:json];
+            if (e) {
+                [parsedEvents addObject:e];
             }
         }];
     } else {
