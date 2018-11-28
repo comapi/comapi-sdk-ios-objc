@@ -17,11 +17,24 @@
 //
 
 import UIKit
+import UserNotifications
+
+let PushRegistrationStatusChangedNotification = "PushRegistrationStatusChangedNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var configurator: AppConfigurator!
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+    }
 }
 
 extension AppDelegate {
@@ -35,7 +48,20 @@ extension AppDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        //configurator.registerForPushNotifications(with: deviceToken)
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        configurator.client?.set(pushToken: token, completion: { (success, error) in
+            if error != nil || !success {
+                print(error!)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: PushRegistrationStatusChangedNotification), object: false)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: PushRegistrationStatusChangedNotification), object: true)
+            }
+        })
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: PushRegistrationStatusChangedNotification), object: false)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

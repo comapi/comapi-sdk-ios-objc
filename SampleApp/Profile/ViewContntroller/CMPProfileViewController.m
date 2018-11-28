@@ -57,13 +57,6 @@
     __weak typeof(self) weakSelf = self;
     [self.viewModel getProfilesWithCompletion:^(NSError * _Nullable err) {
         [weakSelf reload];
-        [weakSelf.viewModel registerForRemoteNotificationsWithCompletion:^(BOOL success, NSError * _Nonnull error) {
-            if (!error && success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIApplication.sharedApplication registerForRemoteNotifications];
-                });
-            }
-        }];
     }];
 }
 

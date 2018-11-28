@@ -41,10 +41,6 @@
 }
 
 - (void)customize {
-    self.layer.shadowColor = UIColor.blackColor.CGColor;
-    self.layer.shadowRadius = 4.0;
-    self.layer.shadowOffset = CGSizeMake(0, 0);
-    self.layer.shadowOpacity = 0.3;
     self.backgroundColor = UIColor.grayColor;
 
     self.inputTextView.backgroundColor = UIColor.clearColor;

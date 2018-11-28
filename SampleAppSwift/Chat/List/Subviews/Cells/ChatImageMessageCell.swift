@@ -156,13 +156,13 @@ class ChatImageMessageCell: BaseTableViewCell {
     }
     
     func configure(with message: Message, state: State, downloader: ImageDownloader, statusViewHidden: Bool = true) {
-        guard let parts = message.parts, let participant = message.context?.from, let sentOn = message.context?.sentOn?.ISO8601String() else { return }
+        guard let parts = message.parts, let _ = message.context?.from, let sentOn = message.context?.sentOn?.ISO8601String() else { return }
         
         dateLabel.text = sentOn
         
-        if let delivered = message.statusUpdates?["delivered"] {
+        if let _ = message.statusUpdates?["delivered"] {
             statusView.configure(with: .delivered)
-        } else if let read = message.statusUpdates?["read"] {
+        } else if let _ = message.statusUpdates?["read"] {
             statusView.configure(with: .read)
         }
         

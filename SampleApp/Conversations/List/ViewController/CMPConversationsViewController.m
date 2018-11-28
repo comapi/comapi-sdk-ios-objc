@@ -20,6 +20,7 @@
 #import "CMPTitledCell.h"
 #import "CMPCreateConversationViewController.h"
 #import "CMPChatViewController.h"
+#import "AppDelegate.h"
 
 @interface CMPConversationsViewController ()
 
@@ -50,18 +51,27 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifcationStatusChanged:) name:kCMPPushRegistrationStatusChangedNotification object:nil];
+    
     __weak typeof(self) weakSelf = self;
     [self.viewModel getConversationsWithCompletion:^(NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error.localizedDescription);
         }
         [weakSelf reload];
+        [weakSelf.viewModel registerForRemoteNotificationsWithCompletion:^(BOOL success, NSError * _Nonnull error) {
+            if (!error && success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication.sharedApplication registerForRemoteNotifications];
+                });
+            }
+        }];
     }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCMPPushRegistrationStatusChangedNotification object:nil];
 }
 
 - (void)delegates {
@@ -99,6 +109,11 @@
 
 - (void)reload {
     [self.conversationsView.tableView reloadData];
+}
+
+- (void)notifcationStatusChanged:(NSNotification *)notification {
+    BOOL value = [(NSNumber *)notification.object boolValue];
+    [self.conversationsView.notificationSwitch setOn:value];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

@@ -17,6 +17,7 @@
 //
 
 import CMPComapiFoundation
+import UserNotifications
 
 class ConversationViewModel {
     
@@ -64,5 +65,11 @@ class ConversationViewModel {
                 success()
             }
         })
+    }
+    
+    func registerForRemoteNotification(completion: @escaping ((Bool, Error?) -> ())) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (success, error) in
+            completion(success, error)
+        }
     }
 }

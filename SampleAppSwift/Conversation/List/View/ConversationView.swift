@@ -21,10 +21,18 @@ import UIKit
 class ConversationView: UIView {
 
     let tableView: UITableView
+    let containerView: UIView
+    let notificationSwitch: UISwitch
+    let label: UILabel
+    
+    var didChangeSwitchValue: (() -> ())?
     
     init() {
         
         tableView = UITableView()
+        containerView = UIView()
+        notificationSwitch = UISwitch()
+        label = UILabel()
         
         super.init(frame: .zero)
         
@@ -38,10 +46,19 @@ class ConversationView: UIView {
     func configure() {
         customize(self)
         customize(tableView)
+        customize(containerView)
+        customize(label)
+        customize(notificationSwitch)
         
         layout(tableView)
+        layout(containerView)
+        layout(label)
+        layout(notificationSwitch)
         
         constrain(tableView)
+        constrain(containerView)
+        constrain(label)
+        constrain(notificationSwitch)
     }
     
     func customize(_ view: UIView) {
@@ -54,6 +71,20 @@ class ConversationView: UIView {
             tableView.rowHeight = UITableView.automaticDimension
             tableView.estimatedRowHeight = 44
             tableView.register(ConversationCell.self, forCellReuseIdentifier: "conversationCell")
+        case containerView:
+            containerView.backgroundColor = .gray
+            containerView.layer.borderColor = UIColor.white.cgColor
+            containerView.layer.borderWidth = 1.0
+        case notificationSwitch:
+            notificationSwitch.setOn(false, animated: false)
+            notificationSwitch.onTintColor = .black
+            notificationSwitch.tintColor = .white
+            notificationSwitch.isEnabled = false
+            notificationSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+        case label:
+            label.text = "Notification status"
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 16)
         default:
             break
         }
@@ -63,6 +94,12 @@ class ConversationView: UIView {
         switch view {
         case tableView:
             addSubview(tableView)
+        case containerView:
+            addSubview(containerView)
+        case label:
+            containerView.addSubview(label)
+        case notificationSwitch:
+            containerView.addSubview(notificationSwitch)
         default:
             break
         }
@@ -73,9 +110,30 @@ class ConversationView: UIView {
             switch view {
             case tableView:
                 $0.edges.equalToSuperview()
+            case containerView:
+                if #available(iOS 11.0, *) {
+                    $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+                } else {
+                    $0.bottom.equalToSuperview()
+                }                
+                $0.leading.equalToSuperview()
+                $0.trailing.equalToSuperview()
+            case label:
+                $0.height.greaterThanOrEqualTo(44)
+                $0.top.equalToSuperview().offset(8)
+                $0.bottom.equalToSuperview().offset(-8)
+                $0.leading.equalToSuperview().offset(16)
+                $0.trailing.equalTo(notificationSwitch.snp.leading).offset(-16)
+            case notificationSwitch:
+                $0.centerY.equalToSuperview()
+                $0.trailing.equalToSuperview().offset(-16)
             default:
                 break
             }
         }
+    }
+    
+    @objc func switchValueChanged() {
+        self.didChangeSwitchValue?()
     }
 }

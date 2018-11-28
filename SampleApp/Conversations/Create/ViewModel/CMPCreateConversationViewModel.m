@@ -71,7 +71,7 @@
 - (void)createConversation:(BOOL)isPublic completion:(void (^)(BOOL exists, CMPConversation * _Nullable conversation, NSError * _Nullable error))completion {
     NSString *profileID = self.client.profileID;
     if ([self validate] && profileID != nil) {
-        CMPConversationParticipant *me = [[CMPConversationParticipant alloc] initWithID:profileID role:@"owner"];
+        CMPConversationParticipant *me = [[CMPConversationParticipant alloc] initWithID:profileID role:CMPRoleOwner];
         NSString *id = [@[self.conversation.name, profileID] componentsJoinedByString:@"_"];
         __weak typeof(self) weakSelf = self;
         [self getConversationWithID:id completion:^(CMPConversation * _Nullable conversation, NSError * _Nullable error) {

@@ -56,7 +56,7 @@
         return;
     }
     
-    self.participant.role = @"participant";
+    self.participant.role = CMPRoleParticipant;
     __weak typeof(self) weakSelf = self;
     [self getProfileForID:self.participant.id completion:^(BOOL success, NSError * _Nullable error) {
         if (error) {

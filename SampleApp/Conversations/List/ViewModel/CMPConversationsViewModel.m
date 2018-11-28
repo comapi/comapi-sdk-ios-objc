@@ -18,6 +18,8 @@
 
 #import "CMPConversationsViewModel.h"
 
+#import <UserNotifications/UserNotifications.h>
+
 @implementation CMPConversationsViewModel
 
 - (instancetype)initWithClient:(CMPComapiClient *)client profile:(CMPProfile *)profile {
@@ -39,6 +41,12 @@
             self.conversations = [NSMutableArray arrayWithArray:result.object];
             completion(nil);
         }
+    }];
+}
+
+- (void)registerForRemoteNotificationsWithCompletion:(void (^)(BOOL, NSError * _Nonnull))completion {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        completion(granted, error);
     }];
 }
 

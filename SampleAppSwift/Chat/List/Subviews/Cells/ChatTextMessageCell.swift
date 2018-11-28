@@ -155,7 +155,7 @@ class ChatTextMessageCell: BaseTableViewCell {
     }
     
     func configure(with message: Message, state: State, statusViewHidden: Bool = true) {
-        guard let parts = message.parts, let participant = message.context?.from, let sentOn = message.context?.sentOn?.ISO8601String() else { return }
+        guard let parts = message.parts, let _ = message.context?.from, let sentOn = message.context?.sentOn?.ISO8601String() else { return }
         
         dateLabel.text = sentOn
         

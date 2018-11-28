@@ -102,7 +102,7 @@ class ChatViewModel: NSObject {
         client.services.messaging.send(message: message, conversationID: conversation.id) { (result) in
             if let err = result.error {
                 failure(err)
-            } else if let obj = result.object {
+            } else if let _ = result.object {
                 success()
             }
         }

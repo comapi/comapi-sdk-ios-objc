@@ -51,10 +51,10 @@ class ChatViewController: BaseViewController {
             self?.viewModel.getMessages(success: { [weak self] in
                 self?.reload()
             }) { (error) in
-                print(error)
+                print(error ?? "")
             }
         }) { (error) in
-            print(error)
+            print(error ?? "")
         }
     }
     
@@ -112,7 +112,7 @@ class ChatViewController: BaseViewController {
             self?.reload()
         }
         
-        viewModel.didReadMessage = { [weak self] messageRead in
+        viewModel.didReadMessage = { messageRead in
             
         }
     }

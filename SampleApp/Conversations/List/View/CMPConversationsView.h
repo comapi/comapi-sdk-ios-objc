@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CMPConversationsView : CMPBaseView <CMPViewConfiguring>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) UILabel *notificationInfoLabel;
+@property (nonatomic, strong) UISwitch *notificationSwitch;
+
+@property (nonatomic, copy, nullable) void(^didChangeSwitchValue)(void);
+
 
 - (instancetype)init;
 

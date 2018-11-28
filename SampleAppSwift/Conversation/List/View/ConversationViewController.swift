@@ -44,21 +44,31 @@ class ConversationViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getAllConverstations(success: { [weak self] in
-            self?.reload()
-        }) { error in
-            print(error)
-        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForLoadingNotification()
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationValueChanged), name: Notification.Name(rawValue: PushRegistrationStatusChangedNotification), object: nil)
+        viewModel.getAllConverstations(success: { [weak self] in
+            self?.reload()
+            self?.viewModel.registerForRemoteNotification(completion: { (success, error) in
+                if error == nil && success {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            })
+        }) { error in
+            print(error ?? "")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unregisterFromLoadingNotification()
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: PushRegistrationStatusChangedNotification), object: nil)
     }
 
     override func navigation() {
@@ -111,7 +121,13 @@ class ConversationViewController: BaseViewController {
         viewModel.getAllConverstations(success: { [weak self] in
             self?.reload()
         }) { error in
-            print(error)
+            print(error ?? "")
+        }
+    }
+    
+    @objc func notificationValueChanged(notification: Notification) {
+        if let val = notification.object as? Bool {
+            self.conversationView.notificationSwitch.setOn(val, animated: true)
         }
     }
     

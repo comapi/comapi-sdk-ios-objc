@@ -48,7 +48,7 @@ class CreateConversationViewController: BaseViewController {
         viewModel.getProfiles(success: { [weak self] (profiles) in
             self?.reload()
         }) { (error) in
-            print(error)
+            print(error ?? "")
         }
     }
     
@@ -81,15 +81,15 @@ class CreateConversationViewController: BaseViewController {
                 let nav = self.presentingViewController as! UINavigationController
                 self.dismiss(animated: true) {
                     if let vc = nav.viewControllers.first(where: { $0 is ConversationViewController }) as? ConversationViewController {
-                        vc.viewModel.getAllConverstations(success: { [weak self] in
+                        vc.viewModel.getAllConverstations(success: {
                             vc.reload()
-                        }) { error in
-                            print(error)
-                        }
+                        }, failure: { (error) in
+                            print(error ?? "")
+                        })
                     }
                 }
             }, failure: { error in
-                print(error)
+                print(error ?? "")
             })
         }
     }

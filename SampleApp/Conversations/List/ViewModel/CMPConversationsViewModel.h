@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithClient:(CMPComapiClient *)client profile:(CMPProfile *)profile;
 - (void)getConversationsWithCompletion:(void(^)(NSError * _Nullable))completion;
+- (void)registerForRemoteNotificationsWithCompletion:(void (^)(BOOL, NSError * _Nonnull))completion;
 
 @end
 

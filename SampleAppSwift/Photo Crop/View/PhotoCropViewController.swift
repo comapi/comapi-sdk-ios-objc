@@ -71,10 +71,10 @@ class PhotoCropViewController: BaseViewController {
                             vc?.viewModel.sendImage(content: result, success: {
                                 self?.navigationController?.popViewController(animated: true)
                             }, failure: { (error) in
-                                print(error)
+                                print(error ?? "")
                             })
                         }, failure: { error in
-                            print(error)
+                            print(error ?? "")
                         })
                     }
                 }, failure: {
