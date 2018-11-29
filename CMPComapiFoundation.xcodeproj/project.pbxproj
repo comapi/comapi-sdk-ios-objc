@@ -2272,6 +2272,7 @@
 		89E459D421ABFDDA002C26AE /* SampleAppSwift */ = {
 			isa = PBXGroup;
 			children = (
+				89E459E521ABFE09002C26AE /* SampleAppSwift.entitlements */,
 				89CAE71F21AE99C200391B01 /* Photo Crop */,
 				89CAE71C21AE99C200391B01 /* PhotoVideoManager */,
 				89CAE6FE21AE97A100391B01 /* Chat */,
@@ -2281,7 +2282,6 @@
 				8940959E21AD7406007F6490 /* Helpers */,
 				8940959421AD5FAF007F6490 /* Login */,
 				8940959121AD5F29007F6490 /* AppConfigurator */,
-				89E459E521ABFE09002C26AE /* SampleAppSwift.entitlements */,
 				89E459D521ABFDDA002C26AE /* AppDelegate.swift */,
 				89E459DC21ABFDDD002C26AE /* Assets.xcassets */,
 				89E459DE21ABFDDD002C26AE /* LaunchScreen.storyboard */,

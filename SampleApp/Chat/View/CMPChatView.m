@@ -62,7 +62,7 @@
     };
     self.inputMessageView.inputTextView.didChangeText = ^(UITextView *textView) {
         [weakSelf adjustTableViewContentInset];
-        [weakSelf scrollToBottomAnimated:YES];
+        //[weakSelf scrollToBottomAnimated:YES];
         weakSelf.inputMessageView.sendButton.enabled = ![textView.text isEqualToString:@""];
     };
     self.inputMessageView.didTapUploadButton = ^{

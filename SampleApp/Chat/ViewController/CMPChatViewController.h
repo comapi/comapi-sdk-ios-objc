@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithViewModel:(CMPChatViewModel *)viewModel;
 
+- (void)reload;
+
 - (CMPChatView *)chatView;
 
 @end

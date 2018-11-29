@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init;
 
 - (void)animateOnKeyboardChangeWithNotification:(NSNotification *)notification completion:(void(^_Nullable)(void))completion;
-
+- (void)scrollToBottomAnimated:(BOOL)animated;
 @end
 
 NS_ASSUME_NONNULL_END

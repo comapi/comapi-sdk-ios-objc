@@ -47,9 +47,26 @@
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = YES;
     self.backgroundColor = UIColor.clearColor;
+    self.contentMode = UIViewContentModeScaleAspectFit;
     
-    self.imageView.contentMode = UIViewContentModeScaleToFill;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+}
+
+- (void)setContentOffset:(CGPoint)contentOffset
+{
+    const CGSize contentSize = self.contentSize;
+    const CGSize scrollViewSize = self.bounds.size;
+
+    if (contentSize.width < scrollViewSize.width) {
+        contentOffset.x = -(scrollViewSize.width - contentSize.width) / 2.0;
+    }
+
+    if (contentSize.height < scrollViewSize.height) {
+        contentOffset.y = -(scrollViewSize.height - contentSize.height) / 2.0;
+    }
+
+    [super setContentOffset:contentOffset];
 }
 
 - (void)layout {
@@ -66,13 +83,15 @@
 }
 
 - (void)zooming {
-    CGFloat widthScale = self.cropSize.width / self.image.size.width;
-    CGFloat heightScale = self.cropSize.height / self.image.size.height;
-    CGFloat scaleFactor = MIN(widthScale, heightScale);
+    CGSize imageViewSize = self.imageView.bounds.size;
+    CGSize scrollViewSize = self.bounds.size;
+    CGFloat widthScale = scrollViewSize.width / imageViewSize.width;
+    CGFloat heightScale = scrollViewSize.height / imageViewSize.height;
+    CGFloat minZoomScale = MAX(widthScale, heightScale);
     
-    self.zoomScale = 1.0;
-    self.minimumZoomScale = scaleFactor;
-    self.maximumZoomScale = 1 / scaleFactor;
+    self.minimumZoomScale = minZoomScale;
+    self.maximumZoomScale = 8.0;
+    
 }
 
 - (void)centerScrollViewContents {
@@ -95,22 +114,13 @@
 }
 
 - (UIImage *)crop {
-    CGRect cropFrame = CGRectMake(0, 0, self.cropSize.width, self.cropSize.height);
-    CGFloat scale = MAX(self.imageView.image.size.width / self.cropSize.width,
-                        self.imageView.image.size.height / self.cropSize.height);
-    CGPoint point = self.contentOffset;
-    point.x *= scale;
-    point.y *= scale;
-    
-    CGSize size = CGSizeMake(cropFrame.size.width * scale, cropFrame.size.height * scale);
-    
-    CGRect cutFrame = CGRectMake(point.x, point.y, size.width, size.height);
-    if (self.imageView.image.imageOrientation == UIImageOrientationRight) {
-        cutFrame = CGRectMake(point.y, point.x, size.height, size.width);
-    } else if (self.imageView.image.imageOrientation == UIImageOrientationLeft) {
-        cutFrame = CGRectMake(point.y, point.x, size.height, size.width);
-    }
-    
+    CGFloat scale = UIScreen.mainScreen.scale;
+    CGRect cutFrame;
+    cutFrame.origin.x = (self.contentOffset.x) / self.zoomScale;
+    cutFrame.origin.y = (self.contentOffset.y) / self.zoomScale;
+    cutFrame.size.width = ((self.contentOffset.x + (self.image.size.width * scale))) / self.zoomScale;
+    cutFrame.size.height = ((self.contentOffset.y + (self.image.size.height * scale))) / self.zoomScale;
+
     CGImageRef imageRef = CGImageCreateWithImageInRect([self.imageView.image CGImage], cutFrame);
     UIImage *image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);

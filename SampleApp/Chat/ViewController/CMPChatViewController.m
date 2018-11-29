@@ -92,7 +92,11 @@
         }];
     };
     self.viewModel.didReceiveMessage = ^{
-        [weakSelf reload];
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:weakSelf.viewModel.messages.count - 1 inSection:0];
+        [weakSelf.chatView.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [weakSelf.chatView scrollToBottomAnimated:YES];
+        });
     };
     self.viewModel.didTakeNewPhoto = ^(UIImage * _Nonnull image) {
         [weakSelf.viewModel showPhotoCropControllerWithImage:image presenter:^(UIViewController * _Nonnull vc) {
