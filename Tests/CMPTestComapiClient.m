@@ -264,7 +264,7 @@
         XCTAssertNil(result.error);
         XCTAssertEqualObjects(result.object.latestEventID, @(35));
         XCTAssertEqualObjects(result.object.earliestEventID, @(34));
-        XCTAssertEqual(result.object.orphanedEvents.count, 0);
+        XCTAssertEqual(result.object.orphanedEvents.count, 1);
         XCTAssertEqual(result.object.messages.count, 1);
         
         CMPMessage *message = result.object.messages[0];
@@ -290,6 +290,18 @@
         XCTAssertEqualObjects(part.data, @"base64EncodedData");
         XCTAssertEqualObjects(part.size, @(12535));
         
+        CMPOrphanedEvent *orphanedEvent = result.object.orphanedEvents[0];
+        
+        XCTAssertEqualObjects(orphanedEvent.id, @(162));
+        XCTAssertEqualObjects(orphanedEvent.data.name, @"delivered");
+        XCTAssertEqualObjects(orphanedEvent.data.eventID, @"9f0b6286-1afc-4367-b4dd-ad8be8e22d36");
+        XCTAssertEqualObjects(orphanedEvent.data.profileID, @"marcin1");
+        XCTAssertEqualObjects(orphanedEvent.data.payload.messageID, @"cbe04573-cf2f-4f8e-bc25-ddbea192ab98");
+        XCTAssertEqualObjects(orphanedEvent.data.payload.conversationID, @"marcin1.MeyaBot");
+        XCTAssertEqualObjects(orphanedEvent.data.payload.isPublicConversation, @(NO));
+        XCTAssertEqualObjects(orphanedEvent.data.payload.profileID, @"marcin1");
+        XCTAssertEqualObjects([[NSDateFormatter comapiFormatter] stringFromDate:orphanedEvent.data.payload.timestamp], @"2017-01-10T16:31:27.783Z");
+
         XCTAssertEqual(message.statusUpdates.count, 0);
 
         [expectation fulfill];

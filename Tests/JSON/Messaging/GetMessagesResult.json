@@ -34,6 +34,20 @@
 		}
 	],
 	"orphanedEvents": [
-		
+        {
+            "id":162,
+            "data":{
+                "name":"delivered",
+                "payload":{
+                    "messageId":"cbe04573-cf2f-4f8e-bc25-ddbea192ab98",
+                    "conversationId":"marcin1.MeyaBot",
+                    "isPublicConversation":false,
+                    "profileId":"marcin1",
+                    "timestamp":"2017-01-10T16:31:27.783Z"
+                },
+                "eventId":"9f0b6286-1afc-4367-b4dd-ad8be8e22d36",
+                "profileId":"marcin1"
+            }
+        }
 	]
 }

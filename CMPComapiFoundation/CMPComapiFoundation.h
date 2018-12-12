@@ -19,7 +19,7 @@
 #import <Foundation/Foundation.h>
 
 //! Project version number for CMPComapiFoundation.
-FOUNDATION_EXPORT double CMPComapiFoundationVersionNumber;
+FOUNDATION_EXPORT double CMPComapiFoundationVersionNumber NS_SWIFT_NAME(ComapiFoundationVersionNumber);
 
 //! Project version string for CMPComapiFoundation.
 FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];

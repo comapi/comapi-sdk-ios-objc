@@ -56,9 +56,7 @@ CGFloat const kMaxTextViewWidth = 200;
 }
 
 - (void)configure {
-    //[self customizeWithOwnership:CMPMessageOwnershipSelf];
     [self layout];
-    //[self constrainWithOwnership:CMPMessageOwnershipSelf];
 }
 
 - (void)customizeWithOwnership:(CMPMessageOwnership)ownership {

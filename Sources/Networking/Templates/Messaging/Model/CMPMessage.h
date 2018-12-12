@@ -26,12 +26,13 @@ NS_SWIFT_NAME(Message)
 @interface CMPMessage : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
 @property (nonatomic, strong, nullable) NSString *id;
+@property (nonatomic, strong, nullable) NSNumber *sentEventID;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *metadata;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, CMPMessageStatus *> *statusUpdates;
 @property (nonatomic, strong, nullable) NSArray<CMPMessagePart *> *parts;
 @property (nonatomic, strong, nullable) CMPMessageContext *context;
 
--(instancetype)initWithID:(nullable NSString *)ID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates;
+-(instancetype)initWithID:(nullable NSString *)ID sentEventID:(nullable NSString *)sentEventID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates;
 
 @end
 

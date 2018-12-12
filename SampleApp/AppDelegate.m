@@ -93,7 +93,9 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication.sharedApplication setApplicationIconBadgeNumber:0];
+    });
 }
 
 

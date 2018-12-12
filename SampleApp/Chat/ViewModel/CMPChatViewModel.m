@@ -139,28 +139,40 @@
 #pragma mark - CMPEventDelegate
 
 - (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event {
-    if ([event.name isEqualToString:@"conversationMessage.sent"]) {
-        CMPConversationMessageEventSent *sentEvent = (CMPConversationMessageEventSent *)event;
-        NSString *messageID = sentEvent.payload.messageID;
-        NSDictionary *metadata = sentEvent.payload.metadata;
-        CMPMessageContext *context = sentEvent.payload.context;
-        NSArray<CMPMessagePart *> *parts = sentEvent.payload.parts;
-        
-        __block BOOL contains = NO;
-        [self.messages enumerateObjectsUsingBlock:^(CMPMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj.id isEqualToString:messageID]) {
-                contains = YES;
-                *stop = YES;
+    switch (event.type) {
+        case CMPEventTypeConversationMessageSent: {
+            CMPConversationMessageEventSent *sentEvent = (CMPConversationMessageEventSent *)event;
+            NSString *messageID = sentEvent.payload.messageID;
+            NSDictionary *metadata = sentEvent.payload.metadata;
+            CMPMessageContext *context = sentEvent.payload.context;
+            NSArray<CMPMessagePart *> *parts = sentEvent.payload.parts;
+            
+            __block BOOL contains = NO;
+            [self.messages enumerateObjectsUsingBlock:^(CMPMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.id isEqualToString:messageID]) {
+                    contains = YES;
+                    *stop = YES;
+                }
+            }];
+            if (contains) {
+                return;
             }
-        }];
-        if (contains) {
-            return;
+            CMPMessage *message = [[CMPMessage alloc] initWithID:messageID sentEventID:sentEvent.eventID metadata:metadata context:context parts:parts statusUpdates:nil];
+            self.messages = [self.messages arrayByAddingObject:message];
+            if (self.didReceiveMessage) {
+                self.didReceiveMessage();
+            }
+            break;
         }
-        CMPMessage *message = [[CMPMessage alloc] initWithID:messageID metadata:metadata context:context parts:parts statusUpdates:nil];
-        self.messages = [self.messages arrayByAddingObject:message];
-        if (self.didReceiveMessage) {
-            self.didReceiveMessage();
-        }
+            
+        case CMPEventTypeConversationParticipantTypingOff:
+            break;
+        case CMPEventTypeConversationParticipantTyping:
+            break;
+        case CMPEventTypeConversationMessageRead:
+            break;
+        default:
+            break;
     }
 }
 

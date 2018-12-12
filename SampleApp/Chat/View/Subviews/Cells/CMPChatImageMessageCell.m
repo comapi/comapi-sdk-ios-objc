@@ -53,9 +53,7 @@ CGFloat const kMaxImageViewSize = 250;
 }
 
 - (void)configure {
-//    [self customizeWithOwnership:CMPMessageOwnershipSelf];
     [self layout];
-//    [self constrainWithOwnership:CMPMessageOwnershipSelf];
 }
 
 - (void)customizeWithOwnership:(CMPMessageOwnership)ownership {

@@ -35,6 +35,7 @@ NS_SWIFT_NAME(HTTPRequestTemplate)
 
 @end
 
+NS_SWIFT_NAME(HTTPStreamableRequestTemplate)
 @protocol CMPHTTPStreamableRequestTemplate <CMPHTTPRequestTemplate>
 
 - (nullable NSInputStream *)httpBodyStream;

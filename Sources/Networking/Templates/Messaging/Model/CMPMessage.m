@@ -20,11 +20,12 @@
 
 @implementation CMPMessage
 
-- (instancetype)initWithID:(NSString *)ID metadata:(NSDictionary<NSString *,id> *)metadata context:(CMPMessageContext *)context parts:(NSArray<CMPMessagePart *> *)parts statusUpdates:(NSDictionary<NSString *,CMPMessageStatus *> *)statusUpdates {
+-(instancetype)initWithID:(nullable NSString *)ID sentEventID:(nullable NSNumber *)sentEventID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates {
     self = [super init];
     
     if (self) {
         self.id = ID;
+        self.sentEventID = sentEventID;
         self.metadata = metadata;
         self.context = context;
         self.parts = parts;
@@ -39,6 +40,7 @@
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.sentEventID forKey:@"sentEventId"];
     [dict setValue:self.metadata forKey:@"metadata"];
     [dict setValue:[self.context json] forKey:@"context"];
     NSMutableArray<NSDictionary<NSString *, id> *> *parts = [NSMutableArray new];
@@ -63,6 +65,9 @@
     if (self) {
         if (JSON[@"id"] && [JSON[@"id"] isKindOfClass:NSString.class]) {
             self.id = JSON[@"id"];
+        }
+        if (JSON[@"sentEventId"] && [JSON[@"sentEventId"] isKindOfClass:NSNumber.class]) {
+            self.sentEventID = JSON[@"sentEventId"];
         }
         if (JSON[@"metadata"] && [JSON[@"metadata"] isKindOfClass:NSDictionary.class]) {
             self.metadata = JSON[@"metadata"];

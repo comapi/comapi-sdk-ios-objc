@@ -18,22 +18,44 @@
 
 #import "CMPJSONRepresentable.h"
 #import "CMPJSONDecoding.h"
+#import "CMPMessageDeliveryStatus.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME(OrphanedEventPayload)
+@interface CMPOrphanedEventPayload : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
+
+@property (nonatomic, strong, nullable) NSString *profileID;
+@property (nonatomic, strong, nullable) NSString *messageID;
+@property (nonatomic, strong, nullable) NSString *conversationID;
+@property (nonatomic, strong, nullable) NSNumber *isPublicConversation;
+@property (nonatomic, strong, nullable) NSDate *timestamp;
+
+- (instancetype)initWithProfileID:(nullable NSString *)profileID messageID:(nullable NSString *)messageID conversationID:(nullable NSString *)conversationID isPublicConversation:(nullable NSNumber *)isPublicConversation timestamp:(nullable NSDate *)timestamp;
+
+@end
+
+NS_SWIFT_NAME(OrphanedEventData)
+@interface CMPOrphanedEventData : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
+
+@property (nonatomic, strong, nullable) NSString *name;
+@property (nonatomic, strong, nullable) NSString *eventID;
+@property (nonatomic, strong, nullable) NSString *profileID;
+@property (nonatomic, strong, nullable) CMPOrphanedEventPayload *payload;
+
+- (instancetype)initWithName:(nullable NSString *)name eventID:(nullable NSString *)eventID profileID:(nullable NSString *)profileID payload:(nullable CMPOrphanedEventPayload *)payload;
+
+@end
 
 NS_SWIFT_NAME(OrphanedEvent)
 @interface CMPOrphanedEvent : NSObject <CMPJSONDecoding, CMPJSONRepresentable>
 
-@property (nonatomic, strong, nullable) NSString *id;
-@property (nonatomic, strong, nullable) NSString *messageID;
-@property (nonatomic, strong, nullable) NSString *eventID;
-@property (nonatomic, strong, nullable) NSString *conversationID;
-@property (nonatomic, strong, nullable) NSString *profileID;
-@property (nonatomic, strong, nullable) NSString *name;
-@property (nonatomic, strong, nullable) NSString *updatedBy;
-@property (nonatomic, strong, nullable) NSDate *createdOn;
+@property (nonatomic, strong, nullable) NSNumber *id;
+@property (nonatomic, strong, nullable) CMPOrphanedEventData *data;
 
-- (instancetype)initWithID:(nullable NSString *)ID messageID:(nullable NSString *)messageID eventID:(nullable NSString *)eventID conversationID:(nullable NSString *)conversationID profileID:(nullable NSString *)profileID name:(NSString *)name updatedBy:(NSString *)updatedBy createdOn:(NSDate *)createdOn;
+@property (nonatomic, readonly) CMPMessageDeliveryStatus status;
+
+- (instancetype)initWithID:(nullable NSString *)ID data:(nullable CMPOrphanedEventData *)data;
 
 @end
 

@@ -82,8 +82,8 @@
     CMPMessageContext *context = [[CMPMessageContext alloc] initWithConversationID:@"conversationId" from:participant sentBy:@"sender" sentOn:[NSDate date]];
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"partName" type:@"partType" url:[NSURL URLWithString:@"partURL"] data:@"partData" size:@(123)];
     CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusRead timestamp:[NSDate date]];
-    msg = [[CMPMessage alloc] initWithID:@"id" metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
-    
+    msg = [[CMPMessage alloc] initWithID:@"id" sentEventID:@"eventId" metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
+
     XCTAssertEqualObjects(msg.id, @"id");
     XCTAssertEqualObjects(msg.context.from.id, @"participantID");
     XCTAssertEqualObjects(msg.context.from.name, @"name");
@@ -155,6 +155,12 @@
     XCTAssertEqualObjects(result.messages[0].parts[0].type, @"image/jpeg");
     XCTAssertEqualObjects(result.messages[0].parts[0].url.absoluteString, @"apple.com");
     XCTAssertEqualObjects(result.messages[0].parts[0].data, @"base64EncodedData");
+    //XCTAssertEqualObjects(result., @"PartName");
+    XCTAssertEqualObjects(result.messages[0].parts[0].type, @"image/jpeg");
+    XCTAssertEqualObjects(result.messages[0].parts[0].url.absoluteString, @"apple.com");
+    XCTAssertEqualObjects(result.messages[0].parts[0].data, @"base64EncodedData");
+    
+    
     XCTAssertEqual([result.messages[0].parts[0].size integerValue], 12535);
     
     NSDictionary *json = [result json];

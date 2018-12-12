@@ -31,8 +31,8 @@ class LoginViewModel: NSObject {
     var client: ComapiClient!
     
     override init() {
-        loginInfo = LoginBundle(apiSpaceId: "be466e4b-1340-41fc-826e-20445ab658f1", profileId: "sub", issuer: "local", audience: "local", secret: "secret")
-        
+        loginInfo = LoginBundle()
+    
         super.init()
     }
     
@@ -49,7 +49,7 @@ class LoginViewModel: NSObject {
         }
         
         let config = ComapiConfig(apiSpaceID: loginInfo.apiSpaceId!, authenticationDelegate: self)
-        
+
         client = Comapi.initialise(with: config)
         client.services.session.startSession(completion: { [weak self] in
             self?.saveLocally()

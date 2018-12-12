@@ -26,6 +26,10 @@ class LoginBundle: NSObject, NSCoding {
     var audience: String?
     var secret: String?
     
+    override init() {
+        super.init()
+    }
+    
     init(apiSpaceId: String?, profileId: String?, issuer: String?, audience: String?, secret: String?) {
         self.apiSpaceId = apiSpaceId
         self.profileId = profileId

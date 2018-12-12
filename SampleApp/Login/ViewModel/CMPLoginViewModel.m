@@ -25,7 +25,7 @@
     self = [super init];
 
     if (self) {
-        self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:@"be466e4b-1340-41fc-826e-20445ab658f1" profileID:@"sub" issuer:@"local" audience:@"local" secret:@"secret"];
+        self.loginBundle = [[CMPLoginBundle alloc] init];
     }
     
     return self;
