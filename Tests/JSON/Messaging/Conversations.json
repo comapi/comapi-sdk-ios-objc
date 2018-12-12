@@ -1,0 +1,38 @@
+[
+    {
+        "id": "support1",
+        "name": "Support1",
+        "description": "The Support Channel1",
+        "roles": {
+            "owner": {
+                "canSend": true,
+                "canAddParticipants": true,
+                "canRemoveParticipants": true
+            },
+            "participant": {
+                "canSend": true,
+                "canAddParticipants": true,
+                "canRemoveParticipants": true
+            }
+        },
+        "isPublic": false,
+    },
+    {
+        "id": "support2",
+        "name": "Support2",
+        "description": "The Support Channel2",
+        "roles": {
+            "owner": {
+                "canSend": true,
+                "canAddParticipants": true,
+                "canRemoveParticipants": true
+            },
+            "participant": {
+                "canSend": true,
+                "canAddParticipants": true,
+                "canRemoveParticipants": true
+            }
+        },
+        "isPublic": false,
+    }
+]

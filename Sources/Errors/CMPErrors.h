@@ -16,22 +16,39 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPConstants.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ @typedef CMPRequestTemplateError
+ @brief Defines error types that can be returned by Comapi services.
+ */
 typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
+    /// Request is malformed and couldn't be created.
     CMPRequestTemplateErrorRequestCreationFailed,
+    /// Response JSON failed to be parsed.
     CMPRequestTemplateErrorResponseParsingFailed,
+    /// Could not establish a connection between client and server.
     CMPRequestTemplateErrorConnectionFailed,
+    /// Wildcard error for various unexpected errors.
     CMPRequestTemplateErrorUnexpectedStatusCode,
+    /// Object with specified criteria does not exist.
     CMPRequestTemplateErrorNotFound,
-    CMPRequestTemplateErrorUpdateConflict,
+    /// ETag values are not matching.
     CMPRequestTemplateErrorETagMismatch,
+    /// Object could not be updated due to conflicts.
+    CMPRequestTemplateErrorUpdateConflict,
+    /// Object could not be created because it already exists.
     CMPRequestTemplateErrorAlreadyExists
 } NS_SWIFT_NAME(RequestTemplateError);
 
+/**
+ @typedef CMPAuthenticationError
+ @brief Defines errors related to authenticating.
+ */
 typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {
+    /// Could not perform request due to missing authentication token.
     CMPAuthenticationErrorMissingToken,
 } NS_SWIFT_NAME(AuthenticationError);
 

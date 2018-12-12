@@ -1,0 +1,18 @@
+{
+		"id": "support",
+		"name": "Support",
+		"description": "The Support Channel",
+		"roles": {
+			"owner": {
+				"canSend": true,
+				"canAddParticipants": true,
+				"canRemoveParticipants": true
+			},
+			"participant": {
+				"canSend": true,
+				"canAddParticipants": true,
+				"canRemoveParticipants": true
+			}
+		},
+		"isPublic": false,
+}

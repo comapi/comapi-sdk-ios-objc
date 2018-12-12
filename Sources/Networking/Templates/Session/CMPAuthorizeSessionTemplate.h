@@ -26,6 +26,8 @@ NS_SWIFT_NAME(AuthorizeSessionTemplate)
 
 @property (nonatomic, nonnull, strong) CMPAuthorizeSessionBody *body;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID body:(CMPAuthorizeSessionBody *)body;
 
 @end

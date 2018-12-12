@@ -28,7 +28,6 @@ NS_SWIFT_NAME(LoggingDestination)
 @property (nonatomic, readwrite) CMPLogLevel minimumLogLevel;
 @property (nonatomic, readwrite) NSDateFormatter *dateFormatter;
 
-- (NSString *)prefixForLevel:(CMPLogLevel)logLevel;
 - (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date;
 
 @end

@@ -29,7 +29,9 @@ NS_SWIFT_NAME(PatchProfileTemplate)
 @property (nonatomic, strong) NSString *profileID;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *attributes;
 
--(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token eTag:(nullable NSString *)eTag attributes:(NSDictionary<NSString *, NSString *> *)attribbutes;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token eTag:(nullable NSString *)eTag attributes:(NSDictionary<NSString *, NSString *> *)attribbutes;
 
 @end
 

@@ -16,8 +16,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPAppConfigurator.h"
+#import "CMPConversationsViewController.h"
 #import "CMPProfileViewController.h"
 #import "AppDelegate.h"
 
@@ -69,14 +69,20 @@
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
         CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
+        
         self.client = [CMPComapi initialiseWithConfig:config];
+        if (!self.client) {
+            [NSException raise:@"failed client init" format:@""];
+        }
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
-            CMPProfileViewModel *vm = [[CMPProfileViewModel alloc] initWithClient:weakSelf.client];
-            CMPProfileViewController *vc = [[CMPProfileViewController alloc] initWithViewModel:vm];
-            
-            UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-            [nav pushViewController:vc animated:YES];
+            [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
+                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:result.object];
+                    CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+                    
+                    UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+                    [nav pushViewController:vc animated:YES];
+            }];
         } failure:^(NSError * _Nullable error) {
             [NSException raise:@"session start error" format:@"%@", error.localizedDescription];
         }];
@@ -90,13 +96,13 @@
     
     logWithLevel(CMPLogLevelWarning, @"restarting...", nil);
     
-    [self.client.services.session endSessionWithCompletion:^(BOOL success, NSError * error) {
+    [self.client.services.session endSessionWithCompletion:^(CMPResult<NSNumber *> *result) {
         UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
         [nav popToRootViewControllerAnimated:YES];
     }];
 }
 
-- (void)clientWith:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void (^)(NSString * _Nullable))continueWithToken {
+- (void)client:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void (^)(NSString * _Nullable))continueWithToken {
     NSString *token = [CMPAuthenticationManager generateTokenForNonce:challenge.nonce profileID:self.loginInfo.profileID issuer:self.loginInfo.issuer audience:self.loginInfo.audience secret:self.loginInfo.secret];
     
     continueWithToken(token);

@@ -16,7 +16,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPLoginViewModel.h"
 #import "AppDelegate.h"
 
@@ -46,22 +45,35 @@
     
     CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
     self.client = [CMPComapi initialiseWithConfig:config];
-    AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
-    appDel.configurator.client = self.client;
-    if (self.client) {
-        __weak typeof(self) weakSelf = self;
-        [self.client.services.session startSessionWithCompletion:^{
-            [weakSelf saveLocally];
-            completion(nil);
-        } failure:^(NSError * _Nullable err) {
-            completion(err);
-        }];
-    } else {
+    if (!self.client) {
         [NSException raise:@"failed client init" format:@""];
     }
+    AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    appDel.configurator.client = self.client;
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.session startSessionWithCompletion:^{
+        [weakSelf saveLocally];
+        completion(nil);
+    } failure:^(NSError * _Nullable err) {
+        completion(err);
+    }];
 }
 
-- (void)clientWith:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void (^)(NSString * _Nullable))continueWithToken {
+- (void)getProfileWithCompletion:(void (^)(CMPProfile * _Nullable, NSError * _Nullable))completion {
+    if (!self.client) {
+        completion(nil, nil);
+    }
+
+    [self.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
+        if (result.error) {
+            completion(nil, result.error);
+        } else {
+            completion(result.object, nil);
+        }
+    }];
+}
+
+- (void)client:(CMPComapiClient *)client didReceiveAuthenticationChallenge:(CMPAuthenticationChallenge *)challenge completion:(void (^)(NSString * _Nullable))continueWithToken {
     NSString *token = [CMPAuthenticationManager generateTokenForNonce:challenge.nonce profileID:self.loginBundle.profileID issuer:self.loginBundle.issuer audience:self.loginBundle.audience secret:self.loginBundle.secret];
     
     continueWithToken(token);

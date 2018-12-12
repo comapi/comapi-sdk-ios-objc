@@ -16,10 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import <Foundation/Foundation.h>
 
-@protocol CMPViewControllerConfiguring
+@protocol CMPViewControllerConfiguring <NSObject>
 
 @required
 - (void)navigation;

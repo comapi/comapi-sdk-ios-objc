@@ -21,6 +21,4 @@
 
 @implementation CMPBaseCell
 
-
-
 @end

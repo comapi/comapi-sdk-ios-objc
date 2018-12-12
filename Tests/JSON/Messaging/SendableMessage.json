@@ -1,0 +1,28 @@
+{
+  "metadata": {
+      "id" : "coolass id",
+      "color" : "red",
+      "count" : 3,
+      "other" : 3.553
+  },
+  "parts": [
+    {
+      "name": "PartName",
+      "type": "PartType",
+      "url": "http://apple.com",
+      "data": "Data",
+      "size": 100
+    }
+  ],
+  "alert": {
+    "platforms": {
+      "apns": {
+          "apnsKey1": "apnsValue1"
+      },
+      "fcm": {
+          "fcmKey1": "fcmValue1"
+      }
+    }
+  }
+}
+

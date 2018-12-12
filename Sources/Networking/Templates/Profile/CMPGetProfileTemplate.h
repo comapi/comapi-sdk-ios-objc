@@ -27,6 +27,8 @@ NS_SWIFT_NAME(GetProfileTemplate)
 @property (nonatomic, strong) NSString *profileID;
 @property (nonatomic, strong) NSString *token;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 -(instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID profileID:(NSString *)profileID token:(NSString *)token;
 
 @end

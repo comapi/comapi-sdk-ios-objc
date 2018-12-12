@@ -40,7 +40,7 @@
     return self;
 }
 
-- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPRequestTemplateResult *))completion {
+- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPResult<id> *))completion {
     __weak typeof(self) weakSelf = self;
     switch (self.tokenState) {
         case CMPTokenStateMissing: {
@@ -54,14 +54,14 @@
         }
         case CMPTokenStateReady: {
             id<CMPHTTPRequestTemplate> template = templateBuilder(self.token);
-            [template performWithRequestPerformer:self.requestPerformer result:^(CMPRequestTemplateResult * _Nonnull result) {
+            [template performWithRequestPerformer:self.requestPerformer result:^(CMPResult<id> * _Nonnull result) {
                 completion(result);
             }];
             break;
         }
         case CMPTokenStateFailed: {
             NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorRequestCreationFailed underlyingError:nil];
-            completion([[CMPRequestTemplateResult alloc] initWithObject:nil error:error]);
+            completion([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);
             break;
         }
     }

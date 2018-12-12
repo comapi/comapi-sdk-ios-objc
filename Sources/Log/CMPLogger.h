@@ -19,9 +19,9 @@
 #import "CMPLogLevel.h"
 #import "CMPLoggingDestination.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 void logWithLevel(CMPLogLevel logLevel, id params, ...);
+
+NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Logging)
 @protocol CMPLogging
@@ -39,7 +39,7 @@ NS_SWIFT_NAME(Logging)
 NS_SWIFT_NAME(Logger)
 @interface CMPLogger : NSObject <CMPLogging>
 
-+ (instancetype)shared;
+@property (class, nonatomic, strong, readonly) CMPLogger *shared;
 
 - (void)addDestination:(id<CMPLoggingDestination>)destination;
 - (void)resetDestinations;

@@ -20,11 +20,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ @typedef CMPLogLevel
+ @brief Defines the verbosity of logs.
+ */
 typedef NS_ENUM(NSUInteger, CMPLogLevel) {
+    /// Most verbose debugging level - displays everything.
     CMPLogLevelVerbose = 0,
+    /// Less verbose level.
     CMPLogLevelDebug,
+    /// Only displays crucial information, warnings and errors.
     CMPLogLevelInfo,
+    /// Only displays warnings and errors.
     CMPLogLevelWarning,
+    /// Only displays errors.
     CMPLogLevelError
 } NS_SWIFT_NAME(LogLevel);
 

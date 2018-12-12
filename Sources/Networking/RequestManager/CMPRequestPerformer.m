@@ -32,13 +32,13 @@
 }
 
 - (void)performRequest:(NSURLRequest *)request completion:(void (^)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completion {
-    logWithLevel(CMPLogLevelInfo, @"WILL PERFORM REQUEST:", request, @"BODY:", [request.HTTPBody utf8StringValue], nil);
+    logWithLevel(CMPLogLevelVerbose, @"WILL PERFORM REQUEST:", [request description], nil);
     
-    if ([request.HTTPMethod isEqualToString:@"POST"] && request.HTTPBodyStream != nil) {
+    if ([request.HTTPMethod isEqualToString:CMPHTTPMethodPOST] && request.HTTPBodyStream != nil) {
         NSData *data = [[NSData alloc] initWithInputStream:request.HTTPBodyStream];
         NSURLSessionTask *task = [self.session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             CMPURLResult *result = [[CMPURLResult alloc] initWithRequest:request data:data response:response error:error];
-            logWithLevel(CMPLogLevelInfo, @"UPLOAD TASK FINISHED", result, nil);
+            logWithLevel(CMPLogLevelVerbose, @"UPLOAD TASK FINISHED", result, nil);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(data, response, error);
@@ -49,7 +49,7 @@
     } else {
         NSURLSessionTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             CMPURLResult *result = [[CMPURLResult alloc] initWithRequest:request data:data response:response error:error];
-            logWithLevel(CMPLogLevelInfo, @"DID FINISH REQUEST:", result, nil);
+            logWithLevel(CMPLogLevelVerbose, @"DID FINISH REQUEST", result, nil);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(data, response, error);

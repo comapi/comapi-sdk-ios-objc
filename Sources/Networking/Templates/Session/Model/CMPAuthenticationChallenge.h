@@ -29,6 +29,8 @@ NS_SWIFT_NAME(AuthenticationChallenge)
 @property (nonatomic, strong) NSString *nonce;
 @property (nonatomic, strong) NSDate *expiresOn;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 NS_ASSUME_NONNULL_END

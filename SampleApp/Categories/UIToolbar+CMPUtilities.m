@@ -16,7 +16,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "UIToolbar+CMPUtilities.h"
 
 @implementation UIToolbar (CMPUtilities)

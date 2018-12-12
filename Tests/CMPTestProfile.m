@@ -23,13 +23,16 @@
 
 @interface CMPTestProfile : XCTestCase
 
+@property CMPProfile *object;
+
 @end
 
 @implementation CMPTestProfile
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"Profile"];
+    _object = [CMPProfile decodeWithData:data];
 }
 
 - (void)tearDown {
@@ -37,11 +40,26 @@
     [super tearDown];
 }
 
-- (void)testJSONDecoding {
-    NSData *data = [CMPResourceLoader loadJSONWithName:@"Profile"];
-    CMPProfile *object = [CMPProfile decodeWithData:data];
+- (void)testJSONRepresentable {
+    NSDictionary *dict = [_object json];
+    XCTAssertEqualObjects(dict[@"id"], @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
+    XCTAssertEqualObjects(dict[@"email"], @"test@mail.com");
+}
 
-    XCTAssertEqualObjects(object.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
+- (void)testJSONConstructable {
+    NSData *data = [CMPResourceLoader loadJSONWithName:@"Profile"];
+    NSError *err;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+    
+    _object = [[CMPProfile alloc] initWithJSON:json];
+    
+    XCTAssertEqualObjects(_object.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
+    XCTAssertEqualObjects(_object.email, @"test@mail.com");
+}
+
+- (void)testJSONDecodable {
+    XCTAssertEqualObjects(_object.id, @"90419e09-1f5b-4fc2-97c8-b878793c53f0");
+    XCTAssertEqualObjects(_object.email, @"test@mail.com");
 }
 
 @end

@@ -71,11 +71,8 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    
     completionHandler();
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -93,6 +90,14 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication.sharedApplication setApplicationIconBadgeNumber:0];
+    });
+}
+
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

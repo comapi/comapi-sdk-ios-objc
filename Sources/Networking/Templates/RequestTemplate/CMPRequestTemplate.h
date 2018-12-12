@@ -33,7 +33,10 @@ NS_SWIFT_NAME(RequestTemplate)
 @property (nonatomic, strong) NSString *host;
 @property (nonatomic) NSUInteger port;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID;
+- (NSURLComponents *)componentsFromURLTemplate:(id<CMPHTTPRequestTemplate>)template;
 - (NSURLRequest *)requestFromHTTPRequestTemplate:(id<CMPHTTPRequestTemplate>)template;
 
 @end

@@ -72,9 +72,9 @@
 }
 
 - (NSData *)encode {
-    NSError *serializationError = nil;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
-    if (serializationError) {
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
         return nil;
     }
     

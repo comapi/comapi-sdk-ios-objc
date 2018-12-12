@@ -47,9 +47,9 @@
     
     [self addSubview:self.placeholderLabel];
     
-    NSLayoutConstraint *top = [[self.placeholderLabel topAnchor] constraintEqualToAnchor: self.topAnchor];
-    NSLayoutConstraint *leading = [[self.placeholderLabel leadingAnchor] constraintEqualToAnchor: self.leadingAnchor];
-    NSLayoutConstraint *trailing = [[self.placeholderLabel trailingAnchor] constraintEqualToAnchor: self.trailingAnchor];
+    NSLayoutConstraint *top = [[self.placeholderLabel topAnchor] constraintEqualToAnchor: self.topAnchor constant:10];
+    NSLayoutConstraint *leading = [[self.placeholderLabel leadingAnchor] constraintEqualToAnchor: self.leadingAnchor constant:10];
+    NSLayoutConstraint *trailing = [[self.placeholderLabel trailingAnchor] constraintEqualToAnchor: self.trailingAnchor constant:-10];
     
     [NSLayoutConstraint activateConstraints:@[top, leading, trailing]];
 }
@@ -71,20 +71,26 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
     [self.placeholderLabel setHidden: ![textView.text isEqualToString:@""]];
-    
-    self.didChangeText(textView);
+    if (self.didChangeText) {
+        self.didChangeText(textView);
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    self.didBeginEditing(textView);
+    if (self.didBeginEditing) {
+        self.didBeginEditing(textView);
+    }
+    
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-    self.didEndEditing(textView);
+    if (self.didEndEditing) {
+        self.didEndEditing(textView);
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if ([text isEqualToString:@"\n"]) {
+    if ([text isEqualToString:@"\n"] && self.didReturnTap) {
         self.didReturnTap(textView);
     }
     

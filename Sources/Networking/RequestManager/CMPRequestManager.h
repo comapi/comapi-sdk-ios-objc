@@ -44,8 +44,10 @@ NS_SWIFT_NAME(RequestManager)
 @property (nonatomic, weak, nullable) id<CMPRequestPerforming> requestPerformer;
 @property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer;
-- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPRequestTemplateResult *))completion;
+- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPResult<id> *))completion;
 - (void)updateToken:(NSString *)token;
 - (void)tokenUpdateFailed;
 
