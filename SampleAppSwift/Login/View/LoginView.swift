@@ -105,19 +105,15 @@ class LoginView: BaseView {
     func animateOnKeyboardChange(notification: Notification, completion: (() -> ())?) {
         guard let info = notification.userInfo else { return }
         let name = notification.name
-        let curve = UIView.AnimationCurve(rawValue: (info[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber).intValue)!
-        let duration = (info[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let endFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
-        UIView.animate(withDuration: duration, delay: 0.0, options: [UIView.AnimationOptions(rawValue: UInt(curve.rawValue))], animations: {
-            if name == UIResponder.keyboardWillShowNotification {
-                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: endFrame.height + 16, right: 0)
-            } else {
-                self.tableView.contentInset = .zero
-            }
-            self.layoutIfNeeded()
-        }) { _ in
-            completion?()
+
+        if name == UIResponder.keyboardWillShowNotification {
+            let insets = UIEdgeInsets(top: 0, left: 0, bottom: endFrame.height + 48, right: 0)
+            self.tableView.contentInset = insets
+            self.tableView.scrollIndicatorInsets = insets
+        } else {
+            self.tableView.contentInset = .zero
+            self.tableView.scrollIndicatorInsets = .zero
         }
     }
 }

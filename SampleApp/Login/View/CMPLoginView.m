@@ -95,22 +95,16 @@
     NSDictionary *info = notification.userInfo;
     if (!info) { return; }
     NSString *name = notification.name;
-    NSInteger curve = (UIViewAnimationCurve)info[UIKeyboardAnimationCurveUserInfoKey];
-    double duration = [(NSNumber *)info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect endFrame = [(NSValue *)info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect endFrame = [(NSValue *)info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     
-    [UIView animateWithDuration:duration delay:0.0 options:curve animations:^{
-        if ([name isEqualToString:UIKeyboardWillShowNotification]) {
-            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, endFrame.size.height + 16, 0);
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsZero;
-        }
-        [self layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        if (completion) {
-            completion();
-        }
-    }];
+    if ([name isEqualToString:UIKeyboardWillShowNotification]) {
+        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, endFrame.size.height + 48, 0);
+        self.tableView.contentInset = insets;
+        self.tableView.scrollIndicatorInsets = insets;
+    } else {
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }
 }
 
 @end

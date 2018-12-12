@@ -20,6 +20,7 @@
 #import "CMPSocketTemplate.h"
 #import "CMPEventParser.h"
 #import "CMPBroadcastDelegate.h"
+#import "CMPLogger.h"
 
 NSUInteger const CMPSocketReopenDelay = 5;
 NSUInteger const CMPPingTimerInterval = 240;

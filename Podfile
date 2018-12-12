@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared
-pod 'CMPComapiFoundation'
+pod 'CMPComapiFoundation' 
 pod 'JWT'
 end
 

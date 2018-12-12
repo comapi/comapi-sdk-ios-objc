@@ -146,7 +146,7 @@
 
 @implementation CMPOrphanedEvent
 
-- (instancetype)initWithID:(NSString *)ID data:(CMPOrphanedEventData *)data {
+- (instancetype)initWithID:(NSNumber *)ID data:(CMPOrphanedEventData *)data {
     self = [super init];
     
     if (self) {

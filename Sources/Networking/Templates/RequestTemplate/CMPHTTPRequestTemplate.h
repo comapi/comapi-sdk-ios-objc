@@ -16,7 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPRequestTemplateResult.h"
+#import "CMPResult.h"
 #import "CMPHTTPHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN

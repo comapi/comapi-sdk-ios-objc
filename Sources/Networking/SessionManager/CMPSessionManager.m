@@ -19,6 +19,8 @@
 #import "CMPSessionManager.h"
 #import "CMPSession.h"
 #import "CMPServices.h"
+#import "CMPKeychain.h"
+#import "CMPLogger.h"
 
 NSString * const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
 NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
