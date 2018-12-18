@@ -16,44 +16,16 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
+#import <Foundation/Foundation.h>
 
-#import "CMPMockAuthenticationDelegate.h"
-#import "CMPComapi.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPTestComapi : XCTestCase
+NS_SWIFT_NAME(SessionDelegate)
+@protocol CMPSessionDelegate <NSObject>
 
-@property (nonatomic, strong) id<CMPAuthenticationDelegate> delegate;
-@property (nonatomic, strong) CMPComapiConfig *config;
-
-@end
-
-@implementation CMPTestComapi
-
-- (void)setUp {
-    [super setUp];
-    
-    self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[CMPComapiConfig alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate];
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testInitialiseWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-}
-
-- (void)testInitialiseSharedInstanceWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseSharedInstanceWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-    XCTAssertNotNil([CMPComapi shared]);
-}
+- (void)didStartSession;
+- (void)didEndSessionWithError:(NSError * _Nullable)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

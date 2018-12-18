@@ -43,7 +43,7 @@
     
     XCTAssertEqualObjects(config.id, @"MOCK_API_SPACE_ID");
     XCTAssertEqualObjects(config.apiConfig.scheme, @"https");
-    XCTAssertEqualObjects(config.apiConfig.host, @"stage-api.comapi.com");
+    XCTAssertEqualObjects(config.apiConfig.host, @"api.comapi.com");
     XCTAssertEqual(config.apiConfig.port, 443);
     
     XCTAssertNotNil(config.authDelegate);
@@ -56,7 +56,7 @@
     
     XCTAssertEqualObjects(config.id, @"MOCK_API_SPACE_ID");
     XCTAssertEqualObjects(config.apiConfig.scheme, @"https");
-    XCTAssertEqualObjects(config.apiConfig.host, @"stage-api.comapi.com");
+    XCTAssertEqualObjects(config.apiConfig.host, @"api.comapi.com");
     XCTAssertEqual(config.logLevel, CMPLogLevelError);
     XCTAssertEqual(config.apiConfig.port, 443);
     

@@ -23,11 +23,9 @@
 @implementation CMPMessageStatusUpdate
 
 - (instancetype)initWithStatus:(CMPMessageDeliveryStatus)status timestamp:(NSDate *)timestamp messageIDs:(NSArray<NSString *> *)messageIDs {
-    self = [super init];
+    self = [super initWithStatus:status timestamp:timestamp];
     
     if (self) {
-        self.status = status;
-        self.timestamp = timestamp;
         self.messageIDs = messageIDs;
     }
     
@@ -37,9 +35,7 @@
 #pragma mark - CMPJSONEncoding
 
 - (id)json {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setValue:[CMPMessageDeliveryStatusParser parseStatus:self.status] forKey:@"status"];
-    [dict setValue:[[NSDateFormatter comapiFormatter] stringFromDate:self.timestamp] forKey:@"timestamp"];
+    NSMutableDictionary *dict = [super json];
     [dict setValue:self.messageIDs forKey:@"messageIds"];
     
     return dict;
@@ -57,15 +53,9 @@
 #pragma mark - CMPJSONDecoding
 
 - (instancetype)initWithJSON:(id)JSON {
-    self = [super init];
+    self = [super initWithJSON:JSON];
     
     if (self) {
-        if (JSON[@"status"] && [JSON[@"status"] isKindOfClass:NSString.class]) {
-            self.status = [JSON[@"status"] isEqualToString:@"read"] ? CMPMessageDeliveryStatusRead : CMPMessageDeliveryStatusDelivered;
-        }
-        if (JSON[@"timestamp"] && [JSON[@"timestamp"] isKindOfClass:NSString.class]) {
-            self.timestamp = [(NSString *)JSON[@"timestamp"] asDate];
-        }
         if (JSON[@"messageIds"] && [JSON[@"messageIds"] isKindOfClass:NSArray.class]) {
             self.messageIDs = JSON[@"messageIds"];
         }

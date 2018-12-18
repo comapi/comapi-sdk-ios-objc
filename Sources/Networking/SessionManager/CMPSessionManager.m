@@ -30,6 +30,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 @property (nonatomic, weak, nullable) CMPComapiClient *client;
 @property (nonatomic, weak, nullable) CMPSocketManager *socketManager;
 @property (nonatomic, weak, nullable) id<CMPAuthenticationDelegate> authenticationDelegate;
+@property (nonatomic, weak, nullable) id<CMPSessionDelegate> sessionDelegate;
 
 @property (nonatomic, strong) CMPRequestManager *requestManager;
 
@@ -49,12 +50,13 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 @synthesize sessionAuth = _sessionAuth;
 
-- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager {
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager sessionDelegate:(id<CMPSessionDelegate>)sessionDelegate {
     self = [super init];
     
     if (self) {
         self.apiSpaceID = apiSpaceID;
         self.authenticationDelegate = delegate;
+        self.sessionDelegate = sessionDelegate;
         self.requestManager = requestManager;
         self.tokenKey = [NSString stringWithFormat:@"%@%@", authTokenKeychainItemNamePrefix, self.apiSpaceID];
         self.detailsKey = [NSString stringWithFormat:@"%@%@", sessionDetailsUserDefaultsPrefix, self.apiSpaceID];
@@ -117,9 +119,12 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (void)authenticationFailedWithError:(nonnull NSError *)error {
     [self.requestManager tokenUpdateFailed];
+    [self.sessionDelegate didEndSessionWithError:error];
+    
     if (self.didFailAuthentication) {
         self.didFailAuthentication(error);
     }
+    
     self.client.state = CMPSDKStateSessionOff;
 }
 
@@ -134,18 +139,20 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
     logWithLevel(CMPLogLevelInfo, @"secondsTillTokenExpiry:", @(secondsTillTokenExpiry), nil);
     
-    __weak CMPSessionManager *weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        if (weakSelf.sessionAuth.session.id == sessionAuth.session.id) {
-            [weakSelf authenticateWithSuccess:nil failure:nil];
-        }
-    });
+    [self.sessionDelegate didStartSession];
     
     if (self.didFinishAuthentication) {
         self.didFinishAuthentication();
     }
     
     self.client.state = CMPSDKStateSessionActive;
+    
+    __weak CMPSessionManager *weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        if (weakSelf.sessionAuth.session.id == sessionAuth.session.id) {
+            [weakSelf authenticateWithSuccess:nil failure:nil];
+        }
+    });
 }
 
 - (void)handleAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge {

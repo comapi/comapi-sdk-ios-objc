@@ -32,9 +32,13 @@ NSUInteger const CMPPingTimerInterval = 240;
 @property (nonatomic, strong, nullable) SRWebSocket *socket;
 @property (nonatomic, strong, readonly) NSString *apiSpaceID;
 @property (nonatomic, strong, readonly) CMPAPIConfiguration *apiConfiguration;
-@property (nonatomic, strong, readonly) id<CMPSessionAuthProvider> sessionAuthProvider;
-@property (nonatomic, strong) CMPBroadcastDelegate<id<CMPEventDelegate>> *eventListener;
+
+@property (nonatomic, weak, readonly) id<CMPSessionAuthProvider> sessionAuthProvider;
+@property (nonatomic, weak, nullable) id<CMPSocketDelegate> socketDelegate;
+
 @property (nonatomic, weak, nullable) CMPComapiClient *client;
+
+@property (nonatomic, strong) CMPBroadcastDelegate<id<CMPEventDelegate>> *eventListener;
 
 - (void)handleSocketMessage:(id)message;
 
@@ -42,7 +46,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 
 @implementation CMPSocketManager
 
-- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)apiConfiguration sessionAuthProvider:(id<CMPSessionAuthProvider>)sessionAuthProvider {
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)apiConfiguration sessionAuthProvider:(id<CMPSessionAuthProvider>)sessionAuthProvider socketDelegate:(nonnull id)socketDelegate{
     self = [super init];
     
     if (self) {
@@ -114,6 +118,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 #pragma mark - SRWebSocketDelegate
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
+    [self.socketDelegate didConnectSocket];
     logWithLevel(CMPLogLevelVerbose, @"Socket: opened", nil);
 }
 
@@ -127,6 +132,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
+    [self.socketDelegate didDisconnectSocketWithError:error];
     logWithLevel(CMPLogLevelError, @"Socket: error", error.localizedDescription, nil);
     [pingTimer invalidate];
     self.socket = nil;
@@ -137,6 +143,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+    [self.socketDelegate didDisconnectSocketWithError:nil];
     logWithLevel(CMPLogLevelVerbose, @"Socket: closed with code:", [NSNumber numberWithInteger:code], @"reason:", reason != nil ? reason : @"", @"clean close:", [NSNumber numberWithBool:wasClean], nil);
     [pingTimer invalidate];
     self.socket = nil;

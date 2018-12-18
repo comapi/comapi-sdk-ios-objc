@@ -16,44 +16,26 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
+#import <Foundation/Foundation.h>
 
-#import "CMPMockAuthenticationDelegate.h"
-#import "CMPComapi.h"
+@class CMPComapiClient;
+@class CMPEvent;
 
-@interface CMPTestComapi : XCTestCase
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, strong) id<CMPAuthenticationDelegate> delegate;
-@property (nonatomic, strong) CMPComapiConfig *config;
+/**
+ @brief Protocol responsible for receiving any Comapi events.
+ */
+NS_SWIFT_NAME(EventDelegate)
+@protocol CMPEventDelegate <NSObject>
 
-@end
-
-@implementation CMPTestComapi
-
-- (void)setUp {
-    [super setUp];
-    
-    self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[CMPComapiConfig alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate];
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testInitialiseWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-}
-
-- (void)testInitialiseSharedInstanceWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseSharedInstanceWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-    XCTAssertNotNil([CMPComapi shared]);
-}
+/**
+ @brief Tells the client an event was recieved as a result of some kind of Comapi action.
+ @param client The client that the event was sent to.
+ @param event The recieved event.
+ */
+- (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event;
 
 @end
+
+NS_ASSUME_NONNULL_END

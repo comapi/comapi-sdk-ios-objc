@@ -25,6 +25,7 @@
 #import "CMPProfile.h"
 #import "CMPConversationMessageEvents.h"
 #import "CMPConversationEvents.h"
+#import "NSDateFormatter+CMPUtility.h"
 
 @interface CMPTestComapiClient : XCTestCase
 

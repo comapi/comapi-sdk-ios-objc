@@ -17,8 +17,6 @@
 //
 
 #import "CMPComapiClient.h"
-#import "CMPSessionManager.h"
-#import "CMPSocketManager.h"
 #import "CMPServices.h"
 #import "CMPSetAPNSDetailsTemplate.h"
 
@@ -55,9 +53,9 @@
         self.requestManager = [[CMPRequestManager alloc] initWithRequestPerformer:self.requestPerformer];
         self.requestManager.delegate = self;
         
-        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
+        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager sessionDelegate:self];
         
-        self.socketManager = [[CMPSocketManager alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration sessionAuthProvider:self.sessionManager];
+        self.socketManager = [[CMPSocketManager alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration sessionAuthProvider:self.sessionManager socketDelegate:self];
         
         [self.sessionManager bindClient:self];
         [self.socketManager bindClient:self];
@@ -111,6 +109,26 @@
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
     [self.sessionManager authenticateWithSuccess:nil failure:nil];
+}
+
+#pragma mark - CMPSessionDelegate
+
+- (void)didStartSession {
+    [self.stateDelegate didStartSession];
+}
+
+- (void)didEndSessionWithError:(NSError *)error {
+    [self.stateDelegate didEndSessionWithError:error];
+}
+
+#pragma mark - CMPSocketDelegate
+
+- (void)didConnectSocket {
+    [self.stateDelegate didConnectSocket];
+}
+
+- (void)didDisconnectSocketWithError:(NSError *)error {
+    [self.stateDelegate didDisconnectSocketWithError:error];
 }
 
 @end

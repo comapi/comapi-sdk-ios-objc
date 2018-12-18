@@ -17,10 +17,13 @@
 //
 
 #import "CMPSessionAuthProvider.h"
+#import "CMPSocketDelegate.h"
+#import "CMPEventDelegate.h"
 #import "CMPAPIConfiguration.h"
-#import "CMPComapiClient.h"
 
 #import <SocketRocket/SocketRocket.h>
+
+@class CMPComapiClient;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,7 +32,7 @@ NS_SWIFT_NAME(SocketManager)
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)apiConfiguration sessionAuthProvider:(id<CMPSessionAuthProvider>)sessionAuthProvider;
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID apiConfiguration:(CMPAPIConfiguration *)apiConfiguration sessionAuthProvider:(id<CMPSessionAuthProvider>)sessionAuthProvider socketDelegate:(id<CMPSocketDelegate>)socketDelegate;
 
 - (void)bindClient:(CMPComapiClient *)client;
 

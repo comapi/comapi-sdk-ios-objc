@@ -16,12 +16,10 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPAuthenticationDelegate.h"
-#import "CMPAPIConfiguration.h"
 #import "CMPRequestManager.h"
+#import "CMPSocketManager.h"
+#import "CMPSessionManager.h"
 #import "CMPServices.h"
-
-@class CMPComapiClient;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -45,17 +43,32 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
 } NS_SWIFT_NAME(SDKState);
 
 /**
- @brief Protocol responsible for receiving any Comapi events.
+ @brief Protocol responsible for observing session and socket state changes.
  */
-NS_SWIFT_NAME(EventDelegate)
-@protocol CMPEventDelegate <NSObject>
+NS_SWIFT_NAME(StateDelegate)
+@protocol CMPStateDelegate <NSObject>
 
 /**
- @brief Tells the client an event was recieved as a result of some kind of Comapi action.
- @param client The client that the event was sent to.
- @param event The recieved event.
+ @brief The client's session started succesfully.
  */
-- (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event;
+- (void)didStartSession;
+
+/**
+ @brief The client's session ended with potential error.
+ @param error An error that occurred.
+ */
+- (void)didEndSessionWithError:(NSError * _Nullable)error;
+
+/**
+ @brief The client's socket started succesfully.
+ */
+- (void)didConnectSocket;
+
+/**
+ @brief The client's socket disconnected with potential error.
+ @param error An error that occurred.
+ */
+- (void)didDisconnectSocketWithError:(NSError * _Nullable)error;
 
 @end
 
@@ -78,15 +91,17 @@ NS_SWIFT_NAME(EventDelegate)
  @discussion With a deviceToken obtained in the AppDelegate.
  */
 NS_SWIFT_NAME(ComapiClient)
-@interface CMPComapiClient: NSObject <CMPRequestManagerDelegate>
+@interface CMPComapiClient: NSObject <CMPRequestManagerDelegate, CMPSocketDelegate, CMPSessionDelegate>
 /// Current SDK state
-@property (nonatomic) CMPSDKState state;
+@property (atomic) CMPSDKState state;
 /// All Comapi services categorized by funcionality
 @property (nonatomic, strong, readonly) CMPServices *services;
 /// ProfileId the client is bound to.
 @property (nonatomic, strong, readonly, nullable, getter=getProfileID) NSString *profileID;
 /// Checks if the client's session object is configured and ready to perform service requests.
 @property (nonatomic, readonly, getter=isSessionSuccessfullyCreated) BOOL sessionSuccesfullyCreated;
+
+@property (nonatomic, strong, readwrite) id<CMPStateDelegate> stateDelegate;
 
 - (instancetype)init NS_UNAVAILABLE;
 
