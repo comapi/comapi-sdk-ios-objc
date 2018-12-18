@@ -1,8 +1,8 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 def shared
-pod 'CMPComapiFoundation'
+pod 'CMPComapiFoundation', :path => '/Users/dominik.kowalski/Documents/comapi-sdk-ios-objc'
 pod 'JWT'
 end
 

@@ -26,7 +26,6 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CMPComapiFoundation/PublicHeader.h>
 
-
 #import "CMPComapiFoundation.h"
 #import "CMPComapiClient.h"
 #import "CMPComapi.h"
@@ -57,7 +56,9 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "CMPSessionService.h"
 #import "CMPAuthChallengeHandler.h"
 #import "CMPSessionAuthProvider.h"
+#import "CMPSessionDelegate.h"
 #import "CMPSessionManager.h"
+#import "CMPEventDelegate.h"
 #import "CMPEventParser.h"
 #import "CMPEvent.h"
 #import "CMPConversationEvents.h"
@@ -95,6 +96,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "CMPMessageStatusUpdate.h"
 #import "CMPNewConversation.h"
 #import "CMPOrphanedEvent.h"
+#import "CMPRole.h"
 #import "CMPRoleAttributes.h"
 #import "CMPRoles.h"
 #import "CMPSendableMessage.h"
@@ -110,6 +112,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "CMPAPNSDetailsBody.h"
 #import "CMPHTTPRequestTemplate.h"
 #import "CMPRequestTemplate.h"
+#import "CMPRequestTemplateResult.h"
 #import "CMPResult.h"
 #import "CMPAuthorizeSessionTemplate.h"
 #import "CMPDeleteSessionTemplate.h"
@@ -121,6 +124,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "CMPSocketTemplate.h"
 #import "CMPURLResult.h"
 #import "CMPBroadcastDelegate.h"
+#import "CMPSocketDelegate.h"
 #import "CMPSocketManager.h"
 #import "CMPKeychain.h"
 #import "CMPUtilities.h"
@@ -130,6 +134,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "NSString+CMPUtility.h"
 #import "NSURLRequest+CMPUtility.h"
 #import "NSURLResponse+CMPUtility.h"
+
 
 
 
