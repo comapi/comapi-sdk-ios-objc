@@ -20,6 +20,7 @@
 #import "CMPSocketManager.h"
 #import "CMPSessionManager.h"
 #import "CMPServices.h"
+#import "CMPStateDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,36 +42,6 @@ typedef NS_ENUM(NSUInteger, CMPSDKState) {
     /// SDK's session is active.
     CMPSDKStateSessionActive
 } NS_SWIFT_NAME(SDKState);
-
-/**
- @brief Protocol responsible for observing session and socket state changes.
- */
-NS_SWIFT_NAME(StateDelegate)
-@protocol CMPStateDelegate <NSObject>
-
-/**
- @brief The client's session started succesfully.
- */
-- (void)didStartSession;
-
-/**
- @brief The client's session ended with potential error.
- @param error An error that occurred.
- */
-- (void)didEndSessionWithError:(NSError * _Nullable)error;
-
-/**
- @brief The client's socket started succesfully.
- */
-- (void)didConnectSocket;
-
-/**
- @brief The client's socket disconnected with potential error.
- @param error An error that occurred.
- */
-- (void)didDisconnectSocketWithError:(NSError * _Nullable)error;
-
-@end
 
 /**
  @brief The main class used to communicate with Comapi services, WebSocket events and Push configuration.

@@ -126,6 +126,7 @@ FOUNDATION_EXPORT const unsigned char CMPComapiFoundationVersionString[];
 #import "CMPBroadcastDelegate.h"
 #import "CMPSocketDelegate.h"
 #import "CMPSocketManager.h"
+#import "CMPStateDelegate.h"
 #import "CMPKeychain.h"
 #import "CMPUtilities.h"
 #import "NSData+CMPUtility.h"

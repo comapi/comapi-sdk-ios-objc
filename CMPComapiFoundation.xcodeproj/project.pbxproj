@@ -73,6 +73,7 @@
 		896E30EF21C92958008CC785 /* CMPEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 896E30EE21C92958008CC785 /* CMPEventDelegate.h */; };
 		896E30F121C92B4A008CC785 /* CMPSocketDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 896E30F021C92B4A008CC785 /* CMPSocketDelegate.h */; };
 		896E30F321C92C09008CC785 /* CMPSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 896E30F221C92C09008CC785 /* CMPSessionDelegate.h */; };
+		896E310621C9580C008CC785 /* CMPStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 896E310521C9580C008CC785 /* CMPStateDelegate.h */; };
 		896F833B219DC36B00C5A635 /* CMPTestEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F833A219DC36B00C5A635 /* CMPTestEvents.m */; };
 		896F833E219ECCBF00C5A635 /* CMPMockEventDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F833D219ECCBF00C5A635 /* CMPMockEventDelegate.m */; };
 		896F8343219F17CE00C5A635 /* CMPTestContentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 896F8342219F17CE00C5A635 /* CMPTestContentData.m */; };
@@ -488,6 +489,7 @@
 		896E30EE21C92958008CC785 /* CMPEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPEventDelegate.h; sourceTree = "<group>"; };
 		896E30F021C92B4A008CC785 /* CMPSocketDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSocketDelegate.h; sourceTree = "<group>"; };
 		896E30F221C92C09008CC785 /* CMPSessionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSessionDelegate.h; sourceTree = "<group>"; };
+		896E310521C9580C008CC785 /* CMPStateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPStateDelegate.h; sourceTree = "<group>"; };
 		896F833A219DC36B00C5A635 /* CMPTestEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPTestEvents.m; sourceTree = "<group>"; };
 		896F833C219ECCBF00C5A635 /* CMPMockEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPMockEventDelegate.h; sourceTree = "<group>"; };
 		896F833D219ECCBF00C5A635 /* CMPMockEventDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPMockEventDelegate.m; sourceTree = "<group>"; };
@@ -1344,6 +1346,7 @@
 			children = (
 				8972C309212C2A1900C76B19 /* CMPComapiClient.h */,
 				8972C30A212C2A1900C76B19 /* CMPComapiClient.m */,
+				896E310521C9580C008CC785 /* CMPStateDelegate.h */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -2487,6 +2490,7 @@
 				8972C301212C168800C76B19 /* CMPErrors.h in Headers */,
 				89957A2C21357791008EE0BE /* CMPLogger.h in Headers */,
 				89D2C45521637C2A006BEC4E /* CMPSocketManager.h in Headers */,
+				896E310621C9580C008CC785 /* CMPStateDelegate.h in Headers */,
 				897B832B2167AFD5003D4206 /* CMPMessage.h in Headers */,
 				897B8337216B580A003D4206 /* CMPMessageContext.h in Headers */,
 				8972C337212EC59B00C76B19 /* CMPSessionService.h in Headers */,
