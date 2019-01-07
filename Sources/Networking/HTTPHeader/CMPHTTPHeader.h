@@ -26,6 +26,8 @@ NS_SWIFT_NAME(HTTPHeader)
 @property (nonatomic, strong) NSString *value;
 @property (nonatomic, strong) NSString *field;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithField:(NSString *)field value:(NSString *)value;
 
 @end

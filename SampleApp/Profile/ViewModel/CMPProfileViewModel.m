@@ -16,7 +16,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPProfileViewModel.h"
 
 #import <UserNotifications/UserNotifications.h>
@@ -36,19 +35,13 @@
 
 - (void)getProfilesWithCompletion:(void(^)(NSError * _Nullable))completion {
     __weak typeof(self) weakSelf = self;
-    [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(NSArray<CMPProfile *> * profiles, NSError * error) {
-        if (error) {
-            completion(error);
+    [self.client.services.profile queryProfilesWithQueryElements:@[] completion:^(CMPResult<NSArray<CMPProfile *> *> * result) {
+        if (result.error) {
+            completion(result.error);
         } else {
-            weakSelf.profiles = [profiles mutableCopy];
+            weakSelf.profiles = [result.object mutableCopy];
             completion(nil);
         }
-    }];
-}
-
-- (void)registerForRemoteNotificationsWithCompletion:(void (^)(BOOL, NSError * _Nonnull))completion {
-    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        completion(granted, error);
     }];
 }
 

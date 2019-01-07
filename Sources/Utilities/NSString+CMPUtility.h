@@ -20,9 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (Utility)
+@interface NSString (CMPUtility)
     
-- (NSDate * _Nullable)asDate;
+- (nullable NSDate *)asDate;
     
 @end
 

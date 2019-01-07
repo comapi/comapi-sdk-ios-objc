@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(JSONRepresentable)
 @protocol CMPJSONRepresentable <NSObject>
 
-- (id)json;
+- (nullable id)json;
 
 @end
 

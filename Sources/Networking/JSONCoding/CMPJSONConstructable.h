@@ -20,10 +20,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(CMPJSONConstructable)
+NS_SWIFT_NAME(JSONConstructable)
 @protocol CMPJSONConstructable <NSObject>
 
-- (instancetype)initWithJSON:(id)JSON;
+- (nullable instancetype)initWithJSON:(id)JSON;
 
 @end
 

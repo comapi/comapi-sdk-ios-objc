@@ -18,6 +18,7 @@
 
 #import "CMPJSONDecoding.h"
 #import "CMPJSONEncoding.h"
+#import "CMPJSONRepresentable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +34,8 @@ NS_SWIFT_NAME(Profile)
 @property (nonatomic, strong, nullable) NSString *phoneNumberCountryCode;
 @property (nonatomic, strong, nullable) NSURL *profilePicture;
 @property (nonatomic, strong, nullable) NSDictionary<NSString *, id> *customProperties;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

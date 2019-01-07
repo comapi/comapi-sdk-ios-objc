@@ -52,7 +52,7 @@
     XCTAssertEqualObjects(session.provider, @"jsonWebToken");
     XCTAssertEqualObjects(session.deviceID, @"iPhone");
     XCTAssertEqualObjects(session.nonce, @"090b604e-183e-4d6e-b0dd-4cc0d916daa7");
-    XCTAssertEqualObjects([NSNumber numberWithBool:session.isActive ], @(YES));
+    XCTAssertEqualObjects(session.isActive, @(YES));
     XCTAssertEqualObjects(session.sdkType, @"native");
     XCTAssertEqualObjects(session.sdkVersion, @"1.0.0");
     XCTAssertEqualObjects(session.sourceIP, @"89.73.249.16");

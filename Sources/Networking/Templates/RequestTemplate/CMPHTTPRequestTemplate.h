@@ -16,22 +16,29 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPRequestTemplateResult.h"
+#import "CMPResult.h"
 #import "CMPHTTPHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(HTTPRequestTemplate)
-@protocol CMPHTTPRequestTemplate
+@protocol CMPHTTPRequestTemplate <NSObject>
 
+- (NSString *)httpMethod;
 - (NSArray<NSString *> *)pathComponents;
 - (nullable NSDictionary<NSString *, NSString *> *) query;
 - (nullable NSSet<CMPHTTPHeader *> *)httpHeaders;
 - (nullable NSData *)httpBody;
-- (NSString *)httpMethod;
 
-- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPRequestTemplateResult *))result;
-- (CMPRequestTemplateResult *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
+- (CMPResult<id> *)resultFromData:(NSData *)data urlResponse:(NSURLResponse *)response;
+- (void)performWithRequestPerformer:(id<CMPRequestPerforming>)performer result:(void(^)(CMPResult<id> *))result;
+
+@end
+
+NS_SWIFT_NAME(HTTPStreamableRequestTemplate)
+@protocol CMPHTTPStreamableRequestTemplate <CMPHTTPRequestTemplate>
+
+- (nullable NSInputStream *)httpBodyStream;
 
 @end
 

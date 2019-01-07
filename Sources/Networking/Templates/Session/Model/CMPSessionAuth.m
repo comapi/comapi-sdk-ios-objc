@@ -20,15 +20,11 @@
 
 @implementation CMPSessionAuth
 
-- (instancetype)initWithJSON:(id)JSON {
+- (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
     self = [super init];
     if (self) {
-        if (JSON[@"token"] && [JSON[@"token"] isKindOfClass:[NSString class]]) {
-            self.token = JSON[@"token"];
-        }
-        if (JSON[@"session"] && [JSON[@"session"] isKindOfClass:[NSDictionary class]]) {
-            self.session = [[CMPSession alloc] initWithJSON:JSON[@"session"]];
-        }
+        self.token = token;
+        self.session = session;
     }
     return self;
 }
@@ -45,22 +41,26 @@
 
 #pragma mark - CMPJSONDecoding
 
-- (instancetype)initWithToken:(NSString *)token session:(CMPSession *)session {
+- (instancetype)initWithJSON:(id)JSON {
     self = [super init];
     if (self) {
-        self.token = token;
-        self.session = session;
+        if (JSON[@"token"] && [JSON[@"token"] isKindOfClass:[NSString class]]) {
+            self.token = JSON[@"token"];
+        }
+        if (JSON[@"session"] && [JSON[@"session"] isKindOfClass:[NSDictionary class]]) {
+            self.session = [[CMPSession alloc] initWithJSON:JSON[@"session"]];
+        }
     }
     return self;
 }
 
 + (instancetype)decodeWithData:(NSData *)data {
-    NSError *serializationError = nil;
-    NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-    if (serializationError) {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
         return nil;
     }
     return [[CMPSessionAuth alloc] initWithJSON:JSON];
 }
-
+    
 @end

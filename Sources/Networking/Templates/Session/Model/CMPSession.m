@@ -99,9 +99,9 @@
 }
 
 + (instancetype)decodeWithData:(NSData *)data {
-    NSError *serializationError = nil;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
-    if (serializationError) {
+    NSError *error = nil;
+    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
         return nil;
     }
     return [[CMPSession alloc] initWithJSON:json];

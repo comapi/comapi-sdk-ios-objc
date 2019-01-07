@@ -16,7 +16,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import <Foundation/Foundation.h>
 #import "CMPComapiClient.h"
 #import "CMPProfile.h"

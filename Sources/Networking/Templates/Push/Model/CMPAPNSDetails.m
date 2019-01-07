@@ -20,7 +20,7 @@
 
 @implementation CMPAPNSDetails
 
--(instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token {
+- (instancetype)initWithBundleID:(NSString *)bundleID environment:(NSString *)environment token:(NSString *)token {
     self = [super init];
     
     if (self) {
@@ -43,10 +43,10 @@
     return dict;
 }
 
-- (NSData *)encode {
-    NSError *serializationError = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&serializationError];
-    if (serializationError) {
+- (nullable NSData *)encode {
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self json] options:0 error:&error];
+    if (error) {
         return nil;
     }
     return data;

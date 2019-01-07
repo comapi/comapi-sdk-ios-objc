@@ -27,6 +27,8 @@ NS_SWIFT_NAME(QueryProfilesTemplate)
 @property (nonatomic, strong) NSString *queryString;
 @property (nonatomic, strong) NSString *token;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token queryString:(NSString *)queryString;
 
 @end

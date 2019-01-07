@@ -16,9 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPTitledCell.h"
-
 
 @implementation CMPTitledCell
 

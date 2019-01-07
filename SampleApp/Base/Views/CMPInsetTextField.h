@@ -19,7 +19,7 @@
 #import <UIKit/UIKit.h>
 #import "CMPViewConfiguring.h"
 
-@interface CMPInsetTextField : UITextField <CMPViewConfiguring>
+@interface CMPInsetTextField : UITextField <CMPViewConfiguring, UITextFieldDelegate>
 
 @property (nonatomic, copy, nullable) void(^didChangeText)(NSString *);
 

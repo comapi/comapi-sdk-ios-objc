@@ -1,0 +1,10 @@
+{
+    "accountId": 41590,
+    "apiSpaceId": "MOCK_API_SPACE_ID",
+    "context": {
+        "createdBy": "sub"
+    },
+    "eventId": "c3485aae-e909-4b18-b67c-e183f7fea210",
+    "name": "socket.info",
+    "socketId": "91b8b750-a7fe-4d6d-8d6d-69c130654dc1"
+}

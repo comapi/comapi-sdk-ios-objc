@@ -17,7 +17,6 @@
 //
 
 #import "CMPComapiClient.h"
-#import "CMPSessionManager.h"
 #import "CMPServices.h"
 #import "CMPSetAPNSDetailsTemplate.h"
 
@@ -27,6 +26,7 @@
 
 @property (nonatomic, strong) CMPRequestManager *requestManager;
 @property (nonatomic, strong) CMPSessionManager *sessionManager;
+@property (nonatomic, strong) CMPSocketManager *socketManager;
 @property (nonatomic, strong) CMPAPIConfiguration *apiConfiguration;
 
 @property (nonatomic, strong) id<CMPRequestPerforming> requestPerformer;
@@ -53,8 +53,13 @@
         self.requestManager = [[CMPRequestManager alloc] initWithRequestPerformer:self.requestPerformer];
         self.requestManager.delegate = self;
         
-        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager];
+        self.sessionManager = [[CMPSessionManager alloc] initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate requestManager:self.requestManager sessionDelegate:self];
+        
+        self.socketManager = [[CMPSocketManager alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration sessionAuthProvider:self.sessionManager socketDelegate:self];
+        
         [self.sessionManager bindClient:self];
+        [self.socketManager bindClient:self];
+        [self.sessionManager bindSocketManager:self.socketManager];
         
         _services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
         
@@ -62,6 +67,14 @@
     }
     
     return self;
+}
+
+- (void)addEventDelegate:(id<CMPEventDelegate>)delegate {
+    [self.socketManager addEventDelegate:delegate];
+}
+
+- (void)removeEventDelegate:(id<CMPEventDelegate>)delegate {
+    [self.socketManager removeEventDelegate:delegate];
 }
 
 - (NSString *)getProfileID {
@@ -89,14 +102,33 @@
         return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];
     };
     
-    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPRequestTemplateResult * result) {
-        BOOL success = [(NSNumber *)result.object boolValue];
-        completion(success, result.error);
+    [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
+        completion([result.object boolValue], result.error);
     }];
 }
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
     [self.sessionManager authenticateWithSuccess:nil failure:nil];
+}
+
+#pragma mark - CMPSessionDelegate
+
+- (void)didStartSession {
+    [self.stateDelegate didStartSession];
+}
+
+- (void)didEndSessionWithError:(NSError *)error {
+    [self.stateDelegate didEndSessionWithError:error];
+}
+
+#pragma mark - CMPSocketDelegate
+
+- (void)didConnectSocket {
+    [self.stateDelegate didConnectSocket];
+}
+
+- (void)didDisconnectSocketWithError:(NSError *)error {
+    [self.stateDelegate didDisconnectSocketWithError:error];
 }
 
 @end

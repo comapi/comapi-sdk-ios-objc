@@ -16,7 +16,6 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPLoginView.h"
 
 @implementation CMPLoginView
@@ -62,8 +61,20 @@
 }
 
 - (void)constrain {
-    NSLayoutConstraint *tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
-    NSLayoutConstraint *tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    NSLayoutConstraint *tableTop;
+    NSLayoutConstraint *tableBottom;
+    NSLayoutConstraint *loginBottom;
+    
+    if (@available(iOS 11.0, *)) {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.topAnchor];
+        tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor];
+        loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.safeAreaLayoutGuide.bottomAnchor constant:-16];
+    } else {
+        tableTop = [self.tableView.topAnchor constraintEqualToAnchor:self.topAnchor];
+        tableBottom = [self.tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+        loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-16];
+    }
+
     NSLayoutConstraint *tableLeading = [self.tableView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor];
     NSLayoutConstraint *tableTrailing = [self.tableView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor];
     
@@ -71,7 +82,6 @@
     
     NSLayoutConstraint *loginLeading = [self.loginButton.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:16];
     NSLayoutConstraint *loginTrailing = [self.loginButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-16];
-    NSLayoutConstraint *loginBottom = [self.loginButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-16];
     NSLayoutConstraint *loginHeight = [self.loginButton.heightAnchor constraintEqualToConstant:44];
     
     [NSLayoutConstraint activateConstraints:@[loginLeading, loginTrailing, loginBottom, loginHeight]];
@@ -85,22 +95,16 @@
     NSDictionary *info = notification.userInfo;
     if (!info) { return; }
     NSString *name = notification.name;
-    NSInteger curve = (UIViewAnimationCurve)info[UIKeyboardAnimationCurveUserInfoKey];
-    double duration = [(NSNumber *)info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect endFrame = [(NSValue *)info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect endFrame = [(NSValue *)info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     
-    [UIView animateWithDuration:duration delay:0.0 options:curve animations:^{
-        if ([name isEqualToString:UIKeyboardWillShowNotification]) {
-            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, endFrame.size.height + 16, 0);
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsZero;
-        }
-        [self layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        if (completion) {
-            completion();
-        }
-    }];
+    if ([name isEqualToString:UIKeyboardWillShowNotification]) {
+        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, endFrame.size.height + 48, 0);
+        self.tableView.contentInset = insets;
+        self.tableView.scrollIndicatorInsets = insets;
+    } else {
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }
 }
 
 @end

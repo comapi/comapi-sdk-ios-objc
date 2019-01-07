@@ -28,6 +28,8 @@ NS_SWIFT_NAME(URLResult)
 @property (nonatomic, nullable) NSURLResponse *response;
 @property (nonatomic, nullable) NSError *error;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithRequest:(NSURLRequest *)request data:(NSData * _Nullable)data response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error;
 
 - (NSString *)description;

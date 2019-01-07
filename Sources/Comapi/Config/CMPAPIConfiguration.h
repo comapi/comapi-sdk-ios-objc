@@ -27,6 +27,8 @@ NS_SWIFT_NAME(APIConfiguration)
 @property (nonatomic, strong) NSString* host;
 @property (nonatomic) NSUInteger port;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port;
 + (instancetype)production;
 

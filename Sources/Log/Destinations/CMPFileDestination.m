@@ -47,10 +47,6 @@
     return self;
 }
 
-- (NSString *)prefixForLevel:(CMPLogLevel)logLevel {
-    return [CMPLogLevelRepresenter emojiRepresentationForLogLevel:logLevel];
-}
-
 - (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level date:(NSDate *)date {
     if (self.minimumLogLevel > level) {
         return;

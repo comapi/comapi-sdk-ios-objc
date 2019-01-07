@@ -16,10 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPAppConfigurator.h"
-
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
+#import "CMPAppConfigurator.h"
 
 extern NSString * const kCMPPushRegistrationStatusChangedNotification;
 

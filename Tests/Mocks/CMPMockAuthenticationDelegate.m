@@ -20,7 +20,7 @@
 
 @implementation CMPMockAuthenticationDelegate
 
-- (void)clientWith:(nonnull CMPComapiClient *)client didReceiveAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge completion:(nonnull void (^)(NSString * _Nullable))continueWithToken {
+- (void)client:(nonnull CMPComapiClient *)client didReceiveAuthenticationChallenge:(nonnull CMPAuthenticationChallenge *)challenge completion:(nonnull void (^)(NSString * _Nullable))continueWithToken {
     continueWithToken([CMPTestMocks mockAuthenticationToken]);
 }
 

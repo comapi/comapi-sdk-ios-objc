@@ -1,0 +1,10 @@
+{
+    "platforms": {
+        "apns": {
+            "key1": "val1"
+        },
+        "fcm": {
+            "key2": "val2"
+        }
+    }
+}

@@ -24,7 +24,7 @@ NS_SWIFT_NAME(Keychain)
 @interface CMPKeychain : NSObject
 
 + (BOOL)saveItem:(id)item forKey:(NSString *)key;
-+ (id)loadItemForKey:(NSString *)key;
++ (nullable id)loadItemForKey:(NSString *)key;
 + (BOOL)deleteItemForKey:(NSString *)key;
 
 @end

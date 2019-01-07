@@ -16,12 +16,12 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-
 #import "CMPProfileViewController.h"
 #import "CMPTitledCell.h"
 #import "CMPProfile.h"
 #import "AppDelegate.h"
 #import "CMPProfileDetailsViewController.h"
+#import "CMPConversationsViewController.h"
 
 @interface CMPProfileViewController ()
 
@@ -57,13 +57,6 @@
     __weak typeof(self) weakSelf = self;
     [self.viewModel getProfilesWithCompletion:^(NSError * _Nullable err) {
         [weakSelf reload];
-        [weakSelf.viewModel registerForRemoteNotificationsWithCompletion:^(BOOL success, NSError * _Nonnull error) {
-            if (!error && success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [UIApplication.sharedApplication registerForRemoteNotifications];
-                });
-            }
-        }];
     }];
 }
 
@@ -126,10 +119,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CMPProfileDetailsViewModel *vm = [[CMPProfileDetailsViewModel alloc] initWithClient:self.viewModel.client profile:self.viewModel.profiles[indexPath.row]];
-    CMPProfileDetailsViewController *vc = [[CMPProfileDetailsViewController alloc] initWithViewModel:vm state:self.viewModel.profiles[indexPath.row].id == self.viewModel.client.profileID ? CMPProfileStateSelf : CMPPRofileStateOther];
-    
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    if (self.viewModel.profiles[indexPath.row].id == self.viewModel.client.profileID) {
+        CMPProfileDetailsViewModel *pvm = [[CMPProfileDetailsViewModel alloc] initWithClient:_viewModel.client profile:_viewModel.profiles[indexPath.row]];
+        CMPProfileDetailsViewController *pvc = [[CMPProfileDetailsViewController alloc] initWithViewModel:pvm state:CMPProfileStateSelf];
+
+        [self.navigationController pushViewController:pvc animated:YES];
+    }
 }
 
 @end

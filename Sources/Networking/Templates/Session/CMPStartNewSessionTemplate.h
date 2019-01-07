@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(StartNewSessionTemplate)
 @interface CMPStartNewSessionTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 NS_ASSUME_NONNULL_END

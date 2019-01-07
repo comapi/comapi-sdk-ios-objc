@@ -1,0 +1,17 @@
+{
+	"eventId": "2e611475-e12c-4d2f-9430-1f30cf6b4064",
+	"apiSpaceId": "MOCK_API_SPACE_ID",
+	"name": "conversationMessage.delivered",
+	"context": {
+		"createdBy": "175f7d6d-9422-466f-9c1b-c6da5c818c4b"
+	},
+	"messageId": "1d8f9efc-159d-49f0-b01b-ce72bc2d23f7",
+	"conversationEventId":123,
+	"publishedOn":"2016-10-06T06:45:26.904Z",
+	"payload": {
+		"messageId":"1d8f9efc-159d-49f0-b01b-ce72bc2d23f7",
+		"conversationId":"myConversation",
+		"profileId":"myProfile",
+		"timestamp":"2016-10-06T06:45:26.910Z"
+	}
+}

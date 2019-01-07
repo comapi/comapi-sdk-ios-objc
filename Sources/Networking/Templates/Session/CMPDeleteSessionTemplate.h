@@ -26,6 +26,8 @@ NS_SWIFT_NAME(DeleteSessionTemplate)
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *sessionID;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype) initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID token:(NSString *)token sessionID:(NSString *)sessionID;
 
 @end

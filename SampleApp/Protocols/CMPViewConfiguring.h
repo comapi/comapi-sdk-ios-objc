@@ -16,10 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import <UIKit/UIKit.h>
 
-#import <Foundation/Foundation.h>
-
-@protocol CMPViewConfiguring
+@protocol CMPViewConfiguring <NSObject>
 
 @required
 - (void)configure;

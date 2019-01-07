@@ -18,8 +18,9 @@
 
 #import <XCTest/XCTest.h>
 #import "CMPTestMocks.h"
-#import "CMPComapi.h"
+
 #import "CMPMockAuthenticationDelegate.h"
+#import "CMPComapi.h"
 
 @interface CMPTestComapi : XCTestCase
 
