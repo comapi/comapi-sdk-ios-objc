@@ -21,6 +21,8 @@
 #import "CMPGetParticipantsTemplate.h"
 #import "CMPAddParticipantsTemplate.h"
 #import "CMPRemoveParticipantsTemplate.h"
+#import "CMPParticipantTypingTemplate.h"
+#import "CMPParticipantTypingOffTemplate.h"
 #import "CMPGetConversationTemplate.h"
 #import "CMPGetConversationsTemplate.h"
 #import "CMPAddConversationTemplate.h"
@@ -87,6 +89,24 @@
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
         completion(result);
     }];
+}
+
+- (void)participantIsTypingWithConversationID:(NSString *)conversationID isTyping:(BOOL)isTyping completion:(void (^)(CMPResult<NSNumber *> *))completion {
+    if (isTyping) {
+        CMPParticipantTypingTemplate *(^builder)(NSString *) = ^(NSString *token) {
+            return [[CMPParticipantTypingTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID token:token];
+        };
+        [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
+            completion(result);
+        }];
+    } else {
+        CMPParticipantTypingOffTemplate *(^builder)(NSString *) = ^(NSString *token) {
+            return [[CMPParticipantTypingOffTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID conversationID:conversationID token:token];
+        };
+        [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
+            completion(result);
+        }];
+    }
 }
 
 #pragma mark - Conversation

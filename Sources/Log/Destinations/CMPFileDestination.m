@@ -62,7 +62,7 @@
     [self logToFileWithText:text];
 }
 
-- (void)logToFileWithText:(NSString *)text {
+- (NSString *)loggingPath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     
@@ -70,14 +70,34 @@
     if (![fileManager fileExistsAtPath:loggingPath]) {
         [fileManager createFileAtPath:loggingPath contents:nil attributes:nil];
     }
-    
-    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:loggingPath];
+    return loggingPath;
+}
+
+- (NSFileHandle *)loggingWriteHandle {
+    return [NSFileHandle fileHandleForWritingAtPath:[self loggingPath]];
+}
+
+- (NSFileHandle *)loggingReadHandle {
+    return [NSFileHandle fileHandleForReadingAtPath:[self loggingPath]];
+}
+
+- (void)logToFileWithText:(NSString *)text {
+    NSFileHandle *fileHandle = [self loggingWriteHandle];
     [fileHandle seekToEndOfFile];
     
     NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
     if (data) {
         [fileHandle writeData:data];
     }
+}
+
+- (nullable NSData *)getFileLogs {
+    NSFileHandle *fileHandle = [self loggingReadHandle];
+    [fileHandle seekToFileOffset:0];
+  
+    NSData *data = [fileHandle readDataToEndOfFile];
+
+    return data;
 }
 
 @end

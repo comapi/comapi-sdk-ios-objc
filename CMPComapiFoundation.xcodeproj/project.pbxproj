@@ -335,6 +335,10 @@
 		89E459D621ABFDDA002C26AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E459D521ABFDDA002C26AE /* AppDelegate.swift */; };
 		89E459DD21ABFDDD002C26AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89E459DC21ABFDDD002C26AE /* Assets.xcassets */; };
 		89E459E021ABFDDD002C26AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E459DE21ABFDDD002C26AE /* LaunchScreen.storyboard */; };
+		89E5A3A521EE171D00E5D45A /* CMPParticipantTypingTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89E5A3A321EE171D00E5D45A /* CMPParticipantTypingTemplate.h */; };
+		89E5A3A621EE171D00E5D45A /* CMPParticipantTypingTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E5A3A421EE171D00E5D45A /* CMPParticipantTypingTemplate.m */; };
+		89E5A3A921EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89E5A3A721EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.h */; };
+		89E5A3AA21EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E5A3A821EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.m */; };
 		89EA5CB92147E00000C29D08 /* CMPQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CB72147E00000C29D08 /* CMPQueryBuilder.h */; };
 		89EA5CBA2147E00000C29D08 /* CMPQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */; };
 		89EA5CBD2147E6B800C29D08 /* CMPGetProfileTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */; };
@@ -796,6 +800,10 @@
 		89E459DF21ABFDDD002C26AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89E459E121ABFDDD002C26AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89E459E521ABFE09002C26AE /* SampleAppSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleAppSwift.entitlements; sourceTree = "<group>"; };
+		89E5A3A321EE171D00E5D45A /* CMPParticipantTypingTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPParticipantTypingTemplate.h; sourceTree = "<group>"; };
+		89E5A3A421EE171D00E5D45A /* CMPParticipantTypingTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPParticipantTypingTemplate.m; sourceTree = "<group>"; };
+		89E5A3A721EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPParticipantTypingOffTemplate.h; sourceTree = "<group>"; };
+		89E5A3A821EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPParticipantTypingOffTemplate.m; sourceTree = "<group>"; };
 		89EA5CB72147E00000C29D08 /* CMPQueryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPQueryBuilder.h; sourceTree = "<group>"; };
 		89EA5CB82147E00000C29D08 /* CMPQueryBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPQueryBuilder.m; sourceTree = "<group>"; };
 		89EA5CBB2147E6B800C29D08 /* CMPGetProfileTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPGetProfileTemplate.h; sourceTree = "<group>"; };
@@ -2228,6 +2236,10 @@
 				897B8366216CC15B003D4206 /* CMPContentUploadTemplate.m */,
 				897B8371216CDC80003D4206 /* CMPSendStatusUpdateTemplate.h */,
 				897B8372216CDC80003D4206 /* CMPSendStatusUpdateTemplate.m */,
+				89E5A3A321EE171D00E5D45A /* CMPParticipantTypingTemplate.h */,
+				89E5A3A421EE171D00E5D45A /* CMPParticipantTypingTemplate.m */,
+				89E5A3A721EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.h */,
+				89E5A3A821EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.m */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -2479,6 +2491,7 @@
 				897B833F216B646A003D4206 /* CMPMessageAlertPlatforms.h in Headers */,
 				89957A5A2137DFD8008EE0BE /* CMPAPNSDetailsBody.h in Headers */,
 				89D2C49521661842006BEC4E /* CMPRoleAttributes.h in Headers */,
+				89E5A3A921EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.h in Headers */,
 				8940958C21AC4E1C007F6490 /* CMPMessageDeliveryStatus.h in Headers */,
 				89DCBB4821342787001016FF /* CMPAuthorizeSessionBody.h in Headers */,
 				896E30EF21C92958008CC785 /* CMPEventDelegate.h in Headers */,
@@ -2554,6 +2567,7 @@
 				89D2C48521651F64006BEC4E /* CMPEvent.h in Headers */,
 				897B8389216F7B98003D4206 /* CMPConversationMessageEvents.h in Headers */,
 				8972C32E212D778D00C76B19 /* CMPBaseService.h in Headers */,
+				89E5A3A521EE171D00E5D45A /* CMPParticipantTypingTemplate.h in Headers */,
 				897B8343216B7714003D4206 /* CMPMessageAlert.h in Headers */,
 				8972C2FC212C128100C76B19 /* NSURLResponse+CMPUtility.h in Headers */,
 				89D2C45A21638A75006BEC4E /* CMPSocketTemplate.h in Headers */,
@@ -3008,6 +3022,7 @@
 				89D2C451215E558D006BEC4E /* CMPLogConfig.m in Sources */,
 				89D7323C21667F42002BF47B /* CMPEventParser.m in Sources */,
 				897B8354216C9FCA003D4206 /* CMPSendMessagesResult.m in Sources */,
+				89E5A3AA21EE19FC00E5D45A /* CMPParticipantTypingOffTemplate.m in Sources */,
 				897B836C216CC90D003D4206 /* CMPContentUploadResult.m in Sources */,
 				8972C2FD212C128100C76B19 /* NSURLResponse+CMPUtility.m in Sources */,
 				897B83A02170EFF9003D4206 /* NSURLRequest+CMPUtility.m in Sources */,
@@ -3089,6 +3104,7 @@
 				89957A572137DE78008EE0BE /* CMPAPNSDetails.m in Sources */,
 				89EA5CC8214902FA00C29D08 /* CMPUpdateProfileTemplate.m in Sources */,
 				89D2C49621661842006BEC4E /* CMPRoleAttributes.m in Sources */,
+				89E5A3A621EE171D00E5D45A /* CMPParticipantTypingTemplate.m in Sources */,
 				89957A3D21359683008EE0BE /* CMPLogLevel.m in Sources */,
 				89D2C45621637C2A006BEC4E /* CMPSocketManager.m in Sources */,
 				89957A4121359E69008EE0BE /* CMPFileDestination.m in Sources */,

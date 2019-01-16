@@ -16,34 +16,16 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPLogLevel.h"
-#import "CMPLoggingDestination.h"
-
-void logWithLevel(CMPLogLevel logLevel, id params, ...);
+#import "CMPRequestTemplate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(Logging)
-@protocol CMPLogging
+@interface CMPParticipantTypingTemplate : CMPRequestTemplate <CMPHTTPRequestTemplate>
 
-- (void)logItems:(NSArray<id> *)items level:(CMPLogLevel)level;
+@property (nonatomic, strong) NSString *conversationID;
+@property (nonatomic, strong) NSString *token;
 
-- (void)verbose:(NSArray<id> *)params;
-- (void)debug:(NSArray<id> *)params;
-- (void)info:(NSArray<id> *)params;
-- (void)warning:(NSArray<id> *)params;
-- (void)error:(NSArray<id> *)params;
-
-@end
-
-NS_SWIFT_NAME(Logger)
-@interface CMPLogger : NSObject <CMPLogging>
-
-@property (class, nonatomic, strong, readonly) CMPLogger *shared;
-
-- (void)addDestination:(id<CMPLoggingDestination>)destination;
-- (void)resetDestinations;
-- (nullable NSData *)getFileLogs;
+- (instancetype)initWithScheme:(NSString *)scheme host:(NSString *)host port:(NSUInteger)port apiSpaceID:(NSString *)apiSpaceID conversationID:(NSString *)conversationID token:(NSString *)token;
 
 @end
 

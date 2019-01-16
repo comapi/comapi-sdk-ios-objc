@@ -74,4 +74,11 @@
     XCTAssertEqualObjects(missingToken.domain, @"com.comapi.foundation.authentication");
 }
 
+- (void)testConversationErrors {
+    NSError *notFound = [CMPErrors conversationErrorWithStatus:CMPConversationErrorNotFound underlyingError:nil];
+    
+    XCTAssertEqual(notFound.code, 8551);
+    XCTAssertEqualObjects(notFound.domain, @"com.comapi.foundation.conversation");
+}
+
 @end

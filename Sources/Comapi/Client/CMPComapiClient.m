@@ -19,6 +19,7 @@
 #import "CMPComapiClient.h"
 #import "CMPServices.h"
 #import "CMPSetAPNSDetailsTemplate.h"
+#import "CMPLogger.h"
 
 @interface CMPComapiClient ()
 
@@ -67,6 +68,10 @@
     }
     
     return self;
+}
+
+- (NSData *)getFileLogs {
+    return [[CMPLogger shared] getFileLogs];
 }
 
 - (void)addEventDelegate:(id<CMPEventDelegate>)delegate {

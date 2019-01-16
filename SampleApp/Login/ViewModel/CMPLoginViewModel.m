@@ -43,7 +43,7 @@
         return;
     }
     
-    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
+    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelInfo];
     self.client = [CMPComapi initialiseWithConfig:config];
     if (!self.client) {
         [NSException raise:@"failed client init" format:@""];
@@ -53,6 +53,7 @@
     __weak typeof(self) weakSelf = self;
     [self.client.services.session startSessionWithCompletion:^{
         [weakSelf saveLocally];
+
         completion(nil);
     } failure:^(NSError * _Nullable err) {
         completion(err);

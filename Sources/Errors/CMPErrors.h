@@ -21,6 +21,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ @typedef CMPConversationError
+ @brief Defines errors related to conversations.
+ */
+typedef NS_ENUM(NSUInteger, CMPConversationError) {
+    /// Requested conversation not found.
+    CMPConversationErrorNotFound,
+} NS_SWIFT_NAME(ConversationError);
+
+/**
  @typedef CMPRequestTemplateError
  @brief Defines error types that can be returned by Comapi services.
  */
@@ -57,6 +66,7 @@ NS_SWIFT_NAME(Errors)
 
 + (NSError *)requestTemplateErrorWithStatus:(CMPRequestTemplateError)status underlyingError:(NSError * _Nullable)error;
 + (NSError *)authenticationErrorWithStatus:(CMPAuthenticationError)status underlyingError:(NSError * _Nullable)error;
++ (NSError *)conversationErrorWithStatus:(CMPConversationError)status underlyingError:(NSError * _Nullable)error;
 
 @end
 
