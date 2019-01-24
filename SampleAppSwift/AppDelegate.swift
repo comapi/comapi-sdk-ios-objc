@@ -40,6 +40,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         configurator = AppConfigurator(window: window!)
         configurator.start()
@@ -58,7 +61,7 @@ extension AppDelegate {
             }
         })
     }
-    
+
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: PushRegistrationStatusChangedNotification), object: false)

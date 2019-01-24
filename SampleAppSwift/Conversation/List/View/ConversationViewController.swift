@@ -51,6 +51,10 @@ class ConversationViewController: BaseViewController {
         super.viewWillAppear(animated)
         registerForLoadingNotification()
         NotificationCenter.default.addObserver(self, selector: #selector(notificationValueChanged), name: Notification.Name(rawValue: PushRegistrationStatusChangedNotification), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.getAllConverstations(success: { [weak self] in
             self?.reload()
             self?.viewModel.registerForRemoteNotification(completion: { (success, error) in

@@ -51,6 +51,8 @@ class LoginViewModel: NSObject {
         let config = ComapiConfig(apiSpaceID: loginInfo.apiSpaceId!, authenticationDelegate: self)
 
         client = Comapi.initialise(with: config)
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.configurator.client = client
         client.services.session.startSession(completion: { [weak self] in
             self?.saveLocally()
             completion(nil)
