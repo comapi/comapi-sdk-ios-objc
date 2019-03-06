@@ -55,7 +55,7 @@ NS_SWIFT_NAME(OrphanedEvent)
 
 @property (nonatomic, readonly) CMPMessageDeliveryStatus status;
 
-- (instancetype)initWithID:(nullable NSString *)ID data:(nullable CMPOrphanedEventData *)data;
+- (instancetype)initWithID:(nullable NSNumber *)ID data:(nullable CMPOrphanedEventData *)data;
 
 @end
 
