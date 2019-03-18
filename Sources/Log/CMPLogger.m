@@ -113,6 +113,16 @@ void logWithLevel(CMPLogLevel logLevel, id params, ...) {
     });
 }
 
+- (nullable NSData *)getFileLogs {
+    for (id<CMPLoggingDestination> destination in self.loggingDestinations) {
+        if ([destination isKindOfClass:CMPFileDestination.class]) {
+            return [(CMPFileDestination *)destination getFileLogs];
+        }
+    }
+    
+    return nil;
+}
+
 - (void)debug:(NSArray<id> *)params {
     [self logItems:params level:CMPLogLevelDebug];
 }

@@ -103,15 +103,20 @@ NSUInteger const CMPPingTimerInterval = 240;
 }
 
 - (void)handleSocketMessage:(id)message {
+    
     if ([message isKindOfClass:NSString.class]) {
         NSData *data = [(NSString *)message dataUsingEncoding:NSUTF8StringEncoding];
         CMPEvent *event = [CMPEventParser parseEventForData:data];
+        if (!event) {
+            return;
+        }
         [self.eventListener invokeDelegatesWithBlock:^(id<CMPEventDelegate> _Nonnull delegate) {
             [delegate client:self.client didReceiveEvent:event];
         }];
-        logWithLevel(CMPLogLevelVerbose, @"Socket: received event:", event.name != nil ? event.name : @"unknown event name", event.json != nil ? event.json : @"unknown event data", nil);
+        logWithLevel(CMPLogLevelInfo, @"Socket: received event:", event.name, nil);
+        logWithLevel(CMPLogLevelVerbose, event.json, nil);
     } else {
-        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Socket: unexpected message type - %@", [message class]], message, nil);
+        logWithLevel(CMPLogLevelWarning, [NSString stringWithFormat:@"Socket: unexpected message type - %@", [message class]], message, nil);
     }
 }
 

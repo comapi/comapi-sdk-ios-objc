@@ -20,6 +20,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const CMPConversationErrorDomain NS_SWIFT_NAME(ConversationErrorDomain);
+
+typedef NSUInteger CMPConversationErrorStatusCode NS_TYPED_ENUM NS_SWIFT_NAME(CMPConversationErrorStatusCode);
+
+extern CMPConversationErrorStatusCode const CMPConversationErrorNotFoundStatusCode NS_SWIFT_NAME(notFound);
+
 extern NSString * const CMPRequestTemplateErrorDomain NS_SWIFT_NAME(RequestTemplateErrorDomain);
 
 typedef NSUInteger CMPRequestTemplateErrorStatusCode NS_TYPED_ENUM NS_SWIFT_NAME(RequestTemplateErrorStatusCode);

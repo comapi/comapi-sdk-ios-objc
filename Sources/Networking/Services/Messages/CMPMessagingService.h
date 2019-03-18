@@ -91,6 +91,13 @@ NS_SWIFT_NAME(MessagingServiceable)
  */
 - (void)removeParticipantsWithConversationID:(NSString *)conversationID participants:(NSArray<CMPConversationParticipant *> *)participants completion:(void(^)(CMPResult<NSNumber *> *))completion NS_SWIFT_NAME(removeParticipants(conversationID:participants:completion:));
 
+/**
+ @brief Sends an information that a participant started/stopped typing in conversation.
+ @param conversationID Id of a conversation in which typing event occurred.
+ @param completion Block with a result value, the @b object returned is of type @a NSNumber* (mapping to BOOL determining success of the sent request) or nil if an error occurred.
+*/
+- (void)participantIsTypingWithConversationID:(NSString *)conversationID isTyping:(BOOL)isTyping completion:(void(^)(CMPResult<NSNumber *> *))completion NS_SWIFT_NAME(participantIsTyping(conversationID:isTyping:completion:));
+
 #pragma mark - Conversation
 
 /**

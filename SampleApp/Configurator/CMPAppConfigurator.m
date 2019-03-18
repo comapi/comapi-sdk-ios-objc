@@ -71,8 +71,9 @@
         CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
         
         self.client = [CMPComapi initialiseWithConfig:config];
+        
         if (!self.client) {
-            [NSException raise:@"failed client init" format:@""];
+            NSLog(@"failed client init");
         }
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
@@ -84,7 +85,7 @@
                     [nav pushViewController:vc animated:YES];
             }];
         } failure:^(NSError * _Nullable error) {
-            [NSException raise:@"session start error" format:@"%@", error.localizedDescription];
+            NSLog(@"%@", error);
         }];
     }
 }

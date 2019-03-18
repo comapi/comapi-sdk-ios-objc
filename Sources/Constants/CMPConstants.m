@@ -18,6 +18,10 @@
 
 #import "CMPConstants.h"
 
+NSString * const CMPConversationErrorDomain = @"com.comapi.foundation.conversation";
+
+CMPConversationErrorStatusCode const CMPConversationErrorNotFoundStatusCode = 8551;
+
 NSString * const CMPRequestTemplateErrorDomain = @"com.comapi.foundation.request.template";
 
 CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorRequestCreationFailedStatusCode = 5551;
@@ -45,7 +49,7 @@ CMPHTTPHeaderType const CMPHTTPHeaderAuthorization = @"Authorization";
 CMPHTTPHeaderType const CMPHTTPHeaderIfMatch = @"If-Match";
 
 CMPSDKInfo const CMPSDKInfoPlatform = @"iOS";
-CMPSDKInfo const CMPSDKInfoVersion = @"1.0.0";
+CMPSDKInfo const CMPSDKInfoVersion = @"1.1.0";
 CMPSDKInfo const CMPSDKInfoType = @"native";
 
 CMPQueueName const CMPQueueNameConsole = @"com.comapi.foundation.console";

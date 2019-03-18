@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             =	'CMPComapiFoundation'
-  s.version          =	'1.0.0'
+  s.version          =	'1.1.0'
   s.license          = 	'MIT'
   s.summary          =	'Foundation library for connecting to and consuming COMAPI services'
   s.description      = <<-DESC
@@ -10,7 +10,7 @@ For more information about the integration please visit [the website](http://doc
 						DESC
   s.homepage         = 'https://github.com/comapi/comapi-sdk-ios-objc'
   s.author           = { 'Comapi' => 'support@comapi.com' }
-  s.source           =  { :git => 'https://github.com/comapi/comapi-sdk-ios-objc.git', :tag => '1.0.0' }
+  s.source           =  { :git => 'https://github.com/comapi/comapi-sdk-ios-objc.git', :tag => '1.1.0' }
   s.social_media_url = 'https://twitter.com/comapimessaging'
 
   s.platform     = :ios, '10.0'

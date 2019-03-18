@@ -25,6 +25,8 @@ NS_SWIFT_NAME(FileDestination)
 
 - (instancetype)initWithMinimumLevel:(CMPLogLevel)minimumLevel;
 
+- (nullable NSData *)getFileLogs;
+
 @end
 
 NS_ASSUME_NONNULL_END

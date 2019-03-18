@@ -49,4 +49,12 @@
     }
 }
 
++ (NSError *)conversationErrorWithStatus:(CMPConversationError)status underlyingError:(NSError *)error {
+    switch (status) {
+        case CMPConversationErrorNotFound:
+            return [[NSError alloc] initWithDomain:CMPConversationErrorDomain code:CMPConversationErrorNotFoundStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
+            
+    }
+}
+
 @end

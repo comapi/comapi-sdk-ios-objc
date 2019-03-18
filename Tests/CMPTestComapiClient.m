@@ -57,6 +57,16 @@
     [super tearDown];
 }
 
+- (void)testGetFileLogs {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    logWithLevel(CMPLogLevelError, @"TEST LOG", nil);
+    NSData *logs = [self.client getFileLogs];
+    NSString *logsString = [[NSString alloc] initWithData:logs encoding:NSUTF8StringEncoding];
+    XCTAssertTrue([logsString containsString:@"TEST LOG"]);
+    XCTAssertTrue([logsString containsString:@"ERROR"]);
+}
+
 - (void)testSetPushToken {
     self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
     self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
@@ -675,6 +685,30 @@
     
     __weak typeof(self) weakSelf = self;
     [self.client.services.messaging updateStatusForMessagesWithIDs:@[@"id", @"id2"] status:CMPMessageDeliveryStatusDelivered conversationID:conversationID timestamp:[NSDate date] completion:^(CMPResult<NSNumber *> * result) {
+        id self = weakSelf;
+        XCTAssertNil(result.error);
+        XCTAssertTrue([result.object boolValue]);
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testParticipantIsTyping {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    
+    NSHTTPURLResponse *response = [NSHTTPURLResponse mockedWithURL:[CMPTestMocks mockBaseURL] statusCode:204 httpVersion:@"HTTP/1.1" headers:@{}];
+    NSString *conversationID = @"MOCK_ID";
+    
+    CMPMockRequestResult *endSessionCompletionValue = [[CMPMockRequestResult alloc] initWithData:nil response:response error:nil];
+    [self.requestPerformer.completionValues addObject:endSessionCompletionValue];
+    
+    XCTestExpectation *expectation = [[XCTestExpectation alloc] initWithDescription:@"callback received"];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging participantIsTypingWithConversationID:conversationID isTyping:YES completion:^(CMPResult<NSNumber *> * result) {
         id self = weakSelf;
         XCTAssertNil(result.error);
         XCTAssertTrue([result.object boolValue]);

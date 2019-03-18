@@ -77,6 +77,12 @@ NS_SWIFT_NAME(ComapiClient)
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
+ @brief Get logs saved to file.
+ @return NSData object containing contents of the log file or nil if error occurs or there are no logs.
+*/
+- (nullable NSData *)getFileLogs NS_SWIFT_NAME(getFileLogs());
+
+/**
  @brief Registers Comapi push notifications.
  @discussion Use UIApplication's method:
  @code

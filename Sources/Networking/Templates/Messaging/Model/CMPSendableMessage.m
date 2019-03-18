@@ -43,7 +43,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.metadata forKey:@"metadata"];
     [dict setValue:parts forKey:@"parts"];
-    [dict setValue:self.alert forKey:@"alert"];
+    [dict setValue:[self.alert json] forKey:@"alert"];
     
     return dict;
 }

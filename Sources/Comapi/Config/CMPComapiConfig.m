@@ -45,7 +45,7 @@
     
     if (self) {
         _logLevel = logLevel;
-        
+
         [self setLogLevel:_logLevel];
     }
     
