@@ -32,7 +32,7 @@ NS_SWIFT_NAME(Message)
 @property (nonatomic, strong, nullable) NSArray<CMPMessagePart *> *parts;
 @property (nonatomic, strong, nullable) CMPMessageContext *context;
 
--(instancetype)initWithID:(nullable NSString *)ID sentEventID:(nullable NSString *)sentEventID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates;
+-(instancetype)initWithID:(nullable NSString *)ID sentEventID:(nullable NSNumber *)sentEventID metadata:(nullable NSDictionary<NSString *, id> *)metadata context:(nullable CMPMessageContext *)context parts:(nullable NSArray<CMPMessagePart *> *)parts statusUpdates:(nullable NSDictionary<NSString *, CMPMessageStatus *> *)statusUpdates;
 
 @end
 
