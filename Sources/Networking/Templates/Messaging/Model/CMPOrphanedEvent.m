@@ -40,7 +40,7 @@
 - (id)json {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.profileID forKey:@"profileId"];
-    [dict setValue:self.messageID forKey:@"messageID"];
+    [dict setValue:self.messageID forKey:@"messageId"];
     [dict setValue:self.conversationID forKey:@"conversationId"];
     [dict setValue:self.isPublicConversation forKey:@"isPublicConversation"];
     [dict setValue:self.timestamp forKey:@"timestamp"];

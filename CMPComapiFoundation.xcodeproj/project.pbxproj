@@ -3536,6 +3536,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9EB28A3D3C7839DF28A01084 /* Pods-CMPComapiFoundation_tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JE27K8BAX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -3557,6 +3558,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7B3B4D8C7123987D537DBBF /* Pods-CMPComapiFoundation_tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JE27K8BAX2;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;

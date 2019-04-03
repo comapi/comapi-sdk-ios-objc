@@ -28,6 +28,7 @@ NS_SWIFT_NAME(Conversation)
 @property (nonatomic, strong) CMPRoles *roles;
 @property (nonatomic, strong, nullable) NSString *conversationDescription;
 @property (nonatomic, strong) NSNumber *isPublic;
+@property (nonatomic, strong) NSDate *updatedOn;
 
 @end
 

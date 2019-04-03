@@ -35,7 +35,7 @@
 + (CMPEventType)eventTypeForName:(NSString *)name {
     NSMutableArray<NSString *> *components = [NSMutableArray arrayWithArray:[name componentsSeparatedByString:@"."]];
     if ([components count] < 2) {
-        logWithLevel(CMPLogLevelError, @"Event: unrecognized event name:", name);
+        //logWithLevel(CMPLogLevelError, @"Event: unrecognized event name:", name);
         return CMPEventTypeNone;
     }
     NSString *parentEventName = [[components firstObject] copy];
@@ -79,7 +79,7 @@
         }
     }
     
-    logWithLevel(CMPLogLevelInfo, @"Event: unrecognized event name:", name, nil);
+    //logWithLevel(CMPLogLevelInfo, @"Event: unrecognized event name:", name, nil);
     
     return CMPEventTypeNone;
 }
