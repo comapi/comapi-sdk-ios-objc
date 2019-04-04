@@ -14,11 +14,11 @@ target 'CMPComapiFoundation_tests' do
 shared
 end 
 
-target 'SampleApp' do
+target 'ComapiFoundationSample' do
 shared
 end
 
-target 'SampleAppSwift' do
+target 'ComapiFoundationSample-Swift' do
 shared
 pod 'SnapKit'
 end

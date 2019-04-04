@@ -16,8 +16,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89EA5CF7214ACC6D00C29D08"
-            BuildableName = "CMPComapiFoundation_tests.xctest"
-            BlueprintName = "CMPComapiFoundation_tests"
+            BuildableName = "CMPComapiFoundationTests.xctest"
+            BlueprintName = "CMPComapiFoundationTests"
             ReferencedContainer = "container:CMPComapiFoundation.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -27,8 +27,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89EA5CF7214ACC6D00C29D08"
-               BuildableName = "CMPComapiFoundation_tests.xctest"
-               BlueprintName = "CMPComapiFoundation_tests"
+               BuildableName = "CMPComapiFoundationTests.xctest"
+               BlueprintName = "CMPComapiFoundationTests"
                ReferencedContainer = "container:CMPComapiFoundation.xcodeproj">
             </BuildableReference>
          </TestableReference>

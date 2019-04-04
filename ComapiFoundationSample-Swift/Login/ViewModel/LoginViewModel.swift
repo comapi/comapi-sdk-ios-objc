@@ -31,7 +31,7 @@ class LoginViewModel: NSObject {
     var client: ComapiClient!
     
     override init() {
-        loginInfo = LoginBundle(apiSpaceId: "e4d01003-b024-4bc6-bbfd-f33bff820dab", profileId: "", issuer: "Issuer", audience: "Audience", secret: "Secret")
+        loginInfo = LoginBundle()
     
         super.init()
     }
@@ -49,7 +49,6 @@ class LoginViewModel: NSObject {
         }
         
         let config = ComapiConfig(apiSpaceID: loginInfo.apiSpaceId!, authenticationDelegate: self)
-        config.apiConfig = APIConfiguration(scheme: "https", host: "stage-api.comapi.com", port: 443)
         client = Comapi.initialise(with: config)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.configurator.client = client
