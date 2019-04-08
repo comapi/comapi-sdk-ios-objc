@@ -103,6 +103,7 @@ class ConversationCell: SeparatorCell {
     }
     
     func configure(with conversation: Conversation, bottomSeparator: Bool = false, topSeparator: Bool = false) {
+        dateLabel.text = conversation.updatedOn.ISO8601String() ?? ""
         nameLabel.text = conversation.name
         configure(topSeparator: topSeparator, bottomSeparator: bottomSeparator)
     }

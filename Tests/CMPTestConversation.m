@@ -21,6 +21,8 @@
 #import "CMPResourceLoader.h"
 #import "CMPConversationParticipant.h"
 #import "CMPConversationUpdate.h"
+#import "NSString+CMPUtility.h"
+#import "NSDate+CMPUtility.h"
 
 @interface CMPTestConversation : XCTestCase
 
@@ -46,7 +48,7 @@
     if (err) {
         XCTFail();
     }
-    
+
     XCTAssertEqualObjects(json[@"id"], @"support");
     XCTAssertEqualObjects(json[@"name"], @"Support");
     XCTAssertEqualObjects(json[@"description"], @"The Support Channel");
@@ -54,9 +56,10 @@
     XCTAssertEqual([json[@"roles"][@"owner"][@"canAddParticipants"] boolValue], YES);
     XCTAssertEqual([json[@"roles"][@"owner"][@"canRemoveParticipants"] boolValue], YES);
     XCTAssertEqual([json[@"roles"][@"participant"][@"canSend"] boolValue], YES);
-    XCTAssertEqual([json[@"roles"][@"participant"][@"canAddParticipants"] boolValue], YES);
+    XCTAssertEqual([json[@"roles"][@"participant"][@"canAddParticipants"] boolValue], YES); 
     XCTAssertEqual([json[@"roles"][@"participant"][@"canRemoveParticipants"] boolValue], YES);
     XCTAssertEqual([json[@"isPublic"] boolValue], NO);
+    XCTAssertEqualObjects(json[@"updatedOn"], @"2016-09-26T09:39:44.089Z");
 }
 
 - (void)testConversationParticipant {

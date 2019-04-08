@@ -61,6 +61,7 @@ class TitledTextField: BaseView {
             titleLabel.textColor = .white
             titleLabel.numberOfLines = 0
         case textField:
+            textField.autocapitalizationType = .none
             textField.backgroundColor = .clear
             textField.layer.borderWidth = 1
             textField.layer.borderColor = UIColor.white.cgColor

@@ -172,7 +172,7 @@ class ChatViewModel: NSObject {
         switch event.type {
         case .conversationMessageSent:
             guard let sent = event as? ConversationMessageEventSent, let id = sent.payload?.messageID, let metadata = sent.payload?.metadata, let context = sent.payload?.context, let parts = sent.payload?.parts, !messages.contains(where: { $0.id == id }) else { return }
-            let msg = Message(id: id, sentEventID: sent.eventID, metadata: metadata, context: context, parts: parts, statusUpdates: nil)
+            let msg = Message(id: id, sentEventID: sent.conversationEventID, metadata: metadata, context: context, parts: parts, statusUpdates: nil)
             messages.append(msg)
             didReceiveMessage?()
         case .conversationParticipantTypingOff:
