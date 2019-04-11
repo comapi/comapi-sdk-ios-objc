@@ -17,7 +17,7 @@
 //
 
 import UIKit
-import CMPComapiFoundation
+
 
 class LoginViewModel: NSObject {
     
@@ -48,11 +48,17 @@ class LoginViewModel: NSObject {
             return
         }
         
-        let config = ComapiConfig(apiSpaceID: loginInfo.apiSpaceId!, authenticationDelegate: self)
+        let config = ComapiConfig.builder()
+                                 .setAuthDelegate(self)
+                                 .setLogLevel(.debug)
+                                 .setApiSpaceID(loginInfo.apiSpaceId!)
+                                 .setApiConfig(APIConfiguration.production())
+                                 .build()
         client = Comapi.initialise(with: config)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.configurator.client = client
         client.services.session.startSession(completion: { [weak self] in
+            self?.saveLocally()
             completion(nil)
         }) { (error) in
             completion(error)

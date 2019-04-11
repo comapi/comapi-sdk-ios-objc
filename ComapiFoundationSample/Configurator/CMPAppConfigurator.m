@@ -17,6 +17,7 @@
 //
 
 #import "CMPAppConfigurator.h"
+#import "CMPAuthenticationManager.h"
 #import "CMPConversationsViewController.h"
 #import "CMPProfileViewController.h"
 #import "AppDelegate.h"
@@ -57,7 +58,7 @@
     return nil;
 }
 
-- (void)start {
+- (void)start:(void (^ _Nullable)(CMPComapiClient * _Nullable, NSError * _Nullable))completion {
     CMPLoginViewModel *vm = [[CMPLoginViewModel alloc] init];
     CMPLoginViewController *vc = [[CMPLoginViewController alloc] initWithViewModel:vm];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -68,7 +69,9 @@
     CMPLoginBundle *loginInfo = [self checkForLoginInfo];
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
-        CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:loginInfo.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelVerbose];
+        
+        CMPAPIConfiguration *apiConfig = CMPAPIConfiguration.production;
+        CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:loginInfo.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
         
         self.client = [CMPComapi initialiseWithConfig:config];
         
@@ -78,14 +81,21 @@
         __weak typeof(self) weakSelf = self;
         [self.client.services.session startSessionWithCompletion:^{
             [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
-                    CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:result.object];
-                    CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
-                    
-                    UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
-                    [nav pushViewController:vc animated:YES];
+                CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:result.object];
+                CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+                
+                UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+                [nav pushViewController:vc animated:YES];
+                
+                if (completion) {
+                    completion(weakSelf.client, result.error);
+                }
             }];
         } failure:^(NSError * _Nullable error) {
             NSLog(@"%@", error);
+            if (completion) {
+                completion(nil, error);
+            }
         }];
     }
 }

@@ -16,11 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
-#import "CMPUpdateProfileTemplate.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestUpdateProfileTemplate : XCTestCase
+@interface CMPTestUpdateProfileTemplate : CMPComapiTest
 
 @end
 

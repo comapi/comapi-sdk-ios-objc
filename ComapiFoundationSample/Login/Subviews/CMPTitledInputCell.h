@@ -19,6 +19,8 @@
 #import "CMPBaseCell.h"
 #import "CMPTitledTextField.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CMPTitledInputCell : CMPBaseCell <CMPViewConfiguring>
 
 @property (nonatomic, strong) CMPTitledTextField *titledTextField;
@@ -27,3 +29,5 @@
 - (void)configureWithTitle:(NSString *)title value:(NSString *)value;
 
 @end
+
+NS_ASSUME_NONNULL_END

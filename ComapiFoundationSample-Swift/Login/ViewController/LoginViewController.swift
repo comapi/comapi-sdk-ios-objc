@@ -96,7 +96,9 @@ class LoginViewController: BaseViewController {
     }
     
     override func navigation() {
-        navigationItem.title = "Login"
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? ""
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] ?? ""
+        navigationItem.title = "Foundation Swift - v.\(version) \(build)"
     }
     
     func reload() {

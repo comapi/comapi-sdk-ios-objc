@@ -18,6 +18,8 @@
 
 #import "CMPBaseView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CMPProfileView : CMPBaseView <CMPViewConfiguring>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -30,3 +32,5 @@
 - (instancetype)init;
 
 @end
+
+NS_ASSUME_NONNULL_END

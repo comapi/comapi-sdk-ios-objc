@@ -17,6 +17,7 @@
 //
 
 #import "CMPAuthenticationManager.h"
+
 #import <JWT/JWT.h>
 
 @implementation CMPAuthenticationManager

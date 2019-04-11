@@ -17,6 +17,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CMPChatViewController.h"
 
 NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegistrationStatusChangedNotification";
 
@@ -33,7 +34,7 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.configurator = [[CMPAppConfigurator alloc] initWithWindow:self.window];
-    [self.configurator start];
+    [self.configurator start:nil];
     
     return YES;
 }
@@ -72,7 +73,25 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     
-    completionHandler();
+    __weak typeof(self) weakSelf = self;
+    [self.configurator start:^(CMPComapiClient * _Nullable client, NSError * _Nullable error) {
+        UINavigationController *nav = (UINavigationController *)weakSelf.configurator.window.rootViewController;
+        NSString *conversationId = response.notification.request.content.userInfo[@"conversationId"];
+        [client.services.messaging getConversationWithConversationID:conversationId completion:^(CMPResult<CMPConversation *> * _Nonnull result) {
+            if (result.error) {
+                NSLog(@"%@", result.error)
+            } else {
+                CMPChatViewModel *vm = [[CMPChatViewModel alloc] initWithClient:client conversation:result.object];
+                CMPChatViewController *vc = [[CMPChatViewController alloc] initWithViewModel:vm];
+                
+                [nav pushViewController:vc animated:YES];
+            }
+            
+            completionHandler();
+        }];
+    }];
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

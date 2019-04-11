@@ -18,7 +18,6 @@
 
 #import "CMPProfileViewController.h"
 #import "CMPTitledCell.h"
-#import "CMPProfile.h"
 #import "AppDelegate.h"
 #import "CMPProfileDetailsViewController.h"
 #import "CMPConversationsViewController.h"

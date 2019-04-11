@@ -16,22 +16,21 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import CMPComapiFoundation
+
 
 class ChatViewModel: NSObject {
     
     let client: ComapiClient
     let conversation: Conversation
     var messages: [Message]
+    var attachments: [UIImage]
     let downloader: ImageDownloader
     
     var inputMessage: SendableMessage!
     
-    var didReadMessage: ((ConversationMessageEventRead) -> ())?
-    var didReceiveMessage: (() -> ())?
-    var didDeliverMessage: ((ConversationMessageEventDelivered) -> ())?
-    var didStartTyping: (() -> ())?
-    var didStopTyping: (() -> ())?
+    var shouldReloadAttachments: (() -> ())?
+    var shouldReloadMessages: ((_ showNewMessageView: Bool) -> ())?
+    var shouldReloadMessageAtIndex: ((_ index: Int) -> ())?
     var didTakeNewPhoto: ((UIImage) -> ())?
     
     init(client: ComapiClient, conversation: Conversation) {
@@ -39,6 +38,7 @@ class ChatViewModel: NSObject {
         self.conversation = conversation
         self.client = client
         self.messages = []
+        self.attachments = []
         
         super.init()
         
@@ -62,49 +62,112 @@ class ChatViewModel: NSObject {
         }
     }
     
-    func sendText(message: String, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
-        let metadata: [String : Any] = ["myMessageID" : "123"]
+    func markRead(messageId: String, completion: ((Error?) -> ())?) {
+        self.client.services.messaging.updateStatus(messageIDs: [messageId], status: .read, conversationID: conversation.id, timestamp: Date()) { result in
+            if let err = result.error {
+                print(err.localizedDescription)
+            }
+            completion?(result.error)
+        }
+    }
+    
+    func markDelivered(messageId: String, completion: ((Error?) -> ())?) {
+        self.client.services.messaging.updateStatus(messageIDs: [messageId], status: .delivered, conversationID: conversation.id, timestamp: Date()) { result in
+            if let err = result.error {
+                print(err.localizedDescription)
+            }
+            completion?(result.error)
+        }
+    }
+    
+    func markAllRead() {
+        var unread = [String]()
+        messages.forEach { (msg) in
+            if msg.statusUpdates?[client.profileID!] == nil || msg.statusUpdates?[client.profileID!]?.status != .read {
+                unread.append(msg.id!)
+            }
+        }
+        self.client.services.messaging.updateStatus(messageIDs: unread, status: .read, conversationID: conversation.id, timestamp: Date()) { result in
+            if let err = result.error {
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func createImagePart(upload: ContentUploadResult) -> MessagePart {
+        let part = MessagePart(name: "image",
+                               type: upload.type,
+                               url: upload.url,
+                               data: nil,
+                               size: nil)
+        return part
+    }
+    
+    func createTextPart(message: String) -> MessagePart {
         let part = MessagePart(name: "",
                                type: "text/plain",
                                url: nil,
                                data: message,
                                size: NSNumber(integerLiteral: message.utf8.count))
         
-        let message = SendableMessage(metadata: metadata, parts: [part], alert: nil)
+        return part
+    }
+    
+    func send(message: String, completion: @escaping (Error?) -> ()) {
+        convertAndUpload { [weak self] (uploadResult) in
+            guard let `self` = self else { return }
+            var parts = [MessagePart]()
+            
+            if message != "" {
+                let textPart = self.createTextPart(message: message)
+                parts.append(textPart)
+            }
+
+            for upload in uploadResult {
+                let part = self.createImagePart(upload: upload)
+                parts.append(part)
+            }
+            
+            let platform = MessageAlertPlatforms(apns: ["badge" : 1,
+                                                        "alert" : message != "" ? message : "New image.",
+                                                        "payload" : ["conversationId" : self.conversation.id]],
+                                                 fcm: ["notification" : ["body" : message != "" ? message : "New image.",
+                                                                         "tag" : self.conversation.name,
+                                                                         "title" : self.conversation.name]])
+            let alert = MessageAlert(platforms: platform)
+            
+            let message = SendableMessage(metadata: nil, parts: parts, alert: alert)
+            self.client.services.messaging.send(message: message, conversationID: self.conversation.id) { (result) in
+                self.attachments = []
+                DispatchQueue.main.async {
+                    completion(result.error)
+                }
+            }
+        }
+    }
+    
+    func convertAndUpload(completion: @escaping ([ContentUploadResult]) -> ()) {
+        let group = DispatchGroup()
+        var results = [ContentUploadResult]()
         
-        client.services.messaging.send(message: message, conversationID: conversation.id) { (result) in
-            if let err = result.error {
-                failure(err)
-            } else {
-                success()
+        for (idx, image) in attachments.enumerated() {
+            group.enter()
+            guard let jpg = image.jpegData(compressionQuality: 0.6) else {
+                group.leave()
+                return
+            }
+
+            let data = ContentData(data: jpg, type: "image/jpg", name: "image-\(idx)")
+            client.services.messaging.upload(content: data, folder: "images") { (result) in
+                if let res = result.object {
+                    results.append(res)
+                }
+                group.leave()
             }
         }
-    }
-    
-    func upload(content: ContentData, success: @escaping (ContentUploadResult) -> (), failure: @escaping (Error?) -> ()) {
-        client.services.messaging.upload(content: content, folder: "folder") { (result) in
-            if let err = result.error {
-                failure(err)
-            } else if let obj = result.object {
-                success(obj)
-            }
-        }
-    }
-    
-    func sendImage(content: ContentUploadResult, success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
-        let metadata: [String : Any] = ["myMessageID" : "123"]
-        let part = MessagePart(name: "image",
-                               type: content.type,
-                               url: content.url,
-                               data: nil,
-                               size: nil)
-        let message = SendableMessage(metadata: metadata, parts: [part], alert: nil)
-        client.services.messaging.send(message: message, conversationID: conversation.id) { (result) in
-            if let err = result.error {
-                failure(err)
-            } else if let _ = result.object {
-                success()
-            }
+        
+        group.notify(queue: .main) {
+            completion(results)
         }
     }
     
@@ -171,18 +234,50 @@ class ChatViewModel: NSObject {
     func consume(event: Event) {
         switch event.type {
         case .conversationMessageSent:
-            guard let sent = event as? ConversationMessageEventSent, let id = sent.payload?.messageID, let metadata = sent.payload?.metadata, let context = sent.payload?.context, let parts = sent.payload?.parts, !messages.contains(where: { $0.id == id }) else { return }
-            let msg = Message(id: id, sentEventID: sent.conversationEventID, metadata: metadata, context: context, parts: parts, statusUpdates: nil)
-            messages.append(msg)
-            didReceiveMessage?()
-        case .conversationParticipantTypingOff:
-            didStopTyping?()
-        case .conversationParticipantTyping:
-            didStartTyping?()
-        case .conversationMessageRead:
-            if let read = event as? ConversationMessageEventRead {
-                didReadMessage?(read)
+            guard let e = event as? ConversationMessageEventSent,
+                  let messageId = e.payload?.messageID,
+                  let profileId = e.payload?.context?.from?.id else { return }
+            let isMyOwn = profileId == client.profileID
+            
+            self.getMessages(success: { [weak self] in
+                self?.shouldReloadMessages?(!isMyOwn)
+                self?.markDelivered(messageId: messageId, completion: nil)
+                }, failure: { [weak self] (err) in
+                self?.shouldReloadMessages?(!isMyOwn)
+            })
+        case .conversationMessageDelivered:
+            guard let e = event as? ConversationMessageEventDelivered,
+                let messageId = e.payload?.messageID,
+                let profileId = e.payload?.profileID,
+                let idx = messages.firstIndex(where: { $0.id! == messageId }) else { return }
+            
+            if let currentStatus = messages[idx].statusUpdates?[profileId]?.status, currentStatus == .read { return }
+            
+            if messages[idx].statusUpdates == nil {
+                messages[idx].statusUpdates = [:]
             }
+            let status = MessageStatus(status: .delivered, timestamp: Date())
+            let newDict = messages[idx].statusUpdates?.merging([profileId : status], uniquingKeysWith: { (current, new) -> MessageStatus in
+                return new
+            }) ?? [:]
+            messages[idx].statusUpdates = newDict
+            shouldReloadMessageAtIndex?(idx)
+            markRead(messageId: messageId, completion: nil)
+        case .conversationMessageRead:
+            guard let e = event as? ConversationMessageEventRead,
+                let messageId = e.payload?.messageID,
+                let profileId = e.payload?.profileID,
+                let idx = messages.firstIndex(where: { $0.id! == messageId }) else { return }
+            
+            if messages[idx].statusUpdates == nil {
+                messages[idx].statusUpdates = [:]
+            }
+            let status = MessageStatus(status: .read, timestamp: Date())
+            let newDict = messages[idx].statusUpdates?.merging([profileId : status], uniquingKeysWith: { (current, new) -> MessageStatus in
+                return new
+            }) ?? [:]
+            messages[idx].statusUpdates = newDict
+            shouldReloadMessageAtIndex?(idx)
         default:
             break
         }

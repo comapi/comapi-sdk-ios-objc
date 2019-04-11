@@ -17,7 +17,7 @@
 //
 
 import UIKit
-import CMPComapiFoundation
+
 
 class ConversationViewController: BaseViewController {
 
@@ -102,6 +102,10 @@ class ConversationViewController: BaseViewController {
         
         loadingWillStop = { [weak self] notif in
             self?.hideLoader()
+        }
+        
+        viewModel.shouldReload = { [weak self] in
+            self?.reload()
         }
     }
     

@@ -16,8 +16,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import "CMPRequestPerforming.h"
+@import CMPComapiFoundation;
+
 #import "NSHTTPURLResponse+CMPTestUtility.h"
 #import "CMPTestMocks.h"
 #import "CMPResourceLoader.h"

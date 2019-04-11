@@ -16,18 +16,13 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
+#import "CMPComapiTest.h"
+
 #import "CMPMockRequestPerformer.h"
 #import "CMPMockAuthenticationDelegate.h"
-#import "CMPComapiConfig.h"
-#import "CMPComapi.h"
-#import "CMPProfile.h"
-#import "CMPConversationMessageEvents.h"
-#import "CMPConversationEvents.h"
-#import "NSDateFormatter+CMPUtility.h"
 
-@interface CMPTestComapiClient : XCTestCase
+
+@interface CMPTestComapiClient : CMPComapiTest
 
 @property (nonatomic, strong) id<CMPAuthenticationDelegate> delegate;
 @property (nonatomic, strong) CMPMockRequestPerformer *requestPerformer;

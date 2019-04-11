@@ -17,7 +17,7 @@
 //
 
 import UIKit
-import CMPComapiFoundation
+
 
 class ConversationCell: SeparatorCell {
     

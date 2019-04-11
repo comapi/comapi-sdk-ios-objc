@@ -16,9 +16,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPAuthenticationDelegate.h"
-#import "CMPRequestPerforming.h"
+@import XCTest;
+@import CMPComapiFoundation;
 
 NS_ASSUME_NONNULL_BEGIN
 

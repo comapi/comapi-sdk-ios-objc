@@ -18,6 +18,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CMPLoginBundle : NSObject <NSCoding>
 
 @property (nonatomic, strong, nullable) NSString *apiSpaceID;
@@ -31,3 +33,5 @@
 - (BOOL)isValid;
 
 @end
+
+NS_ASSUME_NONNULL_END

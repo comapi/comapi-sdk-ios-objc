@@ -1,10 +1,10 @@
 PODS:
   - Base64 (1.1.2)
-  - CMPComapiFoundation (1.1.2):
+  - CMPComapiFoundation (2.0.0):
     - SocketRocket
   - JWT (2.2.0):
     - Base64 (~> 1.1.2)
-  - SnapKit (4.2.0)
+  - SnapKit (5.0.0)
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
@@ -26,11 +26,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  CMPComapiFoundation: de6d22eafddf4c5f2e7042fbb0a98e93fd1300a6
+  CMPComapiFoundation: c017d458f55e2eb53e18df2dfab03be27930e2ec
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: d8142a4a53a1cefdc1b7d877f6fc2f6569642584
+PODFILE CHECKSUM: ccbe6a9c65ffde579710ce0ce92bb5e178a692db
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.3

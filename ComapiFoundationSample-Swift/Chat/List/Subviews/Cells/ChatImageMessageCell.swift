@@ -18,7 +18,7 @@
 
 import UIKit
 import SnapKit
-import CMPComapiFoundation
+
 
 class ChatImageMessageCell: BaseTableViewCell {
     

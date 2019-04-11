@@ -16,10 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPErrors.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestErrors : XCTestCase
+@interface CMPTestErrors : CMPComapiTest
 
 @end
 

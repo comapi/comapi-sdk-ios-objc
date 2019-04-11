@@ -17,7 +17,6 @@
 //
 
 import UIKit
-import CMPComapiFoundation
 
 class PhotoCropViewController: BaseViewController {
 
@@ -64,23 +63,10 @@ class PhotoCropViewController: BaseViewController {
         
         photoCropView.didTapTopButton = { [weak self] in
             if let image = self?.photoCropView.cropView.crop() {
-                self?.viewModel.prepare(croppedImage: image, completion: { data in
-                    if let vc = self?.navigationController?.viewControllers.first(where: { $0 is ChatViewController }) as? ChatViewController {
-                        let contentData = ContentData(data: data, type: "image/jpg", name: nil)
-                        vc.viewModel.upload(content: contentData, success: { [weak vc] result in
-                            vc?.viewModel.sendImage(content: result, success: {
-                                self?.navigationController?.popViewController(animated: true)
-                            }, failure: { (error) in
-                                print(error ?? "")
-                            })
-                        }, failure: { error in
-                            print(error ?? "")
-                        })
-                    }
-                }, failure: {
-                    print("failed upload")
+                if let vc = self?.navigationController?.viewControllers.first(where: { $0 is ChatViewController }) as? ChatViewController {
+                    vc.viewModel.attachments.append(image)
                     self?.navigationController?.popViewController(animated: true)
-                })
+                }
             }
         }
         

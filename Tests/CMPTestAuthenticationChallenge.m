@@ -16,13 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPResourceLoader.h"
-#import "CMPTestMocks.h"
-#import "CMPAuthenticationChallenge.h"
-#import "NSString+CMPUtility.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestAuthenticationChallenge : XCTestCase
+@interface CMPTestAuthenticationChallenge : CMPComapiTest
 
 @end
 

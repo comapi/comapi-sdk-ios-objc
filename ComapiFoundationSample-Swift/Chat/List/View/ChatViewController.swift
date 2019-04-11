@@ -47,15 +47,19 @@ class ChatViewController: BaseViewController {
         registerForKeyboardNotifications()
         registerForLoadingNotification()
         
-        viewModel.queryEvents(success: { [weak self] in
-            self?.viewModel.getMessages(success: { [weak self] in
-                self?.reload()
-            }) { (error) in
-                print(error ?? "")
-            }
+        self.viewModel.getMessages(success: { [weak self] in
+            self?.reload()
+            self?.scrollToLastIndex()
+            self?.viewModel.markAllRead()
         }) { (error) in
             print(error ?? "")
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.shouldReloadAttachments?()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,6 +71,8 @@ class ChatViewController: BaseViewController {
     override func delegates() {
         chatView.tableView.delegate = self
         chatView.tableView.dataSource = self
+        chatView.attachmentsView.collectionView.delegate = self
+        chatView.attachmentsView.collectionView.dataSource = self
         
         keyboardWillShow = { [weak self] notification in
             self?.chatView.animateOnKeyboardChange(notification: notification, completion: nil)
@@ -85,10 +91,11 @@ class ChatViewController: BaseViewController {
         }
         
         chatView.didTapSendButton = { [weak self] text in
-            self?.viewModel.sendText(message: text, success: {
-                self?.reload()
-            }, failure: { error in
-                self?.reload()
+            self?.viewModel.send(message: text, completion: { (error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                }
+                self?.viewModel.shouldReloadAttachments?()
             })
         }
         
@@ -102,18 +109,45 @@ class ChatViewController: BaseViewController {
             })
         }
         
+        chatView.didTapNewMessageView = { [weak self] in
+            self?.scrollToLastIndex()
+            self?.chatView.toggleNewMessageView(show: false, completion: nil)
+        }
+        
         viewModel.didTakeNewPhoto = { [weak self] image in
             self?.viewModel.showPhotoCropController(image: image, presenter: { (vc) in
                 self?.navigationController?.pushViewController(vc, animated: true)
             })
         }
         
-        viewModel.didReceiveMessage = { [weak self] in
-            self?.reload()
+        viewModel.shouldReloadAttachments = { [weak self] in
+            guard let `self` = self else { return }
+            self.chatView.inputMessageView.sendButton.isEnabled = self.viewModel.attachments.count > 0
+            self.chatView.toggleAttachments(show: self.viewModel.attachments.count > 0) {
+                self.chatView.reloadAttachments()
+            }
         }
         
-        viewModel.didReadMessage = { messageRead in
-            
+        viewModel.shouldReloadMessages = { [weak self] showNewMessage in
+            guard let `self` = self else { return }
+            if !showNewMessage {
+                self.reload(showNewMessageView: false)
+                self.scrollToLastIndex()
+            } else {
+                self.reload(showNewMessageView: true)
+            }
+        }
+        viewModel.shouldReloadMessageAtIndex = { [weak self] idx in
+            guard let `self` = self else { return }
+            if idx > self.viewModel.messages.count - 1 || idx < 0 {
+                return
+            }
+            let indices = [IndexPath(row: idx, section: 0)]
+            UIView.performWithoutAnimation {
+                let loc = self.chatView.tableView.contentOffset
+                self.chatView.tableView.reloadRows(at: indices, with: .none)
+                self.chatView.tableView.contentOffset = loc
+            }
         }
     }
     
@@ -135,8 +169,22 @@ class ChatViewController: BaseViewController {
         navigationItem.title = viewModel.conversation.name
     }
     
-    func reload() {
+    func reload(showNewMessageView: Bool = false) {
         chatView.tableView.reloadData()
+        if (showNewMessageView) {
+            if chatView.tableView.contentOffset.y < self.chatView.tableView.contentSize.height {
+                self.chatView.toggleNewMessageView(show: true, completion: nil)
+            }
+        }
+    }
+    
+    func scrollToLastIndex() {
+        if viewModel.messages.count == 0 {
+            return;
+        }
+
+        let index = viewModel.messages.count > 0 ? viewModel.messages.count - 1 : 0;
+        chatView.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .bottom, animated: false)
     }
     
     @objc func addParticipant() {
@@ -154,36 +202,35 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let msg = viewModel.messages[indexPath.row]
         
-        if let _ = msg.parts?.first?.url {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as? ChatImageMessageCell {
-                
-                if let fromID = msg.context?.from?.id, let profileID = viewModel.client.profileID {
-                    let isMine = fromID == profileID
-                    if indexPath.row == viewModel.messages.count - 1 {
-                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other, downloader: viewModel.downloader, statusViewHidden: false)
-                    } else {
-                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other, downloader: viewModel.downloader)
-                    }
-                }
-                
-                return cell
-            }
-        } else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "textCell", for: indexPath) as? ChatTextMessageCell {
-                let msg = viewModel.messages[indexPath.row]
-                if let fromID = msg.context?.from?.id, let profileID = viewModel.client.profileID {
-                    let isMine = fromID == profileID
-                    if indexPath.row == viewModel.messages.count - 1 {
-                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other, statusViewHidden: false)
-                    } else {
-                        cell.configure(with: viewModel.messages[indexPath.row], state: isMine ? .me : .other)
-                    }
-                }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ChatMessagePartCell {
+            if let fromID = msg.context?.from?.id, let profileID = viewModel.client.profileID {
+                let isMine = fromID == profileID
+                cell.configure(with: msg, ownership: isMine ? .me : .other, downloader: viewModel.downloader)
                 
                 return cell
             }
         }
 
         return UITableViewCell()
+    }
+}
+
+extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.attachments.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? AttachmentsCell {
+            cell.configure(with: viewModel.attachments[indexPath.row])
+            cell.didTapDelete = { [weak self] in
+                self?.viewModel.attachments.remove(at: indexPath.row)
+                self?.viewModel.shouldReloadAttachments?()
+            }
+            
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 }

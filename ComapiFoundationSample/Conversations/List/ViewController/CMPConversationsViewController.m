@@ -77,6 +77,11 @@
 - (void)delegates {
     self.conversationsView.tableView.delegate = self;
     self.conversationsView.tableView.dataSource = self;
+    
+    __weak typeof(self) weakSelf = self;
+    self.viewModel.shouldReload = ^{
+        [weakSelf reload];
+    };
 }
 
 - (void)navigation {

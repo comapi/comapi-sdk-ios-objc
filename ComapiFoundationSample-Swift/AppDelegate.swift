@@ -29,7 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
+        if let configured = configurator.client?.isSessionSuccessfullyCreated, configured {
+            if let conversationID = response.notification.request.content.userInfo["conversationId"] as? String {
+                if let root = self.window?.rootViewController as? UINavigationController, let topVC = root.topViewController, topVC is ChatViewController {
+                    (topVC as! ChatViewController).reload()
+                } else {
+                    configurator.start { [weak self] loggedIn in
+                        if loggedIn {
+                            self?.configurator.client?.services.messaging.getConversation(conversationID: conversationID, completion: { (result) in
+                                if let conversation = result.object, let client = self?.configurator.client {
+                                    let vm = ChatViewModel(client: client, conversation: conversation)
+                                    let vc = ChatViewController(viewModel: vm)
+                                    if let nav = self?.window?.rootViewController as? UINavigationController {
+                                        nav.pushViewController(vc, animated: true)
+                                        completionHandler()
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

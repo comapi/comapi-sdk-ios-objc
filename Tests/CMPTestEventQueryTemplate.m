@@ -16,10 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPEventQueryTemplate.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestEventQueryTemplate : XCTestCase {
+@interface CMPTestEventQueryTemplate : CMPComapiTest {
     NSString *scheme;
     NSString *host;
     NSInteger port;

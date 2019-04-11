@@ -23,15 +23,20 @@ class ChatView: BaseView {
 
     let tableView: UITableView
     let inputMessageView: ChatInputView
+    let attachmentsView: AttachmentsView
+    let newMessageView: NewMessageView
     
     var animatableConstraint: Constraint!
     
     var didTapSendButton: ((_ msg: String) -> ())?
     var didTapUploadButton: (() -> ())?
+    var didTapNewMessageView: (() -> ())?
     
     override init() {
         tableView = UITableView()
         inputMessageView = ChatInputView()
+        attachmentsView = AttachmentsView(frame: .zero)
+        newMessageView = NewMessageView(frame: .zero)
         
         super.init()
         
@@ -46,12 +51,18 @@ class ChatView: BaseView {
         customize(self)
         customize(tableView)
         customize(inputMessageView)
+        customize(attachmentsView)
+        customize(newMessageView)
         
         layout(tableView)
         layout(inputMessageView)
+        layout(attachmentsView)
+        layout(newMessageView)
         
         constrain(tableView)
         constrain(inputMessageView)
+        constrain(attachmentsView)
+        constrain(newMessageView)
     }
     
     func customize(_ view: UIView) {
@@ -64,8 +75,7 @@ class ChatView: BaseView {
             tableView.separatorStyle = .none
             tableView.rowHeight = UITableView.automaticDimension
             tableView.estimatedRowHeight = 44
-            tableView.register(ChatTextMessageCell.self, forCellReuseIdentifier: "textCell")
-            tableView.register(ChatImageMessageCell.self, forCellReuseIdentifier: "imageCell")
+            tableView.register(ChatMessagePartCell.self, forCellReuseIdentifier: "cell")
         case inputMessageView:
             inputMessageView.didTapSendButton = { [weak self] in
                 guard let `self` = self else { return }
@@ -74,15 +84,20 @@ class ChatView: BaseView {
             }
             inputMessageView.inputTextView.didChangeText = { [weak self] textView in
                 guard let `self` = self else { return }
-                self.adjustTableViewContentInset()
-                self.scrollToBottom(animated: true)
-                self.inputMessageView.sendButton.isEnabled = textView.text != ""
+                self.inputMessageView.sendButton.isEnabled = textView.text != "" || self.attachmentsView.collectionView.numberOfItems(inSection: 0) > 0
             }
             inputMessageView.didTapUploadButton = { [weak self] in
                 guard let `self` = self else { return }
                 self.didTapUploadButton?()
             }
-            
+        case attachmentsView:
+            self.attachmentsView.alpha = 0.0;
+        case newMessageView:
+            newMessageView.configure(with: "New message!")
+            newMessageView.alpha = 0.0
+            newMessageView.didTap = { [weak self] in
+                self?.didTapNewMessageView?()
+            }
         default:
             break
         }
@@ -90,7 +105,7 @@ class ChatView: BaseView {
     
     func layout(_ view: UIView) {
         switch view {
-        case tableView, inputMessageView:
+        case tableView, inputMessageView, attachmentsView, newMessageView:
             addSubview(view)
         default:
             break
@@ -110,10 +125,41 @@ class ChatView: BaseView {
             case tableView:
                 $0.top.leading.trailing.equalToSuperview()
                 $0.bottom.equalTo(inputMessageView.snp.top)
+            case attachmentsView:
+                $0.trailing.equalToSuperview()
+                $0.leading.equalToSuperview()
+                $0.bottom.equalTo(inputMessageView.snp.top)
+                $0.height.equalTo(64)
+            case newMessageView:
+                $0.centerX.equalToSuperview()
+                $0.bottom.equalTo(attachmentsView.snp.top).offset(-8)
+                $0.height.equalTo(44)
             default:
                 break
             }
         }
+    }
+    
+    func reloadAttachments() {
+        attachmentsView.reload()
+    }
+    
+    func toggleAttachments(show: Bool, completion: (() -> ())?) {
+        let alpha: CGFloat = show ? 1.0 : 0.0
+        if attachmentsView.alpha == alpha {
+            completion?()
+            return
+        }
+        
+        UIView.animate(withDuration: 0.33, animations: {
+            self.attachmentsView.alpha = alpha
+        }) { (success) in
+            completion?()
+        }
+    }
+    
+    func toggleNewMessageView(show: Bool, completion: (() -> ())?) {
+        newMessageView.toggle(show: show, completion: completion)
     }
     
     func animateOnKeyboardChange(notification: Notification, completion: (() -> ())?) {
@@ -122,16 +168,13 @@ class ChatView: BaseView {
         let curve = UIView.AnimationCurve(rawValue: (info[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber).intValue)!
         let duration = (info[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         let endFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
+        if name == UIResponder.keyboardWillShowNotification {
+            self.animatableConstraint.update(offset: -endFrame.height)
+        } else {
+            self.animatableConstraint.update(offset: 0.0)
+        }
         UIView.animate(withDuration: duration, delay: 0.0, options: [UIView.AnimationOptions(rawValue: UInt(curve.rawValue))], animations: {
-            if name == UIResponder.keyboardWillShowNotification {
-                self.animatableConstraint.update(offset: -endFrame.height)
-            } else {
-                self.animatableConstraint.update(offset: 0.0)
-            }
-            self.tableView.contentInset = .zero
             self.layoutIfNeeded()
-            self.scrollToBottom(animated: false)
         }) { _ in
             completion?()
         }
@@ -143,8 +186,13 @@ class ChatView: BaseView {
         tableView.setContentOffset(CGPoint(x: 0.0, y: bottomOffset), animated: animated)
     }
     
+    func adjustedContentInset(with additionalHeight: CGFloat) -> CGFloat {
+        let offset = self.attachmentsView.alpha == 0.0 ? 0.0 + additionalHeight : self.attachmentsView.bounds.size.height + additionalHeight
+        return offset
+    }
+    
     func adjustTableViewContentInset() {
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: inputMessageView.bounds.height, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: adjustedContentInset(with: 0), right: 0)
         layoutIfNeeded()
     }
 }

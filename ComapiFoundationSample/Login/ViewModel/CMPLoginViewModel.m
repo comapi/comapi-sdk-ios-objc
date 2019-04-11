@@ -18,6 +18,7 @@
 
 #import "CMPLoginViewModel.h"
 #import "AppDelegate.h"
+#import "CMPAuthenticationManager.h"
 
 @implementation CMPLoginViewModel
 
@@ -43,7 +44,8 @@
         return;
     }
     
-    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:self.loginBundle.apiSpaceID authenticationDelegate:self logLevel:CMPLogLevelInfo];
+    CMPAPIConfiguration *apiConfig = CMPAPIConfiguration.production;
+    CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:self.loginBundle.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
     self.client = [CMPComapi initialiseWithConfig:config];
     if (!self.client) {
         NSLog(@"failed client init");

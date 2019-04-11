@@ -97,7 +97,10 @@
 }
 
 - (void)navigation {
-    self.navigationItem.title = @"Login";
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"Foundation ObjC - v.%@ (%@)", version, build];
 }
 
 - (void)reload {
