@@ -16,7 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import CMPComapiFoundation
+
 
 class AppConfigurator: NSObject {
     let window: UIWindow
@@ -31,8 +31,13 @@ class AppConfigurator: NSObject {
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         super.init()
-        
-        Comapi.initialise(with: ComapiConfig(apiSpaceID: "", authenticationDelegate: self))
+        let config = ComapiConfig.builder()
+                                .setAuthDelegate(self)
+                                .setLogLevel(.debug)
+                                .setApiSpaceID(loginInfo?.apiSpaceId ?? "")
+                                .setApiConfig(APIConfiguration.production())
+                                .build()
+        Comapi.initialise(with: config)
     }
     
     func checkForLoginInfo() -> LoginBundle? {
@@ -43,10 +48,16 @@ class AppConfigurator: NSObject {
         return nil
     }
     
-    func start() {
+    func start(completion: ((Bool) -> ())? = nil) {
         if let loginInfo = checkForLoginInfo(), loginInfo.isValid() {
             self.loginInfo = loginInfo
-            let config = ComapiConfig(apiSpaceID: loginInfo.apiSpaceId!, authenticationDelegate: self)
+            let config = ComapiConfig.builder()
+                                    .setApiConfig(APIConfiguration.production())
+                                    .setAuthDelegate(self)
+                                    .setLogLevel(.debug)
+                                    .setApiSpaceID(loginInfo.apiSpaceId ?? "")
+                                    .build()
+            
             client = Comapi.initialise(with: config)
             client?.services.session.startSession(completion: { [weak self] in
                 guard let `self` = self else { return }
@@ -55,6 +66,7 @@ class AppConfigurator: NSObject {
                 
                 self.window.makeKeyAndVisible()
                 self.window.rootViewController = navController
+                completion?(true)
             }) { (error) in
                 fatalError("error starting session")
             }
@@ -64,6 +76,7 @@ class AppConfigurator: NSObject {
             
             window.makeKeyAndVisible()
             window.rootViewController = navController
+            completion?(false)
         }
     }
     

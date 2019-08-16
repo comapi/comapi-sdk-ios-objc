@@ -16,12 +16,11 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPComapiConfig.h"
-#import "CMPTestMocks.h"
+#import "CMPComapiTest.h"
+
 #import "CMPMockAuthenticationDelegate.h"
 
-@interface CMPTestComapiConfig : XCTestCase
+@interface CMPTestComapiConfig : CMPComapiTest
 
 @end
 
@@ -39,7 +38,8 @@
 
 - (void)testInit {
     CMPMockAuthenticationDelegate *delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:delegate];
+    
+    CMPComapiConfig *config = [[[[CMPComapiConfig builder] setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:delegate] build];
     
     XCTAssertEqualObjects(config.id, @"MOCK_API_SPACE_ID");
     XCTAssertEqualObjects(config.apiConfig.scheme, @"https");
@@ -52,7 +52,7 @@
 
 - (void)testInitLogLevel {
     CMPMockAuthenticationDelegate *delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    CMPComapiConfig *config = [[CMPComapiConfig alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:delegate logLevel:CMPLogLevelError];
+    CMPComapiConfig *config = [[[[[CMPComapiConfig builder] setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:delegate] setLogLevel:CMPLogLevelError] build];
     
     XCTAssertEqualObjects(config.id, @"MOCK_API_SPACE_ID");
     XCTAssertEqualObjects(config.apiConfig.scheme, @"https");

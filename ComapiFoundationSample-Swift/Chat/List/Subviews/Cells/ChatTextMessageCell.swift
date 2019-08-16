@@ -16,7 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import CMPComapiFoundation
+
 
 class ChatTextMessageCell: BaseTableViewCell {
 
@@ -136,7 +136,10 @@ class ChatTextMessageCell: BaseTableViewCell {
                     $0.leading.equalToSuperview().offset(14)
                 }
             case textView:
-                $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
+                $0.leading.equalToSuperview().offset(4)
+                $0.trailing.equalToSuperview().offset(-4)
+                $0.top.equalToSuperview().offset(4)
+                $0.bottom.equalToSuperview().offset(-4)
             case statusView:
                 if state == .me && !statusViewHidden {
                     $0.leading.equalTo(bubbleView.snp.trailing).offset(4)

@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
-  s.name             =	'CMPComapiFoundation'
-  s.version          =	'1.1.2'
+  s.version = '2.0.0'
+
+  s.name             =  'CMPComapiFoundation'
   s.license          = 	'MIT'
   s.summary          =	'Foundation library for connecting to and consuming COMAPI services'
   s.description      = <<-DESC
@@ -10,15 +11,13 @@ For more information about the integration please visit [the website](http://doc
 						DESC
   s.homepage         = 'https://github.com/comapi/comapi-sdk-ios-objc'
   s.author           = { 'Comapi' => 'support@comapi.com' }
-  s.source           =  { :git => 'https://github.com/comapi/comapi-sdk-ios-objc.git', :tag => '1.1.2' }
-  s.social_media_url = 'https://twitter.com/comapimessaging'
+  s.source           =  { :git => 'https://github.com/comapi/comapi-sdk-ios-objc.git', :tag => s.version.to_s }
 
-  s.platform     = :ios, '10.0'
-  s.requires_arc = true
-
-  s.source_files = 'Sources/**/*.{h,m}'
-  s.resources = []
-
+  s.ios.deployment_target = '10.0'
+  s.requires_arc          = true
+  s.source_files          = 'Sources/**/*.{h,m}'
+  s.module_map            = 'Sources/Module/module.modulemap'
+  s.module_name           = s.name
+  s.resources             = []
   s.dependency 'SocketRocket'
-  
 end

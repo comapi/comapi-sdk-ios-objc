@@ -28,6 +28,8 @@
     if (self) {
         self.client = client;
         self.profile = profile;
+        
+        [self.client addEventDelegate:self];
     }
     
     return self;
@@ -48,6 +50,47 @@
     [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
         completion(granted, error);
     }];
+}
+
+- (void)client:(nonnull CMPComapiClient *)client didReceiveEvent:(nonnull CMPEvent *)event {
+    if (event.type == CMPEventTypeConversationParticipantAdded) {
+        CMPConversationEventParticipantAdded *e = (CMPConversationEventParticipantAdded *)event;
+        for (CMPConversation *c in _conversations) {
+            if ([c.id isEqualToString:e.conversationID]) {
+                return;
+            }
+        }
+        __weak typeof(self) weakSelf = self;
+        [self.client.services.messaging getConversationWithConversationID:e.conversationID completion:^(CMPResult<CMPConversation *> * _Nonnull result) {
+            [weakSelf.conversations addObject:result.object];
+            if (weakSelf.shouldReload) {
+                weakSelf.shouldReload();
+            }
+        }];
+    } else if (event.type == CMPEventTypeConversationUpdate) {
+        CMPConversationEventUpdate *e = (CMPConversationEventUpdate *)event;
+        for (CMPConversation *c in _conversations) {
+            if ([c.id isEqualToString:e.conversationID]) {
+                c.isPublic = e.payload.isPublic;
+                c.name = e.payload.name;
+                c.roles = e.payload.roles;
+                c.conversationDescription = e.payload.eventDescription;
+                if (_shouldReload) {
+                    _shouldReload();
+                }
+            }
+        }
+    } else if (event.type == CMPEventTypeConversationDelete) {
+        CMPConversationEventDelete *e = (CMPConversationEventDelete *)event;
+        for (int i = 0; i < _conversations.count; i++) {
+            if ([_conversations[i].id isEqualToString:e.conversationID]) {
+                [_conversations removeObjectAtIndex:i];
+                if (_shouldReload) {
+                    _shouldReload();
+                }
+            }
+        }
+    }  
 }
 
 @end

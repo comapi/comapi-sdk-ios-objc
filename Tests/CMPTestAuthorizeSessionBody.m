@@ -16,12 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
-#import "CMPAuthorizeSessionBody.h"
-#import "CMPResourceLoader.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestAuthorizeSessionBody : XCTestCase
+@interface CMPTestAuthorizeSessionBody : CMPComapiTest
 
 @end
 

@@ -16,12 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPLogConfig.h"
-#import "CMPLogger.h"
-#import "CMPConstants.h"
-#import "CMPLog.h"
-#import "NSDateFormatter+CMPUtility.h"
+#import "CMPComapiTest.h"
 
 @interface CMPMockFileDestination : NSObject  <CMPLoggingDestination>
 
@@ -85,7 +80,7 @@
 
 @end
 
-@interface CMPTestLogger : XCTestCase
+@interface CMPTestLogger : CMPComapiTest
 
 @end
 

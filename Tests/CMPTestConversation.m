@@ -16,15 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPConversation.h"
-#import "CMPResourceLoader.h"
-#import "CMPConversationParticipant.h"
-#import "CMPConversationUpdate.h"
-#import "NSString+CMPUtility.h"
-#import "NSDate+CMPUtility.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestConversation : XCTestCase
+@interface CMPTestConversation : CMPComapiTest
 
 @end
 

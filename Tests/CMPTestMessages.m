@@ -16,14 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPMessage.h"
-#import "CMPMessageAlert.h"
-#import "CMPResourceLoader.h"
-#import "NSDate+CMPUtility.h"
-#import "CMPGetMessagesResult.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestMessages : XCTestCase
+@interface CMPTestMessages : CMPComapiTest
 
 @end
 
@@ -82,7 +77,7 @@
     CMPMessageContext *context = [[CMPMessageContext alloc] initWithConversationID:@"conversationId" from:participant sentBy:@"sender" sentOn:[NSDate date]];
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"partName" type:@"partType" url:[NSURL URLWithString:@"partURL"] data:@"partData" size:@(123)];
     CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusRead timestamp:[NSDate date]];
-    msg = [[CMPMessage alloc] initWithID:@"id" sentEventID:@"eventId" metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
+    msg = [[CMPMessage alloc] initWithID:@"id" sentEventID:@(1) metadata:@{} context:context parts:@[part] statusUpdates:@{@"update1" : statusUpdate}];
 
     XCTAssertEqualObjects(msg.id, @"id");
     XCTAssertEqualObjects(msg.context.from.id, @"participantID");

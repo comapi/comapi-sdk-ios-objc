@@ -16,16 +16,17 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPComapiClient.h"
-#import "CMPConversation.h"
+@import CMPComapiFoundation;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPConversationsViewModel : NSObject
+@interface CMPConversationsViewModel : NSObject <CMPEventDelegate>
 
 @property (nonatomic, strong) CMPComapiClient *client;
 @property (nonatomic, strong) CMPProfile *profile;
 @property (nonatomic, strong) NSMutableArray<CMPConversation *> *conversations;
+
+@property (nonatomic, copy) void(^shouldReload)(void);
 
 - (instancetype)initWithClient:(CMPComapiClient *)client profile:(CMPProfile *)profile;
 - (void)getConversationsWithCompletion:(void(^)(NSError * _Nullable))completion;

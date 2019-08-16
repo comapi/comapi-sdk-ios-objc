@@ -17,6 +17,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "CMPTestMocks.h"
 
 @interface CMPResourceLoader : NSObject

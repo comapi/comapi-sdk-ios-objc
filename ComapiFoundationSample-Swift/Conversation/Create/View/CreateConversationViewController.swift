@@ -17,7 +17,7 @@
 //
 
 import UIKit
-import CMPComapiFoundation
+
 
 class CreateConversationViewController: BaseViewController {
 
@@ -112,17 +112,17 @@ extension CreateConversationViewController: UITableViewDelegate, UITableViewData
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as? TitleInputCell {
-                cell.setup(inputType: .keyboard, with: "Name", value: "", topSeparator: false, bottomSeparator: true)
+                cell.setup(inputType: .keyboard, with: "Id", value: "", topSeparator: false, bottomSeparator: true)
                 cell.didChangeText = { [weak self] text in
-                    self?.viewModel.newConversation.name = text
+                    self?.viewModel.newConversation.id = text
                 }
                 return cell
             }
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as? TitleInputCell {
-                cell.setup(inputType: .keyboard, with: "Description", value: "", topSeparator: false, bottomSeparator: true)
+                cell.setup(inputType: .keyboard, with: "Name", value: "", topSeparator: false, bottomSeparator: true)
                 cell.didChangeText = { [weak self] text in
-                    self?.viewModel.newConversation.conversationDescription = text
+                    self?.viewModel.newConversation.name = text
                 }
                 return cell
             }

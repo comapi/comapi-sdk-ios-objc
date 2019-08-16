@@ -17,16 +17,16 @@
 //
 
 #import "CMPLoginBundle.h"
-#import "CMPComapi.h"
-#import "CMPAuthenticationManager.h"
+
+@import CMPComapiFoundation;
 
 @interface CMPLoginViewModel : NSObject <CMPAuthenticationDelegate>
 
-@property (nonatomic, strong) CMPLoginBundle *loginBundle;
-@property (nonatomic, strong) CMPComapiClient *client;
+@property (nonatomic, strong) CMPLoginBundle * _Nullable loginBundle;
+@property (nonatomic, strong) CMPComapiClient * _Nullable client;
 
-- (void)configureWithCompletion:(void(^)(NSError * _Nullable))completion;
-- (void)getProfileWithCompletion:(void(^)(CMPProfile * _Nullable, NSError * _Nullable))completion;
+- (void)configureWithCompletion:(void(^_Nullable)(NSError * _Nullable))completion;
+- (void)getProfileWithCompletion:(void(^_Nullable)(CMPProfile * _Nullable, NSError * _Nullable))completion;
 
 @end
 

@@ -19,6 +19,8 @@
 #import "CMPBaseView.h"
 #import "CMPInsetTextField.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CMPTitledTextField : CMPBaseView <CMPViewConfiguring>
 
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -33,3 +35,5 @@
 - (void)dismiss;
 
 @end
+
+NS_ASSUME_NONNULL_END

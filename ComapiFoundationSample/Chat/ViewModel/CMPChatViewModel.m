@@ -18,7 +18,6 @@
 
 #import "CMPChatViewModel.h"
 #import "CMPEventParser.h"
-#import "CMPConversationMessageEvents.h"
 #import "CMPPhotoVideoManager.h"
 #import "UIImage+CMPUtilities.h"
 
@@ -30,13 +29,21 @@
     if (self) {
         self.client = client;
         self.conversation = conversation;
-        self.messages = @[];
+        self.messages = [NSMutableArray new];
         self.downloader = [[CMPImageDownloader alloc] init];
+        self.imageAttachments = [NSMutableArray new];
         
         [self.client addEventDelegate:self];
     }
     
     return self;
+}
+
+- (void)addImageAttachment:(UIImage *)image {
+    [self.imageAttachments addObject:image];
+    if (_shouldReloadAttachments) {
+        self.shouldReloadAttachments();
+    }
 }
 
 - (void)getMessagesWithCompletion:(void (^)(NSArray<CMPMessage *> * _Nullable, NSError * _Nullable))completion {
@@ -45,45 +52,138 @@
         if (result.error) {
             completion(nil, result.error);
         } else {
-            weakSelf.messages = result.object.messages ? result.object.messages : @[];
+            weakSelf.messages = result.object.messages ? [NSMutableArray arrayWithArray:result.object.messages] : [NSMutableArray new];
             completion(weakSelf.messages, nil);
         }
     }];
 }
 
-- (void)sendTextMessage:(NSString *)message completion:(void (^)(NSError * _Nullable))completion {
-    NSDictionary<NSString *, id> *metadata = @{@"myMessageID" : @"123"};
-    CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"" type:@"text/plain" url:nil data:message size:[NSNumber numberWithUnsignedLong:sizeof(message.UTF8String)]];
-    CMPSendableMessage *sendableMessage = [[CMPSendableMessage alloc] initWithMetadata:metadata parts:@[part] alert:nil];
-    [self.client.services.messaging sendMessage:sendableMessage toConversationWithID:self.conversation.id completion:^(CMPResult<CMPSendMessagesResult *> *result) {
+- (void)getParticipantsWithCompletion:(void (^)(NSArray<CMPConversationParticipant *> * _Nullable, NSError * _Nullable))completion {
+    __weak typeof(self) weakSelf = self;
+    [self.client.services.messaging getParticipantsWithConversationID:self.conversation.id completion:^(CMPResult<NSArray<CMPConversationParticipant *> *> * _Nonnull result) {
         if (result.error) {
-            completion(result.error);
-        } else {
-            completion(nil);
-        }
-    }];
-}
-
-- (void)uploadContent:(CMPContentData *)content completion:(void (^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion {
-    [self.client.services.messaging uploadContent:content folder:nil completion:^(CMPResult<CMPContentUploadResult *> *result) {
-        if (result.error) {
+            NSLog(@"%@", result.error);
             completion(nil, result.error);
         } else {
-            completion(result.object, nil);
+            weakSelf.participants = [NSMutableArray arrayWithArray:result.object];
+            completion(weakSelf.participants, nil);
         }
     }];
 }
 
-- (void)sendImageWithUploadResult:(CMPContentUploadResult *)result completion:(void (^)(NSError * _Nullable))completion {
-    NSDictionary<NSString *, id> *metadata = @{@"myMessageID" : @"123"};
-    CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"image" type:result.type url:result.url data:nil size:nil];
-    CMPSendableMessage *message = [[CMPSendableMessage alloc] initWithMetadata:metadata parts:@[part] alert:nil];
+- (NSArray<CMPContentData *> *)convertImagesToContentData {
+    NSMutableArray<CMPContentData *> *attachments = [NSMutableArray new];
+    for (UIImage *i in _imageAttachments) {
+        NSData *data = UIImageJPEGRepresentation(i, 0.6);
+        CMPContentData *contentData = [[CMPContentData alloc] initWithData:data type:@"image/jpeg" name:@"image"];
+        [attachments addObject:contentData];
+    }
     
-    [self.client.services.messaging sendMessage:message toConversationWithID:self.conversation.id completion:^(CMPResult<CMPSendMessagesResult *> *result) {
-        if (result.error) {
-            completion(result.error);
+    return attachments;
+}
+
+- (CMPMessageAlert *)createAlert {
+    NSDictionary<NSString *, id> *apns = @{@"alert" : @"yes",
+                                          @"badge" : @(1),
+                                           @"payload" : @{@"conversationId" : _conversation.id}};
+    NSDictionary<NSString *, id> *fcm = @{@"\"collapse_key\"" : @"\"\"",
+                                          @"badge" : @(1),
+                                          @"data" : @{@"conversationId" : _conversation.id},
+                                          @"notification" : @{@"body" : @"yes",
+                                                              @"title" : @"New Message"}
+                                          };
+    CMPMessageAlertPlatforms *platforms = [[CMPMessageAlertPlatforms alloc] initWithApns:apns fcm:fcm];
+    CMPMessageAlert *alert = [[CMPMessageAlert alloc] initWithPlatforms:platforms];
+    return alert;
+}
+
+- (void)sendMessage:(nullable NSString *)message completion:(void (^)(NSError * _Nullable))completion {
+    __weak typeof(self) weakSelf = self;
+    
+    NSMutableArray<CMPMessagePart *> *imageParts = [NSMutableArray new];
+    NSArray<CMPContentData *> *allContent = [self convertImagesToContentData];
+    dispatch_group_t group = dispatch_group_create();
+    for (CMPContentData *cd in allContent) {
+        dispatch_group_enter(group);
+        [self.client.services.messaging uploadContent:cd folder:@"images" completion:^(CMPResult<CMPContentUploadResult *> * _Nonnull result) {
+            if (result.error) {
+                NSLog(@"%@", result.error.userInfo[NSUnderlyingErrorKey]);
+            } else if (result.object) {
+                CMPContentUploadResult *obj = result.object;
+                CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:nil type:obj.type url:obj.url data:nil size:obj.size];
+                [imageParts addObject:part];
+            }
+            dispatch_group_leave(group);
+        }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSArray<CMPMessagePart *> *partsToSend;
+        if (message) {
+            CMPMessagePart *textPart = [[CMPMessagePart alloc] initWithName:nil type:@"text/plain" url:nil data:message size:[NSNumber numberWithUnsignedLong:sizeof(message.UTF8String)]];
+            partsToSend = [@[textPart] arrayByAddingObjectsFromArray:imageParts];
         } else {
-            completion(nil);
+            partsToSend = imageParts;
+        }
+        CMPSendableMessage *toSend = [[CMPSendableMessage alloc] initWithMetadata:@{} parts:partsToSend alert:[self createAlert]];
+        [weakSelf.client.services.messaging sendMessage:toSend toConversationWithID:weakSelf.conversation.id completion:^(CMPResult<CMPSendMessagesResult *> * _Nonnull result) {
+            weakSelf.imageAttachments = [NSMutableArray new];
+            if (result.error) {
+                NSLog(@"%@", @(result.code));
+                completion(result.error);
+            } else {
+                completion(nil);
+            }
+        }];
+    });
+}
+
+- (void)markRead:(NSString *)messageID completion:(void(^)(NSError * _Nullable))completion {
+    [self.client.services.messaging updateStatusForMessagesWithIDs:@[messageID] status:CMPMessageDeliveryStatusRead conversationID:_conversation.id timestamp:[NSDate new] completion:^(CMPResult<NSNumber *> * _Nonnull result) {
+        if (result.error) {
+            NSLog(@"%@", result.error);
+        }
+        completion(result.error);
+    }];
+}
+
+- (void)markDelivered:(NSString *)messageID completion:(void(^)(NSError * _Nullable))completion {
+    [self.client.services.messaging updateStatusForMessagesWithIDs:@[messageID] status:CMPMessageDeliveryStatusDelivered conversationID:_conversation.id timestamp:[NSDate new] completion:^(CMPResult<NSNumber *> * _Nonnull result) {
+        if (result.error) {
+            NSLog(@"%@", result.error);
+        }
+        completion(result.error);
+    }];
+}
+    
+- (NSInteger)indexForMessageWithID:(NSString *)ID {
+    for (int i = 0; i < _messages.count; i++) {
+        if ([_messages[i].id isEqualToString:ID]) {
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+- (void)markUnreadWithCompletion:(void(^)(BOOL, NSError * _Nullable))completion {
+    NSString *profileID = self.client.profileID;
+    NSMutableArray<NSString *> *unread = [NSMutableArray new];
+    for (CMPMessage *m in _messages) {
+        if (!m.statusUpdates[profileID]) {
+            [unread addObject:m.id];
+        }
+    }
+    if (unread.count == 0) {
+        completion(NO, nil);
+        return;
+    }
+    [self.client.services.messaging updateStatusForMessagesWithIDs:unread status:CMPMessageDeliveryStatusRead conversationID:self.conversation.id timestamp:[NSDate new] completion:^(CMPResult<NSNumber *> * _Nonnull result) {
+        if (result.error) {
+            NSLog(@"%@", result.error);
+            completion(NO, result.error);
+        } else {
+            completion(YES, result.error);
         }
     }];
 }
@@ -139,38 +239,119 @@
 #pragma mark - CMPEventDelegate
 
 - (void)client:(CMPComapiClient *)client didReceiveEvent:(CMPEvent *)event {
+    __weak typeof(self) weakSelf = self;
     switch (event.type) {
         case CMPEventTypeConversationMessageSent: {
-            CMPConversationMessageEventSent *sentEvent = (CMPConversationMessageEventSent *)event;
-            NSString *messageID = sentEvent.payload.messageID;
-            NSDictionary *metadata = sentEvent.payload.metadata;
-            CMPMessageContext *context = sentEvent.payload.context;
-            NSArray<CMPMessagePart *> *parts = sentEvent.payload.parts;
+            CMPConversationMessageEventSent *e = (CMPConversationMessageEventSent *)event;
+            NSString *messageID = e.payload.messageID;
+            NSString *profileID = e.payload.context.from.id;
+            BOOL isMyOwn = [profileID isEqualToString:_client.profileID];
             
-            __block BOOL contains = NO;
-            [self.messages enumerateObjectsUsingBlock:^(CMPMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([obj.id isEqualToString:messageID]) {
-                    contains = YES;
-                    *stop = YES;
+            [self markDelivered:messageID completion:^(NSError * _Nullable err) {
+                if (err) {
+                    NSLog(@"%@", err);
+                } else {
+                    [self getMessagesWithCompletion:^(NSArray<CMPMessage *> * _Nullable messages, NSError * _Nullable err) {
+                        if (err) {
+                            NSLog(@"%@", err);
+                            if (weakSelf.shouldReloadMessages) {
+                                weakSelf.shouldReloadMessages(!isMyOwn);
+                            }
+                        } else {
+                            weakSelf.messages = [NSMutableArray arrayWithArray:messages];
+                            if (weakSelf.shouldReloadMessages) {
+                                weakSelf.shouldReloadMessages(!isMyOwn);
+                            }
+                        }
+                    }];
                 }
             }];
-            if (contains) {
-                return;
-            }
-            CMPMessage *message = [[CMPMessage alloc] initWithID:messageID sentEventID:sentEvent.eventID metadata:metadata context:context parts:parts statusUpdates:nil];
-            self.messages = [self.messages arrayByAddingObject:message];
-            if (self.didReceiveMessage) {
-                self.didReceiveMessage();
-            }
+
             break;
         }
-            
         case CMPEventTypeConversationParticipantTypingOff:
             break;
         case CMPEventTypeConversationParticipantTyping:
             break;
-        case CMPEventTypeConversationMessageRead:
+        case CMPEventTypeConversationMessageDelivered: {
+            CMPConversationMessageEventDelivered *sentEvent = (CMPConversationMessageEventDelivered *)event;
+            NSString *messageID = sentEvent.payload.messageID;
+            NSString *profileID = sentEvent.payload.profileID;
+            NSInteger idx = [self indexForMessageWithID:messageID];
+            if (idx >= 0) {
+                NSMutableDictionary<NSString *, CMPMessageStatus *> *statuses = [NSMutableDictionary dictionaryWithDictionary:weakSelf.messages[idx].statusUpdates];
+                statuses[profileID] = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusDelivered timestamp:[NSDate date]];
+                _messages[idx].statusUpdates = statuses;
+            }
+            if (weakSelf.shouldReloadMessageAtIndex) {
+                weakSelf.shouldReloadMessageAtIndex(idx);
+            }
+            [self markRead:messageID completion:^(NSError * _Nullable err) {
+                if (err) {
+                    NSLog(@"%@", err);
+                } else {
+                    
+//                    [self getMessagesWithCompletion:^(NSArray<CMPMessage *> * _Nullable messages, NSError * _Nullable err) {
+//                        if (err) {
+//                            NSLog(@"%@", err);
+//                            if (weakSelf.shouldReloadMessageAtIndex) {
+//                                weakSelf.shouldReloadMessageAtIndex([weakSelf indexForMessageWithID:messageID]);
+//                            }
+//                        } else {
+//                            weakSelf.messages = [NSMutableArray arrayWithArray:messages];
+//                            if (weakSelf.shouldReloadMessageAtIndex) {
+//                                weakSelf.shouldReloadMessageAtIndex([weakSelf indexForMessageWithID:messageID]);
+//                            }
+//                        }
+//                    }];
+                }
+            }];
+            
             break;
+        }
+        case CMPEventTypeConversationMessageRead: {
+            CMPConversationMessageEventRead *sentEvent = (CMPConversationMessageEventRead *)event;
+            NSString *messageID = sentEvent.payload.messageID;
+            NSString *profileID = sentEvent.payload.profileID;
+            NSInteger idx = [self indexForMessageWithID:messageID];
+            if (idx >= 0) {
+                NSMutableDictionary<NSString *, CMPMessageStatus *> *statuses = [NSMutableDictionary dictionaryWithDictionary:weakSelf.messages[idx].statusUpdates];
+                statuses[profileID] = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusRead timestamp:[NSDate date]];
+                _messages[idx].statusUpdates = statuses;
+            }
+            if (weakSelf.shouldReloadMessageAtIndex) {
+                weakSelf.shouldReloadMessageAtIndex(idx);
+            }
+//            [self getMessagesWithCompletion:^(NSArray<CMPMessage *> * _Nullable messages, NSError * _Nullable err) {
+//                if (err) {
+//                    NSLog(@"%@", err);
+//                    if (weakSelf.shouldReloadMessageAtIndex) {
+//                        weakSelf.shouldReloadMessageAtIndex([weakSelf indexForMessageWithID:messageID]);
+//                    }
+//                } else {
+//                    weakSelf.messages = [NSMutableArray arrayWithArray:messages];
+//                    if (weakSelf.shouldReloadMessageAtIndex) {
+//                        weakSelf.shouldReloadMessageAtIndex([weakSelf indexForMessageWithID:messageID]);
+//                    }
+//                }
+//            }];
+
+            break;
+        }
+        case CMPEventTypeConversationParticipantRemoved: {
+            CMPConversationEventParticipantRemoved *e = (CMPConversationEventParticipantRemoved *)event;
+            if (_didDeleteParticipant) {
+                _didDeleteParticipant(e.payload.profileID);
+            }
+            break;
+        }
+        case CMPEventTypeConversationDelete: {
+            CMPConversationEventDelete *e = (CMPConversationEventDelete *)event;
+            if (_didDeleteConversation) {
+                _didDeleteConversation(e.conversationID);
+            }
+            break;
+        }
         default:
             break;
     }

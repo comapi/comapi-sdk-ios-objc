@@ -16,18 +16,25 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import CMPComapiFoundation
+
 import UserNotifications
 
-class ConversationViewModel {
+
+class ConversationViewModel: NSObject {
     
     let client: ComapiClient
     
     var conversations: [Conversation]
     
+    var shouldReload: (() -> ())?
+    
     init(client: ComapiClient) {
         self.client = client
         self.conversations = []
+        
+        super.init()
+        
+        self.client.add(self)
     }
 
     func getConversation(for id: String, success: @escaping (Conversation) -> (), failure: @escaping (Error?) -> ()) {
@@ -70,6 +77,46 @@ class ConversationViewModel {
     func registerForRemoteNotification(completion: @escaping ((Bool, Error?) -> ())) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (success, error) in
             completion(success, error)
+        }
+    }
+}
+
+extension ConversationViewModel: EventDelegate {
+    func client(_ client: ComapiClient, didReceive event: Event) {
+        switch event.type {
+        case .conversationUpdate:
+            if let e = event as? ConversationEventUpdate, let conversation = conversations.first(where: { $0.id == e.conversationID }) {
+                conversation.name = e.payload?.name ?? conversation.name
+                conversation.conversationDescription = e.payload?.eventDescription ?? conversation.conversationDescription
+                conversation.isPublic = e.payload?.isPublic ?? conversation.isPublic
+                conversation.roles = e.payload?.roles ?? conversation.roles
+                
+                shouldReload?()
+            }
+        case .conversationDelete:
+            if let e = event as? ConversationEventDelete {
+                for (i, c) in conversations.enumerated() {
+                    if c.id == e.conversationID {
+                        conversations.remove(at: i)
+                    }
+                }
+                shouldReload?()
+            }
+        case .conversationParticipantAdded:
+            if let e = event as? ConversationEventParticipantAdded {
+                self.client.services.messaging.getConversation(conversationID: e.conversationID ?? "") { [weak self] (result) in
+                    if let err = result.error {
+                        print(err.localizedDescription)
+                    } else if let conv = result.object {
+                        self?.conversations.append(conv)
+                        self?.shouldReload?()
+                    }
+                }
+            }
+        case .none:
+            return
+        default:
+            break
         }
     }
 }

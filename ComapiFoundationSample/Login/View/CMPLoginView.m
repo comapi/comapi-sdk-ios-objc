@@ -18,6 +18,8 @@
 
 #import "CMPLoginView.h"
 
+@import CMPComapiFoundation;
+
 @implementation CMPLoginView
 
 - (instancetype)init {

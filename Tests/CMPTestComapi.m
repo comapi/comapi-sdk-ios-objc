@@ -16,13 +16,11 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
+#import "CMPComapiTest.h"
 
 #import "CMPMockAuthenticationDelegate.h"
-#import "CMPComapi.h"
 
-@interface CMPTestComapi : XCTestCase
+@interface CMPTestComapi : CMPComapiTest
 
 @property (nonatomic, strong) id<CMPAuthenticationDelegate> delegate;
 @property (nonatomic, strong) CMPComapiConfig *config;
@@ -35,7 +33,7 @@
     [super setUp];
     
     self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[CMPComapiConfig alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate];
+    self.config = [[[[CMPComapiConfig builder] setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:self.delegate] build];
 }
 
 - (void)tearDown {

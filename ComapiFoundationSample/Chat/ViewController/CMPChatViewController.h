@@ -23,13 +23,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPChatViewController : CMPBaseViewController <CMPViewControllerConfiguring, UITableViewDelegate, UITableViewDataSource>
+@interface CMPChatViewController : CMPBaseViewController <CMPViewControllerConfiguring, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong, readonly) CMPChatViewModel *viewModel;
 
 - (instancetype)initWithViewModel:(CMPChatViewModel *)viewModel;
-
-- (void)reload;
 
 - (CMPChatView *)chatView;
 

@@ -17,7 +17,7 @@
 //
 
 import SnapKit
-import CMPComapiFoundation
+
 
 class MessageStatusView: BaseView {
     

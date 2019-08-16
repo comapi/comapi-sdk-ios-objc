@@ -16,7 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import CMPComapiFoundation
+
 
 class CreateConversationViewModel {
     
@@ -32,14 +32,14 @@ class CreateConversationViewModel {
     }
     
     fileprivate func validate() -> Bool {
-        let valid = newConversation.conversationDescription != nil && newConversation.name != nil && newConversation.participants != nil
+        let valid = newConversation.id != nil && newConversation.name != nil
         return valid
     }
     
     fileprivate func createRoles() -> Roles {
         let ownerAttributes = RoleAttributes(canSend: true, canAddParticipants: true, canRemoveParticipants: true)
         let participantAttributes = RoleAttributes(canSend: true, canAddParticipants: false, canRemoveParticipants: false)
-        let roles = Roles(ownerAttributes: ownerAttributes , participantAttributes: participantAttributes)
+        let roles = Roles(ownerAttributes: ownerAttributes, participantAttributes: participantAttributes)
         
         return roles
     }
@@ -69,10 +69,9 @@ class CreateConversationViewModel {
     }
     
     func createConversation(isPublic: Bool = false, success: @escaping (_ alreadyExists: Bool, Conversation) -> (), failure: @escaping (Error?) -> ()) {
-        guard let myProfileId = client.profileID, let name = newConversation?.name, !validate() else { return }
+        guard let myProfileId = client.profileID, let id = newConversation?.id, let name = newConversation?.name, validate() else { return }
         
         let me = ConversationParticipant(id: myProfileId, role: .owner)
-        let id = name + "_" + myProfileId
         
         getConversation(for: id, success: { (converstion) in
             success(true, converstion)
@@ -83,6 +82,7 @@ class CreateConversationViewModel {
             self.newConversation.isPublic = NSNumber(booleanLiteral: isPublic)
             self.newConversation.roles = roles
             self.newConversation.id = id
+            self.newConversation.name = name
 
             NotificationCenter.post(notification: Notification.Name.init(BaseViewController.LoadingBeginNotification))
             self.client.services.messaging.addConversation(conversation: self.newConversation, completion: { (result) in

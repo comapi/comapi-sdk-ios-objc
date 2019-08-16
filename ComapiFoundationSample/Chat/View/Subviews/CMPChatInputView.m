@@ -109,4 +109,8 @@
     }
 }
 
+- (void)endEditing {
+    [self.inputTextView endEditing:YES];
+}
+
 @end

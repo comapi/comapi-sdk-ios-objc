@@ -16,9 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import "CMPComapiClient.h"
-#import "CMPProfile.h"
+@import CMPComapiFoundation;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPProfileDetailsViewModel : NSObject
 
@@ -31,3 +31,5 @@
 - (void)updateEmail:(NSString *)email completion:(void(^)(NSError * _Nullable))completion;
 
 @end
+
+NS_ASSUME_NONNULL_END

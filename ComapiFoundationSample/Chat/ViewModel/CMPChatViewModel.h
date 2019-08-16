@@ -15,33 +15,46 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-
-#import "CMPComapiClient.h"
 #import "CMPPhotoCropViewController.h"
 #import "CMPImageDownloader.h"
 
 #import <UIKit/UIKit.h>
 
+@import CMPComapiFoundation;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPChatViewModel : NSObject <CMPEventDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (atomic, strong) NSMutableArray<CMPMessage *> *messages;
+@property (atomic, strong) NSMutableArray<CMPConversationParticipant *> *participants;
+@property (atomic, strong) NSMutableArray<UIImage *> *imageAttachments;
+
+
 @property (nonatomic, strong) CMPComapiClient *client;
 @property (nonatomic, strong) CMPConversation *conversation;
-@property (nonatomic, strong) NSArray<CMPMessage *> *messages;
+
 @property (nonatomic, strong) CMPImageDownloader *downloader;
 
-@property (nonatomic, copy) void(^didReceiveMessage)(void);
+@property (nonatomic, copy) void(^shouldReloadMessageAtIndex)(NSInteger);
+@property (nonatomic, copy) void(^shouldReloadMessages)(BOOL);
+@property (nonatomic, copy) void(^shouldReloadAttachments)(void);
+@property (nonatomic, copy) void(^didDeleteParticipant)(NSString *);
+@property (nonatomic, copy) void(^didDeleteConversation)(NSString *);
 @property (nonatomic, copy) void(^didTakeNewPhoto)(UIImage *);
 
 - (instancetype)initWithClient:(CMPComapiClient *)client conversation:(CMPConversation *)conversation;
 
+- (void)getParticipantsWithCompletion:(void(^)(NSArray<CMPConversationParticipant *> * _Nullable, NSError * _Nullable))completion;
+
 - (void)getMessagesWithCompletion:(void(^)(NSArray<CMPMessage *> * _Nullable, NSError * _Nullable))completion;
-- (void)sendTextMessage:(NSString *)message completion:(void(^)(NSError * _Nullable))completion;
-- (void)uploadContent:(CMPContentData *)content completion:(void(^)(CMPContentUploadResult * _Nullable, NSError * _Nullable))completion;
-- (void)sendImageWithUploadResult:(CMPContentUploadResult *)result completion:(void(^)(NSError * _Nullable))completion;
+- (void)addImageAttachment:(UIImage *)image;
+- (void)sendMessage:(nullable NSString *)message completion:(void (^)(NSError * _Nullable))completion;
 - (void)showPhotoSourceControllerWithPresenter:(void (^)(UIViewController *))presenter alertPresenter:(void (^)(UIViewController *))alertPresenter pickerPresenter:(void (^)(UIViewController *))pickerPresenter;
 - (void)showPhotoCropControllerWithImage:(UIImage *)image presenter:(void(^)(UIViewController *))presenter;
+
+- (void)markUnreadWithCompletion:(void(^)(BOOL, NSError * _Nullable))completion;
+- (void)markRead:(NSString *)messageID completion:(void(^)(NSError * _Nullable))completion;
 
 @end
 

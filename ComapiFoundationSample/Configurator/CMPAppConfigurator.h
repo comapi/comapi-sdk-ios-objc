@@ -18,6 +18,8 @@
 
 #import "CMPLoginViewController.h"
 
+@import CMPComapiFoundation;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CMPAppConfigurator : NSObject <CMPAuthenticationDelegate>
@@ -27,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithWindow:(UIWindow *)window;
 
-- (void)start;
+- (void)start:(void(^ _Nullable)(CMPComapiClient * _Nullable, NSError * _Nullable))completion;
 - (void)restart;
 
 @end

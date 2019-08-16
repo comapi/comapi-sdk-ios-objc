@@ -16,7 +16,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPComapiClient.h"
+@import CMPComapiFoundation;
 
 NS_ASSUME_NONNULL_BEGIN
 

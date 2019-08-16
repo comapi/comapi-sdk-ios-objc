@@ -16,11 +16,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <XCTest/XCTest.h>
-#import "CMPTestMocks.h"
-#import "CMPKeychain.h"
+#import "CMPComapiTest.h"
 
-@interface CMPTestKeychain : XCTestCase
+@interface CMPTestKeychain : CMPComapiTest
 
 @property (nonatomic, strong) NSString *testStringKey;
 @property (nonatomic, strong) NSString *testNumberKey;
