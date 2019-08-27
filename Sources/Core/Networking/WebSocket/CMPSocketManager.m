@@ -119,6 +119,7 @@ NSUInteger const CMPPingTimerInterval = 240;
         [self.eventListener invokeDelegatesWithBlock:^(id<CMPEventDelegate> _Nonnull delegate) {
             [delegate client:self.client didReceiveEvent:event];
         }];
+
         logWithLevel(CMPLogLevelInfo, @"Socket: received event:", event.name, nil);
         logWithLevel(CMPLogLevelDebug, event.json, nil);
     } else {

@@ -31,6 +31,7 @@
     [dict setValue:self.conversationDescription forKey:@"description"];
     [dict setValue:[self.roles json] forKey:@"roles"];
     [dict setValue:self.isPublic forKey:@"isPublic"];
+    [dict setValue:self.latestSentEventID forKey:@"latestSentEventId"];
     [dict setValue:[self.updatedOn ISO8061String] forKey:@"updatedOn"];
 
     return dict;
@@ -65,6 +66,9 @@
         }
         if (JSON[@"isPublic"] && [JSON[@"isPublic"] isKindOfClass:NSNumber.class]) {
             self.isPublic = JSON[@"isPublic"];
+        }
+        if (JSON[@"latestSentEventId"] && [JSON[@"latestSentEventId"] isKindOfClass:NSNumber.class]) {
+            self.latestSentEventID = JSON[@"latestSentEventId"];
         }
         if (JSON[@"_updatedOn"] && [JSON[@"_updatedOn"] isKindOfClass:NSString.class]) {
             self.updatedOn = [(NSString *)JSON[@"_updatedOn"] asDate];

@@ -31,8 +31,17 @@ class LoginViewModel: NSObject {
     var client: ComapiClient!
     
     override init() {
-        loginInfo = LoginBundle()
-    
+        if let info = Bundle.main.infoDictionary,
+            let apiSpace = info["API_SPACE"] as? String,
+            let issuer = info["ISSUER"] as? String,
+            let audience = info["AUDIENCE"] as? String,
+            let secret = info["SECRET"] as? String {
+            
+            loginInfo = LoginBundle(apiSpaceId: apiSpace, profileId: "", issuer: issuer, audience: audience, secret: secret)
+        } else {
+            loginInfo = LoginBundle()
+        }
+        
         super.init()
     }
     
@@ -48,12 +57,19 @@ class LoginViewModel: NSObject {
             return
         }
         
+        guard let info = Bundle.main.infoDictionary,
+            let scheme = info["SERVER_SCHEME"] as? String,
+            let host = info["SERVER_HOST"] as? String,
+            let port = info["SERVER_PORT"] as? String else { return }
+        
+        let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
+        
         let config = ComapiConfig.builder()
-                                 .setAuthDelegate(self)
-                                 .setLogLevel(.debug)
-                                 .setApiSpaceID(loginInfo.apiSpaceId!)
-                                 .setApiConfig(APIConfiguration.production())
-                                 .build()
+            .setAuthDelegate(self)
+            .setLogLevel(.debug)
+            .setApiSpaceID(loginInfo.apiSpaceId!)
+            .setApiConfig(apiConfig)
+            .build()
         client = Comapi.initialise(with: config)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.configurator.client = client

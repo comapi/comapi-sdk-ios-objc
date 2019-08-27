@@ -30,6 +30,8 @@ NS_SWIFT_NAME(Conversation)
 @property (nonatomic, strong) NSNumber *isPublic;
 @property (nonatomic, strong) NSDate *updatedOn;
 
+@property (nonatomic, strong) NSNumber *latestSentEventID;
+
 @end
 
 NS_ASSUME_NONNULL_END

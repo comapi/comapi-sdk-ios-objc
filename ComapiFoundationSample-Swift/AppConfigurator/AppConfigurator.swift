@@ -31,13 +31,6 @@ class AppConfigurator: NSObject {
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         super.init()
-        let config = ComapiConfig.builder()
-                                .setAuthDelegate(self)
-                                .setLogLevel(.debug)
-                                .setApiSpaceID(loginInfo?.apiSpaceId ?? "")
-                                .setApiConfig(APIConfiguration.production())
-                                .build()
-        Comapi.initialise(with: config)
     }
     
     func checkForLoginInfo() -> LoginBundle? {
@@ -51,12 +44,20 @@ class AppConfigurator: NSObject {
     func start(completion: ((Bool) -> ())? = nil) {
         if let loginInfo = checkForLoginInfo(), loginInfo.isValid() {
             self.loginInfo = loginInfo
+            
+            guard let info = Bundle.main.infoDictionary,
+                let scheme = info["SERVER_SCHEME"] as? String,
+                let host = info["SERVER_HOST"] as? String,
+                let port = info["SERVER_PORT"] as? String else { return }
+            
+            let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
+            
             let config = ComapiConfig.builder()
-                                    .setApiConfig(APIConfiguration.production())
-                                    .setAuthDelegate(self)
-                                    .setLogLevel(.debug)
-                                    .setApiSpaceID(loginInfo.apiSpaceId ?? "")
-                                    .build()
+                .setApiConfig(apiConfig)
+                .setAuthDelegate(self)
+                .setLogLevel(.debug)
+                .setApiSpaceID(loginInfo.apiSpaceId ?? "")
+                .build()
             
             client = Comapi.initialise(with: config)
             client?.services.session.startSession(completion: { [weak self] in
