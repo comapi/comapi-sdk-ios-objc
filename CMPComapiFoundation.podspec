@@ -1,6 +1,5 @@
 Pod::Spec.new do |s|
-  s.version = '2.0.0'
-
+  s.version          = "2.0.1"
   s.name             =  'CMPComapiFoundation'
   s.license          = 	'MIT'
   s.summary          =	'Foundation library for connecting to and consuming COMAPI services'
@@ -16,8 +15,10 @@ For more information about the integration please visit [the website](http://doc
   s.ios.deployment_target = '10.0'
   s.requires_arc          = true
   s.source_files          = 'Sources/**/*.{h,m}'
-  s.module_map            = 'Sources/Module/module.modulemap'
+  s.module_map            = 'Sources/Module/CMPComapiFoundation.modulemap'
+  s.preserve_path         = 'Sources/Module/CMPComapiFoundation.modulemap'
   s.module_name           = s.name
   s.resources             = []
+
   s.dependency 'SocketRocket'
 end

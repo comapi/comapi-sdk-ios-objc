@@ -24,9 +24,18 @@
 
 - (instancetype)init {
     self = [super init];
-
+    
     if (self) {
-        self.loginBundle = [[CMPLoginBundle alloc] init];
+        NSDictionary<NSString *, id> *info = [NSBundle.mainBundle infoDictionary];
+        NSString *apiSpace = info[@"API_SPACE"];
+        NSString *secret = info[@"SECRET"];
+        NSString *audience = info[@"AUDIENCE"];
+        NSString *issuer = info[@"ISSUER"];
+        if (apiSpace && secret && audience && issuer) {
+            self.loginBundle = [[CMPLoginBundle alloc] initWithApiSpaceID:apiSpace profileID:@"" issuer:issuer audience:audience secret:secret];
+        } else {
+            self.loginBundle = [[CMPLoginBundle alloc] init];
+        }
     }
     
     return self;
@@ -44,9 +53,17 @@
         return;
     }
     
-    CMPAPIConfiguration *apiConfig = CMPAPIConfiguration.production;
+    NSDictionary<NSString *, id> *info = [NSBundle.mainBundle infoDictionary];
+    NSString *scheme = info[@"SERVER_SCHEME"];
+    NSString *host = info[@"SERVER_HOST"];
+    NSNumber *port = info[@"SERVER_PORT"];
+    
+    CMPAPIConfiguration *apiConfig = [[CMPAPIConfiguration alloc] initWithScheme:scheme host:host port:port.integerValue];
+    
     CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:self.loginBundle.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
+    
     self.client = [CMPComapi initialiseWithConfig:config];
+    
     if (!self.client) {
         NSLog(@"failed client init");
     }
@@ -65,7 +82,7 @@
     if (!self.client) {
         completion(nil, nil);
     }
-
+    
     [self.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
         if (result.error) {
             completion(nil, result.error);

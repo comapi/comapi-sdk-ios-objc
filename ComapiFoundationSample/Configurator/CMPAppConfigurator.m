@@ -70,7 +70,13 @@
     if (loginInfo && [loginInfo isValid]) {
         self.loginInfo = loginInfo;
         
-        CMPAPIConfiguration *apiConfig = CMPAPIConfiguration.production;
+        NSDictionary<NSString *, id> *info = [NSBundle.mainBundle infoDictionary];
+        NSString *scheme = info[@"SERVER_SCHEME"];
+        NSString *host = info[@"SERVER_HOST"];
+        NSNumber *port = info[@"SERVER_PORT"];
+        
+        CMPAPIConfiguration *apiConfig = [[CMPAPIConfiguration alloc] initWithScheme:scheme host:host port:port.integerValue];
+        
         CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:loginInfo.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
         
         self.client = [CMPComapi initialiseWithConfig:config];

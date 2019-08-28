@@ -81,8 +81,8 @@ class ImagePartView: BaseView {
         bubbleView.snp.remakeConstraints {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-4)
-            $0.height.greaterThanOrEqualTo(200)
-            $0.width.lessThanOrEqualTo(200)
+            $0.height.equalTo(200)
+            $0.width.equalTo(200)
             $0.trailing.equalTo(snp.trailing).offset(-14)
             $0.leading.equalTo(snp.leading).offset(14)
         }

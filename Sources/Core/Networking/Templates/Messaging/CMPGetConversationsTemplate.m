@@ -90,6 +90,7 @@
         case 200: {
             __block NSError *parseError = nil;
             NSArray<NSDictionary<NSString *, id> *> *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            NSLog(@"%@", json);
             if (parseError) {
                 NSError *error = [CMPErrors requestTemplateErrorWithStatus:CMPRequestTemplateErrorResponseParsingFailed underlyingError:parseError];
                 return [[CMPResult alloc] initWithObject:nil error:error eTag:eTag code:code];

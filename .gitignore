@@ -33,3 +33,7 @@ playground.xcworkspace
 
 Pods/
 *.xcworkspace
+
+## Config
+
+/Config/*.xcconfig
