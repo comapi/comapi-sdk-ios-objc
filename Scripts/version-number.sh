@@ -67,7 +67,7 @@ fi
 cd .. ; xcrun agvtool new-marketing-version $VERSION
 
 sed -i '' "s/CMPSDKInfo const CMPSDKInfoVersion = \@\".*\";/CMPSDKInfo const CMPSDKInfoVersion = \@\"${VERSION}\";/" Sources/Core/Constants/CMPConstants.m
-sed -E -i '' "s/s.version[ \t]+=[ \t]+'.*'/s.version = '${VERSION}'/" CMPComapiFoundation.podspec
+sed -E -i '' "s/s.version[ \t]*=[ \t]*'.*'/s.version = '${VERSION}'/" CMPComapiFoundation.podspec
 
 if [ ! -z "$PUSH_CHANGE" ]; then
     git commit -m "bump version to $VERSION"
