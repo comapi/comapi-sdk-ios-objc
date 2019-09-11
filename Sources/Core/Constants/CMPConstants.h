@@ -76,4 +76,8 @@ extern NSString * const CMPLogFileName NS_SWIFT_NAME(LogFileName);
 extern NSString * const CMPDefaultTerminator NS_SWIFT_NAME(DefaultTerminator);
 extern NSString * const CMPDefaultSeparator NS_SWIFT_NAME(DefaultSeparator);
 
+typedef NSString * CMPPushNotificationKey NS_TYPED_ENUM NS_SWIFT_NAME(SDKInfo);
+
+extern CMPPushNotificationKey const CMPPushNotificationKeyDirectClick NS_SWIFT_NAME(directClick);
+
 NS_ASSUME_NONNULL_END

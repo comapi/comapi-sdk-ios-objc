@@ -59,3 +59,5 @@ NSString * const CMPDefaultTerminator = @"\n";
 NSString * const CMPDefaultSeparator = @"\n";
 
 NSString * const CMPLogFileName = @"comapi.foundation.log";
+
+CMPPushNotificationKey const CMPPushNotificationKeyDirectClick = @"notificationClicked";

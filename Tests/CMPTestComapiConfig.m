@@ -64,4 +64,20 @@
     XCTAssertEqualObjects(config.authDelegate, delegate);
 }
 
+- (void)testCopy {
+    CMPMockAuthenticationDelegate *delegate = [[CMPMockAuthenticationDelegate alloc] init];
+    CMPComapiConfig *config = [[[[[CMPComapiConfig builder] setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:delegate] setLogLevel:CMPLogLevelError] build];
+    
+    CMPComapiConfig *copied = [config copyWithZone:nil];
+    
+    XCTAssertEqualObjects(copied.id, @"MOCK_API_SPACE_ID");
+    XCTAssertEqualObjects(copied.apiConfig.scheme, @"https");
+    XCTAssertEqualObjects(copied.apiConfig.host, @"api.comapi.com");
+    XCTAssertEqual(copied.logLevel, CMPLogLevelError);
+    XCTAssertEqual(copied.apiConfig.port, 443);
+    
+    XCTAssertNotNil(copied.authDelegate);
+    XCTAssertEqualObjects(copied.authDelegate, delegate);
+}
+
 @end

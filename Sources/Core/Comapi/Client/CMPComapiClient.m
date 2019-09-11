@@ -45,7 +45,7 @@
 
 @implementation CMPComapiClient
 
--(instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration {
+- (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration {
     self = [self initWithApiSpaceID:apiSpaceID authenticationDelegate:delegate apiConfiguration:configuration requestPerformer:[[CMPRequestPerformer alloc] init]];
     return self;
 }
@@ -127,6 +127,64 @@
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
         completion([result.object boolValue], result.error);
     }];
+}
+
+- (nullable NSURL *)linkForActionIdentifier:(NSString *)actionIdentifier actions:(NSArray<NSDictionary<NSString *, id> *> *)actions {
+    if ([actionIdentifier isEqualToString:UNNotificationDefaultActionIdentifier]) {
+        for (NSDictionary<NSString *, id> *action in actions) {
+            if ([action[@"action"] isEqualToString:CMPPushNotificationKeyDirectClick]) {
+                NSString *link = action[@"link"];
+                NSURL *URL = [NSURL URLWithString:link];
+                if (!URL) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Malformed url string - %@", link], nil);
+                }
+                return URL;
+            }
+        }
+    } else {
+        for (NSDictionary<NSString *, id> *action in actions) {
+            if ([action[@"action"] isEqualToString:actionIdentifier]) {
+                NSString *link = action[@"link"];
+                NSURL *URL = [NSURL URLWithString:link];
+                if (!URL) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Malformed url string - %@", link], nil);
+                }
+                return URL;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL))completion {
+    NSString *actionIdentifier = notificationResponse.actionIdentifier;
+    NSArray<NSDictionary<NSString *, id> *> *actions = notificationResponse.notification.request.content.userInfo[@"dotdigital"][@"actions"];
+    if (!actions) {
+        logWithLevel(CMPLogLevelDebug, @"No custom actions found, returning...", nil);
+        if (completion) {
+            completion(NO);
+        }
+        return;
+    }
+    NSURL *link = [self linkForActionIdentifier:actionIdentifier actions:actions];
+    if ([UIApplication.sharedApplication canOpenURL:link]) {
+        [UIApplication.sharedApplication openURL:link options:@{} completionHandler:^(BOOL success) {
+            if (!success) {
+                logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Couldn't open URL - %@", link], nil);
+            }
+            if (completion) {
+                completion(success);
+            }
+            return;
+        }];
+    } else {
+        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Cannot open URL - %@", link], nil);
+        if (completion) {
+            completion(NO);
+        }
+        return;
+    }
 }
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {

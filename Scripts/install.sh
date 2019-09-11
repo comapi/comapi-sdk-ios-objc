@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd ..
+
 pod cache clean --all
-pod deintegrate ../CMPComapiFoundation.xcodeproj
-pod install
+pod deintegrate 
+pod install --clean-install

@@ -21,6 +21,8 @@
 #import "CMPMockRequestPerformer.h"
 #import "CMPMockAuthenticationDelegate.h"
 
+@import UIKit;
+@import UserNotifications;
 
 @interface CMPTestComapiClient : CMPComapiTest
 
@@ -35,6 +37,8 @@
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration;
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate apiConfiguration:(CMPAPIConfiguration *)configuration requestPerformer:(id<CMPRequestPerforming>)requestPerformer;
+
+- (nullable NSURL *)linkForActionIdentifier:(NSString *)actionIdentifier actions:(NSArray<NSDictionary<NSString *, id> *> *)actions;
 
 @end
 
@@ -80,6 +84,35 @@
     }];
     
     [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testParseLink {
+    self.requestPerformer = [[CMPMockRequestPerformer alloc] initWithSessionAndAuth];
+    self.client = [[CMPComapiClient alloc] initWithApiSpaceID:[CMPTestMocks mockApiSpaceID] authenticationDelegate:self.delegate apiConfiguration:self.config requestPerformer:self.requestPerformer];
+    NSArray<NSDictionary<NSString *, id> *> *actions = @[@{@"link" : @"https://google.com",
+                                                           @"action" : @"notificationClicked"},
+                                                         @{@"link" : @"https://github.com",
+                                                           @"action" : @"action1"},
+                                                         @{@"link" : @"https://facebook.com",
+                                                           @"action" : @"action2"}];
+    NSURL *URL = [self.client linkForActionIdentifier:UNNotificationDefaultActionIdentifier actions:actions];
+    
+    XCTAssertNotNil(URL);
+    XCTAssertTrue([URL.absoluteString isEqualToString:@"https://google.com"]);
+    
+    URL = [self.client linkForActionIdentifier:@"action1" actions:actions];
+    
+    XCTAssertNotNil(URL);
+    XCTAssertTrue([URL.absoluteString isEqualToString:@"https://github.com"]);
+    
+    URL = [self.client linkForActionIdentifier:@"action2" actions:actions];
+    
+    XCTAssertNotNil(URL);
+    XCTAssertTrue([URL.absoluteString isEqualToString:@"https://facebook.com"]);
+    
+    URL = [self.client linkForActionIdentifier:@"undefinedAction" actions:actions];
+    
+    XCTAssertNil(URL);
 }
 
 - (void)testStartSession {

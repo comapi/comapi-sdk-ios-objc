@@ -35,7 +35,7 @@ class AppConfigurator: NSObject {
     
     func checkForLoginInfo() -> LoginBundle? {
         let defaults = UserDefaults.standard
-        if let data = defaults.object(forKey: "loginInfo") as? Data, let bundle = NSKeyedUnarchiver.unarchiveObject(with: data) as? LoginBundle {
+        if let data = defaults.object(forKey: "loginInfoSwift") as? Data, let bundle = NSKeyedUnarchiver.unarchiveObject(with: data) as? LoginBundle {
             return bundle
         }
         return nil
@@ -55,7 +55,7 @@ class AppConfigurator: NSObject {
             let config = ComapiConfig.builder()
                 .setApiConfig(apiConfig)
                 .setAuthDelegate(self)
-                .setLogLevel(.debug)
+                .setLogLevel(.verbose)
                 .setApiSpaceID(loginInfo.apiSpaceId ?? "")
                 .build()
             
@@ -82,7 +82,7 @@ class AppConfigurator: NSObject {
     }
     
     func restart() {
-        UserDefaults.standard.set(nil, forKey: "loginInfo")
+        UserDefaults.standard.set(nil, forKey: "loginInfoSwift")
         let rootController = LoginViewController(viewModel: LoginViewModel())
         let navController = UINavigationController(rootViewController: rootController)
         

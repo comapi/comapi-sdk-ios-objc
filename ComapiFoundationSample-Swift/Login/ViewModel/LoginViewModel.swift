@@ -47,7 +47,7 @@ class LoginViewModel: NSObject {
     
     private func saveLocally() {
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: loginInfo)
-        UserDefaults.standard.set(encodedData, forKey: "loginInfo")
+        UserDefaults.standard.set(encodedData, forKey: "loginInfoSwift")
         UserDefaults.standard.synchronize()
     }
     
@@ -66,7 +66,7 @@ class LoginViewModel: NSObject {
         
         let config = ComapiConfig.builder()
             .setAuthDelegate(self)
-            .setLogLevel(.debug)
+            .setLogLevel(.verbose)
             .setApiSpaceID(loginInfo.apiSpaceId!)
             .setApiConfig(apiConfig)
             .build()
