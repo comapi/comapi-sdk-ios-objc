@@ -22,7 +22,6 @@
 #import <CMPComapiFoundation/CMPComapiClient.h>
 #import <CMPComapiFoundation/CMPAPIConfiguration.h>
 #import <CMPComapiFoundation/CMPComapiConfig.h>
-#import <CMPComapiFoundation/CMPComapiConfigBuilder.h>
 #import <CMPComapiFoundation/CMPLogConfig.h>
 #import <CMPComapiFoundation/CMPConstants.h>
 #import <CMPComapiFoundation/CMPErrors.h>

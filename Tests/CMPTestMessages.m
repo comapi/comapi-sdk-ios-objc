@@ -73,7 +73,7 @@
     XCTAssertEqual([(NSNumber *)json[@"parts"][0][@"size"] integerValue], 12535);
     XCTAssertEqual([(NSArray *)json[@"statusUpdates"] count], 0);
     
-    CMPMessageParticipant *participant = [[CMPMessageParticipant alloc] initWithID:@"participantID" name:@"name"];
+    CMPMessageParticipant *participant = [[CMPMessageParticipant alloc] initWithID:@"participantID" name:@"name" avatarURL:@"avatarUrl"];
     CMPMessageContext *context = [[CMPMessageContext alloc] initWithConversationID:@"conversationId" from:participant sentBy:@"sender" sentOn:[NSDate date]];
     CMPMessagePart *part = [[CMPMessagePart alloc] initWithName:@"partName" type:@"partType" url:[NSURL URLWithString:@"partURL"] data:@"partData" size:@(123)];
     CMPMessageStatus *statusUpdate = [[CMPMessageStatus alloc] initWithStatus:CMPMessageDeliveryStatusRead timestamp:[NSDate date]];

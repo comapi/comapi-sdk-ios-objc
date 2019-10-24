@@ -26,8 +26,9 @@ NS_SWIFT_NAME(MessageParticipant)
 
 @property (nonatomic, strong, nullable) NSString *id;
 @property (nonatomic, strong, nullable) NSString *name;
+@property (nonatomic, strong, nullable) NSString *avatarURL;
 
-- (instancetype)initWithID:(NSString *)ID name:(NSString *)name;
+- (instancetype)initWithID:(NSString *)ID name:(NSString *)name avatarURL:(NSString *)avatarURL;
 
 @end
 

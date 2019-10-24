@@ -60,7 +60,11 @@
     
     CMPAPIConfiguration *apiConfig = [[CMPAPIConfiguration alloc] initWithScheme:scheme host:host port:port.integerValue];
     
-    CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:self.loginBundle.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
+    CMPComapiConfig *config = [[[[[[CMPComapiConfig alloc] init]
+                                  setApiSpaceID:self.loginBundle.apiSpaceID]
+                                 setApiConfig:apiConfig]
+                                setAuthDelegate:self]
+                               setLogLevel:CMPLogLevelDebug];
     
     self.client = [CMPComapi initialiseWithConfig:config];
     
