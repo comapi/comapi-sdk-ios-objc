@@ -157,31 +157,34 @@
     return nil;
 }
 
-- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL))completion {
-    NSString *actionIdentifier = notificationResponse.actionIdentifier;
-    NSArray<NSDictionary<NSString *, id> *> *actions = notificationResponse.notification.request.content.userInfo[@"dotdigital"][@"actions"];
-    if (!actions) {
-        logWithLevel(CMPLogLevelDebug, @"No custom actions found, returning...", nil);
-        if (completion) {
-            completion(NO);
-        }
-        return;
-    }
-    NSURL *link = [self linkForActionIdentifier:actionIdentifier actions:actions];
-    if ([UIApplication.sharedApplication canOpenURL:link]) {
-        [UIApplication.sharedApplication openURL:link options:@{} completionHandler:^(BOOL success) {
-            if (!success) {
-                logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Couldn't open URL - %@", link], nil);
-            }
+- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion {
+    //NSString *actionIdentifier = notificationResponse.actionIdentifier;
+    NSDictionary *userInfo = notificationResponse.notification.request.content.userInfo;
+    if ([userInfo objectForKey:@"dd_deepLink"]) {
+        //NSString *corelationId = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"corelationId"];
+        NSString *url = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"url"];
+        NSURL *link = [NSURL URLWithString:url];
+        if ([UIApplication.sharedApplication canOpenURL:link]) {
+            [UIApplication.sharedApplication openURL:link options:@{} completionHandler:^(BOOL success) {
+                if (!success) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Couldn't open URL - %@", link], nil);
+                }
+                if (completion) {
+                    completion(success, userInfo);
+                }
+                return;
+            }];
+        } else {
+            logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Cannot open URL - %@", link], nil);
             if (completion) {
-                completion(success);
+                completion(NO, userInfo);
             }
             return;
-        }];
+        }
     } else {
-        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Cannot open URL - %@", link], nil);
+        logWithLevel(CMPLogLevelInfo, @"Deep Link URL not found", nil);
         if (completion) {
-            completion(NO);
+            completion(NO, userInfo);
         }
         return;
     }

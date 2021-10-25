@@ -72,7 +72,21 @@
     __weak typeof(self) weakSelf = self;
     [self.client.services.session startSessionWithCompletion:^{
         [weakSelf saveLocally];
-        completion(nil);
+        [self.client.services.profile getProfileWithProfileID:self.loginBundle.profileID completion:^(CMPResult<CMPProfile *> * result) {
+            if (result.error) {
+                NSLog(@"failed obtaining profile");
+                completion(nil);
+            } else {
+                NSMutableDictionary *update = [NSMutableDictionary dictionary];
+                [update setValue:@"someone@dd.com" forKey:@"email"];
+                [self.client.services.profile patchProfileWithProfileID:self.loginBundle.profileID attributes:update eTag:result.eTag completion:^(CMPResult<CMPProfile *> *profile) {
+                    if (result.error) {
+                        NSLog(@"failed patching profile with email");
+                    }
+                    completion(nil);
+                }];
+            }
+        }];
     } failure:^(NSError * _Nullable err) {
         completion(err);
     }];
