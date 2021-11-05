@@ -107,21 +107,26 @@
     return [self.sessionManager isSessionValid];
 }
 
+- (CMPAPNSDetailsBody *)createPushDetailsWithApnsToken:(NSString *)apnsToken {
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *environment = @"";
+    
+    #if DEBUG
+        environment = @"development";
+    #else
+        environment = @"production";
+    #endif
+    
+    CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:apnsToken];
+    CMPAPNSDetailsBody *pushDetails = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+    return pushDetails;
+}
+
 - (void)setPushToken:(NSString *)deviceToken completion:(void (^)(BOOL, NSError *))completion {
     CMPSetAPNSDetailsTemplate *(^builder)(NSString *) = ^(NSString *token) {
-        NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-        NSString *environment = @"";
-        
-        #if DEBUG
-            environment = @"development";
-        #else
-            environment = @"production";
-        #endif
-        
-        CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:deviceToken];
-        CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+        self.sessionManager.cachedPushDetails = [self createPushDetailsWithApnsToken:deviceToken];
         NSString *sessionId = self.sessionManager.sessionAuth.session.id != nil ? self.sessionManager.sessionAuth.session.id : @"";
-        return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];
+        return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:self.sessionManager.cachedPushDetails];
     };
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {

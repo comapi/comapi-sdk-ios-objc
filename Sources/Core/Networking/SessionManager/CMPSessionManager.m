@@ -28,6 +28,7 @@
 #import "CMPConstants.h"
 #import "CMPSessionAuth.h"
 #import "CMPComapiClient.h"
+#import "CMPAuthorizeSessionBody.h"
 
 NSString * const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
 NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
@@ -169,7 +170,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     [self.authenticationDelegate client:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
         if (token) {
             NSString *authenticationID = challenge.authenticationID != nil ? challenge.authenticationID : @"";
-            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID challengeHandler:self];
+            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID pushDetails:weakSelf.cachedPushDetails challengeHandler:self];
         } else {
             [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus:CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }
