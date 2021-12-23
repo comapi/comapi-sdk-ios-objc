@@ -93,6 +93,14 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
                     completionHandler();
                 }];
             } else if (data[@"dd_deepLink"]) {
+                NSString *trackingUrl = data[@"dd_deepLink"][@"trackingUrl"];
+                if (trackingUrl) {
+                    [client.services.analytics trackNotificationClick:trackingUrl completion:^(CMPResult<id> * _Nonnull result) {
+                        if (result.error) {
+                            NSLog(@"%@", result.error)
+                        }
+                    }];
+                }
                 NSString *url = data[@"dd_deepLink"][@"url"];
                 NSString *message = [NSString stringWithFormat:@"Received in-app link- %@", url];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"dotdigital Deep Link" message:message preferredStyle:UIAlertControllerStyleAlert];

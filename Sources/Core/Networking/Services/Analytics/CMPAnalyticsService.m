@@ -16,28 +16,29 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPRequestTemplate.h"
-#import "CMPResult.h"
+#import "CMPAnalyticsService.h"
 
-@protocol CMPRequestManagerDelegate;
-@protocol CMPRequestPerforming;
+#import "CMPSession.h"
+#import "CMPAPIConfiguration.h"
+#import "CMPStartNewSessionTemplate.h"
+#import "CMPAuthorizeSessionTemplate.h"
+#import "CMPDeleteSessionTemplate.h"
+#import "CMPRequestManager.h"
+#import "CMPAuthenticationChallenge.h"
+#import "CMPAuthChallengeHandler.h"
+#import "CMPSessionAuth.h"
+#import "CMPSessionAuthProvider.h"
+#import "CMPAuthorizeSessionBody.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation CMPAnalyticsService
 
-NS_SWIFT_NAME(RequestManager)
-@interface CMPRequestManager : NSObject
-
-@property (nonatomic, weak, nullable) id<CMPRequestPerforming> requestPerformer;
-@property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
-
-- (instancetype)init NS_UNAVAILABLE;
-
-- (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer;
-- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPResult<id> *))completion;
-- (void)updateToken:(NSString *)token;
-- (void)tokenUpdateFailed;
-- (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion;
+/**
+ @brief Sends click data, internal only
+ @param trackingUrl Url to use
+ @param completion Block with a result value
+ */
+- (void)trackNotificationClick:(NSString *)trackingUrl completion:(void(^)(CMPResult<id> *))completion NS_SWIFT_NAME(sendClickData(trackingUrl:completion:)) {
+    [self.requestManager performClickTrackingUsingUrl:trackingUrl completion:completion];
+}
 
 @end
-
-NS_ASSUME_NONNULL_END
