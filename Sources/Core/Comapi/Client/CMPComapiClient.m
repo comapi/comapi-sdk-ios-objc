@@ -163,10 +163,19 @@
 }
 
 - (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion {
-    //NSString *actionIdentifier = notificationResponse.actionIdentifier;
+    
     NSDictionary *userInfo = notificationResponse.notification.request.content.userInfo;
     if ([userInfo objectForKey:@"dd_deepLink"]) {
-        //NSString *corelationId = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"corelationId"];
+        
+        NSString *trackingUrl = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"trackingUrl"];
+        if (trackingUrl) {
+            [self.services.analytics trackNotificationClick:trackingUrl completion:^(CMPResult<id> * _Nonnull result) {
+                if (result.error) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Error calling click trackig link."], nil);
+                }
+            }];
+        }
+        
         NSString *url = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"url"];
         NSURL *link = [NSURL URLWithString:url];
         if ([UIApplication.sharedApplication canOpenURL:link]) {
