@@ -17,7 +17,8 @@
 //
 
 #import "CMPAuthorizeSessionBody.h"
-
+#import "CMPAPNSDetails.h"
+#import "CMPAPNSDetailsBody.h"
 #import "CMPConstants.h"
 
 #import <UIKit/UIKit.h>
@@ -35,6 +36,24 @@
         self.platformVersion = [[UIDevice currentDevice] systemVersion];
         self.sdkType = CMPSDKInfoType;
         self.sdkVersion = CMPSDKInfoVersion;
+       
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken pushDetails:(CMPAPNSDetailsBody *)pushDetails {
+    self = [super init];
+    
+    if (self) {
+        self.authenticationID = authenticationID;
+        self.authenticationToken = authenticationToken;
+        self.deviceID = [[UIDevice currentDevice] model];
+        self.platform = CMPSDKInfoPlatform;
+        self.platformVersion = [[UIDevice currentDevice] systemVersion];
+        self.sdkType = CMPSDKInfoType;
+        self.sdkVersion = CMPSDKInfoVersion;
+        self.push = pushDetails;
     }
     
     return self;

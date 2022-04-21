@@ -23,6 +23,8 @@
 #import "CMPTokenState.h"
 #import "CMPHTTPRequestTemplate.h"
 #import "CMPErrors.h"
+#import "CMPRequestPerforming.h"
+#import "CMPConstants.h"
 
 @interface CMPRequestManager ()
 
@@ -71,6 +73,21 @@
             break;
         }
     }
+}
+
+- (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion {
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        request.HTTPMethod = @"GET";
+        NSURLRequest *finalRequest = request;
+        [self.requestPerformer performRequest:finalRequest completion:^(NSData * data, NSURLResponse * response, NSError * error) {
+            if (error) {
+                completion([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);
+            } else {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                completion([[CMPResult alloc] initWithObject:nil error:nil eTag:nil code:[httpResponse statusCode]]);
+            }
+        }];
 }
 
 - (void)runAllPendingOperations {

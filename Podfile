@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 abstract_target 'Shared' do
-  pod 'SocketRocket'
+  pod 'SocketRocket', '~> 0.6'
 
   target 'CMPComapiFoundation' do
     target 'ComapiFoundationSample' do

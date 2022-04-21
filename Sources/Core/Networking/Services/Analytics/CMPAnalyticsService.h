@@ -16,27 +16,33 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPRequestTemplate.h"
+#import "CMPBaseService.h"
 #import "CMPResult.h"
-
-@protocol CMPRequestManagerDelegate;
-@protocol CMPRequestPerforming;
+#import "CMPAPNSDetailsBody.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(RequestManager)
-@interface CMPRequestManager : NSObject
+NS_SWIFT_NAME(AnalyticsServiceable)
+@protocol CMPAnalyticsServiceable <NSObject>
 
-@property (nonatomic, weak, nullable) id<CMPRequestPerforming> requestPerformer;
-@property (nonatomic, weak, nullable) id<CMPRequestManagerDelegate> delegate;
+#pragma mark - Events
+
+/**
+ @brief Sends click data, internal only
+ @param trackingUrl Url to use
+ @param completion Block with a result value
+ */
+- (void)trackNotificationClick:(NSString *)trackingUrl completion:(void(^)(CMPResult<id> *))completion NS_SWIFT_NAME(sendClickData(trackingUrl:completion:));
+
+@end
+
+/**
+ @brief Messaging related Comapi services.
+ */
+NS_SWIFT_NAME(MessagingService)
+@interface CMPAnalyticsService : CMPBaseService <CMPAnalyticsServiceable>
 
 - (instancetype)init NS_UNAVAILABLE;
-
-- (instancetype)initWithRequestPerformer:(id<CMPRequestPerforming>)requestPerformer;
-- (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPResult<id> *))completion;
-- (void)updateToken:(NSString *)token;
-- (void)tokenUpdateFailed;
-- (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion;
 
 @end
 

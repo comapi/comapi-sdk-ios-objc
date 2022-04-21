@@ -17,6 +17,7 @@
 //
 
 #import "CMPJSONEncoding.h"
+#import "CMPAPNSDetailsBody.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,10 +31,12 @@ NS_SWIFT_NAME(AuthorizeSessionBody)
 @property (nonatomic, strong) NSString *platformVersion;
 @property (nonatomic, strong) NSString *sdkType;
 @property (nonatomic, strong) NSString *sdkVersion;
+@property (nonatomic, strong) CMPAPNSDetailsBody *push;
 
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken;
+- (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken pushDetails:(CMPAPNSDetailsBody *) pushDetails;
 - (instancetype)initWithAuthenticationID:(NSString *)authenticationID authenticationToken:(NSString *)authenticationToken deviceID:(NSString *)deviceID platform:(NSString *)platform platformVersion:(NSString *)platformVersion sdkType:(NSString *)sdkType sdkVersion:(NSString *)sdkVersion;
 
 @end

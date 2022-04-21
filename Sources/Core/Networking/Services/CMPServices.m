@@ -27,6 +27,7 @@
         self.profile = [[CMPProfileService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
         self.session = [[CMPSessionService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
         self.messaging = [[CMPMessagingService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
+        self.analytics = [[CMPAnalyticsService alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:requestManager sessionAuthProvider:authProvider];
     }
     
     return self;

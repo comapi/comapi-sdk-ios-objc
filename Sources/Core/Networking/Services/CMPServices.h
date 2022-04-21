@@ -19,6 +19,7 @@
 #import "CMPSessionService.h"
 #import "CMPProfileService.h"
 #import "CMPMessagingService.h"
+#import "CMPAnalyticsService.h"
 
 @class CMPRequestManager;
 @class CMPAPIConfiguration;
@@ -33,6 +34,7 @@ NS_SWIFT_NAME(Services)
 @property (nonatomic, strong) id<CMPSessionServiceable> session;
 @property (nonatomic, strong) id<CMPProfileServiceable> profile;
 @property (nonatomic, strong) id<CMPMessagingServiceable> messaging;
+@property (nonatomic, strong) id<CMPAnalyticsServiceable> analytics;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -128,7 +128,7 @@ NS_SWIFT_NAME(ComapiClient)
  @param completion Completion block.
 
  */
-- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL))completion NS_SWIFT_NAME(handle(notificationResponse:completion:));
+- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion NS_SWIFT_NAME(handle(notificationResponse:completion:));
 
 /**
  @brief Adds an event listener, CMPEventDelegate conforming object to listen for incoming events.

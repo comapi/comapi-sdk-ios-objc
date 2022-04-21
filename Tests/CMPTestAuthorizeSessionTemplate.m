@@ -35,7 +35,20 @@
 }
 
 - (void)testAuthorizeSessionTemplate {
-    CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:@"test_auth_id" authenticationToken:[CMPTestMocks mockAuthenticationToken]];
+    
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *environment = @"";
+    
+    #if DEBUG
+        environment = @"development";
+    #else
+        environment = @"production";
+    #endif
+    
+    CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:@"apnsToken"];
+    CMPAPNSDetailsBody *pushDetails = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+    
+    CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:@"test_auth_id" authenticationToken:[CMPTestMocks mockAuthenticationToken] pushDetails:pushDetails];
     CMPAuthorizeSessionTemplate *template = [[CMPAuthorizeSessionTemplate alloc] initWithScheme:@"test_scheme" host:@"test_host" port:100 apiSpaceID:[CMPTestMocks mockApiSpaceID] body:body];
     
     XCTAssertEqualObjects(template.scheme, @"test_scheme");
@@ -49,6 +62,9 @@
     XCTAssertEqualObjects(template.body.platformVersion, [[UIDevice currentDevice] systemVersion]);
     XCTAssertEqualObjects(template.body.sdkType, CMPSDKInfoType);
     XCTAssertEqualObjects(template.body.sdkVersion, CMPSDKInfoVersion);
+    XCTAssertEqualObjects(template.body.push.apns.environment, @"development");
+    XCTAssertEqualObjects(template.body.push.apns.token, @"apnsToken");
+    XCTAssertEqualObjects(template.body.push.apns.bundleID, bundleID);
 }
 
 @end

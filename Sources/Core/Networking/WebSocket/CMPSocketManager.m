@@ -105,7 +105,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 
 - (void)sendPing {
     logWithLevel(CMPLogLevelVerbose, @"Socket: ping", nil);
-    [self.socket sendPing:nil];
+    [self.socket sendPing:nil error:nil];
 }
 
 - (void)handleSocketMessage:(id)message {

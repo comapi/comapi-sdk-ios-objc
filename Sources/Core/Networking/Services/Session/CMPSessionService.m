@@ -70,4 +70,17 @@
     }];
 }
 
+- (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID pushDetails:(CMPAPNSDetailsBody *)cachedPushDetails challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler {
+    CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:authenticationID authenticationToken:token pushDetails:cachedPushDetails];
+    CMPAuthorizeSessionTemplate *template = [[CMPAuthorizeSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID body:body];
+    
+    [template performWithRequestPerformer:self.requestManager.requestPerformer result:^(CMPResult<CMPSessionAuth *> *result) {
+        if (result.error) {
+            [challengeHandler authenticationFailedWithError:result.error];
+        } else {
+            [challengeHandler authenticationFinishedWithSessionAuth:result.object];
+        }
+    }];
+}
+
 @end

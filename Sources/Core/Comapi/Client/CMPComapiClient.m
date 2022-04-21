@@ -109,21 +109,26 @@
     return [self.sessionManager isSessionValid];
 }
 
+- (CMPAPNSDetailsBody *)createPushDetailsWithApnsToken:(NSString *)apnsToken {
+    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *environment = @"";
+    
+    #if DEBUG
+        environment = @"development";
+    #else
+        environment = @"production";
+    #endif
+    
+    CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:apnsToken];
+    CMPAPNSDetailsBody *pushDetails = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+    return pushDetails;
+}
+
 - (void)setPushToken:(NSString *)deviceToken completion:(void (^)(BOOL, NSError *))completion {
     CMPSetAPNSDetailsTemplate *(^builder)(NSString *) = ^(NSString *token) {
-        NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-        NSString *environment = @"";
-        
-        #if DEBUG
-            environment = @"development";
-        #else
-            environment = @"production";
-        #endif
-        
-        CMPAPNSDetails *details = [[CMPAPNSDetails alloc] initWithBundleID:bundleID environment:environment token:deviceToken];
-        CMPAPNSDetailsBody *body = [[CMPAPNSDetailsBody alloc] initWithAPNSDetails:details];
+        self.sessionManager.cachedPushDetails = [self createPushDetailsWithApnsToken:deviceToken];
         NSString *sessionId = self.sessionManager.sessionAuth.session.id != nil ? self.sessionManager.sessionAuth.session.id : @"";
-        return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:body];
+        return [[CMPSetAPNSDetailsTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:sessionId body:self.sessionManager.cachedPushDetails];
     };
     
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
@@ -159,31 +164,43 @@
     return nil;
 }
 
-- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL))completion {
-    NSString *actionIdentifier = notificationResponse.actionIdentifier;
-    NSArray<NSDictionary<NSString *, id> *> *actions = notificationResponse.notification.request.content.userInfo[@"dotdigital"][@"actions"];
-    if (!actions) {
-        logWithLevel(CMPLogLevelDebug, @"No custom actions found, returning...", nil);
-        if (completion) {
-            completion(NO);
+- (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion {
+    
+    NSDictionary *userInfo = notificationResponse.notification.request.content.userInfo;
+    if ([userInfo objectForKey:@"dd_deepLink"]) {
+        
+        NSString *trackingUrl = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"trackingUrl"];
+        if (trackingUrl) {
+            [self.services.analytics trackNotificationClick:trackingUrl completion:^(CMPResult<id> * _Nonnull result) {
+                if (result.error) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Error calling click trackig link."], nil);
+                }
+            }];
         }
-        return;
-    }
-    NSURL *link = [self linkForActionIdentifier:actionIdentifier actions:actions];
-    if ([UIApplication.sharedApplication canOpenURL:link]) {
-        [UIApplication.sharedApplication openURL:link options:@{} completionHandler:^(BOOL success) {
-            if (!success) {
-                logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Couldn't open URL - %@", link], nil);
-            }
+        
+        NSString *url = notificationResponse.notification.request.content.userInfo[@"dd_deepLink"][@"url"];
+        NSURL *link = [NSURL URLWithString:url];
+        if ([UIApplication.sharedApplication canOpenURL:link]) {
+            [UIApplication.sharedApplication openURL:link options:@{} completionHandler:^(BOOL success) {
+                if (!success) {
+                    logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Couldn't open URL - %@", link], nil);
+                }
+                if (completion) {
+                    completion(success, userInfo);
+                }
+                return;
+            }];
+        } else {
+            logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Cannot open URL - %@", link], nil);
             if (completion) {
-                completion(success);
+                completion(NO, userInfo);
             }
             return;
-        }];
+        }
     } else {
-        logWithLevel(CMPLogLevelError, [NSString stringWithFormat:@"Cannot open URL - %@", link], nil);
+        logWithLevel(CMPLogLevelInfo, @"Deep Link URL not found", nil);
         if (completion) {
-            completion(NO);
+            completion(NO, userInfo);
         }
         return;
     }
