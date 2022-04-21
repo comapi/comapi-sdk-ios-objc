@@ -52,12 +52,11 @@ class AppConfigurator: NSObject {
             
             let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
             
-            let config = ComapiConfig.builder()
-                .setApiConfig(apiConfig)
+            let config = ComapiConfig()
+                .setApi(apiConfig)
                 .setAuthDelegate(self)
                 .setLogLevel(.verbose)
                 .setApiSpaceID(loginInfo.apiSpaceId ?? "")
-                .build()
             
             client = Comapi.initialise(with: config)
             client?.services.session.startSession(completion: { [weak self] in

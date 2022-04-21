@@ -19,7 +19,6 @@
 #import "CMPComapiConfig.h"
 
 #import "CMPAPIConfiguration.h"
-#import "CMPComapiConfigBuilder.h"
 #import "CMPLogConfig.h"
 #import "CMPLogger.h"
 #import "CMPLogLevel.h"
@@ -30,25 +29,36 @@
 
 @implementation CMPComapiConfig
 
-+ (CMPComapiConfigBuilder *)builder {
-    return [CMPComapiConfigBuilder new];
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        
+    }
+    
+    return self;
 }
 
-- (void)setLogLevel:(CMPLogLevel)logLevel {
+- (instancetype)setApiSpaceID:(NSString *)apiSpaceID {
+    _id = apiSpaceID;
+    return self;
+}
+
+- (instancetype)setApiConfig:(CMPAPIConfiguration *)apiConfig {
+    _apiConfig = apiConfig;
+    return self;
+}
+
+- (instancetype)setLogLevel:(CMPLogLevel)logLevel {
     _logLevel = logLevel;
-    [CMPLogConfig setLogLevel:self.logLevel];
+    [CMPLogConfig setLogLevel:logLevel];
     [[CMPLogger shared] resetDestinations];
+    return self;
 }
 
-- (nonnull id)copyWithZone:(nullable NSZone *)zone {
-    CMPComapiConfig *c = [[CMPComapiConfig alloc] init];
-    
-    c.id = self.id;
-    c.authDelegate = self.authDelegate;
-    c.apiConfig = self.apiConfig;
-    c.logLevel = self.logLevel;
-    
-    return c;
+- (instancetype)setAuthDelegate:(id<CMPAuthenticationDelegate>)authDelegate {
+    _authDelegate = authDelegate;
+    return self;
 }
 
 @end

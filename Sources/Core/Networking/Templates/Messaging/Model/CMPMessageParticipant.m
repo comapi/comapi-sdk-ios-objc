@@ -20,12 +20,13 @@
 
 @implementation CMPMessageParticipant
 
-- (instancetype)initWithID:(NSString *)ID name:(NSString *)name {
+- (instancetype)initWithID:(NSString *)ID name:(NSString *)name avatarURL:(NSString *)avatarURL {
     self = [super init];
     
     if (self) {
         self.id = ID;
         self.name = name;
+        self.avatarURL = avatarURL;
     }
     
     return self;
@@ -37,6 +38,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setValue:self.name forKey:@"name"];
     [dict setValue:self.id forKey:@"id"];
+    [dict setValue:self.avatarURL forKey:@"avatarUrl"];
     
     return dict;
 }
@@ -52,6 +54,9 @@
         }
         if (JSON[@"id"] && [JSON[@"id"] isKindOfClass:NSString.class]) {
             self.id = JSON[@"id"];
+        }
+        if (JSON[@"avatarUrl"] && [JSON[@"avatarUrl"] isKindOfClass:NSString.class]) {
+            self.avatarURL = JSON[@"avatarUrl"];
         }
     }
     

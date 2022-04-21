@@ -64,12 +64,12 @@ class LoginViewModel: NSObject {
         
         let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
         
-        let config = ComapiConfig.builder()
+        let config = ComapiConfig()
             .setAuthDelegate(self)
             .setLogLevel(.verbose)
             .setApiSpaceID(loginInfo.apiSpaceId!)
-            .setApiConfig(apiConfig)
-            .build()
+            .setApi(apiConfig)
+        
         client = Comapi.initialise(with: config)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.configurator.client = client

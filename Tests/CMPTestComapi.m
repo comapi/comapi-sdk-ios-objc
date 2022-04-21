@@ -33,7 +33,8 @@
     [super setUp];
     
     self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[[[CMPComapiConfig builder] setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:self.delegate] build];
+    self.config = [[CMPComapiConfig alloc] init];
+    [[self.config setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:self.delegate];
 }
 
 - (void)tearDown {

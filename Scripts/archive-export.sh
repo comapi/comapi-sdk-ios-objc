@@ -18,7 +18,7 @@ esac
 done
 
 if [ "$CNF" = "" ]; then
-    CNF="Staging"
+    CNF="Release"
 fi
 
 DIR="$HOME/Desktop/dotdigital/Builds"

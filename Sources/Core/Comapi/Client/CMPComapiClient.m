@@ -73,6 +73,8 @@
         
         _services = [[CMPServices alloc] initWithApiSpaceID:apiSpaceID apiConfiguration:configuration requestManager:self.requestManager sessionAuthProvider:self.sessionManager];
         
+        _stateDelegates = [[CMPBroadcastDelegate alloc] init];
+        
         _state = CMPSDKStateInitilised;
     }
     
