@@ -98,11 +98,17 @@
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [backButton setImage:[UIImage imageNamed:@"back"] forState:0];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     self.navigationItem.leftBarButtonItem = backBarButton;
+}
+
+- (void) back:(UIBarButtonItem *)sender {
+    AppDelegate *appDel = (AppDelegate *)UIApplication.sharedApplication.delegate;
+    [appDel.configurator restart];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)createConversation {

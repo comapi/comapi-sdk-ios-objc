@@ -75,7 +75,11 @@
         
         _stateDelegates = [[CMPBroadcastDelegate alloc] init];
         
-        _state = CMPSDKStateInitilised;
+        if ([self.sessionManager isSessionValid]) {
+            _state = CMPSDKStateSessionActive;
+        } else {
+            _state = CMPSDKStateInitilised;
+        }
     }
     
     return self;
@@ -207,6 +211,7 @@
 }
 
 - (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
+    _state = CMPSDKStateSessionOff;
     [self.sessionManager authenticateWithSuccess:nil failure:nil];
 }
 

@@ -44,6 +44,7 @@ extern NSString * const CMPAuthenticationErrorDomain NS_SWIFT_NAME(Authenticatio
 typedef NSUInteger CMPAuthenticationErrorStatusCode NS_TYPED_ENUM NS_SWIFT_NAME(AuthenticationErrorStatusCode);
 
 extern CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorMissingTokenStatusCode NS_SWIFT_NAME(missingToken);
+extern CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorWrongStateStatusCode NS_SWIFT_NAME(wrongState);
 
 typedef NSString * CMPHTTPMethod NS_TYPED_ENUM NS_SWIFT_NAME(HTTPMethod);
 

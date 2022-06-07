@@ -83,6 +83,10 @@ NSUInteger const CMPPingTimerInterval = 240;
     _token = token;
 }
 
+- (void)clearToken {
+    _token = nil;
+}
+
 - (void)startSocket {
     pingTimer = [NSTimer scheduledTimerWithTimeInterval:CMPPingTimerInterval target:self selector:@selector(sendPing) userInfo:nil repeats:YES];
     

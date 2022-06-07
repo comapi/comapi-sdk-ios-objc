@@ -36,6 +36,7 @@ CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorAlreadyExistsStat
 NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
 
 CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
+CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorWrongStateStatusCode = 5562;
 
 CMPHTTPMethod const CMPHTTPMethodGET = @"GET";
 CMPHTTPMethod const CMPHTTPMethodPOST = @"POST";

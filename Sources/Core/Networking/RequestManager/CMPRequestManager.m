@@ -124,6 +124,11 @@
     self.tokenState = CMPTokenStateMissing;
 }
 
+- (void)clearToken {
+    self.token = nil;
+    self.tokenState = CMPTokenStateMissing;
+}
+
 @end
 
 

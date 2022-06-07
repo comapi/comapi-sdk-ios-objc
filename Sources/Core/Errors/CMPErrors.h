@@ -59,6 +59,8 @@ typedef NS_ENUM(NSUInteger, CMPRequestTemplateError) {
 typedef NS_ENUM(NSUInteger, CMPAuthenticationError) {
     /// Could not perform request due to missing authentication token.
     CMPAuthenticationErrorMissingToken,
+    /// Could not perform request due to the sdk currently initialising or authenticating
+    CMPAuthenticationErrorWrongState
 } NS_SWIFT_NAME(AuthenticationError);
 
 NS_SWIFT_NAME(Errors)
