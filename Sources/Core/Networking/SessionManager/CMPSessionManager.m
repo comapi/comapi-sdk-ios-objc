@@ -83,6 +83,17 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     return false;
 }
 
+- (BOOL)isSessionExpired {
+    if (self.client.state == CMPSDKStateSessionActive
+        && _sessionAuth != nil
+        && _sessionAuth.session != nil
+        && _sessionAuth.session.expiresOn != nil) {
+        return _sessionAuth.session.isActive && [[NSDate date] compare:_sessionAuth.session.expiresOn] == NSOrderedDescending;
+    }
+    
+    return false;
+}
+
 - (void)bindClient:(CMPComapiClient *)client {
     self.client = client;
 }
@@ -103,12 +114,13 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     if (token && session) {
         CMPSessionAuth *sessionAuth = [[CMPSessionAuth alloc] initWithToken:token session:session];
         self.sessionAuth = sessionAuth;
-        if (self.isSessionValid) {
-            [self.requestManager updateToken:token];
-            [self.socketManager updateToken:token];
-        } else {
-            [self authenticateWithSuccess:nil failure:nil];
-        }
+    }
+}
+
+-(void)updateTokenInternally {
+    if (self.isSessionValid) {
+        [self.requestManager updateToken:self.sessionAuth.token];
+        [self.socketManager updateToken:self.sessionAuth.token];
     }
 }
 
@@ -232,6 +244,10 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
             completion(result);
         }];
     }
+}
+
+- (BOOL)isSessionOff {
+    return self.client.state == CMPSDKStateSessionOff || self.client.state == CMPSDKStateInitilised;
 }
 
 @end

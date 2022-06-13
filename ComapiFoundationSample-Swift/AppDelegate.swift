@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        configurator.client?.handle(notificationResponse: response, completion: { [weak self] (didHandleLink) in
+        configurator.client?.handle(notificationResponse: response, completion: { [weak self] (didHandleLink, data) in
             if didHandleLink {
                 completionHandler()
             } else {

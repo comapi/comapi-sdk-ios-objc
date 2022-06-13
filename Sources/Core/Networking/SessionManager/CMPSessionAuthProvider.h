@@ -32,6 +32,8 @@ NS_SWIFT_NAME(SessionAuthProvider)
 
 - (void)endSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion;
 
+- (BOOL)isSessionOff;
+
 @end
 
 NS_ASSUME_NONNULL_END

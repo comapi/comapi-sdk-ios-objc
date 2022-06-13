@@ -91,4 +91,8 @@
     }];
 }
 
+- (BOOL)isSessionOff {
+    return [self.sessionAuthProvider isSessionOff];
+}
+
 @end

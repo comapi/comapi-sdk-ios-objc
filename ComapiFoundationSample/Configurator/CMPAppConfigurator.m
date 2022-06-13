@@ -88,26 +88,35 @@
         if (!self.client) {
             NSLog(@"failed client init");
         }
+        
         __weak typeof(self) weakSelf = self;
-        [self.client.services.session startSessionWithCompletion:^{
-            [weakSelf.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
-                CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:weakSelf.client profile:result.object];
-                CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
-                
-                UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
-                [nav pushViewController:vc animated:YES];
-                
+        if ([self.client.services.session isSessionOff]) {
+            [self.client.services.session startSessionWithCompletion:^{
+                [self handleSessionStartedBy:weakSelf withCompletion:completion];
+            } failure:^(NSError * _Nullable error) {
+                NSLog(@"%@", error);
                 if (completion) {
-                    completion(weakSelf.client, result.error);
+                    completion(nil, error);
                 }
             }];
-        } failure:^(NSError * _Nullable error) {
-            NSLog(@"%@", error);
-            if (completion) {
-                completion(nil, error);
-            }
-        }];
+        } else {
+            [self handleSessionStartedBy:weakSelf withCompletion:completion];
+        }
     }
+}
+
+-(void)handleSessionStartedBy:(CMPAppConfigurator*)handler withCompletion:(void (^ _Nullable)(CMPComapiClient * _Nullable, NSError * _Nullable))completion   {
+    [handler.client.services.profile getProfileWithProfileID:self.client.profileID completion:^(CMPResult<CMPProfile *> * result) {
+        CMPConversationsViewModel *vm = [[CMPConversationsViewModel alloc] initWithClient:handler.client profile:result.object];
+        CMPConversationsViewController *vc = [[CMPConversationsViewController alloc] initWithViewModel:vm];
+        
+        UINavigationController *nav = (UINavigationController *)UIApplication.sharedApplication.delegate.window.rootViewController;
+        [nav pushViewController:vc animated:YES];
+        
+        if (completion) {
+            completion(handler.client, result.error);
+        }
+    }];
 }
 
 - (void)restart {
