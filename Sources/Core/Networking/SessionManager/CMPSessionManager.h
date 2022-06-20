@@ -39,7 +39,6 @@ NS_SWIFT_NAME(SessionManager)
 
 - (BOOL)isSessionValid;
 - (BOOL)isSessionExpired;
-- (BOOL)isSessionOff;
 
 - (void)bindClient:(CMPComapiClient *)client;
 - (void)bindSocketManager:(CMPSocketManager *)socketManager;

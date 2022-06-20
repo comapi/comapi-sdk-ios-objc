@@ -90,18 +90,14 @@
         }
         
         __weak typeof(self) weakSelf = self;
-        if ([self.client.services.session isSessionOff]) {
-            [self.client.services.session startSessionWithCompletion:^{
-                [self handleSessionStartedBy:weakSelf withCompletion:completion];
-            } failure:^(NSError * _Nullable error) {
-                NSLog(@"%@", error);
-                if (completion) {
-                    completion(nil, error);
-                }
-            }];
-        } else {
+        [self.client.services.session startSessionWithCompletion:^{
             [self handleSessionStartedBy:weakSelf withCompletion:completion];
-        }
+        } failure:^(NSError * _Nullable error) {
+            NSLog(@"%@", error);
+            if (completion) {
+                completion(nil, error);
+            }
+        }];
     }
 }
 

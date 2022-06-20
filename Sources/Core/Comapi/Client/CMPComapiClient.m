@@ -80,11 +80,6 @@
         if ([self.sessionManager isSessionValid]) {
             _state = CMPSDKStateSessionActive;
             [self.socketManager startSocket];
-        } else if ([self.sessionManager isSessionExpired]) {
-            _state = CMPSDKStateInitilised;
-            [self.sessionManager authenticateWithSuccess:^{
-                [self.socketManager startSocket];
-            } failure:nil];
         } else {
             _state = CMPSDKStateInitilised;
         }
@@ -218,10 +213,12 @@
     }
 }
 
-- (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
+- (BOOL)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
     if([self.sessionManager isSessionExpired]) {
         [self.sessionManager authenticateWithSuccess:nil failure:nil];
+        return true;
     }
+    return false;
 }
 
 #pragma mark - CMPSessionDelegate

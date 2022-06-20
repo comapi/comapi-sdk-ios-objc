@@ -42,12 +42,6 @@ NS_SWIFT_NAME(SessionServiceable)
     NS_SWIFT_NAME(endSession(completion:));
 
 /**
- @brief Is session off.
- */
-- (BOOL)isSessionOff
-    NS_SWIFT_NAME(isSessionOff());
-
-/**
  @brief Part of session starting procedure, asks the passed challangeHandler to provide a valid JWT authentication token.
  @param challengeHandler A CMPAuthChallengeHandler conforming object providing a JWT token.
  @warning Do not call this method or implement your own @a CMPAuthChallengeHandler, sessions are handled by @a CMPSessionManager.

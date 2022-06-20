@@ -200,6 +200,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (void)authenticateWithSuccess:(void(^)(void))success failure:(void(^)(NSError *))failure {
     if (self.client) {
+        
         if (self.client.state == CMPSDKStateSessionActive && [self isSessionValid]) {
             return success();
         }
@@ -244,10 +245,6 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
             completion(result);
         }];
     }
-}
-
-- (BOOL)isSessionOff {
-    return self.client.state == CMPSDKStateSessionOff || self.client.state == CMPSDKStateInitilised;
 }
 
 @end

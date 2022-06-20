@@ -104,7 +104,11 @@
     }
     
     if (self.delegate != nil) {
-        [self.delegate requestManagerNeedsToken:self];
+        if ([self.delegate requestManagerNeedsToken:self]) {
+            self.tokenState = CMPTokenStateAwaiting;
+        } else {
+            self.tokenState = CMPTokenStateFailed;
+        }
     } else {
         self.tokenState = CMPTokenStateFailed;
         [self runAllPendingOperations];

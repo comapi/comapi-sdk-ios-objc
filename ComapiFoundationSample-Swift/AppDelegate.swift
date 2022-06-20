@@ -30,19 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        configurator.client?.handle(notificationResponse: response, completion: { [weak self] (didHandleLink, data) in
-            if didHandleLink {
-                completionHandler()
-            } else {
-                if let configured = self?.configurator.client?.isSessionSuccessfullyCreated, configured {
-                    if let conversationID = response.notification.request.content.userInfo["conversationId"] as? String {
-                        if let root = self?.window?.rootViewController as? UINavigationController, let topVC = root.topViewController, topVC is ChatViewController {
-                            (topVC as! ChatViewController).reload()
-                            completionHandler()
-                        } else {
-                            self?.configurator.start { [weak self] loggedIn in
-                                if loggedIn {
+        configurator.start { [weak self] loggedIn in
+            if (loggedIn) {
+                self?.configurator.client?.handle(notificationResponse: response, completion: { [weak self] (didHandleLink, data) in
+                    if didHandleLink {
+                        completionHandler()
+                    } else {
+                        if let configured = self?.configurator.client?.isSessionSuccessfullyCreated, configured {
+                            if let conversationID = response.notification.request.content.userInfo["conversationId"] as? String {
+                                if let root = self?.window?.rootViewController as? UINavigationController, let topVC = root.topViewController, topVC is ChatViewController {
+                                    (topVC as! ChatViewController).reload()
+                                    completionHandler()
+                                } else {
                                     self?.configurator.client?.services.messaging.getConversation(conversationID: conversationID, completion: { (result) in
                                         if let conversation = result.object, let client = self?.configurator.client {
                                             let vm = ChatViewModel(client: client, conversation: conversation)
@@ -54,12 +53,26 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                         }
                                     })
                                 }
+                            } else if let deepLink = response.notification.request.content.userInfo["dd_deepLink"] as? NSDictionary, let url = deepLink["url"] as? String {
+                                let message = String(format: "Received in-app link- %@", url)
+                                let alert = UIAlertController(title: "dotdigital Deep Link", message: message, preferredStyle: UIAlertController.Style.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                var rootViewController = UIApplication.shared.keyWindow?.rootViewController
+                                if let navigationController = rootViewController as? UINavigationController {
+                                    rootViewController = navigationController.viewControllers.first
+                                }
+                                if let tabBarController = rootViewController as? UITabBarController {
+                                    rootViewController = tabBarController.selectedViewController
+                                }
+                                rootViewController?.present(alert, animated: true, completion: nil)
                             }
                         }
                     }
-                }
+                })
+            } else {
+                // log
             }
-        });
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
