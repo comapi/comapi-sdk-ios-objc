@@ -123,8 +123,10 @@
     logWithLevel(CMPLogLevelWarning, @"restarting...", nil);
     
     [self.client.services.session endSessionWithCompletion:^(CMPResult<NSNumber *> *result) {
-        UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-        [nav popToRootViewControllerAnimated:YES];
+        if (result.error == nil) {
+            UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+            [nav popToRootViewControllerAnimated:YES];
+        }
     }];
 }
 

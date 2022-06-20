@@ -70,7 +70,7 @@ NS_SWIFT_NAME(SessionServiceable)
  @warning Do not call this method, sessions are handled by @a CMPSessionManager.
  */
 - (void)callEndSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion
-    NS_SWIFT_NAME(endSession(completion:));
+    NS_SWIFT_NAME(callEndSession(completion:));
 
 @end
 

@@ -81,12 +81,15 @@ class AppConfigurator: NSObject {
     }
     
     func restart() {
-        UserDefaults.standard.set(nil, forKey: "loginInfoSwift")
-        let rootController = LoginViewController(viewModel: LoginViewModel())
-        let navController = UINavigationController(rootViewController: rootController)
-        
-        window.makeKeyAndVisible()
-        window.rootViewController = navController
+        self.client?.services.session.endSession(completion: { [weak self] result in
+            if (result.error == nil) {
+                UserDefaults.standard.set(nil, forKey: "loginInfoSwift")
+                let rootController = LoginViewController(viewModel: LoginViewModel())
+                let navController = UINavigationController(rootViewController: rootController)
+                self?.window.makeKeyAndVisible()
+                self?.window.rootViewController = navController
+            }
+        })
     }
 }
 
