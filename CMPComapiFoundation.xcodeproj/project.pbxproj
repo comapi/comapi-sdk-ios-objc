@@ -345,6 +345,15 @@
 		89DCBB4921342787001016FF /* CMPAuthorizeSessionBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */; };
 		89DCBB4C21344823001016FF /* CMPDeleteSessionTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCBB4A21344823001016FF /* CMPDeleteSessionTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89DCBB4D21344823001016FF /* CMPDeleteSessionTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DCBB4B21344823001016FF /* CMPDeleteSessionTemplate.m */; };
+		89E01D49231685C0005F6A77 /* StagingSample.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D40231685C0005F6A77 /* StagingSample.xcconfig */; };
+		89E01D4A231685C0005F6A77 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D41231685C0005F6A77 /* Debug.xcconfig */; };
+		89E01D4B231685C0005F6A77 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D42231685C0005F6A77 /* Release.xcconfig */; };
+		89E01D4C231685C0005F6A77 /* DebugSampleSwift.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D43231685C0005F6A77 /* DebugSampleSwift.xcconfig */; };
+		89E01D4D231685C0005F6A77 /* DebugSample.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D44231685C0005F6A77 /* DebugSample.xcconfig */; };
+		89E01D4E231685C0005F6A77 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D45231685C0005F6A77 /* Staging.xcconfig */; };
+		89E01D4F231685C0005F6A77 /* StagingSampleSwift.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D46231685C0005F6A77 /* StagingSampleSwift.xcconfig */; };
+		89E01D50231685C0005F6A77 /* ReleaseSample.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D47231685C0005F6A77 /* ReleaseSample.xcconfig */; };
+		89E01D51231685C0005F6A77 /* ReleaseSampleSwift.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 89E01D48231685C0005F6A77 /* ReleaseSampleSwift.xcconfig */; };
 		89E39C6B22D770C300EF794F /* CMPLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 89957A3321358936008EE0BE /* CMPLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89E39C7122D8939F00EF794F /* CMPComapiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E39C7022D8939F00EF794F /* CMPComapiTest.m */; };
 		89E459D621ABFDDA002C26AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E459D521ABFDDA002C26AE /* AppDelegate.swift */; };
@@ -948,7 +957,6 @@
 		E3B5AA52FEF2642972D88D70 /* Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-CMPComapiFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-CMPComapiFoundationTests.debug.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-CMPComapiFoundationTests/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-CMPComapiFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF32F4DAA945C4C450847F4B /* Pods-Shared-CMPComapiFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation.debug.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation/Pods-Shared-CMPComapiFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		FE75F903D365C8F3A255E260 /* Pods-Shared-CMPComapiFoundation-ComapiFoundationSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation-ComapiFoundationSample.debug.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample.debug.xcconfig"; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2023,6 +2031,7 @@
 				89C8DE3F2122DF3C00555495 /* Products */,
 				F698CE1B51A5412278830598 /* Pods */,
 				4551D6D80719A603A1D1EEC4 /* Frameworks */,
+				89E01D3F231685C0005F6A77 /* Config */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2418,6 +2427,22 @@
 				89DCBB4721342787001016FF /* CMPAuthorizeSessionBody.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		89E01D3F231685C0005F6A77 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				89E01D40231685C0005F6A77 /* StagingSample.xcconfig */,
+				89E01D41231685C0005F6A77 /* Debug.xcconfig */,
+				89E01D42231685C0005F6A77 /* Release.xcconfig */,
+				89E01D43231685C0005F6A77 /* DebugSampleSwift.xcconfig */,
+				89E01D44231685C0005F6A77 /* DebugSample.xcconfig */,
+				89E01D45231685C0005F6A77 /* Staging.xcconfig */,
+				89E01D46231685C0005F6A77 /* StagingSampleSwift.xcconfig */,
+				89E01D47231685C0005F6A77 /* ReleaseSample.xcconfig */,
+				89E01D48231685C0005F6A77 /* ReleaseSampleSwift.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		89E459D421ABFDDA002C26AE /* ComapiFoundationSample-Swift */ = {
@@ -2911,6 +2936,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E01D4F231685C0005F6A77 /* StagingSampleSwift.xcconfig in Resources */,
+				89E01D4A231685C0005F6A77 /* Debug.xcconfig in Resources */,
+				89E01D4D231685C0005F6A77 /* DebugSample.xcconfig in Resources */,
+				89E01D49231685C0005F6A77 /* StagingSample.xcconfig in Resources */,
+				89E01D4C231685C0005F6A77 /* DebugSampleSwift.xcconfig in Resources */,
+				89E01D4E231685C0005F6A77 /* Staging.xcconfig in Resources */,
+				89E01D51231685C0005F6A77 /* ReleaseSampleSwift.xcconfig in Resources */,
+				89E01D50231685C0005F6A77 /* ReleaseSample.xcconfig in Resources */,
+				89E01D4B231685C0005F6A77 /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

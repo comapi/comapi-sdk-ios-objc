@@ -19,6 +19,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
+  CMPComapiFoundation: 5f3ae1dfa44639289e5bf5e2ec9afbb1011b059e
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
