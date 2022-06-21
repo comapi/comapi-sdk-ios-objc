@@ -53,7 +53,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                         }
                                     })
                                 }
-                            } else if let deepLink = response.notification.request.content.userInfo["dd_deepLink"] as? NSDictionary, let url = deepLink["url"] as? String {
+                            } else if let deepLink = response.notification.request.content.userInfo["dd_deepLink"] as? NSDictionary, let url = deepLink["url"] as? String, !didHandleLink {
                                 let message = String(format: "Received in-app link- %@", url)
                                 let alert = UIAlertController(title: "dotdigital Deep Link", message: message, preferredStyle: UIAlertController.Style.alert)
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
