@@ -91,37 +91,11 @@ NS_SWIFT_NAME(ComapiClient)
  */
 - (void)setPushToken:(NSString *)deviceToken completion:(void(^)(BOOL, NSError * _Nullable))completion NS_SWIFT_NAME(set(pushToken:completion:));
 
-
 /**
  @brief Handles notifications with comapi related deeplinks.
  @discussion Use this method to handle deeplinks inside UNNotificationCenterDelegate's method:
  @code
  - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler;
- @endcode
- @discussion For proper handling of message's APNS payload define your links and actions in the following format:
- @code
- "apns": {
-     // Regular apns key-value pairs.
-     "payload": {
-         "dotdigital" : {
-             "actions": [
-                 {
-                     "action": "notificationClicked", // Defines a direct tap on notification, must match this key.
-                     "link": "your_app_scheme://login", // Link to open.
-                     // Some other info.
-                 },
-                 {
-                     "action": "action1", // Custom action you register with a custom category, for this to work you must also set the category key under APNS dict.
-                     "link": "http:/google.com"
-                 },
-                 {
-                     "action": "action2",
-                     "link": "your_app_scheme://landing"
-                 }
-             ]
-         }
-    }
- }
  @endcode
  
  @param notificationResponse response recieved from UNNotificationCenterDelegate's method.
@@ -153,7 +127,6 @@ NS_SWIFT_NAME(ComapiClient)
  @param delegate CMPStateDelegate conforming object that should be removed from registered delegates.
  */
 - (void)removeStateDelegate:(id<CMPStateDelegate>)delegate;
-
 
 @end
 
