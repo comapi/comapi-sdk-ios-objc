@@ -75,7 +75,14 @@
         
         _stateDelegates = [[CMPBroadcastDelegate alloc] init];
         
-        _state = CMPSDKStateInitilised;
+        [self.sessionManager updateTokenInternally];
+        
+        if ([self.sessionManager isSessionValid]) {
+            _state = CMPSDKStateSessionActive;
+            [self.socketManager startSocket];
+        } else {
+            _state = CMPSDKStateInitilised;
+        }
     }
     
     return self;
@@ -206,8 +213,12 @@
     }
 }
 
-- (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
-    [self.sessionManager authenticateWithSuccess:nil failure:nil];
+- (BOOL)requestManagerNeedsToken:(CMPRequestManager *)requestManager {
+    if([self.sessionManager isSessionExpired]) {
+        [self.sessionManager authenticateWithSuccess:nil failure:nil];
+        return true;
+    }
+    return false;
 }
 
 #pragma mark - CMPSessionDelegate

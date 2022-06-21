@@ -17,6 +17,7 @@
 //
 
 @import Foundation;
+#import "CMPResult.h"
 
 @class CMPSessionAuth;
 
@@ -28,6 +29,8 @@ NS_SWIFT_NAME(SessionAuthProvider)
 @property (nonatomic, strong, nullable) CMPSessionAuth *sessionAuth;
 
 - (void)authenticateWithSuccess:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError *))failure;
+
+- (void)endSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion;
 
 @end
 

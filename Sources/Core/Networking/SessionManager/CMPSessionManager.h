@@ -38,8 +38,11 @@ NS_SWIFT_NAME(SessionManager)
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager sessionDelegate:(id<CMPSessionDelegate>)sessionDelegate;
 
 - (BOOL)isSessionValid;
+- (BOOL)isSessionExpired;
+
 - (void)bindClient:(CMPComapiClient *)client;
 - (void)bindSocketManager:(CMPSocketManager *)socketManager;
+- (void)updateTokenInternally;
 
 @end
 

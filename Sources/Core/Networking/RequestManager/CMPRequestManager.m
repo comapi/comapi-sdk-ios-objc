@@ -104,7 +104,11 @@
     }
     
     if (self.delegate != nil) {
-        [self.delegate requestManagerNeedsToken:self];
+        if ([self.delegate requestManagerNeedsToken:self]) {
+            self.tokenState = CMPTokenStateAwaiting;
+        } else {
+            self.tokenState = CMPTokenStateFailed;
+        }
     } else {
         self.tokenState = CMPTokenStateFailed;
         [self runAllPendingOperations];
@@ -121,6 +125,11 @@
 - (void)tokenUpdateFailed {
     self.tokenState = CMPTokenStateFailed;
     [self runAllPendingOperations];
+    self.tokenState = CMPTokenStateMissing;
+}
+
+- (void)clearToken {
+    self.token = nil;
     self.tokenState = CMPTokenStateMissing;
 }
 

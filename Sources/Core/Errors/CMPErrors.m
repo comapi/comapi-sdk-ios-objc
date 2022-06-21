@@ -46,6 +46,8 @@
     switch (status) {
         case CMPAuthenticationErrorMissingToken:
             return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorMissingTokenStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
+        case CMPAuthenticationErrorWrongState:
+            return [[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:CMPAuthenticationErrorWrongStateStatusCode userInfo:error != nil ? @{NSUnderlyingErrorKey : error} : @{}];
     }
 }
 

@@ -37,6 +37,7 @@ NS_SWIFT_NAME(RequestManager)
 - (void)updateToken:(NSString *)token;
 - (void)tokenUpdateFailed;
 - (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion;
+- (void)clearToken;
 
 @end
 

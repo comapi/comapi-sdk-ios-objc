@@ -65,6 +65,13 @@ NS_SWIFT_NAME(SessionServiceable)
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID pushDetails:(CMPAPNSDetailsBody *)cachedPushDetails challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler
     NS_SWIFT_NAME(continueAuthentication(token:authenticationID:pushDetails:challengeHandler:));
 
+/**
+ @brief Ends a Comapi session.
+ @warning Do not call this method, sessions are handled by @a CMPSessionManager.
+ */
+- (void)callEndSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion
+    NS_SWIFT_NAME(callEndSession(completion:));
+
 @end
 
 /**
