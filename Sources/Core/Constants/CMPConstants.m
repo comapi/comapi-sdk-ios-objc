@@ -36,6 +36,7 @@ CMPRequestTemplateErrorStatusCode const CMPRequestTemplateErrorAlreadyExistsStat
 NSString * const CMPAuthenticationErrorDomain = @"com.comapi.foundation.authentication";
 
 CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorMissingTokenStatusCode = 5561;
+CMPAuthenticationErrorStatusCode const CMPAuthenticationErrorWrongStateStatusCode = 5562;
 
 CMPHTTPMethod const CMPHTTPMethodGET = @"GET";
 CMPHTTPMethod const CMPHTTPMethodPOST = @"POST";
@@ -49,7 +50,7 @@ CMPHTTPHeaderType const CMPHTTPHeaderAuthorization = @"Authorization";
 CMPHTTPHeaderType const CMPHTTPHeaderIfMatch = @"If-Match";
 
 CMPSDKInfo const CMPSDKInfoPlatform = @"iOS";
-CMPSDKInfo const CMPSDKInfoVersion = @"2.0.1";
+CMPSDKInfo const CMPSDKInfoVersion = @"2.1.0";
 CMPSDKInfo const CMPSDKInfoType = @"native";
 
 CMPQueueName const CMPQueueNameConsole = @"com.comapi.foundation.console";
@@ -59,3 +60,5 @@ NSString * const CMPDefaultTerminator = @"\n";
 NSString * const CMPDefaultSeparator = @"\n";
 
 NSString * const CMPLogFileName = @"comapi.foundation.log";
+
+CMPPushNotificationKey const CMPPushNotificationKeyDirectClick = @"notificationClicked";

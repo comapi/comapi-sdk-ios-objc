@@ -35,7 +35,7 @@
 - (void)testConversationCreate {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.create"];
     
-    CMPConversationEventCreate *event = [CMPConversationEventCreate decodeWithData:data];
+    CMPConversationEventCreate *event = (CMPConversationEventCreate *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -76,7 +76,7 @@
 - (void)testConversationDelete {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.delete"];
     
-    CMPConversationEventDelete *event = [CMPConversationEventDelete decodeWithData:data];
+    CMPConversationEventDelete *event = (CMPConversationEventDelete *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -100,7 +100,7 @@
 - (void)testConversationUndelete {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.undelete"];
     
-    CMPConversationEventUndelete *event = [CMPConversationEventUndelete decodeWithData:data];
+    CMPConversationEventUndelete *event = (CMPConversationEventUndelete *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -141,7 +141,7 @@
 - (void)testConversationUpdate {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.update"];
     
-    CMPConversationEventUpdate *event = [CMPConversationEventUpdate decodeWithData:data];
+    CMPConversationEventUpdate *event = (CMPConversationEventUpdate *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -182,7 +182,7 @@
 - (void)testConversationParticipantAdded {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.participantAdded"];
     
-    CMPConversationEventParticipantAdded *event = [CMPConversationEventParticipantAdded decodeWithData:data];
+    CMPConversationEventParticipantAdded *event = (CMPConversationEventParticipantAdded *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -211,7 +211,7 @@
 - (void)testConversationParticipantRemoved {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.participantRemoved"];
     
-    CMPConversationEventParticipantRemoved *event = [CMPConversationEventParticipantRemoved decodeWithData:data];
+    CMPConversationEventParticipantRemoved *event = (CMPConversationEventParticipantRemoved *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -238,7 +238,7 @@
 - (void)testConversationParticipantUpdate {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversation.participantUpdated"];
     
-    CMPConversationEventParticipantUpdated *event = [CMPConversationEventParticipantUpdated decodeWithData:data];
+    CMPConversationEventParticipantUpdated *event = (CMPConversationEventParticipantUpdated *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -267,7 +267,7 @@
 - (void)testConversationMessageDelivered {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversationMessage.delivered"];
     
-    CMPConversationMessageEventDelivered *event = [CMPConversationMessageEventDelivered decodeWithData:data];
+    CMPConversationMessageEventDelivered *event = (CMPConversationMessageEventDelivered *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -295,7 +295,7 @@
 - (void)testConversationMessageRead {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversationMessage.read"];
     
-    CMPConversationMessageEventRead *event = [CMPConversationMessageEventRead decodeWithData:data];
+    CMPConversationMessageEventRead *event = (CMPConversationMessageEventRead *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -323,7 +323,7 @@
 - (void)testConversationMessageSent {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.conversationMessage.sent"];
     
-    CMPConversationMessageEventSent *event = [CMPConversationMessageEventSent decodeWithData:data];
+    CMPConversationMessageEventSent *event = (CMPConversationMessageEventSent *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.eventID, @"2e611475-e12c-4d2f-9430-1f30cf6b4064");
     XCTAssertEqualObjects(event.apiSpaceID, @"MOCK_API_SPACE_ID");
@@ -371,7 +371,7 @@
 - (void)testSocketInfo {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.socket.info"];
     
-    CMPSocketEventInfo *event = [CMPSocketEventInfo decodeWithData:data];
+    CMPSocketEventInfo *event = (CMPSocketEventInfo *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqual(event.accountID.integerValue, 41590);
     XCTAssertEqualObjects(event.eventID, @"c3485aae-e909-4b18-b67c-e183f7fea210");
@@ -393,7 +393,7 @@
 - (void)testProfileUpdate {
     NSData *data = [CMPResourceLoader loadJSONWithName:@"Event.profile.update"];
     
-    CMPProfileEventUpdate *event = [CMPProfileEventUpdate decodeWithData:data];
+    CMPProfileEventUpdate *event = (CMPProfileEventUpdate *)[CMPEventParser parseEventForData:data];
     
     XCTAssertEqualObjects(event.profileID, @"sub");
     XCTAssertEqualObjects(event.eventID, @"9ee00e10-8921-4876-b9d5-936112168ca2");

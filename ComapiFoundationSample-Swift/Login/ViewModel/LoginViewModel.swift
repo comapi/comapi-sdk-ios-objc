@@ -47,7 +47,7 @@ class LoginViewModel: NSObject {
     
     private func saveLocally() {
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: loginInfo)
-        UserDefaults.standard.set(encodedData, forKey: "loginInfo")
+        UserDefaults.standard.set(encodedData, forKey: "loginInfoSwift")
         UserDefaults.standard.synchronize()
     }
     
@@ -64,18 +64,33 @@ class LoginViewModel: NSObject {
         
         let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
         
-        let config = ComapiConfig.builder()
-            .setAuthDelegate(self)
-            .setLogLevel(.debug)
-            .setApiSpaceID(loginInfo.apiSpaceId!)
-            .setApiConfig(apiConfig)
-            .build()
+        let config = ComapiConfig()
+             .setApi(apiConfig)
+             .setAuthDelegate(self)
+             .setLogLevel(.verbose)
+             .setApiSpaceID(loginInfo.apiSpaceId ?? "")
+
         client = Comapi.initialise(with: config)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.configurator.client = client
         client.services.session.startSession(completion: { [weak self] in
             self?.saveLocally()
-            completion(nil)
+            let id = (self?.loginInfo.profileId)!;
+            self?.client.services.profile.getProfile(profileID: id, completion: { result in
+                if (result.error != nil) {
+                    NSLog("failed obtaining profile");
+                    completion(result.error)
+                } else {
+                    self?.client.services.profile.patchProfile(profileID: id, attributes: ["email":"email@test-swift.com"], eTag: result.eTag, completion: {result in
+                        if (result.error != nil) {
+                            NSLog("failed patching profile with email");
+                            completion(result.error)
+                        } else {
+                            completion(nil)
+                        }
+                    })
+                }
+            })
         }) { (error) in
             completion(error)
         }

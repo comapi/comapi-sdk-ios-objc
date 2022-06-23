@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(RequestManagerDelegate)
 @protocol CMPRequestManagerDelegate
 
-- (void)requestManagerNeedsToken:(CMPRequestManager *)requestManager;
+- (BOOL)requestManagerNeedsToken:(CMPRequestManager *)requestManager;
 
 @end
 

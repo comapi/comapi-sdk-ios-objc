@@ -16,43 +16,34 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CMPComapiTest.h"
+#import "CMPBaseService.h"
+#import "CMPResult.h"
+#import "CMPAPNSDetailsBody.h"
 
-#import "CMPMockAuthenticationDelegate.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface CMPTestComapi : CMPComapiTest
+NS_SWIFT_NAME(AnalyticsServiceable)
+@protocol CMPAnalyticsServiceable <NSObject>
 
-@property (nonatomic, strong) id<CMPAuthenticationDelegate> delegate;
-@property (nonatomic, strong) CMPComapiConfig *config;
+#pragma mark - Events
+
+/**
+ @brief Sends click data, internal only
+ @param trackingUrl Url to use
+ @param completion Block with a result value
+ */
+- (void)trackNotificationClick:(NSString *)trackingUrl completion:(void(^)(CMPResult<id> *))completion NS_SWIFT_NAME(sendClickData(trackingUrl:completion:));
+
+@end
+
+/**
+ @brief Messaging related Comapi services.
+ */
+NS_SWIFT_NAME(MessagingService)
+@interface CMPAnalyticsService : CMPBaseService <CMPAnalyticsServiceable>
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
-@implementation CMPTestComapi
-
-- (void)setUp {
-    [super setUp];
-    
-    self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[CMPComapiConfig alloc] init];
-    [[self.config setApiSpaceID:[CMPTestMocks mockApiSpaceID]] setAuthDelegate:self.delegate];
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testInitialiseWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-}
-
-- (void)testInitialiseSharedInstanceWithConfig {
-    CMPComapiClient *client = [CMPComapi initialiseSharedInstanceWithConfig:self.config];
-    
-    XCTAssertNotNil(client);
-    XCTAssertNotNil([CMPComapi shared]);
-}
-
-@end
+NS_ASSUME_NONNULL_END

@@ -20,6 +20,7 @@
 #import "CMPSessionAuthProvider.h"
 #import "CMPAuthenticationDelegate.h"
 #import "CMPSessionDelegate.h"
+#import "CMPAPNSDetailsBody.h"
 
 @class CMPComapiClient;
 @class CMPSocketManager;
@@ -30,13 +31,18 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(SessionManager)
 @interface CMPSessionManager : NSObject <CMPSessionAuthProvider, CMPAuthChallengeHandler>
 
+@property (nonatomic, strong) CMPAPNSDetailsBody *cachedPushDetails;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithApiSpaceID:(NSString *)apiSpaceID authenticationDelegate:(id<CMPAuthenticationDelegate>)delegate requestManager:(CMPRequestManager *)requestManager sessionDelegate:(id<CMPSessionDelegate>)sessionDelegate;
 
 - (BOOL)isSessionValid;
+- (BOOL)isSessionExpired;
+
 - (void)bindClient:(CMPComapiClient *)client;
 - (void)bindSocketManager:(CMPSocketManager *)socketManager;
+- (void)updateTokenInternally;
 
 @end
 

@@ -23,6 +23,8 @@
 #import "CMPTokenState.h"
 #import "CMPHTTPRequestTemplate.h"
 #import "CMPErrors.h"
+#import "CMPRequestPerforming.h"
+#import "CMPConstants.h"
 
 @interface CMPRequestManager ()
 
@@ -73,6 +75,21 @@
     }
 }
 
+- (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion {
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        request.HTTPMethod = @"GET";
+        NSURLRequest *finalRequest = request;
+        [self.requestPerformer performRequest:finalRequest completion:^(NSData * data, NSURLResponse * response, NSError * error) {
+            if (error) {
+                completion([[CMPResult alloc] initWithObject:nil error:error eTag:nil code:error.code]);
+            } else {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                completion([[CMPResult alloc] initWithObject:nil error:nil eTag:nil code:[httpResponse statusCode]]);
+            }
+        }];
+}
+
 - (void)runAllPendingOperations {
     NSMutableArray<CMPPendingOperation> *operations = [self.pendingOperations copy];
     [self.pendingOperations removeAllObjects];
@@ -87,7 +104,11 @@
     }
     
     if (self.delegate != nil) {
-        [self.delegate requestManagerNeedsToken:self];
+        if ([self.delegate requestManagerNeedsToken:self]) {
+            self.tokenState = CMPTokenStateAwaiting;
+        } else {
+            self.tokenState = CMPTokenStateFailed;
+        }
     } else {
         self.tokenState = CMPTokenStateFailed;
         [self runAllPendingOperations];
@@ -104,6 +125,11 @@
 - (void)tokenUpdateFailed {
     self.tokenState = CMPTokenStateFailed;
     [self runAllPendingOperations];
+    self.tokenState = CMPTokenStateMissing;
+}
+
+- (void)clearToken {
+    self.token = nil;
     self.tokenState = CMPTokenStateMissing;
 }
 

@@ -29,6 +29,7 @@
 #import "CMPSessionAuth.h"
 #import "CMPSessionAuthProvider.h"
 #import "CMPAuthorizeSessionBody.h"
+#import "CMPErrors.h"
 
 @implementation CMPSessionService
 
@@ -37,10 +38,13 @@
 }
 
 - (void)endSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion {
+    [self.sessionAuthProvider endSessionWithCompletion:completion];
+}
+
+- (void)callEndSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion {
     CMPDeleteSessionTemplate *(^builder)(NSString *) = ^(NSString *token) {
         return [[CMPDeleteSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID token:token sessionID:self.sessionAuthProvider.sessionAuth.session.id];
     };
-
     [self.requestManager performUsingTemplateBuilder:builder completion:^(CMPResult<NSNumber *> * result) {
         completion(result);
     }];
@@ -52,13 +56,30 @@
         if (result.error) {
             [challengeHandler authenticationFailedWithError:result.error];
         } else {
-            [challengeHandler handleAuthenticationChallenge:result.object];
+            @try {
+                [challengeHandler handleAuthenticationChallenge:result.object];
+            } @catch (NSException *exception) {
+                [challengeHandler authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus:CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
+            }
         }
     }];
 }
 
 - (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler {
     CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:authenticationID authenticationToken:token];
+    CMPAuthorizeSessionTemplate *template = [[CMPAuthorizeSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID body:body];
+    
+    [template performWithRequestPerformer:self.requestManager.requestPerformer result:^(CMPResult<CMPSessionAuth *> *result) {
+        if (result.error) {
+            [challengeHandler authenticationFailedWithError:result.error];
+        } else {
+            [challengeHandler authenticationFinishedWithSessionAuth:result.object];
+        }
+    }];
+}
+
+- (void)continueAuthenticationWithToken:(NSString *)token forAuthenticationID:(NSString *)authenticationID pushDetails:(CMPAPNSDetailsBody *)cachedPushDetails challengeHandler:(id<CMPAuthChallengeHandler>)challengeHandler {
+    CMPAuthorizeSessionBody *body = [[CMPAuthorizeSessionBody alloc] initWithAuthenticationID:authenticationID authenticationToken:token pushDetails:cachedPushDetails];
     CMPAuthorizeSessionTemplate *template = [[CMPAuthorizeSessionTemplate alloc] initWithScheme:self.apiConfiguration.scheme host:self.apiConfiguration.host port:self.apiConfiguration.port apiSpaceID:self.apiSpaceID body:body];
     
     [template performWithRequestPerformer:self.requestManager.requestPerformer result:^(CMPResult<CMPSessionAuth *> *result) {

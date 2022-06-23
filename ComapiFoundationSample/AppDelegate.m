@@ -75,23 +75,42 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
     
     __weak typeof(self) weakSelf = self;
     [self.configurator start:^(CMPComapiClient * _Nullable client, NSError * _Nullable error) {
-        UINavigationController *nav = (UINavigationController *)weakSelf.configurator.window.rootViewController;
-        NSString *conversationId = response.notification.request.content.userInfo[@"conversationId"];
-        [client.services.messaging getConversationWithConversationID:conversationId completion:^(CMPResult<CMPConversation *> * _Nonnull result) {
-            if (result.error) {
-                NSLog(@"%@", result.error)
-            } else {
-                CMPChatViewModel *vm = [[CMPChatViewModel alloc] initWithClient:client conversation:result.object];
-                CMPChatViewController *vc = [[CMPChatViewController alloc] initWithViewModel:vm];
-                
-                [nav pushViewController:vc animated:YES];
-            }
-            
-            completionHandler();
-        }];
+        if (client && !error) {
+            [client handleNotificationResponse:response completion:^(BOOL isDeppLinkLunched, NSDictionary * _Nonnull data) {
+                NSString *conversationId = data[@"conversationId"];
+                if (conversationId) {
+                    UINavigationController *nav = (UINavigationController *)weakSelf.configurator.window.rootViewController;
+                    NSString *conversationId = response.notification.request.content.userInfo[@"conversationId"];
+                    [client.services.messaging getConversationWithConversationID:conversationId completion:^(CMPResult<CMPConversation *> * _Nonnull result) {
+                        if (result.error) {
+                            NSLog(@"%@", result.error);
+                        } else {
+                            CMPChatViewModel *vm = [[CMPChatViewModel alloc] initWithClient:client conversation:result.object];
+                            CMPChatViewController *vc = [[CMPChatViewController alloc] initWithViewModel:vm];
+                    
+                            [nav pushViewController:vc animated:YES];
+                        }
+                    
+                        completionHandler();
+                    }];
+                } else if (data[@"dd_deepLink"] && !isDeppLinkLunched) {
+                    NSString *url = data[@"dd_deepLink"][@"url"];
+                    NSString *message = [NSString stringWithFormat:@"Received in-app link- %@", url];
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"dotdigital Deep Link" message:message preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:ok];
+                    
+                    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+                    while (topController.presentedViewController) {
+                        topController = topController.presentedViewController;
+                    }
+                    [topController presentViewController:alertController animated:YES completion:nil];
+                }
+            }];
+        } else {
+            NSLog(@"%@", error);
+        }
     }];
-    
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

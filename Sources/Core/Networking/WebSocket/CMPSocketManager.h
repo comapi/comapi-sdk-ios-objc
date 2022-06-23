@@ -40,6 +40,7 @@ NS_SWIFT_NAME(SocketManager)
 - (void)removeEventDelegate:(id<CMPEventDelegate>)delegate;
 
 - (void)updateToken:(NSString *)token;
+- (void)clearToken;
 
 - (void)startSocket;
 - (void)closeSocket;

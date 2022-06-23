@@ -83,6 +83,10 @@ NSUInteger const CMPPingTimerInterval = 240;
     _token = token;
 }
 
+- (void)clearToken {
+    _token = nil;
+}
+
 - (void)startSocket {
     pingTimer = [NSTimer scheduledTimerWithTimeInterval:CMPPingTimerInterval target:self selector:@selector(sendPing) userInfo:nil repeats:YES];
     
@@ -105,7 +109,7 @@ NSUInteger const CMPPingTimerInterval = 240;
 
 - (void)sendPing {
     logWithLevel(CMPLogLevelVerbose, @"Socket: ping", nil);
-    [self.socket sendPing:nil];
+    [self.socket sendPing:nil error:nil];
 }
 
 - (void)handleSocketMessage:(id)message {
@@ -161,7 +165,7 @@ NSUInteger const CMPPingTimerInterval = 240;
     self.socket = nil;
     if (!wasClean) {
         __weak typeof(self) weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, CMPSocketReopenDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [weakSelf startSocket];
         });
     }

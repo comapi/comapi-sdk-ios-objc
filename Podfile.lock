@@ -1,36 +1,28 @@
 PODS:
   - Base64 (1.1.2)
-  - CMPComapiFoundation (2.0.1):
-    - SocketRocket
   - JWT (2.2.0):
     - Base64 (~> 1.1.2)
   - SnapKit (5.0.0)
-  - SocketRocket (0.5.1)
+  - SocketRocket (0.6.0)
 
 DEPENDENCIES:
-  - CMPComapiFoundation (from `/Users/dominik.kowalski/Documents/comapi-sdk-ios-objc`)
   - JWT
   - SnapKit
-  - SocketRocket
+  - SocketRocket (~> 0.6)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Base64
     - JWT
     - SnapKit
     - SocketRocket
 
-EXTERNAL SOURCES:
-  CMPComapiFoundation:
-    :path: "/Users/dominik.kowalski/Documents/comapi-sdk-ios-objc"
-
 SPEC CHECKSUMS:
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  CMPComapiFoundation: 5f3ae1dfa44639289e5bf5e2ec9afbb1011b059e
   JWT: cf73c0ab0dac762df3de8a3f1164352089d97780
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
 
-PODFILE CHECKSUM: ccbe6a9c65ffde579710ce0ce92bb5e178a692db
+PODFILE CHECKSUM: 2f6d1ac4f9ef1759333544075054ff23a9bb3bbb
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.11.2

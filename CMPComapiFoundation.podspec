@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.version          = "2.0.1"
+  s.version = '2.1.0'
   s.name             =  'CMPComapiFoundation'
   s.license          = 	'MIT'
   s.summary          =	'Foundation library for connecting to and consuming COMAPI services'

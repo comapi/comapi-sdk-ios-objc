@@ -84,7 +84,7 @@
 
 - (CMPMessageAlert *)createAlert {
     NSDictionary<NSString *, id> *apns = @{@"alert" : @"yes",
-                                          @"badge" : @(1),
+                                           @"badge" : @(1),
                                            @"payload" : @{@"conversationId" : _conversation.id}};
     NSDictionary<NSString *, id> *fcm = @{@"\"collapse_key\"" : @"\"\"",
                                           @"badge" : @(1),

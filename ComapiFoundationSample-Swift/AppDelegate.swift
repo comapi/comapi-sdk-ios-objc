@@ -18,6 +18,7 @@
 
 import UIKit
 import UserNotifications
+import CMPComapiFoundation
 
 let PushRegistrationStatusChangedNotification = "PushRegistrationStatusChangedNotification"
 
@@ -29,44 +30,90 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if let configured = configurator.client?.isSessionSuccessfullyCreated, configured {
-            if let conversationID = response.notification.request.content.userInfo["conversationId"] as? String {
-                if let root = self.window?.rootViewController as? UINavigationController, let topVC = root.topViewController, topVC is ChatViewController {
-                    (topVC as! ChatViewController).reload()
-                } else {
-                    configurator.start { [weak self] loggedIn in
-                        if loggedIn {
-                            self?.configurator.client?.services.messaging.getConversation(conversationID: conversationID, completion: { (result) in
-                                if let conversation = result.object, let client = self?.configurator.client {
-                                    let vm = ChatViewModel(client: client, conversation: conversation)
-                                    let vc = ChatViewController(viewModel: vm)
-                                    if let nav = self?.window?.rootViewController as? UINavigationController {
-                                        nav.pushViewController(vc, animated: true)
-                                        completionHandler()
-                                    }
+        configurator.start { [weak self] loggedIn in
+            if (loggedIn) {
+                self?.configurator.client?.handle(notificationResponse: response, completion: { [weak self] (didHandleLink, data) in
+                    if didHandleLink {
+                        completionHandler()
+                    } else {
+                        if let configured = self?.configurator.client?.isSessionSuccessfullyCreated, configured {
+                            if let conversationID = response.notification.request.content.userInfo["conversationId"] as? String {
+                                if let root = self?.window?.rootViewController as? UINavigationController, let topVC = root.topViewController, topVC is ChatViewController {
+                                    (topVC as! ChatViewController).reload()
+                                    completionHandler()
+                                } else {
+                                    self?.configurator.client?.services.messaging.getConversation(conversationID: conversationID, completion: { (result) in
+                                        if let conversation = result.object, let client = self?.configurator.client {
+                                            let vm = ChatViewModel(client: client, conversation: conversation)
+                                            let vc = ChatViewController(viewModel: vm)
+                                            if let nav = self?.window?.rootViewController as? UINavigationController {
+                                                nav.pushViewController(vc, animated: true)
+                                                completionHandler()
+                                            }
+                                        }
+                                    })
                                 }
-                            })
+                            } else if let deepLink = response.notification.request.content.userInfo["dd_deepLink"] as? NSDictionary, let url = deepLink["url"] as? String, !didHandleLink {
+                                let message = String(format: "Received in-app link- %@", url)
+                                let alert = UIAlertController(title: "dotdigital Deep Link", message: message, preferredStyle: UIAlertController.Style.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                var rootViewController = UIApplication.shared.keyWindow?.rootViewController
+                                if let navigationController = rootViewController as? UINavigationController {
+                                    rootViewController = navigationController.viewControllers.first
+                                }
+                                if let tabBarController = rootViewController as? UITabBarController {
+                                    rootViewController = tabBarController.selectedViewController
+                                }
+                                rootViewController?.present(alert, animated: true, completion: nil)
+                            }
                         }
                     }
-                }
+                })
+            } else {
+                // log
             }
         }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
+        completionHandler(.alert)
     }
 }
 
 extension AppDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         let center = UNUserNotificationCenter.current()
         center.delegate = self
-        
+
+        if #available(iOS 11.0, *) {
+            let action1 = UNNotificationAction(identifier: "action1",
+                                                    title: "Action 1",
+                                                    options: .foreground)
+            let action2 = UNNotificationAction(identifier: "action2",
+                                                     title: "Action 2",
+                                                     options: .foreground)
+            let category =
+                UNNotificationCategory(identifier: "DEEPLINK",
+                                       actions: [action1, action2],
+                                       intentIdentifiers: [],
+                                       hiddenPreviewsBodyPlaceholder: "",
+                                       options: .hiddenPreviewsShowTitle)
+            center.setNotificationCategories([category])
+        }
+
         window = UIWindow(frame: UIScreen.main.bounds)
         configurator = AppConfigurator(window: window!)
         configurator.start()
+        
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let scheme = url.scheme, scheme == "dotdigital" {
+            let alert = UIAlertController(title: "Received link", message: "Received in-app link: \(url.absoluteString)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
         
         return true
     }

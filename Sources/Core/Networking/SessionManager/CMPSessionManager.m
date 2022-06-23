@@ -28,6 +28,7 @@
 #import "CMPConstants.h"
 #import "CMPSessionAuth.h"
 #import "CMPComapiClient.h"
+#import "CMPAuthorizeSessionBody.h"
 
 NSString * const authTokenKeychainItemNamePrefix = @"ComapiSessionToken_";
 NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
@@ -82,6 +83,17 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     return false;
 }
 
+- (BOOL)isSessionExpired {
+    if (self.client.state == CMPSDKStateSessionActive
+        && _sessionAuth != nil
+        && _sessionAuth.session != nil
+        && _sessionAuth.session.expiresOn != nil) {
+        return _sessionAuth.session.isActive && [[NSDate date] compare:_sessionAuth.session.expiresOn] == NSOrderedDescending;
+    }
+    
+    return false;
+}
+
 - (void)bindClient:(CMPComapiClient *)client {
     self.client = client;
 }
@@ -102,12 +114,13 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     if (token && session) {
         CMPSessionAuth *sessionAuth = [[CMPSessionAuth alloc] initWithToken:token session:session];
         self.sessionAuth = sessionAuth;
-        if (self.isSessionValid) {
-            [self.requestManager updateToken:token];
-            [self.socketManager updateToken:token];
-        } else {
-            [self authenticateWithSuccess:nil failure:nil];
-        }
+    }
+}
+
+-(void)updateTokenInternally {
+    if (self.isSessionValid) {
+        [self.requestManager updateToken:self.sessionAuth.token];
+        [self.socketManager updateToken:self.sessionAuth.token];
     }
 }
 
@@ -123,26 +136,35 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     }
 }
 
+- (void)clearSessionInfo {
+    _sessionAuth = NULL;
+    [CMPKeychain deleteItemForKey:self.tokenKey];
+    [CMPKeychain deleteItemForKey:self.detailsKey];
+}
+
 #pragma mark - CMPAuthChallengeHandler
 
 - (void)authenticationFailedWithError:(nonnull NSError *)error {
+    
+    self.client.state = CMPSDKStateSessionOff;
+    
     [self.requestManager tokenUpdateFailed];
     [self.sessionDelegate didEndSessionWithError:error];
-    
     if (self.didFailAuthentication) {
         self.didFailAuthentication(error);
     }
-    
-    self.client.state = CMPSDKStateSessionOff;
 }
 
 - (void)authenticationFinishedWithSessionAuth:(nonnull CMPSessionAuth *)sessionAuth {
-    logWithLevel(CMPLogLevelInfo, @"Authorization finished with sessionAuth:", sessionAuth, nil);
+    
+    self.client.state = CMPSDKStateSessionActive;
     
     _sessionAuth = sessionAuth;
-    [self saveSessionInfo];
     [self.requestManager updateToken:sessionAuth.token];
     [self.socketManager updateToken:sessionAuth.token];
+    
+    logWithLevel(CMPLogLevelInfo, @"Authorization finished with sessionAuth:", sessionAuth, nil);
+    [self saveSessionInfo];
     [self.socketManager startSocket];
     
     NSTimeInterval secondsTillTokenExpiry = sessionAuth.session.expiresOn.timeIntervalSinceNow;
@@ -153,8 +175,6 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     if (self.didFinishAuthentication) {
         self.didFinishAuthentication();
     }
-    
-    self.client.state = CMPSDKStateSessionActive;
     
     __weak CMPSessionManager *weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secondsTillTokenExpiry * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -169,7 +189,7 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
     [self.authenticationDelegate client:self.client didReceiveAuthenticationChallenge:challenge completion:^(NSString * _Nullable token) {
         if (token) {
             NSString *authenticationID = challenge.authenticationID != nil ? challenge.authenticationID : @"";
-            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID challengeHandler:self];
+            [weakSelf.client.services.session continueAuthenticationWithToken:token forAuthenticationID:authenticationID pushDetails:weakSelf.cachedPushDetails challengeHandler:self];
         } else {
             [weakSelf authenticationFailedWithError:[CMPErrors authenticationErrorWithStatus:CMPAuthenticationErrorMissingTokenStatusCode underlyingError:nil]];
         }
@@ -180,11 +200,50 @@ NSString * const sessionDetailsUserDefaultsPrefix = @"ComapiSessionDetails_";
 
 - (void)authenticateWithSuccess:(void(^)(void))success failure:(void(^)(NSError *))failure {
     if (self.client) {
+        
+        if (self.client.state == CMPSDKStateSessionActive && [self isSessionValid]) {
+            return success();
+        }
+        if (self.client.state == CMPSDKStateInitialising || self.client.state == CMPSDKStateSessionStarting) {
+            return failure([CMPErrors authenticationErrorWithStatus:CMPAuthenticationErrorWrongState  underlyingError:nil] );
+        }
+        
         self.client.state = CMPSDKStateSessionStarting;
         self.didFinishAuthentication = success;
         self.didFailAuthentication = failure;
-        [self.socketManager closeSocket];
-        [self.client.services.session startAuthenticationWithChallengeHandler:self];
+        
+        @try {
+            [self.socketManager closeSocket];
+            [self.socketManager clearToken];
+            [self.client.services.session startAuthenticationWithChallengeHandler:self];
+        }
+        @catch (NSException *exception) {
+            self.client.state = CMPSDKStateSessionOff;
+            NSMutableDictionary * info = [NSMutableDictionary dictionary];
+            [info setValue:exception.name forKey:@"ExceptionName"];
+            [info setValue:exception.reason forKey:@"ExceptionReason"];
+            [info setValue:exception.callStackReturnAddresses forKey:@"ExceptionCallStackReturnAddresses"];
+            [info setValue:exception.callStackSymbols forKey:@"ExceptionCallStackSymbols"];
+            [info setValue:exception.userInfo forKey:@"ExceptionUserInfo"];
+            return failure([[NSError alloc] initWithDomain:CMPAuthenticationErrorDomain code:423 userInfo:info]);
+        }
+    }
+}
+
+- (void)endSessionWithCompletion:(void (^)(CMPResult<NSNumber *> *))completion {
+    if (self.client) {
+        __weak CMPSessionManager *weakSelf = self;
+        [self.client.services.session callEndSessionWithCompletion:^(CMPResult<NSNumber *> *result) {
+            if (!result.error) {
+                weakSelf.client.state = CMPSDKStateSessionOff;
+                weakSelf.sessionAuth = nil;
+                [weakSelf.requestManager clearToken];
+                [weakSelf.socketManager closeSocket];
+                [weakSelf.socketManager clearToken];
+                [weakSelf clearSessionInfo];
+            }
+            completion(result);
+        }];
     }
 }
 

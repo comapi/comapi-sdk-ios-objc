@@ -16,26 +16,29 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import "CMPAnalyticsService.h"
 
-#import "CMPComapiConfig.h"
-#import "CMPLogLevel.h"
+#import "CMPSession.h"
+#import "CMPAPIConfiguration.h"
+#import "CMPStartNewSessionTemplate.h"
+#import "CMPAuthorizeSessionTemplate.h"
+#import "CMPDeleteSessionTemplate.h"
+#import "CMPRequestManager.h"
+#import "CMPAuthenticationChallenge.h"
+#import "CMPAuthChallengeHandler.h"
+#import "CMPSessionAuth.h"
+#import "CMPSessionAuthProvider.h"
+#import "CMPAuthorizeSessionBody.h"
 
-@class CMPAPIConfiguration;
-@class CMPComapiConfig;
+@implementation CMPAnalyticsService
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface CMPComapiConfigBuilder <__covariant T : __kindof CMPComapiConfig *> : NSObject
-
-@property (nonatomic, strong) T config;
-
-- (T)build;
-
-- (instancetype)setApiSpaceID:(NSString *)apiSpaceID;
-- (instancetype)setAuthDelegate:(id<CMPAuthenticationDelegate>)authDelegate;
-- (instancetype)setApiConfig:(CMPAPIConfiguration *)apiConfig;
-- (instancetype)setLogLevel:(CMPLogLevel)logLevel;
+/**
+ @brief Sends click data, internal only
+ @param trackingUrl Url to use
+ @param completion Block with a result value
+ */
+- (void)trackNotificationClick:(NSString *)trackingUrl completion:(void(^)(CMPResult<id> *))completion NS_SWIFT_NAME(sendClickData(trackingUrl:completion:)) {
+    [self.requestManager performClickTrackingUsingUrl:trackingUrl completion:completion];
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

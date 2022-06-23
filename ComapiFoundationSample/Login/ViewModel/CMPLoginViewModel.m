@@ -60,7 +60,11 @@
     
     CMPAPIConfiguration *apiConfig = [[CMPAPIConfiguration alloc] initWithScheme:scheme host:host port:port.integerValue];
     
-    CMPComapiConfig *config = [[[[[[CMPComapiConfig builder] setApiSpaceID:self.loginBundle.apiSpaceID] setApiConfig:apiConfig] setAuthDelegate:self] setLogLevel:CMPLogLevelDebug] build];
+    CMPComapiConfig *config = [[[[[[CMPComapiConfig alloc] init]
+                                   setApiSpaceID:self.loginBundle.apiSpaceID]
+                                  setApiConfig:apiConfig]
+                                 setAuthDelegate:self]
+                                setLogLevel:CMPLogLevelDebug];
     
     self.client = [CMPComapi initialiseWithConfig:config];
     
@@ -72,7 +76,21 @@
     __weak typeof(self) weakSelf = self;
     [self.client.services.session startSessionWithCompletion:^{
         [weakSelf saveLocally];
-        completion(nil);
+        [self.client.services.profile getProfileWithProfileID:self.loginBundle.profileID completion:^(CMPResult<CMPProfile *> * result) {
+            if (result.error) {
+                NSLog(@"failed obtaining profile");
+                completion(nil);
+            } else {
+                NSMutableDictionary *update = [NSMutableDictionary dictionary];
+                [update setValue:@"email@test-objc.com" forKey:@"email"];
+                [self.client.services.profile patchProfileWithProfileID:self.loginBundle.profileID attributes:update eTag:result.eTag completion:^(CMPResult<CMPProfile *> *profile) {
+                    if (result.error) {
+                        NSLog(@"failed patching profile with email");
+                    }
+                    completion(nil);
+                }];
+            }
+        }];
     } failure:^(NSError * _Nullable err) {
         completion(err);
     }];

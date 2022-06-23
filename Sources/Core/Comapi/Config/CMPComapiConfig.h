@@ -29,14 +29,19 @@ NS_ASSUME_NONNULL_BEGIN
  @brief Used for configuring and initializing an instance of CMPComapiClient.
  */
 NS_SWIFT_NAME(ComapiConfig)
-@interface CMPComapiConfig : NSObject <NSCopying>
+@interface CMPComapiConfig : NSObject
 
-@property (nonatomic, strong) NSString* id;
-@property (nonatomic, strong) id<CMPAuthenticationDelegate> authDelegate;
-@property (nonatomic, strong) CMPAPIConfiguration *apiConfig;
-@property (nonatomic) CMPLogLevel logLevel;
+- (instancetype)init;
 
-+ (CMPComapiConfigBuilder *)builder;
+@property (nonatomic, strong, readonly) NSString* id;
+@property (nonatomic, strong, readonly) id<CMPAuthenticationDelegate> authDelegate;
+@property (nonatomic, strong, readonly) CMPAPIConfiguration *apiConfig;
+@property (nonatomic, readonly) CMPLogLevel logLevel;
+
+- (instancetype)setApiSpaceID:(NSString *)apiSpaceID;
+- (instancetype)setAuthDelegate:(id<CMPAuthenticationDelegate>)authDelegate;
+- (instancetype)setApiConfig:(CMPAPIConfiguration *)apiConfig;
+- (instancetype)setLogLevel:(CMPLogLevel)logLevel;
 
 @end
 

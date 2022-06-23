@@ -36,6 +36,8 @@ NS_SWIFT_NAME(RequestManager)
 - (void)performUsingTemplateBuilder:(id<CMPHTTPRequestTemplate>(^)(NSString *))templateBuilder completion:(void(^)(CMPResult<id> *))completion;
 - (void)updateToken:(NSString *)token;
 - (void)tokenUpdateFailed;
+- (void)performClickTrackingUsingUrl:(NSString *)urlString completion:(void(^)(CMPResult<id> *))completion;
+- (void)clearToken;
 
 @end
 

@@ -35,7 +35,7 @@ class AppConfigurator: NSObject {
     
     func checkForLoginInfo() -> LoginBundle? {
         let defaults = UserDefaults.standard
-        if let data = defaults.object(forKey: "loginInfo") as? Data, let bundle = NSKeyedUnarchiver.unarchiveObject(with: data) as? LoginBundle {
+        if let data = defaults.object(forKey: "loginInfoSwift") as? Data, let bundle = NSKeyedUnarchiver.unarchiveObject(with: data) as? LoginBundle {
             return bundle
         }
         return nil
@@ -52,12 +52,11 @@ class AppConfigurator: NSObject {
             
             let apiConfig = APIConfiguration(scheme: scheme, host: host, port: UInt(port)!)
             
-            let config = ComapiConfig.builder()
-                .setApiConfig(apiConfig)
-                .setAuthDelegate(self)
-                .setLogLevel(.debug)
-                .setApiSpaceID(loginInfo.apiSpaceId ?? "")
-                .build()
+            let config = ComapiConfig()
+                             .setApi(apiConfig)
+                             .setAuthDelegate(self)
+                             .setLogLevel(.verbose)
+                             .setApiSpaceID(loginInfo.apiSpaceId ?? "")
             
             client = Comapi.initialise(with: config)
             client?.services.session.startSession(completion: { [weak self] in
@@ -82,12 +81,15 @@ class AppConfigurator: NSObject {
     }
     
     func restart() {
-        UserDefaults.standard.set(nil, forKey: "loginInfo")
-        let rootController = LoginViewController(viewModel: LoginViewModel())
-        let navController = UINavigationController(rootViewController: rootController)
-        
-        window.makeKeyAndVisible()
-        window.rootViewController = navController
+        self.client?.services.session.endSession(completion: { [weak self] result in
+            if (result.error == nil) {
+                UserDefaults.standard.set(nil, forKey: "loginInfoSwift")
+                let rootController = LoginViewController(viewModel: LoginViewModel())
+                let navController = UINavigationController(rootViewController: rootController)
+                self?.window.makeKeyAndVisible()
+                self?.window.rootViewController = navController
+            }
+        })
     }
 }
 

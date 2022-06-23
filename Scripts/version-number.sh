@@ -1,13 +1,12 @@
 #!/bin/sh
 
-while [[ $# -gt 0 ]]
-do
+if [[ $# -ne 2 ]]; then
+    echo "Illegal number of parameters" >&2
+    exit 2
+fi
+
 key="$1"
 case $key in
-    -p|--push)
-    PUSH_CHANGE="$2"
-    shift # past argument
-    ;;
     -ma|--major)
     MAJOR_INCREMENT=true
     shift # past argument
@@ -26,7 +25,6 @@ case $key in
     shift
     ;;
 esac
-done
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 PLIST_PATH="../CMPComapiFoundation/Info.plist"
@@ -67,9 +65,4 @@ fi
 cd .. ; xcrun agvtool new-marketing-version $VERSION
 
 sed -i '' "s/CMPSDKInfo const CMPSDKInfoVersion = \@\".*\";/CMPSDKInfo const CMPSDKInfoVersion = \@\"${VERSION}\";/" Sources/Core/Constants/CMPConstants.m
-sed -E -i '' "s/s.version[ \t]+=[ \t]+'.*'/s.version = '${VERSION}'/" CMPComapiFoundation.podspec
-
-if [ ! -z "$PUSH_CHANGE" ]; then
-    git commit -m "bump version to $VERSION"
-    git push origin $PUSH_CHANGE
-fi
+sed -E -i '' "s/s.version[ \t]*=[ \t]*'.*'/s.version = '${VERSION}'/" CMPComapiFoundation.podspec
