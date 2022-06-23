@@ -82,7 +82,7 @@
                 completion(nil);
             } else {
                 NSMutableDictionary *update = [NSMutableDictionary dictionary];
-                [update setValue:@"someone@dd.com" forKey:@"email"];
+                [update setValue:@"email@test-objc.com" forKey:@"email"];
                 [self.client.services.profile patchProfileWithProfileID:self.loginBundle.profileID attributes:update eTag:result.eTag completion:^(CMPResult<CMPProfile *> *profile) {
                     if (result.error) {
                         NSLog(@"failed patching profile with email");

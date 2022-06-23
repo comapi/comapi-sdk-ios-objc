@@ -81,7 +81,7 @@
                                        setApiSpaceID:loginInfo.apiSpaceID]
                                       setApiConfig:apiConfig]
                                      setAuthDelegate:self]
-                                    setLogLevel:CMPLogLevelDebug];
+                                    setLogLevel:CMPLogLevelVerbose];
         
         self.client = [CMPComapi initialiseWithConfig:config];
         

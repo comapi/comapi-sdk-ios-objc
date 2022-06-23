@@ -75,7 +75,22 @@ class LoginViewModel: NSObject {
         delegate.configurator.client = client
         client.services.session.startSession(completion: { [weak self] in
             self?.saveLocally()
-            completion(nil)
+            let id = (self?.loginInfo.profileId)!;
+            self?.client.services.profile.getProfile(profileID: id, completion: { result in
+                if (result.error != nil) {
+                    NSLog("failed obtaining profile");
+                    completion(result.error)
+                } else {
+                    self?.client.services.profile.patchProfile(profileID: id, attributes: ["email":"email@test-swift.com"], eTag: result.eTag, completion: {result in
+                        if (result.error != nil) {
+                            NSLog("failed patching profile with email");
+                            completion(result.error)
+                        } else {
+                            completion(nil)
+                        }
+                    })
+                }
+            })
         }) { (error) in
             completion(error)
         }
