@@ -76,7 +76,7 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
     __weak typeof(self) weakSelf = self;
     [self.configurator start:^(CMPComapiClient * _Nullable client, NSError * _Nullable error) {
         if (client && !error) {
-            [client handleNotificationResponse:response completion:^(BOOL isDeppLinkLaunched, NSDictionary * _Nonnull data) {
+            [client handleNotificationResponse:response completion:^(BOOL isDeepLinkLaunched, NSDictionary * _Nonnull data) {
                 NSString *conversationId = data[@"conversationId"];
                 if (conversationId) {
                     UINavigationController *nav = (UINavigationController *)weakSelf.configurator.window.rootViewController;
@@ -93,7 +93,7 @@ NSString * const kCMPPushRegistrationStatusChangedNotification = @"CMPPushRegist
                     
                         completionHandler();
                     }];
-                } else if (data[@"dd_deepLink"] && !isDeppLinkLaunched) {
+                } else if (data[@"dd_deepLink"] && !isDeepLinkLaunched) {
                     NSString *url = data[@"dd_deepLink"][@"url"];
                     NSString *message = [NSString stringWithFormat:@"Received in-app link- %@", url];
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"dotdigital Deep Link" message:message preferredStyle:UIAlertControllerStyleAlert];
