@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		31276AA5275E5C4E005B770F /* CMPAnalyticsService.h in Headers */ = {isa = PBXBuildFile; fileRef = 31276AA3275E5C4E005B770F /* CMPAnalyticsService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31276AA6275E5C4E005B770F /* CMPAnalyticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 31276AA4275E5C4E005B770F /* CMPAnalyticsService.m */; };
+		31524BAB2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 31524BAA2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy */; };
+		31524BAC2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 31524BAA2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy */; };
 		338510D20824636FEA321A93 /* Pods_Shared_CMPComapiFoundation_ComapiFoundationSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDB8BCE917DEF160301F932 /* Pods_Shared_CMPComapiFoundation_ComapiFoundationSample.framework */; };
 		3536280807D8F2019B73AA5D /* Pods_Shared_CMPComapiFoundation_ComapiFoundationSample_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55324D3FDF252D6EBD605881 /* Pods_Shared_CMPComapiFoundation_ComapiFoundationSample_Swift.framework */; };
 		47F2A1914884025F30673947 /* Pods_Shared_CMPComapiFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704B88815E35D424AF1AB732 /* Pods_Shared_CMPComapiFoundation.framework */; };
@@ -477,6 +479,7 @@
 		30B75F391F464226716D4388 /* Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.debug.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		31276AA3275E5C4E005B770F /* CMPAnalyticsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAnalyticsService.h; sourceTree = "<group>"; };
 		31276AA4275E5C4E005B770F /* CMPAnalyticsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAnalyticsService.m; sourceTree = "<group>"; };
+		31524BAA2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		31FC39FCD8B6E955AEB4B521 /* Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.staging.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift/Pods-Shared-CMPComapiFoundation-ComapiFoundationSample-Swift.staging.xcconfig"; sourceTree = "<group>"; };
 		3A5BA3D1C2D8A8D2385C8545 /* Pods-Shared-CMPComapiFoundation.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-CMPComapiFoundation.staging.xcconfig"; path = "Target Support Files/Pods-Shared-CMPComapiFoundation/Pods-Shared-CMPComapiFoundation.staging.xcconfig"; sourceTree = "<group>"; };
 		4BDB8BCE917DEF160301F932 /* Pods_Shared_CMPComapiFoundation_ComapiFoundationSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared_CMPComapiFoundation_ComapiFoundationSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2020,6 +2023,7 @@
 		89C8DE342122DF3C00555495 = {
 			isa = PBXGroup;
 			children = (
+				31524BAA2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy */,
 				8921D2C9215520D100976FFA /* CMPComapiFoundationTests */,
 				8921D2C4215520C400976FFA /* CMPComapiFoundation */,
 				89EA5D04214ACCB700C29D08 /* Tests */,
@@ -2922,6 +2926,7 @@
 				89E01D4E231685C0005F6A77 /* (null) in Resources */,
 				89E01D51231685C0005F6A77 /* (null) in Resources */,
 				89E01D50231685C0005F6A77 /* (null) in Resources */,
+				31524BAB2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy in Resources */,
 				89E01D4B231685C0005F6A77 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2930,6 +2935,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31524BAC2CA2A8D7002D0CFB /* PrivacyInfo.xcprivacy in Resources */,
 				89E459E021ABFDDD002C26AE /* LaunchScreen.storyboard in Resources */,
 				89E459DD21ABFDDD002C26AE /* Assets.xcassets in Resources */,
 			);
