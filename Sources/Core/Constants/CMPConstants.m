@@ -50,7 +50,7 @@ CMPHTTPHeaderType const CMPHTTPHeaderAuthorization = @"Authorization";
 CMPHTTPHeaderType const CMPHTTPHeaderIfMatch = @"If-Match";
 
 CMPSDKInfo const CMPSDKInfoPlatform = @"iOS";
-CMPSDKInfo const CMPSDKInfoVersion = @"2.1.0";
+CMPSDKInfo const CMPSDKInfoVersion = @"2.1.1";
 CMPSDKInfo const CMPSDKInfoType = @"native";
 
 CMPQueueName const CMPQueueNameConsole = @"com.comapi.foundation.console";
