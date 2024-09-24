@@ -19,6 +19,6 @@ For more information about the integration please visit [the website](http://doc
   s.preserve_path         = 'Sources/Module/CMPComapiFoundation.modulemap'
   s.module_name           = s.name
   s.resources             = []
-
+  s.resource_bundles      = {'CMPComapiFoundation' => ['PrivacyInfo.xcprivacy']}
   s.dependency 'SocketRocket'
 end
