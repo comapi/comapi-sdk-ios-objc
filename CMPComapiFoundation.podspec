@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.version = '2.1.0'
+  s.version = '2.1.1'
   s.name             =  'CMPComapiFoundation'
   s.license          = 	'MIT'
   s.summary          =	'Foundation library for connecting to and consuming COMAPI services'
@@ -19,6 +19,6 @@ For more information about the integration please visit [the website](http://doc
   s.preserve_path         = 'Sources/Module/CMPComapiFoundation.modulemap'
   s.module_name           = s.name
   s.resources             = []
-
+  s.resource_bundles      = {'CMPComapiFoundation' => ['PrivacyInfo.xcprivacy']}
   s.dependency 'SocketRocket'
 end
