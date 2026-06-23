@@ -171,6 +171,14 @@
     return nil;
 }
 
++ (BOOL)isDotdigitalOriginated:(NSDictionary *)notificationData {
+    id value = notificationData[@"dd_originated"];
+    if (value == nil) {
+        return NO;
+    }
+    return [value boolValue];
+}
+
 - (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion {
     
     NSDictionary *userInfo = notificationResponse.notification.request.content.userInfo;

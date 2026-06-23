@@ -105,6 +105,12 @@ NS_SWIFT_NAME(ComapiClient)
 - (void)handleNotificationResponse:(UNNotificationResponse *)notificationResponse completion:(void (^)(BOOL, NSDictionary * _Nonnull))completion NS_SWIFT_NAME(handle(notificationResponse:completion:));
 
 /**
+ @brief Checks whether a push notification payload originated from Dotdigital.
+ @param notificationData The userInfo dictionary from the push notification payload.
+ */
++ (BOOL)isDotdigitalOriginated:(NSDictionary *)notificationData NS_SWIFT_NAME(isDotdigitalOriginated(_:));
+
+/**
  @brief Adds an event listener, CMPEventDelegate conforming object to listen for incoming events.
  @param delegate CMPEventDelegate conforming object that will recieve events.
  */
