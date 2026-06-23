@@ -48,7 +48,7 @@
     [super setUp];
     
     self.delegate = [[CMPMockAuthenticationDelegate alloc] init];
-    self.config = [[CMPAPIConfiguration alloc] initWithScheme:@"https" host:@"stage-api.comapi.com" port:443];
+    self.config = [[CMPAPIConfiguration alloc] initWithScheme:@"https" host:@"stage-api.com" port:443];
 }
 
 - (void)tearDown {
@@ -864,6 +864,21 @@
  
     
     [self waitForExpectations:@[expectation] timeout:15.0];
+}
+
+- (void)testIsDotdigitalOriginated_returnsTrueWhenFlagIsTrue {
+    NSDictionary *payload = @{@"dd_originated": @YES};
+    XCTAssertTrue([CMPComapiClient isDotdigitalOriginated:payload]);
+}
+
+- (void)testIsDotdigitalOriginated_returnsFalseWhenFlagIsFalse {
+    NSDictionary *payload = @{@"dd_originated": @NO};
+    XCTAssertFalse([CMPComapiClient isDotdigitalOriginated:payload]);
+}
+
+- (void)testIsDotdigitalOriginated_returnsFalseWhenKeyIsMissing {
+    NSDictionary *payload = @{@"some_other_key": @"value"};
+    XCTAssertFalse([CMPComapiClient isDotdigitalOriginated:payload]);
 }
 
 @end
